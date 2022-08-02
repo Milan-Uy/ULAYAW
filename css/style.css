@@ -1,3 +1,55 @@
 :root {
   --mainbg-color: #f9f2e7;
 }
+
+h1 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.contactHead h1 {
+  font-size: 75px;
+}
+
+/* Callback form */
+.callback-form {
+  width: 80%;
+  padding: 20px 0;
+}
+
+.callback-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.callback-form .form-control {
+  margin-bottom: 15px;
+}
+
+.callback-form .form-control textarea {
+  width: 100%;
+  padding: 4px;
+  height: 125px;
+  border: #f5f5f5 1px solid;
+}
+
+.callback-form input {
+  width: 100%;
+  padding: 4px;
+  height: 30px;
+  border: #f5f5f5 1px solid;
+}
+
+.callback-form textarea:focus {
+  outline-color: #28a745;
+}
+
+.callback-form input:focus {
+  outline-color: #28a745;
+}
+
+.callback-form .btn {
+  padding: auto;
+  margin-top: 15px;
+  height: 40px;
+}
