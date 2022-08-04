@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
+  </head>
+  
+  <body>
+    <!--Navbar-->
+    <header>
+        <div class="page-wrapper" >
+            <div class="nav-wrapper">
+                <nav class="navbar" >
+                <img src= "images/hulo.png" alt="Hulo Logo">
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item"><a href="#">Home</a></li>
+                    <li class="nav-item"><a href="#">About Us</a></li>
+                    <li class="nav-item"><a href="#">Villas</a></li>
+                    <li class="nav-item"><a href="#">Moments</a></li>
+                    <li class="nav-item"><a href="#">Log In</a></li>
+                    <div class="book-btn bounce-in-on-hover">
+                        <a class = "book-btn" href="#">BOOK NOW</a>
+                    </div>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+    <!--End of Navbar-->
+
+    <script>
+        //Navbar Effect
+        $('.menu-toggle').click(function(){
+        $(".nav").toggleClass("mobile-nav");
+        $(this).toggleClass("is-active");
+        });
+        //End of Navbar Effects
+    </script>
+  </body>
+</html>
