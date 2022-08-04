@@ -726,12 +726,12 @@ p
   box-sizing: border-box;
 }
 
-html{
+.villas{
   font-size: 10px;
   font-family: 'Signika', sans-serif;
 }
 
-img {
+.villabanner {
   width: 100%;
 }
 
