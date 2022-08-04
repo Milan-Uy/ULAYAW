@@ -110,9 +110,164 @@
   margin: 20px 0;
 }
 
+/*navbar*/
+.display-navbar{
+  height: 70px;
+}
+.display-navbar iframe{
+  width: 100%;
+  border: none;
+}
+.page-wrapper{
+  width:100%;
+  height:auto;
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  transition: 0.6s;
+  background:#f9f2e7;
+  font-family: 'Lato', 'Arial', sans-serif;
+}
+.nav-wrapper{
+  width:100%;
+}
+.navbar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  height: 70px;
+  overflow: hidden;
+}
+.navbar img{
+  height:70px;
+  width:auto;
+  justify-self: start;
+  margin-left:60px;
+}
+.navbar ul{
+  position: relative;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  justify-self: end;
+  margin-right: 60px;
+  align-items: center;
+  text-align: center;
+}
+.nav-item a{
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease-out;
+}
+.nav-item a:hover {
+  color: #483434;
+  font-weight: 800;
+}
+.nav-item a:active {
+  padding: 8px 14px;
+  color: #483434;
+  border-bottom: 2px solid #1B5B65;
+}
+.book-btn{
+  padding: 6px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  color: #fff;
+  background: #1B5B65; 
+  align-items: center;
+}
+.book-btn a{
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.bounce-in-on-hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.bounce-in-on-hover:hover, .bounce-in-on-hover:focus, .bounce-in-on-hover:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  box-shadow: 0 0 8px 4px rgba(27,91,101,0.25) inset, 0 0 8px 4px rgba(27,91,101,0.25);
+}   
+.menu-toggle .bar{
+  width: 25px;
+  height: 3px;
+  background-color: #3f3f3f;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.menu-toggle {
+  justify-self: end;
+  margin-right: 25px;
+  display: none;
+}
+.menu-toggle:hover{
+  cursor: pointer;
+}
+#mobile-menu.is-active .bar:nth-child(2){
+  opacity: 0;
+}
+#mobile-menu.is-active .bar:nth-child(1){
+  -webkit-transform: translateY(8px) rotate(45deg);
+  -ms-transform: translateY(8px) rotate(45deg);
+  -o-transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
+}
+#mobile-menu.is-active .bar:nth-child(3){
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  -ms-transform: translateY(-8px) rotate(-45deg);
+  -o-transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media only screen and (max-width: 939px) {
+  .navbar ul {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      justify-content: start;
+      top: 70px;
+      background-color: #f9f2e7;
+      width: 100%;
+      height: calc(100vh - 55px);
+      transform: translate(-101%);
+      text-align: center;
+      overflow: hidden;
+  }
+  .navbar li {
+      padding: 15px;
+  }
+  .navbar li:first-child {
+      margin-top: 50px;
+  }
+  .navbar li a {
+      font-size: 1rem;
+  }
+  .menu-toggle, .bar {
+      display: block;
+      cursor: pointer;
+  }
+  .mobile-nav {
+      transform: translate(0%)!important;
+  }
+}
 /* login, registration, forgotpw */
 
 *{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 .bg{
@@ -271,6 +426,138 @@ input, select{
   font-family: "Abril Fatface";
   color: #6B4F4F;
 }
+/*FAQs*/
+.faqs-header {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background: url(/images/faqs-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  z-index: -1;
+}
+.faqs-header h1 {
+  margin-left: 100px;
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 75px;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.section-stroke {
+  margin-top: -100px;
+  overflow: hidden;
+}
+.faqs-txt {
+  margin-top: -65px;
+  background-color: #f9f2e7;
+  padding: 150px;
+  padding-right: 150px;
+}
+.accordion .accordion-item {
+  border-bottom: 0.5px solid #6B4F4F;
+}
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: #6B4F4F;
+  font-size: 1.15rem;
+  font-weight: 500;
+  border: none;
+  background: none;
+  outline: none;
+}
+.accordion button:hover,
+.accordion button:focus {
+  cursor: pointer;
+  color: #1B5B65;
+}
+.accordion button:hover::after,
+.accordion button:focus::after {
+  cursor: pointer;
+  color: #1B5B65;
+  border: 1px solid #1B5B65;
+}
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+  font-weight: bold;
+}
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+.accordion button[aria-expanded="true"] {
+  color: #1B5B65;
+}
+.accordion button[aria-expanded="true"] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded="true"] + .accordion-content {
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 14px;
+  margin: 1em 0;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: #6B4F4F;
+  margin-right: 10px;;
+  border-top: none;
+  text-align: justify;
+}
+@media only screen and (max-width: 600px) {
+  .faqs-header h1 {
+    margin-left: 70px;
+  }
+  .faqs-txt{
+    padding: 80px;
+    padding-right: 80px;
+  }
+}
+
 /*Moments*/
 body{
   overflow-x: hidden;
