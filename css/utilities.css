@@ -263,6 +263,8 @@ input, select{
   border-radius: 6px;
   font-family: Arial, Helvetica, sans-serif;
   color:#6B4F4F ;
+  text-align: left;
+  padding-left: 50px;
 }
 
 /*Moments*/
