@@ -748,7 +748,7 @@ p
 
 .blog-post {
   width: 100%;
-  max-width: 98rem;
+  max-width: 100rem;
   background-color: #DCD2C9;
   box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, .2);
   display: flex;
@@ -758,8 +758,8 @@ p
 
 .blog-post__img {
   min-width: 40rem;
-  max-width: 40rem;
-  height: 45rem;
+  max-width: 50rem;
+  height: 80rem;
   transform: translateX(-8rem);
   position: relative;
 }
@@ -839,7 +839,7 @@ p
 
 .banner {
   position: absolute;
-  top: 0px;
+  top: 100px;
 }
 
 .content{
@@ -871,4 +871,16 @@ p
   border-radius: 6px;
   font-family: Arial, Helvetica, sans-serif;
   color:#6B4F4F;
+}
+
+.inclu_icons{
+  width:30px; 
+  height: 30px;
+}
+
+.inclu_right{
+  float:right; 
+  padding-top:7px; 
+  padding-left:5px; 
+  padding-right:5px;
 }
