@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/e32153d801.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/e32153d801.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Rubik:&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
@@ -16,7 +15,7 @@
   <body>
     <!--Navbar-->
     <section class="display-navbar">
-      <iframe src="navbar.html"></iframe>
+      <div id="nav-placeholder"></div>
     </section>
     <!--FAQs-->
     <section class="faqs-header">
@@ -93,6 +92,12 @@
     </section>
 
     <script>
+      //Import Navbar
+      $(function(){
+      $("#nav-placeholder").load("navbar.html");
+      });
+
+      //faqs accordion
       const items = document.querySelectorAll(".accordion button");
 
       function toggleAccordion() {

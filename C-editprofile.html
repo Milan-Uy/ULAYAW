@@ -13,7 +13,7 @@
   <body>
     <!--Navbar-->
     <section class="display-navbar">
-      <iframe src="navbar.html"></iframe>
+      <div id="nav-placeholder"></div>
     </section>
     <!--Profile-->
     <section class="sidebar-tabs">
@@ -183,7 +183,14 @@
           </div>
         </div>
     </section>
+
     <script>
+      //Import Navbar
+      $(function(){
+      $("#nav-placeholder").load("navbar.html");
+      });
+
+      //Tabs
       jQuery(".tab-item").hide();
       jQuery(".tab-item:first").show();
 
