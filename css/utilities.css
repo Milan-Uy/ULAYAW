@@ -1,5 +1,5 @@
 /* text colors, buttons, flex items, columns, section header, flex grid  */
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 /* Button */
 .btn {
   cursor: pointer;
@@ -888,4 +888,231 @@ p
   padding-top:7px; 
   padding-left:5px; 
   padding-right:5px;
+}
+
+/*Edit Profile
+/* sidebar */
+.sidebar-tabs {
+  padding: 80px;
+  padding-left: 0px;
+  padding-right: 100px;
+  z-index: 1;
+  font-family: "Montserrat", sans-serif;
+}
+.sidebar {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background: #fff;
+}
+.tab-title {
+  margin-bottom: 0.3em;
+  font-size: 18px;
+  text-align: center;
+}
+.tab-subtitle {
+  margin-bottom: 2em;
+  text-align: center;
+}
+.sidebar .tabs-wrapper {
+  display: flex;
+}
+.sidebar .tabs {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.material-symbols-rounded {
+  font-size: 40px;
+  font-weight: 300;
+  margin: 0;
+  margin-left: 80px;
+  vertical-align: middle
+}
+.label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+  font-size: 16px;
+}
+.sidebar .tabs li {
+  margin: 0;
+  width: 400px;
+  padding: 15px 25px;
+  color: #000;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+}
+.sidebar .tabs li:hover {
+  border-right: 3px solid #1b5b65;
+  background: #faf8f6;
+  color: #000;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.sidebar .tabs li.tab-active {
+  border-right: 5px solid #1b5b65;
+  background: #faf5ee;
+  color: #1b5b65;
+  font-weight: bold;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.tabs-container {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  max-width: 1440px;
+  width: 100%;
+  z-index: 1;
+  margin-left: 80px;
+}
+.tab-item {
+  padding: 0 15px 15px 15px;
+  display: none;
+  margin-top: -40px;
+}
+.tab-accordion-title {
+  display: none;
+}
+.tab-item h5{
+  font-size: 28px;
+  color: #6B4F4F;
+  font-style: bold;
+}
+.tab-item p {
+  font-size: 0.8em;
+  line-height: 1.6;
+}
+@media screen and (max-width: 786px) {
+  .sidebar-tabs{
+    padding-right: 5px;
+  }
+  .sidebar .tabs li {
+    margin: 0;
+    width: 100px;
+    padding: 10px 10px;
+  }
+  .material-symbols-rounded {
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  .label{
+    font-size: 0px;
+  }
+  .tab-accordion-title:hover {
+    background: #fff;
+    color: #000;
+  }
+  .tab-accordion-active {
+    background: #1d1c1c;
+    color: #fff;
+  }
+  .tab-item {
+    padding-top: 15px;
+    border-left: 1px solid #dadada;
+  }
+}
+.edit-container{
+  max-width: 780px;
+  background-color: #faf5ee;
+  margin: 20px;
+  padding:30px 30px 20px 30px;
+  border-radius: 10px;
+}
+.edit-container h5{
+  font-family: 'Montserrat';
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 29px;
+  color: #1B5B65;
+  text-decoration: underline;
+  text-underline-offset:3px;
+}
+.edit-form{
+  width: 100%;
+  margin: 20px;
+}
+.edit-form .form-container{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.edit-form .form-container .col-3 label,
+.edit-form .form-container .col-6 label{
+  display: block;
+  margin: 20px 0px 0px 0px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 100;
+}
+.edit-form .form-container .col-3 input,
+.edit-form .form-container .col-6 input{
+  margin:10px 5px 10px 12px;
+  font-size: 14px;
+  padding: 4px 5px;
+  border-radius: 5px;
+  border: 0px solid #6B4F4F;
+  width: 100%;
+  background: none;
+  outline: none;
+}
+.edit-form .form-container .col-6{
+  width: 50%;
+  margin: 0 10px;
+}
+.edit-form .form-container .col-3{
+   width: 100%;
+   margin: 0 10px;
+}
+.user-details{
+  display: flex;
+  justify-content: space-between;
+}
+.user-details .editprofile-btn{
+  cursor: pointer;
+  padding: 10px 25px;
+  color: #F9F2E7;
+  background-color: #1B5B65;
+  border: none;
+  border-radius: 5px;
+}
+.editprofile-btn:hover{
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0,0,0,.1) inset;
+}
+@media screen and (max-width: 786px) {
+  .tabs-container{
+    margin-left: 0px;
+  }
+  .tab-item h5{
+    font-size: 20px;
+  }
+  .edit-container{
+    margin: 10px 0px 20px 0px;
+  }
+  .edit-form{
+    margin:0px
+  }
+  .user-details h5{
+    font-size: 15px;
+  }
+  .user-details .editprofile-btn{
+    padding: 7px 12px;
+    font-size: 12px;
+  }  
 }

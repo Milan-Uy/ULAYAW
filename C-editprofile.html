@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <title>Profile</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <iframe src="navbar.html"></iframe>
+    </section>
+    <!--Profile-->
+    <section class="sidebar-tabs">
+      <div class="sidebar container">
+        <!--Sidebar-->
+        <div class="tabs-wrapper">
+          <ul class="tabs">
+            <!--List of Tabs-->
+            <li class="tab-active" rel="tabОne">
+              <i class="material-symbols-rounded">person </i>
+              <span class="label">Profile</span>
+            </li>
+            <li rel="tabTwo">
+              <i class="material-symbols-rounded">event_available</i>
+              <span class="label">Booking Status</span>
+            </li>
+            <li rel="tabThree">
+              <i class="material-symbols-rounded">photo_library</i>
+              <span class="label">Upload a Moment</span>
+            </li>
+            <li rel="tabFour">
+              <i class="material-symbols-rounded">rate_review</i>
+              <span class="label">Customer Satisfaction</span>
+            </li>
+            <li rel="tabFive">
+              <i class="material-symbols-rounded">logout</i>
+              <span class="label">Logout</span>
+            </li>
+          </ul>
+          <div class="tabs-container">
+            <!--Profile Tab-->
+            <h4 class="tab-accordion-active tab-accordion-title" rel="tabОne">Profile</h4>
+            <div id="tabОne" class="tab-item">
+              <h5>Welcome, Kyla Rozette</h5>
+              <div class="edit-container">
+                <div class="user-details">
+                  <h5 >User Details</h5>
+                  <button class="editprofile-btn" onclick="()">Edit Profile</button>
+                </div> 
+                <div class="form-box">
+                    <form class="edit-form">
+                      <div class="form-container">
+                         <div class="col-6">
+                            <label>First Name</label>
+                            <input  type="text" id="firstname" placeholder="First Name" readonly/>
+                         </div>
+                         <div class="col-6">
+                            <label>Last Name</label>
+                            <input id="lastname" type="text" placeholder="Last Name" readonly/>
+                         </div>
+                      </div>
+                      <div class="form-container">
+                        <div class="col-3">
+                           <label>Contact Number</label>
+                           <input  type="text" id="contact" placeholder="Contact Number" maxlength="13" value="+63" readonly/>
+                        </div>
+                     </div>
+                      <div class="form-container">
+                         <div class="col-3">
+                            <label>Email Address</label>
+                            <input  type="email" id="email" placeholder="Email Address" readonly/>
+                         </div>
+                      </div>
+                   </form>
+                  </div>
+                </div>
+              
+                <div class="edit-container">
+                  <div class="user-details">
+                    <h5 >Password</h5>
+                    <button class="editprofile-btn" onclick="()">Change</button>
+                  </div> 
+                  <form class="edit-form">
+                    <div class="form-container">
+                      <div class="col-3">
+                         <label>Password</label>
+                         <input  type="password" id="password" placeholder="Password" readonly/>
+                      </div>
+                   </div>
+                  </form>
+                </div>
+            </div>
+          
+            <!--Booking Status Tab-->
+            <h4 class="tab-accordion-title" rel="tabTwo">Booking Status</h4>
+            <div id="tabTwo" class="tab-item">
+              <h3>Tab 2 content</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
+                quos dolorum mollitia magnam tempore nulla aliquam delectus
+                molestias quia distinctio nesciunt soluta expedita fugit
+                possimus ad labore? Obcaecati molestias aperiam exercitationem
+                expedita provident numquam tempora nulla, beatae ab modi,
+                molestiae, eius iure odio dolorum recusandae est. Distinctio a
+                possimus placeat dolore iste animi aspernatur. Eius ea
+                doloremque blanditiis, esse dolores sit ipsa molestiae expedita
+                accusamus eos, labore ipsam iste ducimus optio itaque provident
+                voluptate reprehenderit libero cum atque in porro. Iste, nihil?
+                Ea temporibus tempore optio quis autem soluta voluptate.
+                Doloribus perspiciatis impedit iure neque, hic exercitationem
+                voluptates laudantium accusamus?
+              </p>
+            </div>
+            <!--Upload Moment Tab-->
+            <h4 class="tab-accordion-title" rel="tabThree">Upload a Moment</h4>
+            <div id="tabThree" class="tab-item">
+              <h5>Tab 3 content</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
+                quos dolorum mollitia magnam tempore nulla aliquam delectus
+                molestias quia distinctio nesciunt soluta expedita fugit
+                possimus ad labore? Obcaecati molestias aperiam exercitationem
+                expedita provident numquam tempora nulla, beatae ab modi,
+                molestiae, eius iure odio dolorum recusandae est. Distinctio a
+                possimus placeat dolore iste animi aspernatur. Eius ea
+                doloremque blanditiis, esse dolores sit ipsa molestiae expedita
+                accusamus eos, labore ipsam iste ducimus optio itaque provident
+                voluptate reprehenderit libero cum atque in porro. Iste, nihil?
+                Ea temporibus tempore optio quis autem soluta voluptate.
+                Doloribus perspiciatis impedit iure neque, hic exercitationem
+                voluptates laudantium accusamus?
+              </p>
+            </div>
+            <!--Customer Satisfaction Tab-->
+            <h4 class="tab-accordion-title" rel="tabFour">
+              Customer Satisfaction
+            </h4>
+            <div id="tabFour" class="tab-item">
+              <h5>Tab 4 content</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
+                quos dolorum mollitia magnam tempore nulla aliquam delectus
+                molestias quia distinctio nesciunt soluta expedita fugit
+                possimus ad labore? Obcaecati molestias aperiam exercitationem
+                expedita provident numquam tempora nulla, beatae ab modi,
+                molestiae, eius iure odio dolorum recusandae est. Distinctio a
+                possimus placeat dolore iste animi aspernatur. Eius ea
+                doloremque blanditiis, esse dolores sit ipsa molestiae expedita
+                accusamus eos, labore ipsam iste ducimus optio itaque provident
+                voluptate reprehenderit libero cum atque in porro. Iste, nihil?
+                Ea temporibus tempore optio quis autem soluta voluptate.
+                Doloribus perspiciatis impedit iure neque, hic exercitationem
+                voluptates laudantium accusamus?
+              </p>
+            </div>
+            <!--Logout Tab-->
+            <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
+            <div id="tabFive" class="tab-item">
+              <h5>Tab 5 content</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
+                quos dolorum mollitia magnam tempore nulla aliquam delectus
+                molestias quia distinctio nesciunt soluta expedita fugit
+                possimus ad labore? Obcaecati molestias aperiam exercitationem
+                expedita provident numquam tempora nulla, beatae ab modi,
+                molestiae, eius iure odio dolorum recusandae est. Distinctio a
+                possimus placeat dolore iste animi aspernatur. Eius ea
+                doloremque blanditiis, esse dolores sit ipsa molestiae expedita
+                accusamus eos, labore ipsam iste ducimus optio itaque provident
+                voluptate reprehenderit libero cum atque in porro. Iste, nihil?
+                Ea temporibus tempore optio quis autem soluta voluptate.
+                Doloribus perspiciatis impedit iure neque, hic exercitationem
+                voluptates laudantium accusamus?
+              </p>
+            </div>
+          </div>
+          </div>
+        </div>
+    </section>
+    <script>
+      jQuery(".tab-item").hide();
+      jQuery(".tab-item:first").show();
+
+      jQuery("ul.tabs li").click(function () {
+        jQuery(".tab-item").hide();
+        var activeTab = $(this).attr("rel");
+        jQuery("#" + activeTab).fadeIn();
+
+        jQuery("ul.tabs li").removeClass("tab-active");
+        jQuery(this).addClass("tab-active");
+
+        jQuery(".tab-accordion-title").removeClass("tab-accordion-active");
+        jQuery(".tab-accordion-title[rel^='" + activeTab + "']").addClass(
+          "tab-accordion-active"
+        );
+      });
+
+      jQuery(".tab-accordion-title").click(function () {
+        jQuery(".tab-item").hide();
+        var d_activeTab = $(this).attr("rel");
+        jQuery("#" + d_activeTab).fadeIn();
+
+        jQuery(".tab-accordion-title").removeClass("tab-accordion-active");
+        jQuery(this).addClass("tab-accordion-active");
+
+        jQuery("ul.tabs li").removeClass("tab-active");
+        jQuery("ul.tabs li[rel^='" + d_activeTab + "']").addClass("tab-active");
+      });
+    </script>
+  </body>
+</html>
