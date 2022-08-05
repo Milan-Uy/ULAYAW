@@ -4,48 +4,66 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
-  </head>
-  
+</head>
   <body>
     <!--Navbar-->
-    <header>
-        <div class="page-wrapper" >
-            <div class="nav-wrapper">
-                <nav class="navbar" >
-                <img src= "images/hulo.png" alt="Hulo Logo">
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="nav">
-                    <li class="nav-item"><a href="#">Home</a></li>
-                    <li class="nav-item"><a href="#">About Us</a></li>
-                    <li class="nav-item"><a href="#">Villas</a></li>
-                    <li class="nav-item"><a href="#">Moments</a></li>
-                    <li class="nav-item"><a href="#">Log In</a></li>
-                    <div class="book-btn bounce-in-on-hover">
-                        <a class = "book-btn" href="#">BOOK NOW</a>
-                    </div>
-                </ul>
-            </nav>
-            </div>
+    <header class="nav-header">
+      <div class="navbar-container">
+        <div class="navbar-img">
+          <img src="images/hulo.png" alt="Hulo Logo" />
         </div>
+        <div class="toggle">
+          <a href="javascript:void(0);" class="ham-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div class="navbar">
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Villas</a></li>
+            <li><a href="#">Moments</a></li>
+            <li><a href="#">Log In</a></li>
+            <div class="book-btn bounce-in-on-hover">
+              <a class="book-btn" href="#">BOOK NOW</a>
+            </div>
+          </ul>
+        </div>
+      </div>
     </header>
     <!--End of Navbar-->
-
     <script>
-        //Navbar Effect
-        $('.menu-toggle').click(function(){
-        $(".nav").toggleClass("mobile-nav");
-        $(this).toggleClass("is-active");
+      //Navbar Effect
+      $(document).ready(function () {
+        var bottom = $(".nav-header").outerHeight();
+        var header = $(".nav-header").offset().top + bottom;
+
+        $(window).scroll(function () {
+          if ($(window).width() > 991) {
+            if ($(window).scrollTop() >= header) {
+              $(".nav-header").addClass("sticky");
+            } else {
+              $(".nav-header").removeClass("sticky");
+            }
+          }
         });
-        //End of Navbar Effects
+
+        $(".navbar ul li a").click(function () {
+          $(".navbar ul li a").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $(".ham-burger").click(function () {
+          $(this).toggleClass("active");
+          $(".navbar").toggleClass("open");
+        });
+      });
     </script>
   </body>
 </html>
