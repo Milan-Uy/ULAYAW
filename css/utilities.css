@@ -802,11 +802,12 @@ p
   margin: 1.5rem 0 2rem;
   text-transform: uppercase;
   color: #6B4F4F;
+  font-weight: bold;
 }
 
 .blog-post__text {
   margin-bottom: 3rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, .7);
 }
@@ -840,22 +841,13 @@ p
   }
 }
 
-   .villasheader .villas {
-   position: absolute;
-   margin-top: -20%;
-   text-align: left;
-   left: 8%;
-   font-family: "Abril Fatface";
-   font-size: 5vw;
-   color: white;
-   }
-
-.banner {
+.villabanner {
   position: absolute;
-  top: 100px;
+  top:0px;
+  background-size: cover;
 }
 
-.content{
+.villacontent{
   position: absolute;
   top: 70%;
   padding-bottom: 50%;
