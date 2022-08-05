@@ -1,5 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" class="villas">
+   <style>
+      /*view villas*/
+
+*,
+::before, 
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.villas{
+  font-size: 10px;
+  font-family: 'Signika', sans-serif;
+}
+
+.villabanner {
+  width: 100%;
+}
+
+.villabg {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F9F2E7;
+  padding: 0 1.5em;
+}
+
+.blog-post {
+  width: 100%;
+  max-width: 110rem;
+  background-color: #DCD2C9;
+  box-shadow: 0 3px 7px -1px rgb(0 0 0 / 10%);
+  display: flex;
+  border-radius: .8rem;
+  padding: 20px;
+}
+
+.blog-post:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.blog-post__img {
+  min-width: 40rem;
+  max-width: 50rem;
+  height: 80rem;
+  transform: translateX(-8rem);
+  position: relative;
+}
+
+.blog-post__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: .8rem;
+}
+
+.blog-post__img::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: .5rem .5rem 3rem 1px rgba(0, 0, 0, .05);
+  border-radius: .8rem;
+}
+
+
+.blog-post__title {
+  font-size: 5rem;
+  margin: 1.5rem 0 2rem;
+  color: #6B4F4F;
+  font-weight: bold;
+}
+
+.blog-post__text {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, .7);
+}
+
+
+@media screen and (max-width: 1068px) {
+  .blog-post {
+    max-width: 80rem;
+  }
+  .blog-post__img {
+    min-width: 30rem;
+    max-width: 30rem;
+  }
+}
+
+@media screen and (max-width: 868px) {
+  .blog-post {
+    max-width: 70rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blog-post {
+    padding: 2.5rem;
+    flex-direction: column;
+  }
+  .blog-post__img {
+    min-width: 100%;
+    max-width: 100%;
+    transform: translate(0, -8rem);
+  }
+}
+
+.villabanner {
+  position: absolute;
+  top:0px;
+  background-size: cover;
+}
+
+.villacontent{
+  position: absolute;
+  top: 70%;
+  padding-bottom: 50%;
+}
+
+.villatxt{
+  position: absolute;
+  margin-top: -15%;
+  text-align: left;
+  left: 8%;
+  font-style: normal;
+  font-size: 5vw;
+  color: #eee;
+  font-family: "Abril Fatface";
+  }
+
+  .inclu_head{
+    font-weight: bold;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#6B4F4F;
+    font-style: italic;
+  }
+
+.inclu_content{
+  border-radius: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#6B4F4F;
+}
+
+.inclu_icons{
+  width:30px; 
+  height: 30px;
+}
+
+.inclu_right{
+  float:right; 
+  padding-top:7px; 
+  padding-left:5px; 
+  padding-right:5px;
+}
+
+   </style>
    <head>
       <meta charset="UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,17 +179,122 @@
       <div class ="villabanner" style="margin-bottom: 0px;">
          <img class = "villabanner" src ="/images/villas.png">
       </div>
+      <div class="section-stroke">
+         <img src="images/brush-stroke.png" />
+       </div>
       <div>
          <p class ="villatxt"> VILLAS </p>
       </div>
       <div class = "villacontent">
          <div class="blog-post">
-            <div class="blog-post__img"><img src="/images/Login.png" alt=""/></div>
+            <div class="blog-post__img"><img src="/images/CASA1.JPG" alt=""/></div>
             <div class="blog-post__info">
                <h1 class="blog-post__title">Casa Aurelia</h1>
                <p class ="inclu_head">Inclusions</p>
                <p class ="inclu_content"> ◉ Exclusive use of Pool with 15 min Jacuzzi </p>
                <p class ="inclu_content"> ◉ Entire Villa </p>
+               <p class ="inclu_content"> ◉ Bedroom </p>
+               <p class ="inclu_content" style="padding-left:15px"> > Master’s Bedroom (1 King Size Bed) </p>
+               <p class ="inclu_content" style="padding-left:15px"> > 2 Bedrooms with 2 double bed each </p>
+               <p class ="inclu_content"> ◉ 3 bathrooms (1 for each room) </p>
+               <p class ="inclu_content">◉ 1 detached bathroom</p>
+               <p class ="inclu_content">◉ 1 common area </p>
+               <p class ="inclu_content" style="padding-left:15px">> Kitechnette          > Lounge Area</p>
+               <p class ="inclu_content" style="padding-left:15px">> Dining Area</p>
+               <p class ="inclu_content">◉ Outdoor Showers</p>
+               <p class ="inclu_content">◉ Wide Alfresco Dining Area</p>
+               <p class ="inclu_content">◉ Wide Parking Space</p>
+               <p class ="inclu_content">◉ Free Breakfast for 10</p>
+               <p class ="inclu_content">◉ Basic Toiletries</p>
+               <p class ="inclu_content">◉ Dishwashing Set </p>
+               <br>
+               <div class = "flexbox-container" style="padding-top: 10px;">
+                  <div class="inclu_con1">
+                     <div style="float:left;"><img src ="/icons/people.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Good for 10pax</p>
+                     </div>
+                  </div>
+                  <div class="inclu_con1">
+                     <div style="float:left; padding-left: 8px;"><img src ="/icons/time.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Check in: 2:00PM </p>
+                     </div>
+                  </div>
+                  <div class="inclu_con1">
+                     <div style="float:left; padding-left:5px"><img src ="/icons/time.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Check out: 12:00PM</p>
+                     </div>
+                  </div>
+               </div>
+               <p class ="inclu_head" style="padding-top:20px; padding-bottom: 10px;">Amenities</p>
+               <div class = "flexbox-container">
+                  <div class="inclu_con1">
+                     <div style="float:left;"><img src ="/icons/aircon.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Air Condition</p>
+                     </div>
+                  </div>
+                  <div class="inclu_con1">
+                     <div style="float:left; padding-left: 8px;"><img src ="/icons/microwave.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Microwave & Oven </p>
+                     </div>
+                  </div>
+                  <div class="inclu_con1">
+                     <div style="float:left; padding-left:5px"><img src ="/icons/stove.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Induction Stove</p>
+                     </div>
+                  </div>
+               </div>
+               <div class = "flexbox-container" style="padding-top: 10px;">
+                  <div class="inclu_con1">
+                     <div style="float:left;"><img src ="/icons/ref.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Refrigerator</p>
+                     </div>
+                  </div>
+                  <div class="inclu_con1">
+                     <div style="float:left; padding-left:10px;"><img src ="/icons/waterdp.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Water Dispenser</p>
+                     </div>
+                  </div>
+                  <div class="inclu_con1">
+                     <div style="float:left; padding-left:24px;"><img src ="/icons/plates.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Plates</p>
+                     </div>
+                  </div>
+               </div>
+               <div class = "flexbox-container"style="padding-top: 10px;">
+                  <div class="inclu_con1">
+                     <div style="float:left;"><img src ="/icons/utensils.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Utensils</p>
+                     </div>
+                  </div>
+                  <div class="inclu_con1">
+                     <div style="float:left; padding-left:35px;"><img src ="/icons/towel.png" class="inclu_icons"></div>
+                     <div class="inclu_right">
+                        <p class="inclu_content">Towel</p>
+                     </div>
+                  </div>
+               </div>
+               <p class ="inclu_head" style="padding-top:20px; padding-bottom: 10px;">Add ons</p>
+               <p class ="inclu_content">◉ Extra Bed - P150/P300</p>
+               <p class ="inclu_content">◉ Extra Breakfast - P200 per head </p>
+            </div>
+         </div>
+
+         <div class="blog-post" style="margin-top: 150px;">
+            <div class="blog-post__img"><img src="/images/CDP1.jpg" alt=""/></div>
+            <div class="blog-post__info">
+               <h1 class="blog-post__title">Caminos de Primavera</h1>
+               <p class ="inclu_head">Inclusions</p>
+               <p class ="inclu_content"> ◉ Entire House</p>
                <p class ="inclu_content"> ◉ Bedroom </p>
                <p class ="inclu_content" style="padding-left:15px"> > Master’s Bedroom (1 King Size Bed) </p>
                <p class ="inclu_content" style="padding-left:15px"> > 2 Bedrooms with 2 double bed each </p>

@@ -439,7 +439,7 @@ input, select{
   align-items: center;
   z-index: -1;
 }
-.faqs-header h1 {
+.faqs-header h1, .villas-header h1 {
   margin-left: 100px;
   font-family: 'Cinzel';
   font-style: normal;
@@ -732,137 +732,15 @@ p
 
 /*view villas*/
 
-*,
-::before, 
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.villas{
-  font-size: 10px;
-  font-family: 'Signika', sans-serif;
-}
-
-.villabanner {
-  width: 100%;
-}
-
-.villabg {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #F9F2E7;
-  padding: 0 1.5em;
-}
-
-.blog-post {
-  width: 100%;
-  max-width: 100rem;
-  background-color: #DCD2C9;
-  box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, .2);
-  display: flex;
-  border-radius: .8rem;
-  padding: 20px;
-}
-
-.blog-post__img {
-  min-width: 40rem;
-  max-width: 50rem;
-  height: 80rem;
-  transform: translateX(-8rem);
-  position: relative;
-}
-
-.blog-post__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: .8rem;
-}
-
-.blog-post__img::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-shadow: .5rem .5rem 3rem 1px rgba(0, 0, 0, .05);
-  border-radius: .8rem;
-}
-
-
-.blog-post__title {
+.blog-post__title h1 {
   font-size: 5rem;
+  font-family: "Abril Fatface";
   margin: 1.5rem 0 2rem;
-  text-transform: uppercase;
   color: #6B4F4F;
   font-weight: bold;
+  position: relative;
+  text-align: center;
 }
-
-.blog-post__text {
-  margin-bottom: 3rem;
-  font-size: 1.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgba(0, 0, 0, .7);
-}
-
-
-@media screen and (max-width: 1068px) {
-  .blog-post {
-    max-width: 80rem;
-  }
-  .blog-post__img {
-    min-width: 30rem;
-    max-width: 30rem;
-  }
-}
-
-@media screen and (max-width: 868px) {
-  .blog-post {
-    max-width: 70rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .blog-post {
-    padding: 2.5rem;
-    flex-direction: column;
-  }
-  .blog-post__img {
-    min-width: 100%;
-    max-width: 100%;
-    transform: translate(0, -8rem);
-  }
-}
-
-.villabanner {
-  position: absolute;
-  top:0px;
-  background-size: cover;
-}
-
-.villacontent{
-  position: absolute;
-  top: 70%;
-  padding-bottom: 50%;
-}
-
-.villatxt{
-  position: absolute;
-  margin-top: -15%;
-  text-align: left;
-  left: 8%;
-  font-style: normal;
-  font-size: 5vw;
-  color: #eee;
-  font-family: "Abril Fatface";
-  }
 
   .inclu_head{
     font-weight: bold;
@@ -888,4 +766,232 @@ p
   padding-top:7px; 
   padding-left:5px; 
   padding-right:5px;
+}
+
+.villa_carousel {
+  position: relative;
+  width: 600px;
+  height: 800px;
+  min-width: 500px;
+  margin:auto;
+}
+
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+}
+
+.carousel-open:checked + .carousel-item {
+  position: static;
+  opacity: 100;
+}
+
+.carousel-item {
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
+}
+
+.carousel-item img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  height: 700px;
+  margin: auto;
+}
+
+.carousel-control {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  font-size: 40px;
+  height: 40px;
+  line-height: 35px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  cursor: pointer;
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  text-align: center;
+  width: 40px;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: 2%;
+}
+
+.carousel-control.next {
+  right: 2%;
+}
+
+.carousel-control:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #aaaaaa;
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3,
+#carousel-4:checked ~ .control-4,
+#carousel-5:checked ~ .control-5,
+#carousel-1:checked ~ .control-6,
+#carousel-2:checked ~ .control-7,
+#carousel-3:checked ~ .control-8,
+#carousel-4:checked ~ .control-9,
+#carousel-5:checked ~ .control-10 {
+  display: block;
+}
+
+.carousel-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.carousel-bullet {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 35px;
+}
+
+.carousel-bullet:hover {
+  color: #aaaaaa;
+}
+
+#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet,
+#carousel-4:checked ~ .control-4 ~ .carousel-indicators li:nth-child(4) .carousel-bullet,
+#carousel-5:checked ~ .control-5 ~ .carousel-indicators li:nth-child(5) .carousel-bullet,
+#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(6) .carousel-bullet,
+#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(7) .carousel-bullet,
+#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(8) .carousel-bullet,
+#carousel-4:checked ~ .control-4 ~ .carousel-indicators li:nth-child(9) .carousel-bullet,
+#carousel-5:checked ~ .control-5 ~ .carousel-indicators li:nth-child(10) .carousel-bullet {
+  color: #9DBBAE;
+}
+
+#title {
+  width: 100%;
+  position: absolute;
+  padding: 0px;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 27px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Open Sans', sans-serif;
+  z-index: 9999;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
+
+
+.lightpart {
+  background-color: #F9F2E7;
+  padding-top: 100px;
+  padding-bottom: 200px;
+}
+
+.darkpart{
+  background-color: #BB9981;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  top:50px;
+}
+
+
+p {
+ margin-bottom: 1rem;
+}
+#villawrapper {
+ display: flex;
+ align-items: center;
+ height: 50vh;
+ max-width: 45rem;
+ margin: 0 auto;
+ margin-bottom: 100px;
+}
+.v-tabs {
+ width: 600px;
+  height: 500px;
+ background-color: white;
+ border-radius: 0.5rem;
+ box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+ position: relative;
+ margin:auto;
+}
+.v-tab-control {
+ display: inline-block;
+ border-bottom: 2px solid transparent;
+ font-size: 1.25rem;
+ padding: 0.6rem 1rem;
+ cursor: pointer;
+ transition: all 0.25s ease;
+}
+.v-tab-control:hover {
+ color: white;
+   background-color: #483434;
+}
+.v-tab-content {
+ border-top: 1px solid #483434;
+ padding: 1rem;
+   line-height: 0;
+   font-size: 12px;
+}
+.v-tab-panel {
+ display: none;
+}
+/* Magic style */
+
+#tab-1:checked ~ .v-tab-content #v-tab-panel-1 {
+ display: block;
+}
+#tab-2:checked ~ .v-tab-content #v-tab-panel-2 {
+ display: block;
+}
+#tab-3:checked ~ .v-tab-content #v-tab-panel-3 {
+ display: block;
+}
+
+.v-tag {
+background-color: #ccc;
+color: #fff;
+border-radius: 50px;
+font-size: 12px;
+margin: 0;
+padding: 2px 10px;
+text-transform: uppercase;
+background-color: #9DBBAE;
+}
+
+.villas-header {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background: url(/images/villas.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  z-index: -1;
 }
