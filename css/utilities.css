@@ -1105,7 +1105,7 @@ background-color: #9DBBAE;
   display: flex;
   justify-content: space-between;
 }
-.user-details .editprofile-btn{
+ .editprofile-btn{
   cursor: pointer;
   padding: 10px 25px;
   color: #F9F2E7;
@@ -1239,11 +1239,11 @@ input[type=text], select, textarea {
 }
 
 input:checked + .slider {
-  background-color: #9DBBAE;
+  background-color: #1B5B65;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #9DBBAE;
+  box-shadow: 0 0 1px #1B5B65;
 }
 
 input:checked + .slider:before {
@@ -1253,13 +1253,6 @@ input:checked + .slider:before {
 }
 
 /* Rounded sliders */
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 
 .slider.round {
   border-radius: 34px;
@@ -1287,6 +1280,8 @@ input:checked + .slider:before {
   border-radius: 5px;
   float: right;
 }
+
+/**new login reg **/
 
 .log-body{
   background-image: url("/images/Login.png");
