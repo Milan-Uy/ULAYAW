@@ -350,23 +350,60 @@
 /*Contact*/
 .contact-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   text-align: center;
-  height: 100vh;
+  min-height: 80vh;
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 75px;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 100px;
+  background: rgba(45, 20, 0, 0.5);
 }
 
-.contact-header {
+.contact-header::before {
   content: "";
   background: url(/images/contact-bg.JPG) no-repeat center center/cover;
-  /* position: absolute; */
-  top: 0;
+  position: absolute;
+  top: -20%;
   left: 0;
-  /* width: 100%;
-  height: 50%; */
+  width: 100%;
+  height: 110%;
   z-index: -1;
   opacity: 0.75;
+}
+
+.contact-brush {
+  margin-top: -100px;
+  overflow: hidden;
+}
+
+/* Flex items */
+.flex-items {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 100%;
+}
+
+.flex-items > div {
+  padding: 20px;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 1000px) {
+  .flex-items {
+    flex-direction: column;
+  }
 }
 
 /*FAQs*/
