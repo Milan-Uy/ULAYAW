@@ -139,6 +139,7 @@
 .nav-header.sticky {
   position: fixed;
   background-color: #f9f2e7;
+  box-shadow: 0 2px 2px rgba(70, 67, 63, 0.10);
 }
 @keyframes header {
   0% {
@@ -175,7 +176,7 @@
 }
 .navbar ul {
   list-style: none;
-  padding: 15px;
+  padding: 15px 15px 5px 15px;
   margin: 0;
 }
 .navbar ul li {
@@ -1184,6 +1185,7 @@ input:checked + .slider:before {
 .log-body{
   background-image: url("/images/Login.png");
   height: 100vh;
+  width: 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;

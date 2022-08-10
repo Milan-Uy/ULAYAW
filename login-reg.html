@@ -1,118 +1,128 @@
 <!DOCTYPE html>
+<!-- === Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
-   <style>
-      *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      }
-   </style>
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-      <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
-      <link rel="stylesheet" href="/css/utilities.css">
-      <title> Hulo Leisure Farm</title>
-   </head>
-   <body class="log-body">
-      <!--Navbar-->
-      <section class="display-navbar">
-         <div id="nav-placeholder"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/utilities.css">
+         
+    <!--<title>Login & Registration Form</title>-->
+</head>
+<body class="log-body">
+
+        <!--Navbar-->
+        <section class="display-navbar">
+            <div id="nav-placeholder"></div>
+          </section>
+
+          
+    <section class="display-navbar">
+        <div id="nav-placeholder"></div>
       </section>
-      <section class="display-navbar">
-         <div id="nav-placeholder"></div>
-      </section>
-      <div class="log-container">
-         <div class="log-forms">
+
+      
+    <div class="log-container">
+        <div class="log-forms">
             <div class="logform r-login">
-               <span class="log-title">Login</span>
-               <form action="#">
-                  <div class="log-input-field">
-                     <input class="log-input" type="text" placeholder="Enter your email" required>
-                     <i class="uil uil-envelope icon"></i>
-                  </div>
-                  <div class="log-input-field">
-                     <input class="log-input" type="password" class="password" placeholder="Enter your password" required>
-                     <i class="uil uil-lock icon"></i>
-                  </div>
-                  <div class="log-checkbox-text">
-                     <div class="log-checkbox-content">
-                        <input type="checkbox" id="logCheck">
-                        <label for="logCsheck" class="text">Remember me</label>
-                     </div>
-                     <a href="#" class="text">Forgot password?</a>
-                  </div>
-                  <div class="log-input-field button">
-                     <input class="log-input-btn"type="button" value="Login">
-                  </div>
-               </form>
-               <div class="login-signup">
-                  <span class="text">No account yet?
-                  <a href="#" class="text signup-link">Register here.</a>
-                  </span>
-               </div>
+                <span class="log-title">Login</span>
+
+                <form action="#">
+                    <div class="log-input-field">
+                        <input class="log-input" type="text" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="log-input-field">
+                        <input class="log-input" type="password" class="password" placeholder="Enter your password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+
+                    <div class="log-checkbox-text">
+                        <div class="log-checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCsheck" class="text">Remember me</label>
+                        </div>
+                        
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="log-input-field button">
+                        <input class="log-input-btn"type="button" value="Login">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">No account yet?
+                        <a href="#" class="text signup-link">Register here.</a>
+                    </span>
+                </div>
             </div>
+
             <!-- Registration Form -->
             <div class="logform r-signup">
-               <span class="log-title">Registration</span>
-               <form action="#">
-                  <div class="log-input-field">
-                     <input class="log-input" type="text" placeholder="Enter your name" required>
-                     <i class="uil uil-user"></i>
-                  </div>
-                  <div class="log-input-field">
-                     <input class="log-input" type="text" placeholder="Enter your email" required>
-                     <i class="uil uil-envelope icon"></i>
-                  </div>
-                  <div class="log-input-field">
-                     <input class="log-input" type="number" placeholder="Enter your contact number" required>
-                     <i class="uil uil-user"></i>
-                  </div>
-                  <div class="log-input-field">
-                     <input class="log-input" type="password" class="password" placeholder="Create a password" required>
-                     <i class="uil uil-lock icon"></i>
-                  </div>
-                  <div class="log-input-field">
-                     <input class="log-input" type="password" class="password" placeholder="Confirm a password" required>
-                     <i class="uil uil-lock icon"></i>
-                  </div>
-                  <div class="log-checkbox-text">
-                     <div class="log-checkbox-content">
-                        <input class="logcheck" type="checkbox" id="termCon">
-                        <label for="termCon" class="text">I accepted all terms and conditions</label>
-                     </div>
-                  </div>
-                  <div class="log-input-field button">
-                     <input class="log-input-btn" type="button" value="Register">
-                  </div>
-               </form>
-               <div class="login-signup">
-                  <span class="text">Already have an account?
-                  <a href="#" class="text login-link">Login here.</a>
-                  </span>
-               </div>
+                <span class="log-title">Registration</span>
+
+                <form action="#">
+                    <div class="log-input-field">
+                        <input class="log-input" type="text" placeholder="Enter your name" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="log-input-field">
+                        <input class="log-input" type="text" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="log-input-field">
+                        <input class="log-input" type="number" placeholder="Enter your contact number" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="log-input-field">
+                        <input class="log-input" type="password" class="password" placeholder="Create a password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="log-input-field">
+                        <input class="log-input" type="password" class="password" placeholder="Confirm a password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+
+                    <div class="log-checkbox-text">
+                        <div class="log-checkbox-content">
+                            <input class="logcheck" type="checkbox" id="termCon">
+                            <label for="termCon" class="text">I accepted all terms and conditions</label>
+                        </div>
+                    </div>
+
+                    <div class="log-input-field button">
+                        <input class="log-input-btn" type="button" value="Register">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Already have an account?
+                        <a href="#" class="text login-link">Login here.</a>
+                    </span>
+                </div>
             </div>
-         </div>
-      </div>
-      <script>
-         const container = document.querySelector(".log-container")
-         const container1 = document.querySelector(".container1"),
-           pwShowHide = document.querySelectorAll(".showHidePw"),
-           pwFields = document.querySelectorAll(".password"),
-           signUp = document.querySelector(".signup-link"),
-           login = document.querySelector(".login-link");
-         
-         // js code to appear signup and login form
-         signUp.addEventListener("click", ( )=>{
-             container.classList.add("active");
-         });
-         login.addEventListener("click", ( )=>{
-             container.classList.remove("active");
-         });
-         
-      </script>
-   </body>
+        </div>
+    </div>
+
+    <script>
+    const container = document.querySelector(".log-container")
+    const container1 = document.querySelector(".container1"),
+      pwShowHide = document.querySelectorAll(".showHidePw"),
+      pwFields = document.querySelectorAll(".password"),
+      signUp = document.querySelector(".signup-link"),
+      login = document.querySelector(".login-link");
+
+    // js code to appear signup and login form
+    signUp.addEventListener("click", ( )=>{
+        container.classList.add("active");
+    });
+    login.addEventListener("click", ( )=>{
+        container.classList.remove("active");
+    });
+
+    </script>
+</body>
 </html>
