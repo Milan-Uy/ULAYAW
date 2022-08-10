@@ -5,7 +5,6 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
       }
    </style>
    <head>
@@ -13,36 +12,43 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
       <link rel="stylesheet" href="/css/utilities.css">
       <title> Hulo Leisure Farm</title>
    </head>
-   <body class="log-body">
+   <body>
       <!--Navbar-->
       <section class="display-navbar">
          <div id="nav-placeholder"></div>
       </section>
-      <section class="display-navbar">
-         <div id="nav-placeholder"></div>
-      </section>
-      <div class="log-container">
-         <div class="log-forms">
-            <div class="logform r-login">
-               <span class="log-title">Forgot Password</span>
-               <form action="#">
-                  <div class="log-input-field">
-                     <input class="log-input" type="text" placeholder="Enter your email" required>
-                     <i class="uil uil-envelope icon"></i>
+      <section class="log-body">
+         <div class="log-container">
+            <div class="log-forms">
+               <div class="logform r-login">
+                  <span class="log-title">Forgot Password</span>
+                  <form action="#">
+                     <div class="log-input-field">
+                        <input class="log-input" type="text" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                     </div>
+                     <div class="log-input-field button">
+                        <input class="log-input-btn"type="button" value="Continue">
+                     </div>
+                     <div class="log-cancel-field button">
+                     <input class="log-input-btn log-cancel" style="top: 0px;"type="button" value="Cancel">
                   </div>
-                  <div class="log-input-field button">
-                     <input class="log-input-btn"type="button" value="Continue">
-                  </div>
-                  <div class="log-cancel-field button">
-                    <input class="log-input-btn log-cancel" style="top: 0px;"type="button" value="Cancel">
-                 </div>
-               </form>
+                  </form>
+               </div>
             </div>
          </div>
-      </div>
+      </section>
+      <script>
+         //Import Navbar
+         $(function(){
+            $("#nav-placeholder").load("navbar.html");
+         });
+      </script>
+
    </body>
 </html>

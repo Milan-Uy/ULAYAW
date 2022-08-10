@@ -9,8 +9,13 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/utilities.css" />
 </head>
-<body class="bodymoments">
+<body>
+  <!--Navbar-->
+  <section class="display-navbar">
+    <div id="nav-placeholder"></div>
+ </section>
 
+  <section class="bodymoments">
     <div class="containermoments">
         <div class="card">
           <div class="card-moments">
@@ -115,6 +120,14 @@
             </div>
           </div>
       </div>
+    </section>
+
+    <script>
+      //Import Navbar
+      $(function(){
+            $("#nav-placeholder").load("navbar.html");
+         });
+    </script>
 
 
 
