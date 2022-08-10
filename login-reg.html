@@ -6,24 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
     <link rel="stylesheet" href="/css/utilities.css">
          
     <!--<title>Login & Registration Form</title>-->
 </head>
-<body class="log-body">
+<body>
 
-        <!--Navbar-->
-        <section class="display-navbar">
-            <div id="nav-placeholder"></div>
-          </section>
-
-          
+    <!--Navbar-->
     <section class="display-navbar">
         <div id="nav-placeholder"></div>
-      </section>
+        </section>
 
-      
+    <section class="log-body">
     <div class="log-container">
         <div class="log-forms">
             <div class="logform r-login">
@@ -106,8 +102,13 @@
             </div>
         </div>
     </div>
-
+</section> 
     <script>
+    //Import Navbar
+    $(function(){
+      $("#nav-placeholder").load("navbar.html");
+    });
+    
     const container = document.querySelector(".log-container")
     const container1 = document.querySelector(".container1"),
       pwShowHide = document.querySelectorAll(".showHidePw"),
