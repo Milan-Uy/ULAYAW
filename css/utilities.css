@@ -3,6 +3,10 @@
 /* @import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
 
+:root {
+  --mainbg-color: #f9f2e7;
+}
+
 * {
   margin: 0px;
 }
@@ -39,7 +43,7 @@
 }
 .btn-light,
 .bg-light {
-  background: #f4f4f4;
+  /* background: #f4f4f4; */
   color: #333;
 }
 
@@ -349,6 +353,19 @@
 }
 
 /*Contact*/
+
+.contact {
+  background-color: var(--mainbg-color);
+}
+
+.contact-line {
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  height: 1px;
+  background-color: #333;
+}
+
 .contact-header {
   display: flex;
   justify-content: left;
@@ -413,6 +430,18 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: rgba(0, 45, 100, 0.3);
 }
+
+/* .faqs-header {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background: url(/images/faqs-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  z-index: -1;
+} */
 
 .faqs-header::before {
   content: "";
