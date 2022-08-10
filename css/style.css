@@ -2,19 +2,16 @@
   --mainbg-color: #f9f2e7;
 }
 
-h1 {
-  font-weight: 300;
-  line-height: 1.2;
-}
-
 /* Contact */
 
 .contact {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .contactHead h1 {
-  font-size: 75px;
+  font-weight: 300;
+  line-height: 1;
+  font-size: 50px;
 }
 
 /* Callback form */
