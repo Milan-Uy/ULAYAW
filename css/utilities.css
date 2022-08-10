@@ -894,7 +894,7 @@ p {
   position: relative;
   width: 100%;
   min-height: 80vh;
-  background: url(/images/villas.png) no-repeat;
+  background: linear-gradient(90deg, rgba(72,52,52,0.8102591378348214) 0%, rgba(72,52,52,0.44611347957151615) 31%, rgba(72,52,52,0.8074580173866421) 100%), url(/images/villas.png) no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1465,4 +1465,175 @@ input:checked + .slider:before {
   height: 50px;
   width: 100%;
   margin-top: 0px;
+}
+
+
+/* view villa new */
+
+.villa-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.v-img{
+  width: 100%;
+  display: block;
+}
+
+
+
+/** title */
+.v-title{
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 30px;
+  color: #F9F2E7;
+  border-bottom: 5px solid #6B4F4F;
+  width: 235px;
+  margin: 15px 0;
+}
+
+.sec-width{
+  width: 85vw;
+  margin: 0 auto!important;
+}
+
+/* room */
+
+.villa-rooms{
+  margin: 40px 0;
+}
+.villa-room{
+  margin: 45px 0;
+  padding-bottom: 25px;
+  background: #DCD2C9;
+  color: #483434;
+}
+.villa-room-text{
+  padding: 5px 20px 70px 20px;
+  line-height: 10px;
+
+}
+.villa-room-text h3{
+  font-size: 50px;
+  margin: 5% 0% 5% 2.5%;
+}
+.villa-room-text ul{
+  list-style-type: none;
+  margin: 15px 0;
+}
+.villa-room-text ul li{
+  padding: 7px 0;
+}
+.villa-room-text ul li i{
+  color: #483434;
+  margin-right: 10px;
+}
+.villa-room-image{
+  overflow: hidden;
+}
+.villa-room-image .v-img{
+  transition: all 0.7s ease;;
+}
+.villa-room-image:hover .v-img{
+  transform: scale(1.1);
+}
+@media (min-width: 900px){
+  .villa-rooms-container{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .villa-room{
+      flex: 0 0 calc(50% - 20px);
+      margin: 10px;
+  }
+}
+@media(min-width: 1370px){
+  .villa-rooms-container{
+      flex-direction: column;
+  }
+  .villa-room{
+      display: flex;
+      padding-bottom: 0;
+      margin: 5px 0;
+  }
+  .villa-room-image{
+      flex: 1;
+  }
+  .villa-room-image .v-img{
+      height: 100%;
+  }
+  .villa-room-text{
+      flex: 1;
+  }
+  .villa-room:nth-child(even){
+      flex-direction: row-reverse;
+  }
+}
+
+.villabody {
+  background-color: #F9F2E7;
+}
+
+
+#villawrapper {
+display: flex;
+align-items: center;
+height: 50vh;
+max-width: 45rem;
+margin: 0 auto;
+margin-bottom: 100px;
+}
+.v-tabs {
+width: 600px;
+height: 500px;
+background-color: white;
+position: relative;
+margin: auto;
+}
+.v-tab-control {
+display: inline-block;
+border-bottom: 2px solid transparent;
+font-size: 1.25rem;
+padding: 0.6rem 1rem;
+cursor: pointer;
+transition: all 0.25s ease;
+border-style: outset;
+}
+.v-tab-control:hover {
+color: white;
+background-color: #483434;
+}
+.v-tab-content {
+border-top: 1px solid #483434;
+padding: 1rem;
+line-height: 0;
+font-size: 12px;
+}
+.v-tab-panel {
+display: none;
+}
+/* Magic style */
+
+#tab-1:checked ~ .v-tab-content #v-tab-panel-1 {
+display: block;
+}
+#tab-2:checked ~ .v-tab-content #v-tab-panel-2 {
+display: block;
+}
+#tab-3:checked ~ .v-tab-content #v-tab-panel-3 {
+display: block;
+}
+
+.v-tag {
+background-color: #ccc;
+color: #fff;
+border-radius: 50px;
+font-size: 12px;
+margin: 0;
+padding: 2px 10px;
+text-transform: uppercase;
+background-color: #9dbbae;
 }
