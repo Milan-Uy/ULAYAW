@@ -7,6 +7,12 @@ h1 {
   line-height: 1.2;
 }
 
+/* Contact */
+
+.contact {
+  margin-top: 1rem;
+}
+
 .contactHead h1 {
   font-size: 75px;
 }

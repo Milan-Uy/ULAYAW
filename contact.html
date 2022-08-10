@@ -5,12 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/e32153d801.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     <title>Contact Us</title>
   </head>
   <body>
-    <section id="contact" class="contact flex-columns">
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+    <!--Contact-->
+    <section class="contact-header"></section>
+
+    <section id="contact" class="contact flex-columns icons">
+      <div class="row">
+        <div class="column small">
+          <div class="column-1 contactHead">
+            <h1>Contact Hulo Leisure Farm</h1>
+          </div>
+        </div>
+        <div class="column big">
+          <div class="flex-items bg-light">
+            <div>
+              <i class="fa-solid fa-phone fa-2x"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptatum.</p>
+              </div>
+            </div>
+            <div>
+              <i class="fa-solid fa-location-dot fa-2x"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptatum.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-items bg-light">
+            <div>
+              <i class="fa-solid fa-envelope fa-2x"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptatum.</p>
+              </div>
+            </div>
+            <div>
+              <i class="fa-solid fa-circle-info fa-2x"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptatum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="messageUs" class="contact flex-columns">
       <div class="row">
         <div class="column small">
           <div class="column-1 contactHead">
@@ -47,5 +102,11 @@
         </div>
       </div>
     </section>
+    <script>
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+    </script>
   </body>
 </html>
