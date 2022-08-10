@@ -1359,3 +1359,18 @@ input:checked + .slider:before {
   margin-bottom: 10px;
   text-align: center;
 }
+
+.log-cancel {
+  background-color: #BB9981 !important;
+}
+
+.log-cancel:hover{
+  background-color: #A18069 !important;
+}
+
+.logform .log-cancel-field{
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 0px;
+}

@@ -1,201 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <style>
-    /* login, registration, forgotpw */
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.bg{
-  background-image: url("/images/Login.png");
-  height: 100%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.container1{
-  color: #F9F2E7;
-  width: 50%;
-  float: left;
-  font-family: "Abril Fatface";
-  padding-left: 250px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.headtext{
-  font-family: "Abril Fatface";
-  padding-top: 30px;
-  font-size: 160px;
-  margin-bottom: 0px;
-}
-.headtext2{
-  font-family: "Abril Fatface";
-  padding-top: 100px;
-  font-size: 120px;
-  margin-bottom: 0px;
-}
-
-.headtext3{
-  font-family: "Abril Fatface";
-  font-size: 100px;
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
-.subtext{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5vw;
-  font-weight: bold;
-  margin-top: 5px;
-}
-.flexbox-container{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: space-between;
-}
-.container2{
-  padding-top: 170px;
-  padding-left: 45px;
-  position: relative;
-  flex-direction: row;
-  width: 50%;
-  float: right;
-}
-
-.container3{
-  padding-top: 90px;
-  padding-left: 45px;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  flex-direction: row;
-  width: 50%;
-  float: right;
-  min-width: 50%;
-}
-
-.login-box{
-  width: 450px;
-  height: 350px;
-  background: #F9F2E7;
-  border-radius: 20px;
-  text-align: center;
-  padding-top: 35px;
-}
-
-.reg-box{
-  width: 450px;
-  height: 550px;
-  background: #F9F2E7;
-  border-radius: 20px;
-  text-align: center;
-  padding-top: 35px;
-  margin-bottom: 20%;
-  min-width: 350px;
-}
-
-.reghere{
-  height: 30px;
-  background: #F9F2E7;
-  color:#6B4F4F ;
-  cursor:pointer;
-  border: none;
-  font-weight: bold;
-  border-radius: 6px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.reghere:hover{
-  color: #F9F2E7;
-  background:#6B4F4F;
-}
-input, select{
-  width: 80%;
-  padding: 18px 20px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #FFFFFF;
-  box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-}
-.blogin, .continuebtn{
-  background:#6B4F4F;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor:pointer;
-}
-.cancelbtn{
-  background:#BB9981;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor:pointer;
-}
-
-.blogin:hover, .cancelbtn:hover, .continuebtn:hover {
-  background-color: #523A3A;
-  color: white;
-}
-.forgotpw:hover{
-  color: #523A3A;
-}
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.forgotpw{
-  cursor:pointer;
-  font-weight: bold;
-  border-radius: 6px;
-  font-family: Arial, Helvetica, sans-serif;
-  color:#6B4F4F ;
-}
-
-.forgotpwtext{
-  text-align: left;
-  padding-left: 50px;
-  font-family: "Abril Fatface";
-  color: #6B4F4F;
-}
-
-  </style>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
-    <link rel="stylesheet" href="/css/utilities.css">
-    <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
-</head>
-<body class = "bg">
-  <div class = "flexbox-container">
-    <div class="container1">
-        <p class="headtext2"> Forgot</p>
-        <p class="headtext3"> Password</p>
-    </div>
-
-<div class="container2">
-    <section class="login-box">
-        <p class="forgotpwtext">Please check your e-mail after clicking continue.</p>
-        <input type="text" placeholder="Email Address"/>
-        <section class="BlockButtons">
-            <div class="BlockButtonDiv">
-              <input type="submit" id="btnContinue" value="Continue" class="continuebtn">
-            </div>
-            <div class="BlockButtonDiv">
-              <input type="submit" id="btnCancel" value="Cancel" class="cancelbtn">
-            </div>
-        </section>
-      </form>
+   <style>
+      *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      }
+   </style>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+      <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+      <link rel="stylesheet" href="/css/utilities.css">
+      <title> Hulo Leisure Farm</title>
+   </head>
+   <body class="log-body">
+      <!--Navbar-->
+      <section class="display-navbar">
+         <div id="nav-placeholder"></div>
       </section>
-    </div>
-  </div>
-</div>
-</body>
+      <section class="display-navbar">
+         <div id="nav-placeholder"></div>
+      </section>
+      <div class="log-container">
+         <div class="log-forms">
+            <div class="logform r-login">
+               <span class="log-title">Forgot Password</span>
+               <form action="#">
+                  <div class="log-input-field">
+                     <input class="log-input" type="text" placeholder="Enter your email" required>
+                     <i class="uil uil-envelope icon"></i>
+                  </div>
+                  <div class="log-input-field button">
+                     <input class="log-input-btn"type="button" value="Continue">
+                  </div>
+                  <div class="log-cancel-field button">
+                    <input class="log-input-btn log-cancel" style="top: 0px;"type="button" value="Cancel">
+                 </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
-</head>
-<body class = "bg">
-    <div class="container1">
-        <p class="headtext2"> Forgot</p>
-        <p class="headtext3"> Password</p>
-    </div>
-
-<div class="container2">
-    <section class="login-box">
-        <p class="forgotpwtext">Input your verification code.</p>
-        <input type="text" placeholder="Verification code"/>
-        <div class="BlockButtons">
-            <div class="BlockButtonDiv">
-              <input type="submit" id="btnContinue" value="Continue" class="continuebtn">
+   <style>
+      *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      }
+   </style>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+      <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+      <link rel="stylesheet" href="/css/utilities.css">
+      <title> Hulo Leisure Farm</title>
+   </head>
+   <body class="log-body">
+      <!--Navbar-->
+      <section class="display-navbar">
+         <div id="nav-placeholder"></div>
+      </section>
+      <section class="display-navbar">
+         <div id="nav-placeholder"></div>
+      </section>
+      <div class="log-container">
+         <div class="log-forms">
+            <div class="logform r-login">
+               <span class="log-title">Verification code sent</span>
+               <form action="#">
+                  <div class="log-input-field">
+                     <input class="log-input" type="text" placeholder="Enter your verification code" required>
+                     <i class="uil uil-lock icon"></i>
+                  </div>
+                  <div class="log-input-field button">
+                     <input class="log-input-btn"type="button" value="Continue">
+                  </div>
+                  <div class="log-cancel-field button">
+                    <input class="log-input-btn log-cancel" style="top: 0px;"type="button" value="Cancel">
+                 </div>
+               </form>
             </div>
-            <div class="BlockButtonDiv">
-              <input type="submit" id="btnCancel" value="Cancel" class="cancelbtn">
-            </div>
-
-      </form>
-    </div>
-  </div>
-</body>
+         </div>
+      </div>
+   </body>
+</html>
