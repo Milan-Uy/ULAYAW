@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+</head>
+<body class="paymentsummary">
+
+<h2>PAYMENT SUMMARY</h2>
+<h4 class="refno"> Reference No.: </h4>
+<div class="rowps">
+  
+  </div>
+  <div class="col-25">
+    <div class="containerps">
+      <p>Your Reservation</p>
+      <h3>Casa Aurelia <span class="price" style="color:black"><b>P25,000.00</b></span></h3>
+      <p>DATE </p>
+      <p>8 ADULTS,1 NIGHT </p>
+      <p>Add-Ons Costs</p>
+      <p>Add-on1 <span class="price">P150.00</span></p>
+      <p>Add-on2<span class="price">P200.00</span></p>
+     <hr>
+      <h3>Total <span class="price" style="color:black"><b>P25,350.00</b></span></h3>
+    </div>
+  </div>
+
+  <div class="col-50">
+    <div class="containerps">
+      <h3>Payment Options: </h3>
+      <label for="dpayment"> <input type="radio" value="Downpayment" name='pay_method' id='dpayment' />Downpayment</label><span class="price">P25,350.00</span>
+      <label for="fpayment"> <input type="radio" value="Full Payment" name='pay_method' id='fpayment' />Full Payment</label>
+        <hr>
+        <img class="gcashicon" src="images/gcashicon.png" alt="gcashicon">
+        <input class="payment-btn" type="button" value="Proceed with Gcash Payment">
+       
+    </div>
+  </div>
+
+
+</div>
+
+</body>
+</html>
