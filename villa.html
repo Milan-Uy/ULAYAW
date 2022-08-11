@@ -1,140 +1,217 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <title> Villas </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <link rel="stylesheet" href="/css/utilities.css">
-   </head>
-   <body>
-      <!--Navbar-->
-      <section class="display-navbar">
-         <div id="nav-placeholder"></div>
-      </section>
-      <!--FAQs-->
-      <section class="villas-header">
-         <h1 STYLE="font-size: 80px !important;">
-            VILLAS
-         </h1>
-      </section>
-      <div class="section-stroke">
-         <img src="images/brush-stroke.png" />
-      </div>
-      <section class="villabody">
-         <!-- fullscreen modal -->
-         <div id = "modal"></div>
-         <!-- end of fullscreen modal -->
-         <section class = "villa-rooms sec-width" id = "rooms">
-            <div class = "villa-rooms-container" style="margin-top: 10%">
-               <!-- single room -->
-               <article class = "villa-room">
-                  <div class = "villa-room-image">
-                     <img class = "v-img" src = "images/casa1.jpg" alt = "villa-room image">
-                  </div>
-                  <div class = "villa-room-text">
-                     <h3>Casa Aurelia</h3>
-                     <div id="villawrapper">
-                        <div class="v-tabs">
-                           <input hidden type="radio" name="tab-css" id="tab-1" checked />
-                           <label class="v-tab-control" for="tab-1"> Overnight </label>
-                           <input hidden type="radio" name="tab-css" id="tab-2" />
-                           <label class="v-tab-control" for="tab-2"> Day Tour </label>
-                           <input hidden type="radio" name="tab-css" id="tab-3" />
-                           <label class="v-tab-control" for="tab-3"> Amenities </label>
-                           <div class="v-tab-content">
-                              <div id="v-tab-panel-1" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px;">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       Exclusive use of Pool with 15 min Jacuzzi 
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       Entire Villa
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       3 Airconditioned Bedroom
-                                    </li>
-                                    <li style="padding-left:15px">
-                                       > 1 Master's Bedroom (1 King Size Bed)
-                                    </li>
-                                    <li style="padding-left:15px">
-                                       > 2 Bedrooms (2 Double Bed each)
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       3 bathrooms (1 for each room)
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       1 detached bathroom
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       1 common area
-                                    </li>
-                                    <li style="padding-left:15px">
-                                       > Kitchenette          > Lounge Area
-                                    </li>
-                                    <li style="padding-left:15px">
-                                       > Dining Area
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       Outdoor Showers
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       Wide Alfresco Dining Area
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       Free Breakfast for 10
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       Basic Toiletries
-                                    </li>
-                                    <li>
-                                       <i class = "fas fa-arrow-alt-circle-right"></i>
-                                       Dishwashing Set
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div id="v-tab-panel-2" class="v-tab-panel">
-                              </div>
-                              <div id="v-tab-panel-3" class="v-tab-panel">
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </article>
-               <!-- end of single room -->
-               <!-- single room -->
-               <article class = "villa-room">
-                  <div class = "villa-room-image">
-                     <img class = "v-img" src = "images/cdp1.jpg" alt = "room image">
-                  </div>
-                  <div class = "villa-room-text">
-                     <h3>Luxury Rooms</h3>
-                  </div>
-               </article>
-               <!-- end of single room -->
+  <head>
+    <meta charset="utf-8" />
+    <title>Villas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilities.css" />
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+    <!--FAQs-->
+    <section class="villas-header">
+      <h1 style="font-size: 80px !important">VILLAS</h1>
+    </section>
+    <div class="section-stroke">
+      <img src="images/brush-stroke.png" />
+    </div>
+    <section class="villabody">
+      <!-- fullscreen modal -->
+      <div id="modal"></div>
+      <!-- end of fullscreen modal -->
+      <section class="villa-rooms sec-width" id="rooms">
+        <div class="villa-rooms-container" style="margin-top: 10%">
+          <!-- single room -->
+          <article class="villa-room">
+            <div class="villa-room-image">
+              <img class="v-img" src="images/casa1.jpg" alt="villa-room image" />
             </div>
-         </section>
-         <!-- end of body content -->
+            <div class="villa-room-text">
+              <h3>Casa Aurelia</h3>
+              <div id="villawrapper">
+                <div class="v-tabs">
+                  <input hidden type="radio" name="tab-css" id="tab-1" checked />
+                  <label class="v-tab-control" for="tab-1"> Overnight </label>
+                  <input hidden type="radio" name="tab-css" id="tab-2" />
+                  <label class="v-tab-control" for="tab-2"> Day Tour </label>
+                  <input hidden type="radio" name="tab-css" id="tab-3" />
+                  <label class="v-tab-control" for="tab-3"> Amenities </label>
+                  <div class="v-tab-content">
+                    <div id="v-tab-panel-1" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Exclusive use of Pool with 15 min Jacuzzi
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Entire Villa
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          3 Airconditioned Bedroom
+                        </li>
+                        <li style="padding-left: 15px">> 1 Master's Bedroom (1 King Size Bed)</li>
+                        <li style="padding-left: 15px">> 2 Bedrooms (2 Double Bed each)</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          3 bathrooms (1 for each room)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 detached bathroom
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 common area
+                        </li>
+                        <li style="padding-left: 15px">> Kitchenette > Lounge Area</li>
+                        <li style="padding-left: 15px">> Dining Area</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Outdoor Showers
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Alfresco Dining Area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Free Breakfast for 10
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Toiletries
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dishwashing Set
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-2" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Hello World
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-3" class="v-tab-panel"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- end of single room -->
+          <!-- single room -->
+          <article class="villa-room">
+            <div class="villa-room-image">
+              <img class="v-img" src="images/cdp1.jpg" alt="room image" />
+            </div>
+            <div class="villa-room-text">
+              <h3>Luxury Rooms</h3>
+              <div id="villawrapper">
+                <div class="v-tabs">
+                  <input hidden type="radio" name="tab-css-2" id="tab-4" checked />
+                  <label class="v-tab-control" for="tab-4"> Overnight </label>
+                  <input hidden type="radio" name="tab-css-2" id="tab-5" />
+                  <label class="v-tab-control" for="tab-5"> Day Tour </label>
+                  <input hidden type="radio" name="tab-css-2" id="tab-6" />
+                  <label class="v-tab-control" for="tab-6"> Amenities </label>
+                  <div class="v-tab-content-2">
+                    <div id="v-tab-panel-4" class="v-tab-panel--2">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Exclusive use of Pool with 15 min Jacuzzi
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Entire Villa
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          3 Airconditioned Bedroom
+                        </li>
+                        <li style="padding-left: 15px">> 1 Master's Bedroom (1 King Size Bed)</li>
+                        <li style="padding-left: 15px">> 2 Bedrooms (2 Double Bed each)</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          3 bathrooms (1 for each room)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 detached bathroom
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 common area
+                        </li>
+                        <li style="padding-left: 15px">> Kitchenette > Lounge Area</li>
+                        <li style="padding-left: 15px">> Dining Area</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Outdoor Showers
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Alfresco Dining Area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Free Breakfast for 10
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Toiletries
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dishwashing Set
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-5" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Hello World
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-6" class="v-tab-panel"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- end of single room -->
+        </div>
       </section>
-   </body>
-   <script>
-      //Import Navbar
-      $(function(){
-         $("#nav-placeholder").load("navbar.html");
-      });
-   </script>
+      <!-- end of body content -->
+    </section>
+  </body>
+  <script>
+    //Import Navbar
+    $(function () {
+      $("#nav-placeholder").load("navbar.html");
+    });
+  </script>
 </html>

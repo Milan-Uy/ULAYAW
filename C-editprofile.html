@@ -252,25 +252,37 @@
          // 'filter': 'grayscale(0%)'
          // });
          // });
-        document.getElementById('fbEmoji_sad').addEventListener('click',(evt)=>{
+         const sad = document.getElementById('fbEmoji_sad')
+         const neutral = document.getElementById('fbEmoji_neutral')
+         const happy = document.getElementById('fbEmoji_happy')
+        sad.addEventListener('click',(evt)=>{
             if(evt.target.classList.contains('active')){
                evt.target.classList.remove('active');
             }else{
                evt.target.classList.add('active');
+
+               happy.classList.remove('active')
+               neutral.classList.remove('active')
             }
         })
-        document.getElementById('fbEmoji_neutral').addEventListener('click',(evt)=>{
+        neutral.addEventListener('click',(evt)=>{
             if(evt.target.classList.contains('active')){
                evt.target.classList.remove('active');
             }else{
                evt.target.classList.add('active');
+
+               sad.classList.remove('active')
+               happy.classList.remove('active')
             }
         })
-        document.getElementById('fbEmoji_happy').addEventListener('click',(evt)=>{
+        happy.addEventListener('click',(evt)=>{
             if(evt.target.classList.contains('active')){
                evt.target.classList.remove('active');
             }else{
                evt.target.classList.add('active');
+
+               sad.classList.remove('active')
+               neutral.classList.remove('active')
             }
         })
       </script>

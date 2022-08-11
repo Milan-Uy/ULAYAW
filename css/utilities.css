@@ -854,17 +854,20 @@ p {
   cursor: pointer;
   transition: all 0.25s ease;
 }
+
 .v-tab-control:hover {
   color: white;
   background-color: #483434;
 }
-.v-tab-content {
+.v-tab-content,
+.v-tab-content-2 {
   border-top: 1px solid #483434;
   padding: 1rem;
   line-height: 0;
   font-size: 12px;
 }
-.v-tab-panel {
+.v-tab-panel,
+.v-tab-panel--2 {
   display: none;
 }
 /* Magic style */
@@ -876,6 +879,15 @@ p {
   display: block;
 }
 #tab-3:checked ~ .v-tab-content #v-tab-panel-3 {
+  display: block;
+}
+#tab-4:checked ~ .v-tab-content-2 #v-tab-panel-4 {
+  display: block;
+}
+#tab-5:checked ~ .v-tab-content-2 #v-tab-panel-5 {
+  display: block;
+}
+#tab-6:checked ~ .v-tab-content-2 #v-tab-panel-6 {
   display: block;
 }
 
@@ -1627,6 +1639,15 @@ input:checked + .slider:before {
 #tab-3:checked ~ .v-tab-content #v-tab-panel-3 {
   display: block;
 }
+#tab-1:checked ~ .v-tab-content-2 #v-tab-panel-4 {
+  display: block;
+}
+#tab-2:checked ~ .v-tab-content-2 #v-tab-panel-5 {
+  display: block;
+}
+#tab-3:checked ~ .v-tab-content-2 #v-tab-panel-6 {
+  display: block;
+}
 
 .v-tag {
   background-color: #ccc;
@@ -1649,7 +1670,13 @@ input:checked + .slider:before {
   position: relative;
   width: 100%;
   min-height: 80vh;
-  background: linear-gradient(90deg, rgba(72,52,52,0.8102591378348214) 0%, rgba(72,52,52,0.44611347957151615) 31%, rgba(72,52,52,0.8074580173866421) 100%), url(/images/villas.png) no-repeat;
+  background: linear-gradient(
+      90deg,
+      rgba(72, 52, 52, 0.8102591378348214) 0%,
+      rgba(72, 52, 52, 0.44611347957151615) 31%,
+      rgba(72, 52, 52, 0.8074580173866421) 100%
+    ),
+    url(/images/villas.png) no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1657,9 +1684,9 @@ input:checked + .slider:before {
   z-index: -1;
 }
 
- /*PAYMENTSUMMARY*/
- .paymentsummary {
-  font-family: "Abril Fatface";
+/*PAYMENTSUMMARY*/
+.paymentsummary {
+  font-family: Arial;
   font-size: 17px;
   padding: 20px;
   margin-bottom: 10px;
@@ -1699,13 +1726,14 @@ input:checked + .slider:before {
 }
 
 .containerps {
-  background-color: #F9F2E7;
+  background-color: #f9f2e7;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 8px;
   margin: 0 auto;
   width: 80%;
-  
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 label {
@@ -1717,16 +1745,17 @@ span.price {
   float: right;
   color: grey;
 }
-.refno{
-    text-align: right;
-    margin-right: 165px;
+
+.refno {
+  text-align: right;
+  margin-right: 165px;
 }
 .gcashicon {
   padding: 5px;
   width: 150px;
 }
-.payment-btn{
-background-color: #6b4f4f;
+.payment-btn {
+  background-color: #6b4f4f;
   color: white;
   padding: 12px;
   margin: 10px 0;
@@ -1736,10 +1765,10 @@ background-color: #6b4f4f;
   cursor: pointer;
   font-size: 17px;
 }
-.payment-btn:hover{
-    background-color: #483434;
+.payment-btn:hover {
+  background-color: #483434;
 }
-.headtextps{
+.headtextps {
   text-align: center;
   margin: 0 auto;
 }
