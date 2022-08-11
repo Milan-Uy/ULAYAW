@@ -1647,9 +1647,10 @@ input:checked + .slider:before {
 
  /*PAYMENTSUMMARY*/
  .paymentsummary {
-  font-family: Arial;
+  font-family: "Abril Fatface";
   font-size: 17px;
-  padding: 8px;
+  padding: 20px;
+  margin-bottom: 10px;
 }
 
 * {
@@ -1690,8 +1691,6 @@ input:checked + .slider:before {
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 8px;
-  margin-right: 50px;
-  margin-left: 50px;
   
 }
 
