@@ -1645,6 +1645,18 @@ input:checked + .slider:before {
   filter: grayscale(0%);
 }
 
+.villas-header {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background: linear-gradient(90deg, rgba(72,52,52,0.8102591378348214) 0%, rgba(72,52,52,0.44611347957151615) 31%, rgba(72,52,52,0.8074580173866421) 100%), url(/images/villas.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  z-index: -1;
+}
+
  /*PAYMENTSUMMARY*/
  .paymentsummary {
   font-family: "Abril Fatface";
