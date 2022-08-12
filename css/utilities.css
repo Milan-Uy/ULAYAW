@@ -1644,7 +1644,7 @@ input:checked + .slider:before {
   font-family: "Montserrat";
   font-size: 19px;
   margin-bottom: 10px;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 * {
