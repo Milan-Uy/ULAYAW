@@ -9,8 +9,14 @@
     <link rel="stylesheet" href="css/utilities.css" />
     <title>Payment Summary</title>
 </head>
-<body class="paymentsummary">
+ 
+<body>
+   <!--Navbar-->
+   <section class="display-navbar">
+    <div id="nav-placeholder"></div>
+    </section>  
 
+<section class="paymentsummary">  
 <h2 class="headtextps">PAYMENT SUMMARY</h2>
 <h4 class="refno"> Reference No.: </h4>
 <div class="rowps">
@@ -45,6 +51,13 @@
 
 
 </div>
+</section>
+<script>
+  //Import Navbar
+  $(function(){
+        $("#nav-placeholder").load("navbar.html");
+     });
+</script>
 
 </body>
 </html>

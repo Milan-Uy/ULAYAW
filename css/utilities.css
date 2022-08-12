@@ -1639,8 +1639,8 @@ input:checked + .slider:before {
 }
 /*PAYMENTSUMMARY*/
 .paymentsummary {
-  font-family: Arial;
-  font-size: 17px;
+  font-family: "Montserrat";
+  font-size: 19px;
   margin-bottom: 10px;
 }
 
@@ -1698,7 +1698,7 @@ span.price {
 }
 .gcashicon {
   padding: 5px;
-  width: 150px;
+  width: 250px;
   display: flex;
   justify-content: center;
 }
@@ -1722,9 +1722,11 @@ span.price {
 .headtextps {
   text-align: center;
   margin: 0 auto;
+  padding-bottom: 15px;
+  font-family: 'Cinzel';
 }
 hr {
-  border: 1px solid lightgrey;
+  border: 0.5px solid lightgrey;
   margin-bottom: 18px;
 }
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
