@@ -268,7 +268,7 @@
 .toggle {
   position: absolute;
   top: 15px;
-  right: 0px;
+  left: 0;
   display: none;
 }
 .toggle a {
@@ -308,6 +308,8 @@
   }
   .navbar-img {
     margin-left: 20px;
+    float: none;
+    text-align: center;
   }
   .navbar-container {
     position: relative;
@@ -320,20 +322,21 @@
   }
   .nav-header .navbar {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 65px;
+    left: 0;
     bottom: 0;
-    width: 300px;
+    width: 200px;
     background-color: #f9f2e7;
     z-index: 200;
-    padding-top: 80px;
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+    padding-top: 20px;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
     transition: transform 0.5s ease;
+    justify-content: center;
   }
   .navbar ul {
     padding: 0px;
-    margin-left: 30px;
+    margin-left: 20px;
   }
   .book-btn {
     margin-top: 20px;
@@ -343,8 +346,8 @@
     margin-top: 0px;
   }
   .navbar.open {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
   }
   .navbar ul li {
     display: block;
