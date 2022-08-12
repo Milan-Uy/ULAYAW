@@ -17,6 +17,7 @@
 }
 
 .contact-map {
+  margin-bottom: 2rem;
 }
 
 .contactHead h1 {
@@ -27,8 +28,8 @@
 
 /* Callback form */
 .callback-form {
-  width: 80%;
-  padding: 20px 0;
+  width: 85%;
+  padding: 20px 20px 20px 0px;
 }
 
 .callback-form label {
@@ -81,9 +82,12 @@
   background-color: var(--mainbg-color);
 }
 
-.contact h2 {
+.contact.flex-columns h2 {
   color: var(--heading-color);
   margin-top: 1rem;
+  font-size: 1.8rem;
+  font-weight: 100;
+  font-family: "Montserrat", sans-serif;
 }
 
 .contact-line {
