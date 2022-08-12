@@ -878,7 +878,7 @@ p {
 .v-tab-content-15 {
   border-top: 1px solid #483434;
   padding: 1rem;
-  line-height: 0;
+  line-height: 10px;
   font-size: 12px;
 }
 .v-tab-panel,
@@ -1578,19 +1578,20 @@ input:checked + .slider:before {
 }
 .villa-room-text {
   padding: 5px 20px 70px 20px;
-  line-height: 10px;
+  line-height: 20px;
 }
 .villa-room-text h3 {
   font-size: 50px;
   margin: 5% 0% 5% 2.5%;
-  margin-top: 10%;
+  margin-top: 5%;
+  line-height: 35px;
 }
 .villa-room-text ul {
   list-style-type: none;
   margin: 15px 0;
 }
 .villa-room-text ul li {
-  padding: 7px 0;
+  line-height: 25px;
 }
 .villa-room-text ul li i {
   color: #483434;
@@ -1632,6 +1633,7 @@ input:checked + .slider:before {
   }
   .villa-room-text {
     flex: 1;
+    line-height: 20px;
   }
   .villa-room:nth-child(even) {
     flex-direction: row-reverse;
