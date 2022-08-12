@@ -5,6 +5,9 @@
 
 :root {
   --mainbg-color: #f9f2e7;
+  --txt-field-color: #333;
+  --heading-color: #6b4f4f;
+  --main-btn-color: #1b5b65;
 }
 
 * {
@@ -105,7 +108,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 30px;
+  padding: 1.5rem;
 }
 
 .flex-columns h2 {
@@ -268,7 +271,7 @@
 .toggle {
   position: absolute;
   top: 15px;
-  right: 0px;
+  left: 0;
   display: none;
 }
 .toggle a {
@@ -308,6 +311,8 @@
   }
   .navbar-img {
     margin-left: 20px;
+    float: none;
+    text-align: center;
   }
   .navbar-container {
     position: relative;
@@ -320,20 +325,21 @@
   }
   .nav-header .navbar {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 65px;
+    left: 0;
     bottom: 0;
-    width: 300px;
+    width: 200px;
     background-color: #f9f2e7;
     z-index: 200;
-    padding-top: 80px;
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+    padding-top: 20px;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
     transition: transform 0.5s ease;
+    justify-content: center;
   }
   .navbar ul {
     padding: 0px;
-    margin-left: 30px;
+    margin-left: 20px;
   }
   .book-btn {
     margin-top: 20px;
@@ -343,8 +349,8 @@
     margin-top: 0px;
   }
   .navbar.open {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
   }
   .navbar ul li {
     display: block;
@@ -352,64 +358,19 @@
   }
 }
 
-/*Contact*/
-
-.contact {
-  background-color: var(--mainbg-color);
-}
-
-.contact-line {
-  width: 90%;
-  margin: 0 auto;
-  border: none;
-  height: 1px;
-  background-color: #333;
-}
-
-.contact-header {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  text-align: center;
-  min-height: 80vh;
-  color: #ffffff;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding-left: 100px;
-  background: rgba(45, 20, 0, 0.5);
-  font-weight: 800;
-  font-size: 50px;
-  line-height: 75px;
-}
-
-.contact-header::before {
-  content: "";
-  background: url(/images/contact-bg.JPG) no-repeat center center/cover;
-  position: absolute;
-  top: -20%;
-  left: 0;
-  width: 100%;
-  height: 110%;
-  z-index: -1;
-  opacity: 0.9;
-}
-
-.contact-brush {
-  margin-top: -100px;
-  overflow: hidden;
-}
-
 /* Flex items */
 .flex-items {
   display: flex;
   text-align: left;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   flex-direction: row;
   min-height: 100%;
+  padding: 1.5rem;
 }
 
 .flex-items > div {
-  padding: 20px;
+  padding: 1rem 1rem 1rem 0;
   flex-basis: calc(50% - 40px);
   justify-content: center;
   flex-direction: column;
@@ -581,7 +542,7 @@
 * {
   box-sizing: border-box;
 }
-.moments-header{
+.moments-header {
   display: flex;
   align-items: center;
   min-height: 50vh;
@@ -939,7 +900,6 @@ p {
 #tab-15:checked ~ .v-tab-content-5 #v-tab-panel-15 {
   display: block;
 }
-
 
 .v-tag {
   background-color: #ccc;
@@ -1936,7 +1896,7 @@ hr {
     display: inline-block;
   }
   .check-flex-item-m input {
-    margin-left: 40px
+    margin-left: 40px;
   }
   .check-flex-item-sm {
     margin-top: 10px;
@@ -1977,38 +1937,38 @@ hr {
 /*.blog-card:hover .photo {
 transform: scale(1) rotate(1deg);
 }*/
-.photo{
-	position: relative;
+.photo {
+  position: relative;
 }
 .photo::before {
-	position: absolute;
-	top: 0;
-	left: -75%;
-	z-index: 2;
-	display: block;
-	content: '';
-	width: 50%;
-	height: 100%;
-	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.1) 100%);
-	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.1) 100%);
-	-webkit-transform: skewX(-25deg);
-	transform: skewX(-25deg);
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
 }
 .photo:hover::before {
-	-webkit-animation: shine .75s;
-	animation: shine .75s;
+  -webkit-animation: shine 0.75s;
+  animation: shine 0.75s;
 }
 @-webkit-keyframes shine {
-	100% {
-		left: 125%;
-	}
+  100% {
+    left: 125%;
+  }
 }
 @keyframes shine {
-	100% {
-		left: 125%;
-	}
+  100% {
+    left: 125%;
+  }
 }
-.blog-card .room-pic{
+.blog-card .room-pic {
   position: relative;
   z-index: 0;
   height: 200px;
@@ -2047,13 +2007,13 @@ transform: scale(1) rotate(1deg);
 .blog-card .room-desc.room-links {
   text-align: right;
 }
-.blog-card .room-desc .room-links{
+.blog-card .room-desc .room-links {
   display: inline-block;
   position: relative;
   margin-top: 100px;
   width: 100%;
 }
-.room-desc .room-links .read-more{
+.room-desc .room-links .read-more {
   color: #1b5b6b;
   text-decoration: none;
   font-weight: bold;
@@ -2061,12 +2021,12 @@ transform: scale(1) rotate(1deg);
 .room-desc .room-links .read-more:hover {
   color: #023b4b;
 }
-.room-desc .room-links .book-btn{
-    font-weight: 500;
-}   
+.room-desc .room-links .book-btn {
+  font-weight: 500;
+}
 .room-desc .room-links span {
-    margin-top: -10px;
-    float: right;
+  margin-top: -10px;
+  float: right;
 }
 .blog-card p {
   position: relative;
@@ -2077,7 +2037,7 @@ transform: scale(1) rotate(1deg);
   margin: 0px;
   color: #6b4f4f;
 }
-.per-night{
+.per-night {
   float: right;
   margin: 0px;
   color: #6b4f4f;
@@ -2097,7 +2057,7 @@ transform: scale(1) rotate(1deg);
     flex-direction: row;
     max-width: 1000px;
   }
-  .blog-card .room-pic{
+  .blog-card .room-pic {
     flex-basis: 40%;
     height: auto;
   }
@@ -2113,21 +2073,20 @@ transform: scale(1) rotate(1deg);
   }
 }
 @media (max-width: 640px) {
-    .blog-card {
-        width: 80%;
-        margin-top: 50px;
-    }
-    .blog-card .room-desc .room-links{
-        margin-top: 50px;
-    }
-    .room-desc .room-links span {
-        margin-top: -30px;
-    }
-    .blog-card .room-desc h1 {
-        font-size: 20px;
-    }
-    .room-desc .room-links .read-more{
-        font-size: 12px;
-    }
-    
+  .blog-card {
+    width: 80%;
+    margin-top: 50px;
+  }
+  .blog-card .room-desc .room-links {
+    margin-top: 50px;
+  }
+  .room-desc .room-links span {
+    margin-top: -30px;
+  }
+  .blog-card .room-desc h1 {
+    font-size: 20px;
+  }
+  .room-desc .room-links .read-more {
+    font-size: 12px;
+  }
 }

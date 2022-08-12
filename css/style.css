@@ -1,5 +1,8 @@
 :root {
   --mainbg-color: #f9f2e7;
+  --txt-field-color: #333;
+  --heading-color: #6b4f4f;
+  --main-btn-color: #1b5b65;
 }
 
 /* Contact */
@@ -11,6 +14,9 @@
 .contact {
   padding-top: 5rem;
   margin-top: -3rem;
+}
+
+.contact-map {
 }
 
 .contactHead h1 {
@@ -49,15 +55,73 @@
 }
 
 .callback-form textarea:focus {
-  outline-color: #28a745;
+  outline-color: var(--txt-field-color);
 }
 
 .callback-form input:focus {
-  outline-color: #28a745;
+  outline-color: var(--txt-field-color);
 }
 
 .callback-form .btn {
-  padding: auto;
+  /* padding: auto;
   margin-top: 15px;
-  height: 40px;
+  height: 40px; */
+  cursor: pointer;
+  padding: 10px 25px;
+  color: #f9f2e7;
+  background-color: var(--main-btn-color);
+  border: none;
+  border-radius: 5px;
+  float: right;
+}
+
+/*Contact*/
+
+.contact {
+  background-color: var(--mainbg-color);
+}
+
+.contact h2 {
+  color: var(--heading-color);
+  margin-top: 1rem;
+}
+
+.contact-line {
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  height: 1px;
+  background-color: #333;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 100px;
+  background: rgba(45, 20, 0, 0.5);
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 75px;
+}
+
+.contact-header::before {
+  content: "";
+  background: url(/images/contact-bg.JPG) no-repeat center center/cover;
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.contact-brush {
+  margin-top: -100px;
+  overflow: hidden;
 }
