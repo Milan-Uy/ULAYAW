@@ -1701,7 +1701,7 @@ span.price {
 }
 .gcashicon {
   padding: 5px;
-  width: 250px;
+  width: 200px;
   display: flex;
   justify-content: center;
 }
@@ -1714,10 +1714,11 @@ span.price {
   width: 250px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Montserrat';
 }
 .payment-btn:hover {
   background-color: #483434;
