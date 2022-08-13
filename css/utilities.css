@@ -2143,3 +2143,227 @@ transform: scale(1) rotate(1deg);
     font-size: 12px;
   }
 }
+
+
+/*Upload Moment*/
+.moment-form {
+  padding: 4rem 0;
+  margin: 0 auto;
+  box-sizing: border-box !important;
+  position: relative;
+}
+.moment-form label {
+  user-select: none;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: -4px ;
+}
+.sr-only, [type="checkbox"] {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.form-control.checkbox-wrapper {
+  position: relative;
+  justify-content: center;
+}
+.form-control.checkbox-wrapper input:checked + label::before {
+  background: url("https://www.a11ymatters.com/assets/images/patterns/checkbox/checkmark.svg") center/12px no-repeat;
+}
+.form-control.checkbox-wrapper input:focus:not(:focus-visible) {
+  outline: none;
+}
+.form-control.checkbox-wrapper input:checked + label::before,
+.form-control.checkbox-wrapper input:checked + .moment-form a::before  {
+  background: var(--main-btn-color);
+  border-color:var(--main-btn-color);
+}
+.form-control.checkbox-wrapper input:checked + label .path {
+  stroke: #fff;
+  stroke-dashoffset: 0;
+}
+.form-control.checkbox-wrapper svg input:checked + label::before,
+.form-control.checkbox-wrapper svg input:checked + .moment-form a::before {
+  background: var(--main-btn-color);
+  border-color: var(--main-btn-color);
+}
+.form-control.checkbox-wrapper svg input:checked + label .path {
+  stroke: #fff;
+  stroke-dashoffset: 0;
+}
+.form-control.checkbox-wrapper label {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0;
+  line-height: 1.5;
+  transition: all 0.1s;
+  padding-left: 40px;
+}
+.form-control.checkbox-wrapper label::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c5c5c5;
+  border-radius: 4px;
+  margin: 1px 8px;
+  vertical-align: baseline;
+}
+.moment-form a:hover {
+  color: var(--main-btn-color);
+}
+.form-control.checkbox-wrapper label::before,
+.moment-form a::before {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  transition: all 0.35s ease-out;
+}
+.form-control.checkbox-wrapper label svg {
+  position: absolute;
+  left: 13px;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+}
+.form-control.checkbox-wrapper label .path {
+  stroke-dashoffset: 111.46px;
+  stroke-dasharray: 111.46px;
+  stroke: var(--main-btn-color);
+  transition: all 0.1s ease-out;
+  }
+[type="checkbox"] {
+  appearance: none;
+}
+.moment-form a{
+  text-decoration: underline;
+  color:var(--txt-field-color);
+}
+.moment-form form{
+  border: none;
+}
+.moments-box{
+  background-color: var(--mainbg-color);
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.moment-desc textarea{
+  resize: none;
+  overflow-y: scroll;
+  height: 180px;
+  border-radius: 2px;
+  border: 1px solid var(--heading-color);
+  font-family: "Montserrat";
+  color:var(--txt-field-color);
+}
+.moment-desc textarea:focus{
+  outline: none;
+  border: 2px solid var(--heading-color);
+}
+.moment-btns{
+  margin: 10px 0px 80px 0px;
+}
+.mpost-btn {
+  margin-top: 50px;
+  float: right;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: var(--main-btn-color);
+  display: inline-block; 
+}
+.post-btn{
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  background: var(--main-btn-color);
+  align-items: center;
+  padding: 4px;
+ 
+}
+.bounce-in-on-hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.bounce-in-on-hover:hover,
+.bounce-in-on-hover:focus,
+.bounce-in-on-hover:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  box-shadow: 0 0 8px 4px rgba(27, 91, 101, 0.25) inset, 0 0 8px 4px rgba(27, 91, 101, 0.25);
+}
+.moment-photo{
+  float: left;
+
+}
+.upload-container {
+  padding: 2px;
+  border-radius: 10px;
+  position: absolute;
+}
+.drop-area {
+  background: #eee;
+  max-width: 80px;
+  width: 100%;
+  height: 80px;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  color: #999;
+  cursor: pointer;
+  border: 2px dashed var(--txt-field-color);
+  position: relative;
+  overflow: hidden;
+}
+.image-txt {
+  font-size: 8px;
+  font-weight: 500;
+}
+.drop-area p span {
+  font-weight: 600;
+}
+.thumbnail, .img-name {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.thumbnail {
+  object-fit: cover;
+  z-index: 100;
+}
+.img-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 16px;
+  background: rgba(0, 0, 0, .5);
+  z-index: 200;
+  opacity: 0;
+  transition: all .3s ease;
+}
+.drop-area:hover .img-name {
+  opacity: 1;
+}

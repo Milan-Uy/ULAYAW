@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="css/style.css" />
       <link rel="stylesheet" href="css/utilities.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
       <title>Profile</title>
    </head>
@@ -118,22 +119,46 @@
                   <!--Upload Moment Tab-->
                   <h4 class="tab-accordion-title" rel="tabThree">Upload a Moment</h4>
                   <div id="tabThree" class="tab-item">
-                     <h5>Tab 3 content</h5>
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-                        quos dolorum mollitia magnam tempore nulla aliquam delectus
-                        molestias quia distinctio nesciunt soluta expedita fugit
-                        possimus ad labore? Obcaecati molestias aperiam exercitationem
-                        expedita provident numquam tempora nulla, beatae ab modi,
-                        molestiae, eius iure odio dolorum recusandae est. Distinctio a
-                        possimus placeat dolore iste animi aspernatur. Eius ea
-                        doloremque blanditiis, esse dolores sit ipsa molestiae expedita
-                        accusamus eos, labore ipsam iste ducimus optio itaque provident
-                        voluptate reprehenderit libero cum atque in porro. Iste, nihil?
-                        Ea temporibus tempore optio quis autem soluta voluptate.
-                        Doloribus perspiciatis impedit iure neque, hic exercitationem
-                        voluptates laudantium accusamus?
-                     </p>
+                     <h5>Upload a Moment</h5>
+                        <div class="moment-form">
+                           <form action="#">
+                                 <div class="form-control checkbox-wrapper">
+                                    <input type="checkbox" name="checkbox" id="checkbox" value="checkbox one value">
+                                    <label for="checkbox">
+                                       <svg viewBox="0 0 100 100">
+                                          <path class="path" fill="none" stroke="#000" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M12.1 52.1l24.4 24.4 53-53" />
+                                       </svg>
+                                       I agree to <a href="#" >Hulo Leisure Farm's Moment Policy </a>
+                                    </label>
+                                 </div>
+                                 <div class="moments-box">
+                                    <form class="moment-details">
+                                       <div class="moment-desc">
+                                          <textarea id="moment-txt" name="moment-txt" placeholder="Write your moment here..."></textarea>
+                                       </div>
+                                       <div class="moment-btns">
+                                          <div class="moment-photo">
+                                             <div class="upload-container">
+                                                <div class="drop-area">
+                                                   <i class="material-symbols-outlined">cloud_upload </i>
+                                                   <h6 class="image-txt">Image size must be less than <span>2MB</span></h6>
+                                                   <input type="file" accept="image/*" id="input-file" hidden>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="mpost-btn bounce-in-on-hover">
+                                                <button class="post-btn" onclick="">POST</button>
+                                          </div>
+                                       </div>
+                                    </form>
+                                 </div>
+                           </form>
+
+                        </div>
+                     
+
+
+
                   </div>
                   <!--Customer Satisfaction Tab-->
                   <h4 class="tab-accordion-title" rel="tabFour">
@@ -252,6 +277,122 @@
          'filter': 'grayscale(0%)'
          });
          });
+
+         //upload pic
+         const dropArea = document.querySelector('.drop-area');
+         const inputFile = document.getElementById('input-file');
+
+         dropArea.addEventListener('click', function () {
+            inputFile.click()
+         })
+
+         inputFile.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if(file.type.startsWith('image/')) {
+               if(file.size < 2000000) {
+                  create_thumbnail(file);
+               } else {
+                  alert('Image size must be less than 2MB');
+               }
+            } else {
+               alert('Must be image');
+            }
+         })
+
+
+         dropArea.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            this.style.borderStyle = 'solid';
+
+            const h3 = this.querySelector('h3');
+            h3.textContent = 'Release here to upload image';
+         })
+
+
+
+         dropArea.addEventListener('drop', function (e) {
+            e.preventDefault();
+
+            inputFile.files = e.dataTransfer.files;
+            const file = e.dataTransfer.files[0];
+
+            if(file.type.startsWith('image/')) {
+               if(file.size < 2000000) {
+                  create_thumbnail(file);
+               } else {
+                  alert('Image size must be less than 2MB');
+               }
+            } else {
+               alert('Must be image');
+            }
+         })
+
+
+
+         const command = ['dragleave', 'dragend']
+
+         command.forEach(item=> {
+            dropArea.addEventListener(item, function () {
+               this.style.borderStyle = 'dashed';
+
+               const h3 = this.querySelector('h3');
+               h3.textContent = 'Drag and drop or click here to select image';
+            })
+         })
+
+
+         function create_thumbnail(file) {
+            const img = document.querySelectorAll('.thumbnail');
+            const imgName = document.querySelectorAll('.img-name');
+            img.forEach(item=> item.remove());
+            imgName.forEach(item=> item.remove());
+
+            const reader = new FileReader();
+            reader.onload = ()=> {
+               const url = reader.result;
+               const img = document.createElement('img');
+               img.src = url;
+               img.className = 'thumbnail'
+               const span = document.createElement('span');
+               span.className = 'img-name';
+               span.textContent = file.name;
+               dropArea.appendChild(img);
+               dropArea.appendChild(span);
+               dropArea.style.borderColor = 'transparent';
+            }
+            reader.readAsDataURL(file);
+         }
+
+
+
+
+
+
+         var btnUpload = $("#upload_file"),
+         btnOuter = $(".button_outer");
+      btnUpload.on("change", function(e){
+         var ext = btnUpload.val().split('.').pop().toLowerCase();
+         if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+            $(".error_msg").text("Not an Image...");
+         } else {
+            $(".error_msg").text("");
+            btnOuter.addClass("file_uploading");
+            setTimeout(function(){
+               btnOuter.addClass("file_uploaded");
+            },3000);
+            var uploadedFile = URL.createObjectURL(e.target.files[0]);
+            setTimeout(function(){
+               $("#uploaded_view").append('<img src="'+uploadedFile+'" />').addClass("show");
+            },3500);
+         }
+      });
+      $(".file_remove").on("click", function(e){
+         $("#uploaded_view").removeClass("show");
+         $("#uploaded_view").find("img").remove();
+         btnOuter.removeClass("file_uploading");
+         btnOuter.removeClass("file_uploaded");
+      });
       </script>
    </body>
 </html>
