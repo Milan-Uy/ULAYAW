@@ -7,7 +7,7 @@
 
 /* Callback form */
 .callback-form {
-  width: 85%;
+  width: 100%;
   padding: 20px 20px 20px 0px;
 }
 
@@ -138,4 +138,11 @@
 .contact-brush {
   margin-top: -100px;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-header {
+    padding: 0px;
+    justify-content: center;
+  }
 }

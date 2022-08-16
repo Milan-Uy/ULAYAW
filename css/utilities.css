@@ -55,78 +55,6 @@
   border: 1px solid #fff;
 }
 
-/* Flex columns */
-
-.small {
-  width: 40%;
-}
-
-.big {
-  width: 60%;
-}
-
-.flex-columns.flex-reverse .row {
-  flex-direction: row-reverse;
-}
-
-.flex-columns .row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.flex-columns .column {
-  display: flex;
-  flex-direction: row;
-  /* flex-direction: column; */
-  /* flex-basis: 100%;
-  flex: 1; */
-}
-
-.flex-columns .column .column-1,
-.flex-columns .column .column-2 {
-  height: 100%;
-}
-
-.flex-columns .column-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* justify-content: center; */
-  padding-left: 75px;
-}
-
-/* .flex-columns img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-.flex-columns .column-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 30px 0px 30px 30px;
-}
-
-.flex-columns h2 {
-  color: var(--heading-color);
-  margin-top: 1rem;
-  font-size: 1.8rem;
-  font-weight: 100;
-  font-family: "Montserrat", sans-serif;
-}
-
-.flex-columns h4 {
-  margin-bottom: 10px;
-}
-
-.flex-columns p {
-  margin: 20px 0;
-}
-
 /*navbar*/
 .display-navbar {
   height: 70px;
@@ -360,6 +288,78 @@
 
 /*Contact*/
 
+/* Flex columns */
+
+.small {
+  width: 40%;
+}
+
+.big {
+  width: 60%;
+}
+
+.flex-columns.flex-reverse .row {
+  flex-direction: row-reverse;
+}
+
+.flex-columns .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.flex-columns .column {
+  display: flex;
+  flex-direction: row;
+  /* flex-direction: column; */
+  /* flex-basis: 100%;
+  flex: 1; */
+}
+
+.flex-columns .column .column-1,
+.flex-columns .column .column-2 {
+  height: 100%;
+}
+
+.flex-columns .column-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* justify-content: center; */
+  padding-left: 75px;
+}
+
+/* .flex-columns img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.flex-columns .column-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px 0px 30px 30px;
+}
+
+.flex-columns h2 {
+  color: var(--heading-color);
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  font-weight: 100;
+  font-family: "Montserrat", sans-serif;
+}
+
+.flex-columns h4 {
+  margin-bottom: 10px;
+}
+
+.flex-columns p {
+  margin: 20px 0;
+}
+
 /* Flex items */
 .flex-items {
   display: flex;
@@ -380,7 +380,12 @@
   flex-direction: column;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
+  .column-1 {
+    justify-content: center;
+    padding: 0px;
+  }
+
   .flex-items {
     flex-direction: column;
     flex-wrap: nowrap;
