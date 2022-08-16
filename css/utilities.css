@@ -330,12 +330,6 @@
   padding-left: 75px;
 }
 
-/* .flex-columns img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
 .flex-columns .column-2 {
   display: flex;
   flex-direction: column;
@@ -374,14 +368,17 @@
 
 .flex-items > div {
   padding: 30px 0px 30px 30px;
-  /* max-width: 50%; */
   flex-basis: calc(50% - 45px);
   justify-content: center;
   flex-direction: column;
 }
 
 @media only screen and (max-width: 768px) {
-  .column-1 {
+  .flex-columns .column-1 {
+    padding: 0px;
+  }
+
+  .column.small {
     justify-content: center;
     padding: 0px;
   }
