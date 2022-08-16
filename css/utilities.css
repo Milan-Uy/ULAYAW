@@ -374,6 +374,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .flex-columns .column-2 {
+    padding: 30px;
+  }
+
+  .flex-items > div {
+    padding: 30px 20px 30px 30px;
+  }
+
   .flex-columns .column-1 {
     padding: 0px;
   }
@@ -381,6 +389,10 @@
   .column.small {
     justify-content: center;
     padding: 0px;
+  }
+
+  .column-2 h3 {
+    text-align: justify;
   }
 
   .flex-items {
