@@ -429,6 +429,12 @@
     flex-direction: column;
     flex-wrap: nowrap;
   }
+
+  .flex-columns .column,
+  .flex-grid .column {
+    flex: 100%;
+    max-width: 100%;
+  }
 }
 
 /*FAQs*/
@@ -968,7 +974,7 @@ p {
   margin: 0;
   padding: 2px 10px;
   text-transform: uppercase;
-  background-color: #BA9CA9;
+  background-color: #ba9ca9;
 }
 
 .villas-header {
@@ -1736,7 +1742,7 @@ span.price {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 .payment-btn:hover {
   background-color: #483434;
@@ -2155,7 +2161,6 @@ transform: scale(1) rotate(1deg);
   }
 }
 
-
 /*Upload Moment*/
 .moment-form {
   padding: 4rem 0;
@@ -2167,9 +2172,10 @@ transform: scale(1) rotate(1deg);
   user-select: none;
   font-weight: 500;
   font-size: 14px;
-  margin-bottom: -4px ;
+  margin-bottom: -4px;
 }
-.sr-only, [type="checkbox"] {
+.sr-only,
+[type="checkbox"] {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
   padding: 0;
@@ -2189,9 +2195,9 @@ transform: scale(1) rotate(1deg);
   outline: none;
 }
 .form-control.checkbox-wrapper input:checked + label::before,
-.form-control.checkbox-wrapper input:checked + .moment-form a::before  {
+.form-control.checkbox-wrapper input:checked + .moment-form a::before {
   background: var(--main-btn-color);
-  border-color:var(--main-btn-color);
+  border-color: var(--main-btn-color);
 }
 .form-control.checkbox-wrapper input:checked + label .path {
   stroke: #fff;
@@ -2250,37 +2256,37 @@ transform: scale(1) rotate(1deg);
   stroke-dasharray: 111.46px;
   stroke: var(--main-btn-color);
   transition: all 0.1s ease-out;
-  }
+}
 [type="checkbox"] {
   appearance: none;
 }
-.moment-form a{
+.moment-form a {
   text-decoration: underline;
-  color:var(--txt-field-color);
+  color: var(--txt-field-color);
 }
-.moment-form form{
+.moment-form form {
   border: none;
 }
-.moments-box{
+.moments-box {
   background-color: var(--mainbg-color);
   padding: 30px;
   border-radius: 10px;
   margin-top: 20px;
 }
-.moment-desc textarea{
+.moment-desc textarea {
   resize: none;
   overflow-y: scroll;
   height: 180px;
   border-radius: 2px;
   border: 1px solid var(--heading-color);
   font-family: "Montserrat";
-  color:var(--txt-field-color);
+  color: var(--txt-field-color);
 }
-.moment-desc textarea:focus{
+.moment-desc textarea:focus {
   outline: none;
   border: 2px solid var(--heading-color);
 }
-.moment-btns{
+.moment-btns {
   margin: 10px 0px 80px 0px;
 }
 .mpost-btn {
@@ -2289,9 +2295,9 @@ transform: scale(1) rotate(1deg);
   padding: 4px 10px;
   border-radius: 5px;
   background: var(--main-btn-color);
-  display: inline-block; 
+  display: inline-block;
 }
-.post-btn{
+.post-btn {
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
@@ -2301,7 +2307,6 @@ transform: scale(1) rotate(1deg);
   background: var(--main-btn-color);
   align-items: center;
   padding: 4px;
- 
 }
 .bounce-in-on-hover {
   display: inline-block;
@@ -2321,9 +2326,8 @@ transform: scale(1) rotate(1deg);
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
   box-shadow: 0 0 8px 4px rgba(27, 91, 101, 0.25) inset, 0 0 8px 4px rgba(27, 91, 101, 0.25);
 }
-.moment-photo{
+.moment-photo {
   float: left;
-
 }
 .upload-container {
   padding: 2px;
@@ -2351,7 +2355,8 @@ transform: scale(1) rotate(1deg);
 .drop-area p span {
   font-weight: 600;
 }
-.thumbnail, .img-name {
+.thumbnail,
+.img-name {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -2370,10 +2375,10 @@ transform: scale(1) rotate(1deg);
   font-size: 10px;
   font-weight: 500;
   padding: 16px;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 200;
   opacity: 0;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .drop-area:hover .img-name {
   opacity: 1;
@@ -2381,17 +2386,17 @@ transform: scale(1) rotate(1deg);
 
 /* admin login */
 
-.al-container{
+.al-container {
   position: relative;
   max-width: 850px;
   width: 100%;
   background: #fff;
   padding: 40px 30px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   perspective: 2700px;
   border-radius: 10px;
-  }
-  .al-container .al-cover{
+}
+.al-container .al-cover {
   position: absolute;
   top: 0;
   left: 50%;
@@ -2401,9 +2406,9 @@ transform: scale(1) rotate(1deg);
   transition: all 1s ease;
   transform-origin: left;
   transform-style: preserve-3d;
-  }
-  .al-container .al-cover::before{
-  content: '';
+}
+.al-container .al-cover::before {
+  content: "";
   position: absolute;
   height: 100%;
   width: 100%;
@@ -2411,55 +2416,55 @@ transform: scale(1) rotate(1deg);
   opacity: 0.5;
   z-index: 12;
   border-radius: 0px 10px 10px 0px;
-  }
-  .al-container .al-cover img{
+}
+.al-container .al-cover img {
   position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
   z-index: 10;
   border-radius: 0px 10px 10px 0px;
-  }
-  .al-container .al-forms{
+}
+.al-container .al-forms {
   height: 100%;
   width: 100%;
   background: #fff;
-  }
-  .al-container .al-form-content{
+}
+.al-container .al-form-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  }
-  .al-form-content .alogin-form{
+}
+.al-form-content .alogin-form {
   width: calc(100% / 2 - 25px);
-  }
-  .al-forms .al-form-content .al-title{
+}
+.al-forms .al-form-content .al-title {
   position: relative;
   font-size: 24px;
   font-weight: 500;
   color: #483434;
-  }
-  .al-forms .al-form-content .al-title:before{
-  content: '';
+}
+.al-forms .al-form-content .al-title:before {
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   height: 3px;
   width: 25px;
   background: #6b4f4f;
-  }
-  .al-forms .al-form-content .al-input-boxes{
+}
+.al-forms .al-form-content .al-input-boxes {
   margin-top: 30px;
-  }
-  .al-forms .al-form-content .al-input-box{
+}
+.al-forms .al-form-content .al-input-box {
   display: flex;
   align-items: center;
   height: 50px;
   width: 100%;
   margin: 10px 0;
   position: relative;
-  }
-  .al-form-content .al-input-box input{
+}
+.al-form-content .al-input-box input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -2467,123 +2472,126 @@ transform: scale(1) rotate(1deg);
   padding: 0 30px;
   font-size: 16px;
   font-weight: 500;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  }
-  .al-form-content .al-input-box input:focus,
-  .al-form-content .al-input-box input:valid{
+}
+.al-form-content .al-input-box input:focus,
+.al-form-content .al-input-box input:valid {
   border-color: #6b4f4f;
-  }
-  .al-form-content .al-input-box i{
+}
+.al-form-content .al-input-box i {
   position: absolute;
   color: #6b4f4f;
   font-size: 17px;
-  }
-  .al-forms .al-form-content .text{
+}
+.al-forms .al-form-content .text {
   font-size: 14px;
   font-weight: 500;
   color: #333;
-  }
-  .al-forms .al-form-content .text a{
+}
+.al-forms .al-form-content .text a {
   text-decoration: none;
-  }
-  .al-forms .al-form-content .text a:hover{
+}
+.al-forms .al-form-content .text a:hover {
   text-decoration: underline;
-  }
-  .al-forms .al-form-content .button{
+}
+.al-forms .al-form-content .button {
   color: #fff;
   margin-top: 40px;
-  }
-  .al-forms .al-form-content .button input{
+}
+.al-forms .al-form-content .button input {
   color: #fff;
   background: #6b4f4f;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
   transition: all 0.4s ease;
-  }
-  .al-forms .al-form-content .button input:hover{
+}
+.al-forms .al-form-content .button input:hover {
   background: #483434;
-  }
-  .al-forms .al-form-content label{
+}
+.al-forms .al-form-content label {
   color: #483434;
   cursor: pointer;
-  }
-  .al-forms .al-form-content label:hover{
+}
+.al-forms .al-form-content label:hover {
   text-decoration: underline;
-  }
-  .al-forms .al-form-content .login-text,
-  .al-forms .al-form-content .sign-up-text{
+}
+.al-forms .al-form-content .login-text,
+.al-forms .al-form-content .sign-up-text {
   text-align: center;
   margin-top: 25px;
-  }
-  @media (max-width: 730px) {
-  .al-container .al-cover{
-  display: none;
+}
+@media (max-width: 730px) {
+  .al-container .al-cover {
+    display: none;
   }
   .al-form-content .alogin-form,
-  .al-form-content .signup-form{
-  width: 100%;
+  .al-form-content .signup-form {
+    width: 100%;
   }
-  .al-form-content .signup-form{
-  display: none;
+  .al-form-content .signup-form {
+    display: none;
   }
-  }
-  .al-title{
+}
+.al-title {
   position: relative;
   font-size: 35px;
   font-weight: 600;
   font-family: "Abril Fatface";
   color: #483434;
-  }
+}
 
-  .al-body{
-    min-height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f9f2e7;
-    padding: 30px;
-  }
+.al-body {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f2e7;
+  padding: 30px;
+}
 
-  .al-logobod {
-    background: #f9f2e7;
-  }
+.al-logobod {
+  background: #f9f2e7;
+}
 
-  .al-logobod img {
-    background: #f9f2e7;
-    width: 200px;
-    height: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: -11%;
-    margin-top: 3%;
-  }
+.al-logobod img {
+  background: #f9f2e7;
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -11%;
+  margin-top: 3%;
+}
 
-  /* Booking Status*/
+/* Booking Status*/
 
-  table, td, th {  
-    border: 1px solid #ddd;
-    text-align: left;
-    margin-top: 40px;
-    overflow-x: auto;
-    border-collapse: collapse;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    padding: 15px;
-  }
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+  margin-top: 40px;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
 
-  th{
-    background-color: #6B4F4F;
-    color: #F9F2E7;
-  }
-  tbody{
-    background-color: #F9F2E7;
-  }
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+th {
+  background-color: #6b4f4f;
+  color: #f9f2e7;
+}
+tbody {
+  background-color: #f9f2e7;
+}
