@@ -2560,3 +2560,30 @@ transform: scale(1) rotate(1deg);
     margin-bottom: -11%;
     margin-top: 3%;
   }
+
+  /* Booking Status*/
+
+  table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+    margin-top: 30px;
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }
+
+  th{
+    background-color: #6B4F4F;
+    color: #F9F2E7;
+  }
+  tbody{
+    background-color: #F9F2E7;
+  }
