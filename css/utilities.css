@@ -2378,3 +2378,185 @@ transform: scale(1) rotate(1deg);
 .drop-area:hover .img-name {
   opacity: 1;
 }
+
+/* admin login */
+
+.al-container{
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  background: #fff;
+  padding: 40px 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  perspective: 2700px;
+  border-radius: 10px;
+  }
+  .al-container .al-cover{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  }
+  .al-container .al-cover::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #6b4f4f;
+  opacity: 0.5;
+  z-index: 12;
+  border-radius: 0px 10px 10px 0px;
+  }
+  .al-container .al-cover img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 10;
+  border-radius: 0px 10px 10px 0px;
+  }
+  .al-container .al-forms{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  }
+  .al-container .al-form-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  }
+  .al-form-content .alogin-form{
+  width: calc(100% / 2 - 25px);
+  }
+  .al-forms .al-form-content .al-title{
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: #483434;
+  }
+  .al-forms .al-form-content .al-title:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 25px;
+  background: #6b4f4f;
+  }
+  .al-forms .al-form-content .al-input-boxes{
+  margin-top: 30px;
+  }
+  .al-forms .al-form-content .al-input-box{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+  }
+  .al-form-content .al-input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  }
+  .al-form-content .al-input-box input:focus,
+  .al-form-content .al-input-box input:valid{
+  border-color: #6b4f4f;
+  }
+  .al-form-content .al-input-box i{
+  position: absolute;
+  color: #6b4f4f;
+  font-size: 17px;
+  }
+  .al-forms .al-form-content .text{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  }
+  .al-forms .al-form-content .text a{
+  text-decoration: none;
+  }
+  .al-forms .al-form-content .text a:hover{
+  text-decoration: underline;
+  }
+  .al-forms .al-form-content .button{
+  color: #fff;
+  margin-top: 40px;
+  }
+  .al-forms .al-form-content .button input{
+  color: #fff;
+  background: #6b4f4f;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  }
+  .al-forms .al-form-content .button input:hover{
+  background: #483434;
+  }
+  .al-forms .al-form-content label{
+  color: #483434;
+  cursor: pointer;
+  }
+  .al-forms .al-form-content label:hover{
+  text-decoration: underline;
+  }
+  .al-forms .al-form-content .login-text,
+  .al-forms .al-form-content .sign-up-text{
+  text-align: center;
+  margin-top: 25px;
+  }
+  @media (max-width: 730px) {
+  .al-container .al-cover{
+  display: none;
+  }
+  .al-form-content .alogin-form,
+  .al-form-content .signup-form{
+  width: 100%;
+  }
+  .al-form-content .signup-form{
+  display: none;
+  }
+  }
+  .al-title{
+  position: relative;
+  font-size: 35px;
+  font-weight: 600;
+  font-family: "Abril Fatface";
+  color: #483434;
+  }
+
+  .al-body{
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f2e7;
+    padding: 30px;
+  }
+
+  .al-logobod {
+    background: #f9f2e7;
+  }
+
+  .al-logobod img {
+    background: #f9f2e7;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -11%;
+    margin-top: 3%;
+  }
