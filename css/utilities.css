@@ -440,6 +440,9 @@
   opacity: 0.9;
 }
 
+.villabody {
+  margin-bottom: 100px;
+}
 .faqs-header h1,
 .villas-header h1,
 .moments-header h1 {
@@ -1335,9 +1338,6 @@ input:checked + .slider:before {
 }
 
 /**new login reg **/
-input[type="checkbox"] {
-  appearance: checkbox !important;
-}
 .noaccount {
   margin-left: 50px;
 }
@@ -1347,6 +1347,11 @@ input[type="checkbox"] {
 }
 .signup-link, .login-link{
   margin-left: 10px;
+}
+.logform .log-r-haveacc {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
 }
 .log-body {
   background-image: url("/images/Login.png");
