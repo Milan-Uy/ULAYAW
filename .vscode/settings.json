@@ -1,1 +1,26 @@
-{}
+{
+  "workbench.iconTheme": "vscode-icons",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 150,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "html.format.wrapLineLength": 150,
+  "editor.wordWrap": "on",
+  "files.exclude": {
+    "/.classpath": true,
+    "/.project": true,
+    "/.settings": true,
+    "/.factorypath": true
+  },
+  "bracketPairColorizer.depreciation-notice": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "prettier.jsxSingleQuote": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "prettier.endOfLine": "auto",
+  "tabnine.experimentalAutoImports": true,
+  "eslint.codeActionsOnSave.rules": null
+}

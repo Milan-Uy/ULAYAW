@@ -1342,10 +1342,11 @@ input:checked + .slider:before {
   margin-left: 50px;
 }
 
-.haveaccount{
+.haveaccount {
   margin-left: 35px;
 }
-.signup-link, .login-link{
+.signup-link,
+.login-link {
   margin-left: 10px;
 }
 .logform .log-r-haveacc {
@@ -2580,7 +2581,6 @@ tbody {
   background-color: #f9f2e7;
 }
 
-
 /*Footer*/
 footer {
   width: 100%;
@@ -2743,4 +2743,87 @@ footer .bottom a:hover {
   width: 180px;
   height: 100px;
   object-fit: cover;
+}
+
+/* add new user */
+.adduser-container {
+  max-width: 780px;
+  margin: 20px;
+  border-radius: 10px;
+}
+.adduser-form {
+  width: 100%;
+  margin: 20px;
+}
+.adduser-form .form-container {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.adduser-form .form-container .col-3 label,
+.adduser-form .form-container .col-6 label {
+  display: block;
+  margin: 20px 0px 0px 0px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 100;
+}
+.adduser-form .form-container .col-3 input,
+.adduser-form .form-container .col-6 input {
+  margin: 10px 5px 10px 5px;
+  font-size: 14px;
+  padding: 4px 5px;
+  width: 100%;
+  outline: none;
+  height: 35px;
+  background: #f9f6f6;
+  border: 0.5px solid #b4acac;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.adduser-form .form-container .col-6 {
+  width: 50%;
+  margin: 0 10px;
+}
+.adduser-form .form-container .col-3 {
+  width: 100%;
+  margin: 0 10px;
+}
+.user-details {
+  display: flex;
+  justify-content: space-between;
+}
+.adduser-btn {
+  cursor: pointer;
+  padding: 10px 50px;
+  color: #f9f2e7;
+  background-color: #1b5b65;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  margin-top: 20px;
+}
+
+.adduser-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
+}
+@media screen and (max-width: 786px) {
+  .tabs-container {
+    margin-left: 0px;
+  }
+  .tab-item h5 {
+    font-size: 20px;
+  }
+  .adduser-container {
+    margin: 10px 0px 20px 0px;
+  }
+  .adduser-form {
+    margin: 0px;
+  }
+  .adduser-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
 }
