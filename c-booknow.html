@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 
     <title>Book Now</title>
   </head>
-  
+
   <body>
     <!--Navbar-->
     <section class="display-navbar">
@@ -32,17 +32,31 @@
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_upcoming</i>
             <label>Check in</label>
-            <input class="select-date"id="checkin-date" placeholder="select a date"/>
+            <input class="select-date" id="checkin-date" placeholder="select a date" />
           </div>
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_busy</i>
             <label>Check out</label>
-            <input id="checkout-date"class="select-date" placeholder="select a date"/>
+            <input id="checkout-date" class="select-date" placeholder="select a date" />
           </div>
           <div class="form-item check-flex-item-m">
             <i class="icon material-symbols-outlined">groups</i>
             <label>Guests</label>
-            <input class="guest" type="number" placeholder="1" pattern="[0-9]*" id="spinner"name="value" value="1" min="1" max="30" step="1" oninput="maxLengthCheck(this)" maxlength="2" required/>
+            <input
+              class="guest"
+              type="number"
+              placeholder="1"
+              pattern="[0-9]*"
+              id="spinner"
+              name="value"
+              value="1"
+              min="1"
+              max="30"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="2"
+              required
+            />
           </div>
           <div class="form-item check-flex-item-sm">
             <div class="search-icon">
@@ -67,21 +81,24 @@
           <div class="photo" style="background-image: url(images/casa_aurelia.JPG)"></div>
         </div>
         <div class="room-desc">
-          <h1>Casa Aurelia<span class="room-price"><h1>
-          <span>&#8369;</span> 25,000.00</h1></span>
+          <h1>
+            Casa Aurelia<span class="room-price"
+              ><h1><span>&#8369;</span> 25,000.00</h1></span
+            >
           </h1>
-          <h2><i class="material-symbols-rounded">person</i>Good for 10 guests
-          <span class="per-night"><h2>per night</h2></span>
+          <h2>
+            <i class="material-symbols-rounded">person</i>Good for 10 guests
+            <span class="per-night"><h2>per night</h2></span>
           </h2>
-          
-        <div class="room-links">
-            <a href="#" class="read-more">More about Casa Aurelia >>></a> 
+
+          <div class="room-links">
+            <a href="#" class="read-more">More about Casa Aurelia >>></a>
             <span class="reserve-btn">
               <div class="book-btn bounce-in-on-hover">
                 <a class="book-btn" href="#">RESERVE</a>
               </div>
             </span>
-        </div>
+          </div>
         </div>
       </div>
 
@@ -90,21 +107,24 @@
           <div class="photo" style="background-image: url(images/casa_salud.JPG)"></div>
         </div>
         <div class="room-desc">
-          <h1>Casa Salud<span class="room-price"><h1>
-          <span>&#8369;</span> 18,500.00</h1></span>
+          <h1>
+            Casa Salud<span class="room-price"
+              ><h1><span>&#8369;</span> 18,500.00</h1></span
+            >
           </h1>
-          <h2><i class="material-symbols-rounded">person</i>Good for 8 guests
-          <span class="per-night"><h2>per night</h2></span>
+          <h2>
+            <i class="material-symbols-rounded">person</i>Good for 8 guests
+            <span class="per-night"><h2>per night</h2></span>
           </h2>
-          
-        <div class="room-links">
-            <a href="#" class="read-more">More about Casa Salud >>></a> 
+
+          <div class="room-links">
+            <a href="#" class="read-more">More about Casa Salud >>></a>
             <span class="reserve-btn">
               <div class="book-btn bounce-in-on-hover">
                 <a class="book-btn" href="#">RESERVE</a>
               </div>
             </span>
-        </div>
+          </div>
         </div>
       </div>
 
@@ -113,49 +133,57 @@
           <div class="photo" style="background-image: url(images/caminos.JPG)"></div>
         </div>
         <div class="room-desc">
-          <h1>Caminos de Primavera<span class="room-price"><h1>
-          <span>&#8369;</span> 35,000.00</h1></span>
+          <h1>
+            Caminos de Primavera<span class="room-price"
+              ><h1><span>&#8369;</span> 35,000.00</h1></span
+            >
           </h1>
-          <h2><i class="material-symbols-rounded">person</i>Good for 20 guests
-          <span class="per-night"><h2>per night</h2></span>
+          <h2>
+            <i class="material-symbols-rounded">person</i>Good for 20 guests
+            <span class="per-night"><h2>per night</h2></span>
           </h2>
-          
-        <div class="room-links">
-            <a href="#" class="read-more">More about Caminos de Primavera >>></a> 
+
+          <div class="room-links">
+            <a href="#" class="read-more">More about Caminos de Primavera >>></a>
             <span class="reserve-btn">
               <div class="book-btn bounce-in-on-hover">
                 <a class="book-btn" href="#">RESERVE</a>
               </div>
             </span>
-        </div>
+          </div>
         </div>
       </div>
     </section>
-
+    <!--Footer-->
+    <section class="display-footer">
+      <div id="footer-placeholder"></div>
+    </section>
     <script>
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");
       });
-
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html");
+      });
       //Date Picker
       let startDate = new Date();
       let endDate = new Date();
       // endDate.setDate(endDate.getDate() + 1);
 
-      const picker = new Litepicker({ 
-        element: document.getElementById('checkin-date'),
-        elementEnd: document.getElementById('checkout-date'),
-        numberOfMonths:2,
-        numberOfColumns:2,
-        singleMode:false,
+      const picker = new Litepicker({
+        element: document.getElementById("checkin-date"),
+        elementEnd: document.getElementById("checkout-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
         numberOfMonths: 2,
         allowRepick: true,
         minDays: 1, // Sets the min amount of days to 1
         maxDays: 730, // Sets the min amount of days to 1
         format: "D MMM, YYYY", // Format date
         minDate: startDate, //It will not allow to select past days
-      
       });
       //Input Number
       function spinner() {
@@ -169,8 +197,7 @@
       }
       //Input max number
       function maxLengthCheck(object) {
-        if (object.value.length > object.maxLength)
-          object.value = object.value.slice(0, object.maxLength);
+        if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
       }
       window.onload = spinner;
     </script>
