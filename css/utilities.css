@@ -1335,7 +1335,19 @@ input:checked + .slider:before {
 }
 
 /**new login reg **/
+input[type="checkbox"] {
+  appearance: checkbox !important;
+}
+.noaccount {
+  margin-left: 50px;
+}
 
+.haveaccount{
+  margin-left: 35px;
+}
+.signup-link, .login-link{
+  margin-left: 10px;
+}
 .log-body {
   background-image: url("/images/Login.png");
   height: 100vh;
@@ -1369,7 +1381,7 @@ input:checked + .slider:before {
 
 .log-container .logform {
   width: 50%;
-  padding: 30px;
+  padding: 0px 30px 0px 30px;
   background-color: #fff;
   transition: margin-left 0.18s ease;
 }
@@ -1383,6 +1395,8 @@ input:checked + .slider:before {
 .log-container .r-signup {
   opacity: 0;
   transition: opacity 0.09s ease;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .log-container.active .r-signup {
   opacity: 1;
@@ -1415,7 +1429,7 @@ input:checked + .slider:before {
   position: relative;
   height: 50px;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .log-input-field .log-input {
@@ -1460,7 +1474,6 @@ input:checked + .slider:before {
 .logform .log-checkbox-text {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-top: 20px;
 }
 
@@ -1487,10 +1500,6 @@ input:checked + .slider:before {
   text-decoration: underline;
 }
 
-.logform {
-  margin-top: 35px;
-}
-
 .logform .log-input-btn {
   border: none;
   color: #fff;
@@ -1510,7 +1519,7 @@ input:checked + .slider:before {
 }
 
 .logform .login-signup {
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 10px;
   text-align: center;
 }
