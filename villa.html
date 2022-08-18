@@ -1,626 +1,635 @@
 <!DOCTYPE html>
 <html>
-   <style>
-      body {
-      background-color:#f9f2e7;
-      }
-   </style>
-   <head>
-      <meta charset="utf-8" />
-      <title>Villas</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <link rel="stylesheet" href="/css/utilities.css" />
-   </head>
-   <body>
-      <!--Navbar-->
-      <section class="display-navbar">
-         <div id="nav-placeholder"></div>
-      </section>
-      <!--FAQs-->
-      <section class="villas-header">
-         <h1 style="font-size: 80px !important">VILLAS</h1>
-      </section>
-      <div class="section-stroke">
-         <img src="images/brush-stroke.png" />
-      </div>
-      <section class="villabody">
-         <!-- fullscreen modal -->
-         <div id="modal"></div>
-         <!-- end of fullscreen modal -->
-         <section class="villa-rooms sec-width" id="rooms">
-            <div class="villa-rooms-container" >
-               <!-- single room FIRST ROW -->
-               <article class="villa-room">
-                  <div class="villa-room-image">
-                     <img class="v-img" src="images/AUR1.png" alt="villa-room image" />
-                  </div>
-                  <div class="villa-room-text">
-                     <h3>Casa Aurelia</h3>
-                     <div id="villawrapper">
-                        <div class="v-tabs">
-                           <input hidden type="radio" name="tab-css" id="tab-1" checked />
-                           <label class="v-tab-control" for="tab-1"> Overnight </label>
-                           <input hidden type="radio" name="tab-css" id="tab-2" />
-                           <label class="v-tab-control" for="tab-2"> Day Tour </label>
-                           <input hidden type="radio" name="tab-css" id="tab-3" />
-                           <label class="v-tab-control" for="tab-3"> Additonal </label>
-                           <div class="v-tab-content">
-                              <div id="v-tab-panel-1" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 10 guests</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Exclusive use of Pool with 15 min Jacuzzi
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Entire Villa
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       3 Airconditioned Bedroom
-                                    </li>
-                                    <li style="padding-left: 30px">• 1 Master's Bedroom (1 King Size Bed) • 2 Bedrooms (2 Double Bed each)</li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       3 bathrooms (1 for each room wit hot and cold shower)
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Detached Bathroom
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Air Conditioned Common Area
-                                    </li>
-                                    <li style="padding-left: 30px">• Kitchenette • Lounge Area • Dining Area</li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Outdoor Showers
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Alfresco Dining Area
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Free Breakfast for 10
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Basic Toiletries
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dishwashing Set
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div id="v-tab-panel-2" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 15-30 guests</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Exclusive use of Pool with 15 min Jacuzzi 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Detached Bathroom 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Air Conditioned Common Area 
-                                    </li>
-                                    <li style="padding-left: 30px">• Kitchenette • Lounge Area</li>
-                                    <li style="padding-left: 30px">• Dining Area</li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Outdoor Showers 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Alfresco Dining Area 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Parking Space 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dishwashing Set
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div id="v-tab-panel-3" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Additional Amenities</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Induction Stove 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Basic Cooking Ware 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Rice Cooker 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Microwave 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Oven Toaster 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Refrigerator
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Water Dispenser 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Plates 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Utensils
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Towels (for Overnight)
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </article>
-               <!-- end of single room -->
-               <!-- single room SECOND ROW -->
-               <article class="villa-room">
-                  <div class="villa-room-image">
-                     <img class="v-img" src="images/PRIMA1.JPG" alt="room image" />
-                  </div>
-                  <div class="villa-room-text">
-                     <h3>Caminos de Primavera</h3>
-                     <div id="villawrapper">
-                        <div class="v-tabs">
-                           <input hidden type="radio" name="tab-css-2" id="tab-4" checked />
-                           <label class="v-tab-control" for="tab-4"> Overnight </label>
-                           <input hidden type="radio" name="tab-css-2" id="tab-5" />
-                           <label class="v-tab-control" for="tab-5"> Day Tour </label>
-                           <input hidden type="radio" name="tab-css-2" id="tab-6" />
-                           <label class="v-tab-control" for="tab-6"> Additonal </label>
-                           <div class="v-tab-content-2">
-                              <div id="v-tab-panel-4" class="v-tab-panel--2">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 6 guests</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Entire House
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Air Conditioned Bedroom
-                                    </li>
-                                    <li style="padding-left: 30px">• 2 Queen Size Bed, 1 Single Bed, 2 Bathroom, 1 Bath Tub 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Exclusive Use Of Pool 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Kitchen Area With Basic Cooking Ware (Electric Stove, Pans, Rice Cooker) 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dining area (Tables and chairs. Electric Kettle, Refrigerator, Plates, Utensils, Drinking Glasses) 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Bar Area
-                                       <i class="fas fa-arrow-alt-circle-right" style="padding-left:40px"></i>
-                                       Hanging Net 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Bathroom
-                                       <i class="fas fa-arrow-alt-circle-right" style="padding-left:26px"></i>
-                                       1 Outside Shower
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Front River 
-                                       <i class="fas fa-arrow-alt-circle-right" style="padding-left:27.5px"></i>
-                                       Farm View
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Parking Space
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div id="v-tab-panel-5" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 15 guests</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Private Pool 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Kitchen area 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dining area
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Bar area
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Hanging net 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Bathroom 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Outside shower 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Cottage 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide parking space
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div id="v-tab-panel-6" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Free for Overnight</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Breakfast for 6pax 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Basic Toiletries
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Towels 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dishwashing Set 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right" style="padding-bottom:10px"></i>
-                                       1 Container of Water (Attached to Water Dispenser)
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Additional Amenities for Day Tour</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Basic Cooking Ware 
-                                       <i class="fas fa-arrow-alt-circle-right"style="padding-left:10px"></i>
-                                       Charcoal Griller
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Electric Stove
-                                       <i class="fas fa-arrow-alt-circle-right"style="padding-left:40px"></i>
-                                       Rice Cooker 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right" ></i>
-                                       Electric Kettle
-                                       <i class="fas fa-arrow-alt-circle-right"style="padding-left:37px"></i>
-                                       Refrigerator 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Plates 
-                                       <i class="fas fa-arrow-alt-circle-right"style="padding-left:78px"></i>
-                                       Utensils 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dining 
-                                       <i class="fas fa-arrow-alt-circle-right"style="padding-left:73px"></i>
-                                       Tables & Chairs 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Drinking Glasses & Cups
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </article>
-               <!-- end of single room-->
-               <!-- single room THIRD ROW -->
-               <article class="villa-room">
-                  <div class="villa-room-image">
-                     <img class="v-img" src="images/SALUD1.JPG" alt="villa-room image" />
-                  </div>
-                  <div class="villa-room-text">
-                     <h3>Casa Salud</h3>
-                     <div id="villawrapper">
-                        <div class="v-tabs">
-                           <input hidden type="radio" name="tab-css-3" id="tab-7" checked />
-                           <label class="v-tab-control" for="tab-7"> Overnight </label>
-                           <input hidden type="radio" name="tab-css-3" id="tab-8" />
-                           <label class="v-tab-control" for="tab-8"> Day Tour </label>
-                           <input hidden type="radio" name="tab-css-3" id="tab-9" />
-                           <label class="v-tab-control" for="tab-9"> Additonal </label>
-                           <div class="v-tab-content-3">
-                              <div id="v-tab-panel-7" class="v-tab-panel--3">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 6 guests</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Entire House 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       2 Air Conditioned Bedroom
-                                    </li>
-                                    <li style="padding-left: 30px">• Master's Bedroom (1 Queen Size Bed)</li>
-                                    <li style="padding-left: 30px">• Bedroom 2(1 Double Deck + Pull-out Single Bed) </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Kitchen Area With Basic Cooking Ware (Electric Stove, Pans, Rice Cooker) 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dining Area (Tables and chairs, Electric Keule, Refrigerator, Plates, Utensils, Drinking Glasses)
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Alfresco Dining Area 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Parking Area
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div id="v-tab-panel-8" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 10-30 guests</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Air Conditioned Bedroom
-                                    </li>
-                                    <li style="padding-left: 30px">• Master's Bedroom (1 Queen Size Bed)</li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Bathroom
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Kitchen Area With Basic Cooking Ware (Electric Stove, Pans, Rice Cooker)
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dining Area (Tables and chairs, Electric Keule, Refrigerator, Plates, Utensils, Drinking Glasses)
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Alfresco Dining Area 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Parking Area
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div id="v-tab-panel-9" class="v-tab-panel">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Free for Overnight</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Breakfast for 6pax 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Basic Toiletries
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Towels 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Coffee 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Dishwashing Set 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       1 Container of Water (Attached to Water Dispenser)
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </article>
-               <!-- end of single room -->
-               <!-- single room FOURTH ROW-->
-               <article class="villa-room">
-                  <div class="villa-room-image">
-                     <img class="v-img" src="images/KUBO1.jpg" alt="room image" />
-                  </div>
-                  <div class="villa-room-text">
-                     <h3>Kubo ni Basyong</h3>
-                     <div id="villawrapper">
-                        <div class="v-tabs">
-                           <input hidden type="radio" name="tab-css-4" id="tab-10" checked />
-                           <label class="v-tab-control" for="tab-10"> Day Tour </label>
-                           <div class="v-tab-content-4">
-                              <div id="v-tab-panel-10" class="v-tab-panel--4">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 2-4 guests</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Air Conditioned Room 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Balcony With Amazing View of Nature 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Sofa Bed 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right" style="padding-bottom:10px"></i>
-                                       Tables and Chairs (upon request)
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Guest Access</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Common Kitchen (Electric Stove, Pans, Rice Cooker)
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Common Bathroom 
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Wide Parking Area
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </article>
-               <!-- end of single room -->
-               <!-- single room THIRD ROW -->
-               <article class="villa-room">
-                  <div class="villa-room-image">
-                     <img class="v-img" src="images/CELSO1.jpg" alt="villa-room image" />
-                  </div>
-                  <div class="villa-room-text">
-                     <h3>Celso Tagle Hall</h3>
-                     <div id="villawrapper">
-                        <div class="v-tabs">
-                           <input hidden type="radio" name="tab-css-5" id="tab-13" checked />
-                           <label class="v-tab-control" for="tab-13"> Day Tour</label>
-                           <div class="v-tab-content-5">
-                              <div id="v-tab-panel-13" class="v-tab-panel--5">
-                                 <ul>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag1">Good for 80 to 100 pax</span>
-                                    </li>
-                                    <li style="margin-bottom: 10px">
-                                       <span class="v-tag">Inclusions</span>
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       5 hour use of fully air conditioned events hall
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Rustic Wooden Tables
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Rustic Crossback Chairs
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Basic Styling (no table set up)
-                                    </li>
-                                    <li>
-                                       <i class="fas fa-arrow-alt-circle-right"></i>
-                                       Basic Lights and Sound
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </article>
-               <!-- end of single room -->
+  <style>
+    body {
+      background-color: #f9f2e7;
+    }
+  </style>
+  <head>
+    <meta charset="utf-8" />
+    <title>Villas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilities.css" />
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+    <!--FAQs-->
+    <section class="villas-header">
+      <h1 style="font-size: 80px !important">VILLAS</h1>
+    </section>
+    <div class="section-stroke">
+      <img src="images/brush-stroke.png" />
+    </div>
+    <section class="villabody">
+      <!-- fullscreen modal -->
+      <div id="modal"></div>
+      <!-- end of fullscreen modal -->
+      <section class="villa-rooms sec-width" id="rooms">
+        <div class="villa-rooms-container">
+          <!-- single room FIRST ROW -->
+          <article class="villa-room">
+            <div class="villa-room-image">
+              <img class="v-img" src="images/AUR1.png" alt="villa-room image" />
             </div>
-         </section>
-         <!-- end of body content -->
+            <div class="villa-room-text">
+              <h3>Casa Aurelia</h3>
+              <div id="villawrapper">
+                <div class="v-tabs">
+                  <input hidden type="radio" name="tab-css" id="tab-1" checked />
+                  <label class="v-tab-control" for="tab-1"> Overnight </label>
+                  <input hidden type="radio" name="tab-css" id="tab-2" />
+                  <label class="v-tab-control" for="tab-2"> Day Tour </label>
+                  <input hidden type="radio" name="tab-css" id="tab-3" />
+                  <label class="v-tab-control" for="tab-3"> Additonal </label>
+                  <div class="v-tab-content">
+                    <div id="v-tab-panel-1" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 10 guests</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Exclusive use of Pool with 15 min Jacuzzi
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Entire Villa
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          3 Airconditioned Bedroom
+                        </li>
+                        <li style="padding-left: 30px">• 1 Master's Bedroom (1 King Size Bed) • 2 Bedrooms (2 Double Bed each)</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          3 bathrooms (1 for each room wit hot and cold shower)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Detached Bathroom
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Air Conditioned Common Area
+                        </li>
+                        <li style="padding-left: 30px">• Kitchenette • Lounge Area • Dining Area</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Outdoor Showers
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Alfresco Dining Area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Free Breakfast for 10
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Toiletries
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dishwashing Set
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-2" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 15-30 guests</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Exclusive use of Pool with 15 min Jacuzzi
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Detached Bathroom
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Air Conditioned Common Area
+                        </li>
+                        <li style="padding-left: 30px">• Kitchenette • Lounge Area</li>
+                        <li style="padding-left: 30px">• Dining Area</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Outdoor Showers
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Alfresco Dining Area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Parking Space
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dishwashing Set
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-3" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Additional Amenities</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Induction Stove
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Cooking Ware
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Rice Cooker
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Microwave
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Oven Toaster
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Refrigerator
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Water Dispenser
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Plates
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Utensils
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Towels (for Overnight)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- end of single room -->
+          <!-- single room SECOND ROW -->
+          <article class="villa-room">
+            <div class="villa-room-image">
+              <img class="v-img" src="images/PRIMA1.JPG" alt="room image" />
+            </div>
+            <div class="villa-room-text">
+              <h3>Caminos de Primavera</h3>
+              <div id="villawrapper">
+                <div class="v-tabs">
+                  <input hidden type="radio" name="tab-css-2" id="tab-4" checked />
+                  <label class="v-tab-control" for="tab-4"> Overnight </label>
+                  <input hidden type="radio" name="tab-css-2" id="tab-5" />
+                  <label class="v-tab-control" for="tab-5"> Day Tour </label>
+                  <input hidden type="radio" name="tab-css-2" id="tab-6" />
+                  <label class="v-tab-control" for="tab-6"> Additonal </label>
+                  <div class="v-tab-content-2">
+                    <div id="v-tab-panel-4" class="v-tab-panel--2">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 6 guests</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Entire House
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Air Conditioned Bedroom
+                        </li>
+                        <li style="padding-left: 30px">• 2 Queen Size Bed, 1 Single Bed, 2 Bathroom, 1 Bath Tub</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Exclusive Use Of Pool
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Kitchen Area With Basic Cooking Ware (Electric Stove, Pans, Rice Cooker)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dining area (Tables and chairs. Electric Kettle, Refrigerator, Plates, Utensils, Drinking Glasses)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Bar Area
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 40px"></i>
+                          Hanging Net
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Bathroom
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 26px"></i>
+                          1 Outside Shower
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Front River
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 27.5px"></i>
+                          Farm View
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Parking Space
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-5" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 15 guests</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Private Pool
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Kitchen area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dining area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Bar area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Hanging net
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Bathroom
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Outside shower
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Cottage
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide parking space
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-6" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Free for Overnight</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Breakfast for 6pax
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Toiletries
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Towels
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dishwashing Set
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-bottom: 10px"></i>
+                          1 Container of Water (Attached to Water Dispenser)
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Additional Amenities for Day Tour</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Cooking Ware
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 10px"></i>
+                          Charcoal Griller
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Electric Stove
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 40px"></i>
+                          Rice Cooker
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Electric Kettle
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 37px"></i>
+                          Refrigerator
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Plates
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 78px"></i>
+                          Utensils
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dining
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-left: 73px"></i>
+                          Tables & Chairs
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Drinking Glasses & Cups
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- end of single room-->
+          <!-- single room THIRD ROW -->
+          <article class="villa-room">
+            <div class="villa-room-image">
+              <img class="v-img" src="images/SALUD1.JPG" alt="villa-room image" />
+            </div>
+            <div class="villa-room-text">
+              <h3>Casa Salud</h3>
+              <div id="villawrapper">
+                <div class="v-tabs">
+                  <input hidden type="radio" name="tab-css-3" id="tab-7" checked />
+                  <label class="v-tab-control" for="tab-7"> Overnight </label>
+                  <input hidden type="radio" name="tab-css-3" id="tab-8" />
+                  <label class="v-tab-control" for="tab-8"> Day Tour </label>
+                  <input hidden type="radio" name="tab-css-3" id="tab-9" />
+                  <label class="v-tab-control" for="tab-9"> Additonal </label>
+                  <div class="v-tab-content-3">
+                    <div id="v-tab-panel-7" class="v-tab-panel--3">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 6 guests</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Entire House
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          2 Air Conditioned Bedroom
+                        </li>
+                        <li style="padding-left: 30px">• Master's Bedroom (1 Queen Size Bed)</li>
+                        <li style="padding-left: 30px">• Bedroom 2(1 Double Deck + Pull-out Single Bed)</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Kitchen Area With Basic Cooking Ware (Electric Stove, Pans, Rice Cooker)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dining Area (Tables and chairs, Electric Keule, Refrigerator, Plates, Utensils, Drinking Glasses)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Alfresco Dining Area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Parking Area
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-8" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 10-30 guests</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Air Conditioned Bedroom
+                        </li>
+                        <li style="padding-left: 30px">• Master's Bedroom (1 Queen Size Bed)</li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Bathroom
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Kitchen Area With Basic Cooking Ware (Electric Stove, Pans, Rice Cooker)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dining Area (Tables and chairs, Electric Keule, Refrigerator, Plates, Utensils, Drinking Glasses)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Alfresco Dining Area
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Parking Area
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="v-tab-panel-9" class="v-tab-panel">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Free for Overnight</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Breakfast for 6pax
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Toiletries
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Towels
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Coffee
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Dishwashing Set
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          1 Container of Water (Attached to Water Dispenser)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- end of single room -->
+          <!-- single room FOURTH ROW-->
+          <article class="villa-room">
+            <div class="villa-room-image">
+              <img class="v-img" src="images/KUBO1.jpg" alt="room image" />
+            </div>
+            <div class="villa-room-text">
+              <h3>Kubo ni Basyong</h3>
+              <div id="villawrapper">
+                <div class="v-tabs">
+                  <input hidden type="radio" name="tab-css-4" id="tab-10" checked />
+                  <label class="v-tab-control" for="tab-10"> Day Tour </label>
+                  <div class="v-tab-content-4">
+                    <div id="v-tab-panel-10" class="v-tab-panel--4">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 2-4 guests</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Air Conditioned Room
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Balcony With Amazing View of Nature
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Sofa Bed
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right" style="padding-bottom: 10px"></i>
+                          Tables and Chairs (upon request)
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Guest Access</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Common Kitchen (Electric Stove, Pans, Rice Cooker)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Common Bathroom
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Wide Parking Area
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- end of single room -->
+          <!-- single room THIRD ROW -->
+          <article class="villa-room">
+            <div class="villa-room-image">
+              <img class="v-img" src="images/CELSO1.jpg" alt="villa-room image" />
+            </div>
+            <div class="villa-room-text">
+              <h3>Celso Tagle Hall</h3>
+              <div id="villawrapper">
+                <div class="v-tabs">
+                  <input hidden type="radio" name="tab-css-5" id="tab-13" checked />
+                  <label class="v-tab-control" for="tab-13"> Day Tour</label>
+                  <div class="v-tab-content-5">
+                    <div id="v-tab-panel-13" class="v-tab-panel--5">
+                      <ul>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag1">Good for 80 to 100 pax</span>
+                        </li>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Inclusions</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          5 hour use of fully air conditioned events hall
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Rustic Wooden Tables
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Rustic Crossback Chairs
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Styling (no table set up)
+                        </li>
+                        <li>
+                          <i class="fas fa-arrow-alt-circle-right"></i>
+                          Basic Lights and Sound
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- end of single room -->
+        </div>
       </section>
-   </body>
-   <script>
-      //Import Navbar
-      $(function () {
-        $("#nav-placeholder").load("navbar.html");
-      });
-   </script>
+      <!-- end of body content -->
+    </section>
+
+    <!--Footer-->
+    <section class="display-footer">
+      <div id="footer-placeholder"></div>
+    </section>
+  </body>
+  <script>
+    //Import Navbar
+    $(function () {
+      $("#nav-placeholder").load("navbar.html");
+    });
+
+    //Import Footer
+    $(function () {
+      $("#footer-placeholder").load("footer.html");
+    });
+  </script>
 </html>
