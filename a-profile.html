@@ -16,6 +16,159 @@
     <title>Profile</title>
   </head>
   <body>
+  <style>
+.update-container {
+  max-width: 780px;
+  background-color: #faf5ee;
+  margin: 20px;
+  padding: 30px 30px 20px 30px;
+  border-radius: 10px;
+}
+.app-details h4 {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--heading-color);
+}
+.update-form {
+  width: 100%;
+  margin: 10px 20px 20px 20px;
+}
+.update-form .form-container {
+  margin: 10px 0;
+  align-items: center;
+}
+.update-form .form-container .col-3{
+  display: flex;
+  margin-right: 20px;
+}
+.update-form .form-container .col-3 label{
+  margin: 20px 5px 10px 10px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 100;
+  max-width: 120px;
+  width: 100%;
+}
+.update-form .form-container .col-3 input{
+  margin: 10px 5px 10px 10px;
+  font-size: 14px;
+  padding: 4px 20px;
+  border-radius: 5px;
+  max-width: 280px;
+  width: 100%;
+  background: none;
+  outline: none;
+  height: 35px;
+  background: #f9f6f6;
+  border: 0.5px solid #b4acac;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.app-details {
+  display: flex;
+  justify-content: space-between;
+}
+.editapp-btn {
+  cursor: pointer;
+  padding: 10px 25px;
+  color: #f9f2e7;
+  background-color: #1b5b65;
+  border: none;
+  border-radius: 5px;
+}
+.editapp-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
+}
+@media screen and (max-width: 786px) {
+  .tabs-container {
+    margin-left: 0px;
+  }
+  .tab-item h5 {
+    font-size: 20px;
+  }
+  .update-container {
+    margin: 10px 0px 20px 0px;
+  }
+  .update-form {
+    margin: 0px;
+  }
+  .app-details h5 {
+    font-size: 15px;
+  }
+  .app-details .editapp-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}
+.business-logo {
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+.logo-upload {
+  padding: 2px;
+  border-radius: 10px;
+  position: absolute;
+}
+.drop-logo {
+  background: transparent url(images/hulo.png) no-repeat center center/cover;
+  max-width: 80px;
+  width: 100%;
+  height: 80px;
+  padding: 5px;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--txt-field-color);
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  opacity: 0.5;
+}
+.drop-logo .image-txt {
+  font-size: 10px;
+  font-weight: 800;
+  color: rgb(0, 0, 0, 1);
+  margin-top: 20px
+}
+.drop-logo p span {
+  font-weight: 600;
+}
+.thumbnail,
+.img-name {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.thumbnail {
+  object-fit: cover;
+  z-index: 100;
+}
+.img-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.drop-logo:hover .img-name {
+  opacity: 1;
+}
+
+  </style>
+
+  <body>
     <!--Navbar-->
     <section class="display-navbar">
       <div id="nav-placeholder"></div>
@@ -204,43 +357,56 @@
               <h4 class="tab-accordion-title" rel="tabFour">Update Application</h4>
               <div id="tabFour" class="tab-item">
                 <h5>Update Application</h5>
-                <div class="edit-container">
-                  <div class="user-details">
-                     <h5 >Basic Information</h5>
-                     <button class="editprofile-btn" onclick="()">Edit</button>
+                <div class="update-container">
+                  <div class="app-details">
+                     <h4>Basic Information</h4>
+                     <button class="editapp-btn" onclick="()">Edit</button>
                   </div>
                   <div class="form-box">
-                     <form class="edit-form">
+                     <form class="update-form">
                         <div class="form-container">
                            <div class="col-3">
                               <label>Contact Number</label>
-                              <input  type="text" id="contact" placeholder="Contact Number" maxlength="13" value="+63" readonly/>
+                              <input  type="text" id="contact" placeholder="+639121569632" maxlength="13" value="+63" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
                              <label>Location</label>
-                             <input id="lastname" type="text" placeholder="Last Name" readonly/>
+                             <input id="lastname" type="text" placeholder="Abucay, Bataan, Philippines" readonly/>
                           </div>
                        </div>
                         <div class="form-container">
                            <div class="col-3">
                               <label>Email Address</label>
-                              <input  type="email" id="email" placeholder="Email Address" readonly/>
+                              <input  type="email" id="email" placeholder="huloleisurefarm@gmail.com" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                            <div class="col-3">
                               <label>Facebook Link</label>
-                              <input  type="email" id="email" placeholder="Email Address" readonly/>
+                              <input  type="email" id="email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
                              <label>Instagram Link</label>
-                             <input  type="email" id="email" placeholder="Email Address" readonly/>
+                             <input  type="email" id="email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
                           </div>
                        </div>
+                       <div class="form-container">
+                        <div class="col-3">
+                           <label>Business Logo</label>
+                           <div class="business-logo">
+                            <div class="logo-upload">
+                               <div class="drop-logo">
+                                  <h6 class="image-txt">CHANGE AVATAR</h6>
+                                  <input type="file" accept="image/*" id="input-logo" hidden>
+                               </div>
+                            </div>
+                         </div>
+                        </div>
+                     </div>
                      </form>
                   </div>
                </div>
@@ -317,6 +483,86 @@
           }
         }
       };
+
+        //upload pic
+        const dropArea = document.querySelector('.drop-logo');
+         const inputFile = document.getElementById('input-logo');
+
+         dropArea.addEventListener('click', function () {
+            inputFile.click()
+         })
+
+         inputFile.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if(file.type.startsWith('image/')) {
+               if(file.size < 2000000) {
+                  create_thumbnail(file);
+               } else {
+                  alert('Image size must be less than 2MB');
+               }
+            } else {
+               alert('Must be image');
+            }
+         })
+
+         dropArea.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            this.style.borderStyle = 'solid';
+
+            const h3 = this.querySelector('h3');
+            h3.textContent = 'Release here to upload image';
+         })
+
+         dropArea.addEventListener('drop', function (e) {
+            e.preventDefault();
+
+            inputFile.files = e.dataTransfer.files;
+            const file = e.dataTransfer.files[0];
+
+            if(file.type.startsWith('image/')) {
+               if(file.size < 2000000) {
+                  create_thumbnail(file);
+               } else {
+                  alert('Image size must be less than 2MB');
+               }
+            } else {
+               alert('Must be image');
+            }
+         })
+
+         const command = ['dragleave', 'dragend']
+
+         command.forEach(item=> {
+            dropArea.addEventListener(item, function () {
+               this.style.borderStyle = 'dashed';
+
+               const h3 = this.querySelector('h3');
+               h3.textContent = 'Drag and drop or click here to select image';
+            })
+         })
+
+         function create_thumbnail(file) {
+            const img = document.querySelectorAll('.thumbnail');
+            const imgName = document.querySelectorAll('.img-name');
+            img.forEach(item=> item.remove());
+            imgName.forEach(item=> item.remove());
+
+            const reader = new FileReader();
+            reader.onload = ()=> {
+               const url = reader.result;
+               const img = document.createElement('img');
+               img.src = url;
+               img.className = 'thumbnail'
+               const span = document.createElement('span');
+               span.className = 'img-name';
+               span.textContent = file.name;
+               dropArea.appendChild(img);
+               dropArea.appendChild(span);
+               dropArea.style.borderColor = 'transparent';
+            }
+            reader.readAsDataURL(file);
+         }
     </script>
   </body>
 </html>
