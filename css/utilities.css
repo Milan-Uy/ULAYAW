@@ -2554,8 +2554,8 @@ transform: scale(1) rotate(1deg);
 /* Booking Status*/
 
 table,
-td,
-th {
+.tdbs,
+.thbs {
   border: 1px solid #ddd;
   text-align: center;
   margin-top: 40px;
