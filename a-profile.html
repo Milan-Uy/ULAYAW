@@ -82,13 +82,13 @@
                   <ul class="grid">
                     <button>
                       <li class="grid-item first">
-                        <i class="material-symbols-rounded"> admin_panel_settings </i>
+                        <i class="material-symbols-rounded">manage_accounts</i>
                         <h3>Manage Users</h3>
                       </li>
                     </button>
                     <button>
                       <li class="grid-item last">
-                        <i class="material-symbols-rounded"> person_add </i>
+                        <i class="material-symbols-rounded"> group_add </i>
                         <h3>Add New Users</h3>
                       </li>
                     </button>
@@ -99,7 +99,7 @@
                   <ul class="grid">
                     <button>
                       <li class="grid-item first">
-                        <i class="material-symbols-rounded"> settings_applications </i>
+                        <i class="material-symbols-rounded"> update </i>
                         <h3>Update Application</h3>
                       </li>
                     </button>
@@ -199,24 +199,59 @@
                   </form>
                 </div>
               </div>
+            </div>
               <!-- Update Application Tab-->
               <h4 class="tab-accordion-title" rel="tabFour">Update Application</h4>
               <div id="tabFour" class="tab-item">
-                <h5>Tab 3 content</h5>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
-                  quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
-                  numquam tempora nulla, beatae ab modi, molestiae, eius iure odio dolorum recusandae est. Distinctio a possimus placeat dolore iste
-                  animi aspernatur. Eius ea doloremque blanditiis, esse dolores sit ipsa molestiae expedita accusamus eos, labore ipsam iste ducimus
-                  optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
-                  voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
-                </p>
+                <h5>Update Application</h5>
+                <div class="edit-container">
+                  <div class="user-details">
+                     <h5 >Basic Information</h5>
+                     <button class="editprofile-btn" onclick="()">Edit</button>
+                  </div>
+                  <div class="form-box">
+                     <form class="edit-form">
+                        <div class="form-container">
+                           <div class="col-3">
+                              <label>Contact Number</label>
+                              <input  type="text" id="contact" placeholder="Contact Number" maxlength="13" value="+63" readonly/>
+                           </div>
+                        </div>
+                        <div class="form-container">
+                          <div class="col-3">
+                             <label>Location</label>
+                             <input id="lastname" type="text" placeholder="Last Name" readonly/>
+                          </div>
+                       </div>
+                        <div class="form-container">
+                           <div class="col-3">
+                              <label>Email Address</label>
+                              <input  type="email" id="email" placeholder="Email Address" readonly/>
+                           </div>
+                        </div>
+                        <div class="form-container">
+                           <div class="col-3">
+                              <label>Facebook Link</label>
+                              <input  type="email" id="email" placeholder="Email Address" readonly/>
+                           </div>
+                        </div>
+                        <div class="form-container">
+                          <div class="col-3">
+                             <label>Instagram Link</label>
+                             <input  type="email" id="email" placeholder="Email Address" readonly/>
+                          </div>
+                       </div>
+                     </form>
+                  </div>
+               </div>
+
+
               </div>
             </div>
             <!--Logout Tab-->
             <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
             <div id="tabFive" class="tab-item">
-              <h5>Tab 5 content</h5>
+              <h5>Logout</h5>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
                 quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
