@@ -1067,9 +1067,10 @@ p {
   display: none;
 }
 .tab-item h5 {
-  font-size: 28px;
-  color: #6b4f4f;
+  font-size: 40px;
+  color: #1b5b65;
   font-style: bold;
+  font-family: Cinzel;
 }
 .tab-item p {
   font-size: 0.8em;
@@ -1197,6 +1198,7 @@ p {
 }
 
 /* Customer Satisfaction*/
+
 .cs_icons {
   width: 3vw;
   height: 3vw;
@@ -1235,9 +1237,7 @@ p {
   margin-left: 9vw;
 }
 
-input[type="text"],
-select,
-textarea {
+.fb_text {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -2552,7 +2552,6 @@ transform: scale(1) rotate(1deg);
 }
 
 /* Booking Status*/
-
 .ststbl,
 .tdbs,
 .thbs {
@@ -2563,7 +2562,7 @@ transform: scale(1) rotate(1deg);
   border-collapse: collapse;
 }
 
-table {
+.bookingstatus {
   border-collapse: collapse;
   width: 100%;
 }
@@ -2826,4 +2825,54 @@ footer .bottom a:hover {
     padding: 7px 12px;
     font-size: 12px;
   }
+}
+
+/* manage users */
+
+.manageusers {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin-top: 50px;
+}
+.manageusers tr {
+  padding: 0.35em;
+}
+.manageusers tr:nth-child(even) {
+  background: #fff;
+}
+.manageusers tr:nth-child(odd) {
+  background: #fff;
+}
+
+.manageusers .mu-th,
+.manageusers td {
+  padding: 1em;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.manageusers .mu-th {
+  background: #fff;
+  color: black;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.manageusers td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-mu {
+  margin: 10px 5px 10px 5px;
+  font-size: 14px;
+  padding: 4px 5px;
+  outline: none;
+  height: 35px;
+  background: #f9f6f6;
+  border: 0.5px solid #b4acac;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
