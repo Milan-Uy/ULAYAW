@@ -2553,7 +2553,7 @@ transform: scale(1) rotate(1deg);
 
 /* Booking Status*/
 
-table,
+.ststbl,
 .tdbs,
 .thbs {
   border: 1px solid #ddd;
@@ -2568,12 +2568,12 @@ table {
   width: 100%;
 }
 
-th,
-td {
+.thbs,
+.tdbs {
   padding: 15px;
 }
 
-th {
+.thbs {
   background-color: #6b4f4f;
   color: #f9f2e7;
 }
