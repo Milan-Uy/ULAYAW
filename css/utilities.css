@@ -1006,7 +1006,7 @@ p {
   transition: all 0.3s ease;
   z-index: 1;
 }
-.material-symbols-rounded {
+.tabs .material-symbols-rounded {
   font-size: 40px;
   font-weight: 300;
   margin: 0;
@@ -2262,6 +2262,7 @@ transform: scale(1) rotate(1deg);
   resize: none;
   overflow-y: scroll;
   height: 180px;
+  width: 100%;
   border-radius: 2px;
   border: 1px solid var(--heading-color);
   font-family: "Montserrat";
