@@ -2563,7 +2563,7 @@ transform: scale(1) rotate(1deg);
   border-collapse: collapse;
 }
 
-table {
+.ststbl {
   border-collapse: collapse;
   width: 100%;
 }
