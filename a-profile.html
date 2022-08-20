@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" />
 
     <title>Profile</title>
   </head>
@@ -52,27 +50,113 @@
             <h4 class="tab-accordion-active tab-accordion-title" rel="tabОne">Dashboard</h4>
             <div id="tabОne" class="tab-item">
               <h5>Dashboard</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
-                quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
-                numquam tempora nulla, beatae ab modi, molestiae, eius iure odio dolorum recusandae est. Distinctio a possimus placeat dolore iste
-                animi aspernatur. Eius ea doloremque blanditiis, esse dolores sit ipsa molestiae expedita accusamus eos, labore ipsam iste ducimus
-                optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
-                voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
-              </p>
+              <div class="app-overview">
+                <div class="main-header">Application Overview</div>
+                <ul class="grid">
+                  <button>
+                    <li class="grid-item">
+                      <i class="material-symbols-rounded"> groups </i>
+                      <h3>98 users</h3>
+                    </li>
+                  </button>
+                  <button>
+                    <li class="grid-item">
+                      <i class="material-symbols-rounded"> forum </i>
+                      <h3>71 feedbacks</h3>
+                    </li>
+                  </button>
+                  <button>
+                    <li class="grid-item">
+                      <i class="material-symbols-rounded"> perm_media </i>
+                      <h3>90 moments</h3>
+                    </li>
+                  </button>
+                </ul>
+              </div>
+              <div class="manage-overview">
+                <div class="overviewcard">
+                  <div class="main-header">User Management</div>
+                  <ul class="grid">
+                    <button>
+                      <li class="grid-item first">
+                        <i class="material-symbols-rounded"> admin_panel_settings </i>
+                        <h3>Manage Users</h3>
+                      </li>
+                    </button>
+                    <button>
+                      <li class="grid-item last">
+                        <i class="material-symbols-rounded"> person_add </i>
+                        <h3>Add New Users</h3>
+                      </li>
+                    </button>
+                  </ul>
+                </div>
+                <div class="overviewcard">
+                  <div class="main-header">Application Management</div>
+                  <ul class="grid">
+                    <button>
+                      <li class="grid-item first">
+                        <i class="material-symbols-rounded"> settings_applications </i>
+                        <h3>Update Application</h3>
+                      </li>
+                    </button>
+                  </ul>
+                </div>
+              </div>
             </div>
             <!--Manage Users Tab-->
             <h4 class="tab-accordion-title" rel="tabTwo">Manage Users</h4>
             <div id="tabTwo" class="tab-item">
-              <h5>Tab 3 content</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
-                quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
-                numquam tempora nulla, beatae ab modi, molestiae, eius iure odio dolorum recusandae est. Distinctio a possimus placeat dolore iste
-                animi aspernatur. Eius ea doloremque blanditiis, esse dolores sit ipsa molestiae expedita accusamus eos, labore ipsam iste ducimus
-                optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
-                voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
-              </p>
+              <h5 class="tabs-title">Manage Users</h5>
+
+              <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
+
+              <table class="manageusers">
+                <thead>
+                  <tr>
+                    <th class="mu-th" scope="col">Name</th>
+                    <th class="mu-th" scope="col">Role</th>
+                    <th class="mu-th" scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">Leonard Hofstadter</td>
+                    <td>Admin</td>
+                    <td>lhofstadter@caltech.edu</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Sheldon Cooper</td>
+                    <td>Active</td>
+                    <td>scooper@@caltech.edu</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Howard Wolowitz</td>
+                    <td>Inactive</td>
+                    <td>hwolowitz@caltech.edu</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Raj Koothrappali</td>
+                    <td>Active</td>
+                    <td>rkoothrappali@caltech.edu</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Penny</td>
+                    <td>Active</td>
+                    <td>penny@cheesecakefactory.com</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Bernadette Rostenkowski</td>
+                    <td>Pending</td>
+                    <td>brostenkowski@caltech.edu</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Amy Farrah Fowler</td>
+                    <td>Pending</td>
+                    <td>afowler@caltech.edu</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <!--Add Users Tab-->
             <h4 class="tab-accordion-title" rel="tabThree">Add User</h4>
@@ -196,6 +280,25 @@
         jQuery("ul.tabs li").removeClass("tab-active");
         jQuery("ul.tabs li[rel^='" + d_activeTab + "']").addClass("tab-active");
       });
+
+      /*dropdown for manage users */
+      function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropbtn")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
     </script>
   </body>
 </html>

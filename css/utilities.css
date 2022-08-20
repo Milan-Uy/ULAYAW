@@ -1067,9 +1067,10 @@ p {
   display: none;
 }
 .tab-item h5 {
-  font-size: 28px;
-  color: #6b4f4f;
+  font-size: 40px;
+  color: #1b5b65;
   font-style: bold;
+  font-family: Cinzel;
 }
 .tab-item p {
   font-size: 0.8em;
@@ -1197,6 +1198,7 @@ p {
 }
 
 /* Customer Satisfaction*/
+
 .cs_icons {
   width: 3vw;
   height: 3vw;
@@ -1235,9 +1237,7 @@ p {
   margin-left: 9vw;
 }
 
-input[type="text"],
-select,
-textarea {
+.fb_text {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -2552,7 +2552,6 @@ transform: scale(1) rotate(1deg);
 }
 
 /* Booking Status*/
-
 .ststbl,
 .tdbs,
 .thbs {
@@ -2563,7 +2562,7 @@ transform: scale(1) rotate(1deg);
   border-collapse: collapse;
 }
 
-.ststbl {
+.bookingstatus {
   border-collapse: collapse;
   width: 100%;
 }
@@ -2825,5 +2824,180 @@ footer .bottom a:hover {
   .adduser-btn {
     padding: 7px 12px;
     font-size: 12px;
+  }
+}
+
+/* manage users */
+
+.manageusers {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin-top: 50px;
+}
+.manageusers tr {
+  padding: 0.35em;
+}
+.manageusers tr:nth-child(even) {
+  background: #fff;
+}
+.manageusers tr:nth-child(odd) {
+  background: #fff;
+}
+
+.manageusers .mu-th,
+.manageusers td {
+  padding: 1em;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.manageusers .mu-th {
+  background: #fff;
+  color: black;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.manageusers td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-mu {
+  margin: 10px 5px 10px 5px;
+  font-size: 14px;
+  padding: 4px 5px;
+  outline: none;
+  height: 35px;
+  background: #f9f6f6;
+  border: 0.5px solid #b4acac;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+/*Admin Dashboard*/
+.app-overview {
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px;
+  background-color: var(--mainbg-color);
+}
+.main-header {
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  color: var(--heading-color);
+}
+.overviewcard {
+  margin: 20px;
+  padding: 20px 20px 10px 20px;
+  background-color: var(--mainbg-color);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.overviewcard .grid button {
+  flex-basis: 180px;
+}
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 0 0;
+  list-style: none;
+}
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 200px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 180px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  background: white;
+  box-shadow: inset 0px 0px 0px 1px #edeef4;
+  -webkit-transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate(0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate(0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.14s ease-in, text-shadow 0.1s ease-in;
+  will-change: transform;
+  cursor: pointer;
+}
+.grid-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  border-radius: 3px;
+  box-shadow: 0 10px 24px 0px rgba(0, 0, 0, 0.02), 0 8px 20px -2px rgba(0, 0, 0, 0.06), 0 6px 10px -6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.1s ease-in;
+  will-change: opacity;
+  opacity: 0;
+}
+.grid-item:hover {
+  -webkit-transform: translate(0, -4px);
+  -webkit-transform: translate3d(0, -4px, 0);
+  -ms-transform: translate(0, -4px);
+  -ms-transform: translate3d(0, -4px, 0);
+  transform: translate(0, -4px);
+  transform: translate3d(0, -4px, 0);
+  color: var(--main-btn-color);
+  background-color: #d9f1f7;
+  box-shadow: none;
+  border: 0.5px solid #8cb1b7;
+}
+.grid-item:hover:before {
+  opacity: 1;
+}
+.grid button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  display: unset;
+  align-items: unset;
+  flex-basis: 200px;
+  font-family: "Montserrat";
+}
+.grid-item .material-symbols-rounded {
+  margin-left: 0px;
+  font-size: 80px;
+}
+.grid-item h3 {
+  font-size: 13px;
+  font-weight: 700;
+}
+.manage-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  grid-gap: 12px;
+  height: 100%;
+}
+.last {
+  margin-right: 0px;
+}
+@media (max-width: 991px) {
+  .first {
+    margin-right: 0px;
   }
 }
