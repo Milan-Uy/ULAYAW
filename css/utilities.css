@@ -1195,6 +1195,12 @@ p {
 
 /* Customer Satisfaction*/
 
+.cs_icons.active {
+  cursor: "pointer";
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
 .cs_icons {
   width: 3vw;
   height: 3vw;

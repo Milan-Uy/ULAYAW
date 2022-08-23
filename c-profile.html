@@ -275,31 +275,67 @@
          
          /** emoji feedback js **/
          
-         $('#fbEmoji_sad').click(function() {
-         $('#fbEmoji_sad').css({
-         'cursor' : 'pointer', 
-         'transform' : 'scale(1.1)', 
-         'filter': 'grayscale(0%)'
-         });
-         });
+         // $('#fbEmoji_sad').click(function() {
+         // $('#fbEmoji_sad').css({
+         // 'cursor' : 'pointer', 
+         // 'transform' : 'scale(1.1)', 
+         // 'filter': 'grayscale(0%)'
+         // });
+         // });
          
          
-         $('#fbEmoji_neutral').click(function() {
-         $('#fbEmoji_neutral').css({
-         'cursor' : 'pointer', 
-         'transform' : 'scale(1.1)', 
-         'filter': 'grayscale(0%)'
-         });
-         });
+         // $('#fbEmoji_neutral').click(function() {
+         // $('#fbEmoji_neutral').css({
+         // 'cursor' : 'pointer', 
+         // 'transform' : 'scale(1.1)', 
+         // 'filter': 'grayscale(0%)'
+         // });
+         // });
          
          
-         $('#fbEmoji_happy').click(function() {
-         $('#fbEmoji_happy').css({
-         'cursor' : 'pointer', 
-         'transform' : 'scale(1.1)', 
-         'filter': 'grayscale(0%)'
-         });
-         });
+         // $('#fbEmoji_happy').click(function() {
+         // $('#fbEmoji_happy').css({
+         // 'cursor' : 'pointer', 
+         // 'transform' : 'scale(1.1)', 
+         // 'filter': 'grayscale(0%)'
+         // });
+         // });
+
+         const sad = document.getElementById('fbEmoji_sad')
+         const neutral = document.getElementById('fbEmoji_neutral')
+         const happy = document.getElementById('fbEmoji_happy')
+        sad.addEventListener('click',(evt)=>{
+            if(evt.target.classList.contains('active')){
+               evt.target.classList.remove('active');
+            }else{
+               evt.target.classList.add('active');
+
+               happy.classList.remove('active')
+               neutral.classList.remove('active')
+            }
+        })
+
+        neutral.addEventListener('click',(evt)=>{
+            if(evt.target.classList.contains('active')){
+               evt.target.classList.remove('active');
+            }else{
+               evt.target.classList.add('active');
+
+               sad.classList.remove('active')
+               happy.classList.remove('active')
+            }
+        })
+
+        happy.addEventListener('click',(evt)=>{
+            if(evt.target.classList.contains('active')){
+               evt.target.classList.remove('active');
+            }else{
+               evt.target.classList.add('active');
+
+               sad.classList.remove('active')
+               neutral.classList.remove('active')
+            }
+        })
 
          //upload pic
          const dropArea = document.querySelector('.drop-area');
