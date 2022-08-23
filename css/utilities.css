@@ -36,8 +36,8 @@
 }
 .btn-secondary,
 .bg-secondary {
-  background: #0284d0;
-  color: #fff;
+  /* background: #0284d0;
+  color: #fff; */
 }
 .btn-dark,
 .bg-dark {
@@ -296,10 +296,6 @@
 
 .big {
   width: 60%;
-}
-
-.flex-columns.flex-reverse .row {
-  flex-direction: row-reverse;
 }
 
 .flex-columns .row {
