@@ -267,32 +267,86 @@
 
               <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
 
-              <table class="manageusers">
+              <table id="myTable">
                 <thead>
-                  <tr>
-                    <th class="mu-th" scope="col">Name</th>
-                    <th class="mu-th" scope="col">Role</th>
-                    <th class="mu-th" scope="col"></th>
-                  </tr>
+                   <tr class="header">
+                      <th style="width:50%;">User</th>
+                      <th style="width:40%;">Role</th>
+                      <th style= "width:10%;"> </th>
+                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row">Leonard Hofstadter</td>
-                    <td>Admin</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Sheldon Cooper</td>
-                    <td>Marketing Specialist</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Howard Wolowitz</td>
-                    <td>Manager</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+                <tbody id="table_users">
+                   <tr>
+                      <td>Millano Uy</td>
+                      <td>
+                         Admin
+                         <div class="dropdown">
+                            <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
+                            <div class="dropdown-content">
+                               <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
+                               <a class = "dd-content edit-popup" href = "#"> Manager </a>
+                               <a class = "dd-content edit-popup" href = "#"> Admin </a>
+                            </div>
+                         </div>
+                      </td>
+                      <td>
+                         <div class="dropdown">
+                            <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
+                            <div class="dropdown-content ">
+                               <a class = "dd-content remove-user" href = "#"> Remove User </a>
+                               <a class = "dd-content edit-profile" href = "#"> Edit Profile </a>
+                            </div>
+                         </div>
+                      </td>
+                   </tr>
+                   <tr>
+                      <td> Ricko Ronquillo </td>
+                      <td>
+                         Manager
+                         <div class="dropdown">
+                            <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
+                            <div class="dropdown-content">
+                              <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
+                              <a class = "dd-content edit-popup" href = "#"> Manager </a>
+                              <a class = "dd-content edit-popup" href = "#"> Admin </a>
+                            </div>
+                         </div>
+                      </div>
+                   </td>
+                   <td>
+                    <div class="dropdown">
+                     <li ><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
+                     <div class="dropdown-content">
+                      <a class = "dd-content remove-user" href = "#"> Remove User </a>
+                      <a class = "dd-content edit-profile" href = "#"> Edit Profile </a>
+                   </div>
+                </div>
+                </td>
+                 </tr>
+                 <tr>
+                   <td>Nicky Merito</td>
+                   <td>Marketing Specialist
+                   <div class="dropdown">
+                    <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
+                   <div class="dropdown-content">
+                    <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
+                    <a class = "dd-content edit-popup" href = "#"> Manager </a>
+                    <a class = "dd-content edit-popup" href = "#"> Admin </a>
+                </div>
+             </div>
+          </td>
+          <td>
+             <div class="dropdown">
+                <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
+                <div class="dropdown-content">
+                   <a class = "dd-content remove-user" href = "#"> Remove User </a>
+                   <a class = "dd-content edit-profile" href = "#"> Edit Profile </a>
+                </div>
+             </div>
+          </td>
+       </tr>
+    </tbody>
+ </table>
             </div>
             <!--Add Users Tab-->
             <h4 class="tab-accordion-title" rel="tabThree">Add User</h4>
@@ -563,6 +617,32 @@
             }
             reader.readAsDataURL(file);
          }
+
+         /*manage users*/
+         jQuery(document).ready(function (e) {
+    function t(t) {
+        e(t).bind("click", function (t) {
+            t.preventDefault();
+            e(this).parent().fadeOut()
+        })
+    }
+    e(".dropdown-toggle").click(function () {
+        var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
+        e(".button-dropdown .dropdown-menu").hide();
+        e(".button-dropdown .dropdown-toggle").removeClass("active");
+        if (t) {
+            e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("active")
+        }
+    });
+    e(document).bind("click", function (t) {
+        var n = e(t.target);
+        if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
+    });
+    e(document).bind("click", function (t) {
+        var n = e(t.target);
+        if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
+    })
+});
     </script>
   </body>
 </html>

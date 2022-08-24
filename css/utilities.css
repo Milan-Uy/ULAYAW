@@ -2873,7 +2873,7 @@ footer .bottom a:hover {
   border-radius: 6rem;
   border: 1px solid #a0a0a0;
   padding: 0.6rem 2rem 0.6rem 1rem;
-  width: 30rem;
+  width: 20rem;
   margin-top: 20px;
 }
 
@@ -2881,6 +2881,71 @@ footer .bottom a:hover {
   outline: none;
   border-color: #212121;
   transition: 0.5s;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 12px;
+  background-color: white;
+  color: #473a3a;
+  margin-top: 20px;
+}
+#myTable th,
+#myTable td {
+  text-align: left;
+  padding: 20px;
+}
+#myTable tr {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+#myTable tr.header {
+  color: #473a3a;
+  background-color: white;
+}
+
+#myTable td {
+  border-bottom: 1px solid #ddd;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  list-style: none;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 150px;
+  z-index: 1;
+  line-height: 2;
+  padding: 0px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.dd-content {
+  color: #507973;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dd-content:hover,
+.dd-content:focus {
+  color: white;
+  background-color: #473a3a;
+}
+@media (max-width: 868px) {
+  .dropdown-content {
+    min-width: 100px;
+    line-height: 2;
+    display: none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
 }
 
 /*Admin Dashboard*/
