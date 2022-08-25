@@ -76,6 +76,7 @@
 
 .contact-map img {
   margin-top: 2rem;
+  padding-right: 20px;
   /* box-shadow: 0 0 10px 0 rgb(100, 100, 100); */
   width: 100%;
   max-width: 800px;
@@ -137,7 +138,7 @@
   overflow: hidden;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   .callback-form {
     padding: 20px 0px;
   }
@@ -161,6 +162,10 @@
     /* justify-content: center; */
     text-align: center;
     /* align-items: center; */
+  }
+
+  .contact-map img {
+    padding-right: 0px;
   }
 }
 
