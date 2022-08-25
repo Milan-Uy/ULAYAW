@@ -298,6 +298,10 @@
   width: 60%;
 }
 
+.no-padding {
+  padding: 0px;
+}
+
 .flex-columns .row {
   display: flex;
   flex-direction: row;

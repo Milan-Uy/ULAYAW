@@ -74,12 +74,12 @@
   text-align: right; */
 }
 
-.contact-map {
-  /* display: block;
-  margin-bottom: 2rem;
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%; */
+.contact-map img {
+  margin-top: 2rem;
+  /* box-shadow: 0 0 10px 0 rgb(100, 100, 100); */
+  width: 100%;
+  max-width: 800px;
+  height: auto;
 }
 
 .contactHead h1 {
