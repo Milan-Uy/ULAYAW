@@ -12,162 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" />
-
+    <link href="https://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <title>Profile</title>
   </head>
-  <body>
-  <style>
-.update-container {
-  max-width: 780px;
-  background-color: #faf5ee;
-  margin: 20px;
-  padding: 30px 30px 20px 30px;
-  border-radius: 10px;
-}
-.app-details h4 {
-  font-family: "Montserrat";
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 29px;
-  color: var(--heading-color);
-}
-.update-form {
-  width: 100%;
-  margin: 10px 20px 20px 20px;
-}
-.update-form .form-container {
-  margin: 10px 0;
-  align-items: center;
-}
-.update-form .form-container .col-3{
-  display: flex;
-  margin-right: 20px;
-}
-.update-form .form-container .col-3 label{
-  margin: 20px 5px 10px 10px;
-  color: #000;
-  font-size: 12px;
-  font-weight: 100;
-  max-width: 120px;
-  width: 100%;
-}
-.update-form .form-container .col-3 input{
-  margin: 10px 5px 10px 10px;
-  font-size: 14px;
-  padding: 4px 20px;
-  border-radius: 5px;
-  max-width: 280px;
-  width: 100%;
-  background: none;
-  outline: none;
-  height: 35px;
-  background: #f9f6f6;
-  border: 0.5px solid #b4acac;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-}
-.app-details {
-  display: flex;
-  justify-content: space-between;
-}
-.editapp-btn {
-  cursor: pointer;
-  padding: 10px 25px;
-  color: #f9f2e7;
-  background-color: #1b5b65;
-  border: none;
-  border-radius: 5px;
-}
-.editapp-btn:hover {
-  cursor: pointer;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
-}
-@media screen and (max-width: 786px) {
-  .tabs-container {
-    margin-left: 0px;
-  }
-  .tab-item h5 {
-    font-size: 20px;
-  }
-  .update-container {
-    margin: 10px 0px 20px 0px;
-  }
-  .update-form {
-    margin: 0px;
-  }
-  .app-details h5 {
-    font-size: 15px;
-  }
-  .app-details .editapp-btn {
-    padding: 7px 12px;
-    font-size: 12px;
-  }
-}
-.business-logo {
-  float: left;
-  margin-left: 20px;
-  margin-bottom: 60px;
-}
-.logo-upload {
-  padding: 2px;
-  border-radius: 10px;
-  position: absolute;
-}
-.drop-logo {
-  background: transparent url(images/hulo.png) no-repeat center center/cover;
-  max-width: 80px;
-  width: 100%;
-  height: 80px;
-  padding: 5px;
-  border-radius: 50px;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid var(--txt-field-color);
-  position: relative;
-  overflow: hidden;
-  justify-content: center;
-  opacity: 0.5;
-}
-.drop-logo .image-txt {
-  font-size: 10px;
-  font-weight: 800;
-  color: rgb(0, 0, 0, 1);
-  margin-top: 20px
-}
-.drop-logo p span {
-  font-weight: 600;
-}
-.thumbnail,
-.img-name {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-.thumbnail {
-  object-fit: cover;
-  z-index: 100;
-}
-.img-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 500;
-  padding: 16px;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 200;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-.drop-logo:hover .img-name {
-  opacity: 1;
-}
-
-  </style>
-
   <body>
     <!--Navbar-->
     <section class="display-navbar">
@@ -409,7 +257,7 @@
             </div>
               <!-- Update Application Tab-->
               <h4 class="tab-accordion-title" rel="tabFour">Update Application</h4>
-              <div id="tabFour" class="tab-item">
+              <div id="tabFour" class="tab-item updateapp">
                 <h5>Update Application</h5>
                 <div class="update-container">
                   <div class="app-details">
@@ -464,8 +312,218 @@
                      </form>
                   </div>
                </div>
+               <div class="villa-container">
+                <h4>Villa</h4>
+                <div class="villa-card">
+                  <div class="villa-pic">
+                    <div class="photo" style="background-image: url(images/casa_aurelia.JPG)"></div>
+                  </div>
+                  <div class="villa-desc">
+                    <h1>
+                      Casa Aurelia
+                    </h1>
+                    <div class="edit-accord">
+                      <div class="edit-accordion js-accordion">
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Details</div> 
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                              <form class="edit-villadetails">
+                                <div class="edit-villadesc">
+                                    <label>Description</label>
+                                   <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
+                                </div>
+                                <div class="edit-villainc">
+                                  <label>Inclusions</label>
+                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
+                               </div>
+                               <div class="edit-villaprice">
+                                <label>Price</label>
+                                <input class="new-villaprice" type="text" required />
+                               </div>
+                               <div class="editvilla-btn">
+                                <button class="canceledit-btn" onclick="()">Cancel</button>
+                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                               </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div><!-- end of accordion body -->
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Pictures</div> 
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents upload-accord">
+                              <div class="wrapper">
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
 
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
 
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="editvilla-btn photos">
+                                <button class="canceledit-btn" onclick="()">Cancel</button>
+                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                               </div>
+                            </div>
+                          </div>
+                        </div><!-- end of accordion body -->
+                      </div>
+                    </div>
+              </div>
+                </div>
+                <div class="villa-card">
+                  <div class="villa-pic">
+                    <div class="photo" style="background-image: url(images/casa_salud.JPG)"></div>
+                  </div>
+                  <div class="villa-desc">
+                    <h1>
+                      Casa Salud
+                    </h1>
+                    <div class="edit-accord">
+                      <div class="edit-accordion js-accordion">
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Details</div> 
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                              <form class="edit-villadetails">
+                                <div class="edit-villadesc">
+                                    <label>Description</label>
+                                   <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
+                                </div>
+                                <div class="edit-villainc">
+                                  <label>Inclusions</label>
+                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
+                               </div>
+                               <div class="edit-villaprice">
+                                <label>Price</label>
+                                <input class="new-villaprice" type="text" required />
+                               </div>
+                               <div class="editvilla-btn">
+                                <button class="canceledit-btn" onclick="()">Cancel</button>
+                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                               </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div><!-- end of accordion body -->
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Pictures</div> 
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents upload-accord">
+                              <div class="wrapper">
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="editvilla-btn photos">
+                                <button class="canceledit-btn" onclick="()">Cancel</button>
+                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                               </div>
+                            </div>
+                          </div>
+                        </div><!-- end of accordion body -->
+                      </div>
+                    </div>
               </div>
             </div>
             <!--Logout Tab-->
@@ -643,6 +701,146 @@
         if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
     })
 });
+          //edit villa accordion
+          var accordion = (function(){
+          var $accordion = $('.js-accordion');
+          var $accordion_header = $accordion.find('.js-accordion-header');
+          var $accordion_item = $('.js-accordion-item');
+        
+          // default settings 
+          var settings = {
+            // animation speed
+            speed: 400,
+            
+            // close all other accordion items if true
+            oneOpen: false
+          };
+            
+          return {
+            // pass configurable object literal
+            init: function($settings) {
+              $accordion_header.on('click', function() {
+                accordion.toggle($(this));
+              });
+              
+              $.extend(settings, $settings); 
+              
+              // ensure only one accordion is active if oneOpen is true
+              if(settings.oneOpen && $('.js-accordion-item.active').length > 1) {
+                $('.js-accordion-item.active:not(:first)').removeClass('active');
+              }
+              
+              // reveal the active accordion bodies
+              $('.js-accordion-item.active').find('> .js-accordion-body').show();
+            },
+            toggle: function($this) {
+                    
+              if(settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
+                $this.closest('.js-accordion')
+                      .find('> .js-accordion-item') 
+                      .removeClass('active')
+                      .find('.js-accordion-body')
+                      .slideUp()
+              }
+              
+              // show/hide the clicked accordion item
+              $this.closest('.js-accordion-item').toggleClass('active');
+              $this.next().stop().slideToggle(settings.speed);
+            }
+          }
+        })();
+
+        $(document).ready(function(){
+          accordion.init({ speed: 300, oneOpen: true });
+        });
+
+        //villa upload photos
+        function initImageUpload(box) {
+        let uploadField = box.querySelector('.image-upload');
+
+        uploadField.addEventListener('change', getFile);
+
+        function getFile(e){
+          let file = e.currentTarget.files[0];
+          checkType(file);
+        }
+        
+        function previewImage(file){
+          let thumb = box.querySelector('.js--image-preview'),
+              reader = new FileReader();
+
+          reader.onload = function() {
+            thumb.style.backgroundImage = 'url(' + reader.result + ')';
+          }
+          reader.readAsDataURL(file);
+          thumb.className += ' js--no-default';
+        }
+
+        function checkType(file){
+          let imageType = /image.*/;
+          if (!file.type.match(imageType)) {
+            throw 'Datei ist kein Bild';
+          } else if (!file){
+            throw 'Kein Bild gewählt';
+          } else {
+            previewImage(file);
+          }
+        }
+      }
+
+      // initialize box-scope
+      var boxes = document.querySelectorAll('.box');
+
+      for (let i = 0; i < boxes.length; i++) {
+        let box = boxes[i];
+        initDropEffect(box);
+        initImageUpload(box);
+      }
+
+      /// drop-effect
+      function initDropEffect(box){
+        let area, drop, areaWidth, areaHeight, maxDistance, dropWidth, dropHeight, x, y;
+        
+        // get clickable area for drop effect
+        area = box.querySelector('.js--image-preview');
+        area.addEventListener('click', fireRipple);
+        
+        function fireRipple(e){
+          area = e.currentTarget
+          // create drop
+          if(!drop){
+            drop = document.createElement('span');
+            drop.className = 'drop';
+            this.appendChild(drop);
+          }
+          // reset animate class
+          drop.className = 'drop';
+          
+          // calculate dimensions of area (longest side)
+          areaWidth = getComputedStyle(this, null).getPropertyValue("width");
+          areaHeight = getComputedStyle(this, null).getPropertyValue("height");
+          maxDistance = Math.max(parseInt(areaWidth, 10), parseInt(areaHeight, 10));
+
+          // set drop dimensions to fill area
+          drop.style.width = maxDistance + 'px';
+          drop.style.height = maxDistance + 'px';
+          
+          // calculate dimensions of drop
+          dropWidth = getComputedStyle(this, null).getPropertyValue("width");
+          dropHeight = getComputedStyle(this, null).getPropertyValue("height");
+          
+          // calculate relative coordinates of click
+          // logic: click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center
+          x = e.pageX - this.offsetLeft - (parseInt(dropWidth, 10)/2);
+          y = e.pageY - this.offsetTop - (parseInt(dropHeight, 10)/2) - 30;
+          
+          // position drop and animate
+          drop.style.top = y + 'px';
+          drop.style.left = x + 'px';
+          drop.className += ' animate';
+          e.stopPropagation();
+        }
+      }
     </script>
   </body>
 </html>

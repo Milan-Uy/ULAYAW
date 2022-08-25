@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 /* @import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 :root {
   --mainbg-color: #f9f2e7;
@@ -3080,5 +3081,548 @@ footer .bottom a:hover {
 @media (max-width: 991px) {
   .first {
     margin-right: 0px;
+  }
+}
+
+/*A-Profile Edit App*/
+.update-container {
+  max-width: 810px;
+  background-color: #faf5ee;
+  margin: 20px;
+  padding: 30px 30px 20px 30px;
+  border-radius: 10px;
+}
+.app-details h4 {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--heading-color);
+}
+.update-form {
+  width: 100%;
+  margin: 10px 20px 20px 20px;
+}
+.update-form .form-container {
+  margin: 10px 0;
+  align-items: center;
+}
+.update-form .form-container .col-3 {
+  display: flex;
+  margin-right: 20px;
+}
+.update-form .form-container .col-3 label {
+  margin: 20px 5px 10px 10px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 100;
+  max-width: 120px;
+  width: 100%;
+}
+.update-form .form-container .col-3 input {
+  margin: 10px 5px 10px 10px;
+  font-size: 14px;
+  padding: 4px 20px;
+  border-radius: 5px;
+  max-width: 380px;
+  width: 100%;
+  background: none;
+  outline: none;
+  height: 35px;
+  background: #f9f6f6;
+  border: 0.5px solid #b4acac;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.app-details {
+  display: flex;
+  justify-content: space-between;
+}
+.editapp-btn {
+  cursor: pointer;
+  padding: 10px 25px;
+  color: #f9f2e7;
+  background-color: #1b5b65;
+  border: none;
+  border-radius: 5px;
+}
+.editapp-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
+}
+@media screen and (max-width: 786px) {
+  .tabs-container {
+    margin-left: 0px;
+  }
+  .tab-item h5 {
+    font-size: 20px;
+  }
+  .update-container {
+    margin: 10px 0px 20px 0px;
+  }
+  .update-form {
+    margin: 0px;
+  }
+  .app-details h5 {
+    font-size: 15px;
+  }
+  .app-details .editapp-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}
+.business-logo {
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+.logo-upload {
+  padding: 2px;
+  border-radius: 10px;
+  position: absolute;
+}
+.drop-logo {
+  background: transparent url(/images/hulo.png) no-repeat center center/cover;
+  max-width: 80px;
+  width: 100%;
+  height: 80px;
+  padding: 5px;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--txt-field-color);
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  opacity: 0.5;
+}
+.drop-logo .image-txt {
+  font-size: 10px;
+  font-weight: 800;
+  color: rgb(0, 0, 0, 1);
+  margin-top: 20px;
+}
+.drop-logo p span {
+  font-weight: 600;
+}
+.thumbnail,
+.img-name {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.thumbnail {
+  object-fit: cover;
+  z-index: 100;
+}
+.img-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.drop-logo:hover .img-name {
+  opacity: 1;
+}
+.villa-container {
+  max-width: 810px;
+  background-color: #faf5ee;
+  margin-left: 20px;
+  padding: 30px 30px 20px 30px;
+  border-radius: 10px;
+}
+.villa-container h4 {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--heading-color);
+}
+
+.villa-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  margin-bottom: 1.6%;
+  line-height: 1.4;
+  font-family: "Raleway";
+  overflow: hidden;
+  z-index: 0;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--heading-color);
+}
+.villa-card a {
+  color: inherit;
+}
+/*.blog-card:hover .photo {
+transform: scale(1) rotate(1deg);
+}*/
+.photo {
+  position: relative;
+}
+.photo::before {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+}
+.photo:hover::before {
+  -webkit-animation: shine 0.75s;
+  animation: shine 0.75s;
+}
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+.villa-card .villa-pic {
+  position: relative;
+  z-index: 0;
+  height: 200px;
+  margin-top: 10px;
+}
+.villa-card .photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s;
+}
+.villa-card .villa-desc {
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.villa-card .villa-desc h1 {
+  font-family: "Raleway", sans-serif;
+}
+.villa-card .villa-desc h1 {
+  margin: 0;
+  font-size: 16px;
+  color: #6b4f4f;
+}
+@media (min-width: 640px) {
+  .villa-card {
+    flex-direction: row;
+    max-width: 1000px;
+  }
+  .villa-card .villa-pic {
+    flex-basis: 20%;
+    height: 100px;
+  }
+  .villa-card .villa-desc {
+    flex-basis: 100%;
+    padding: 0px 30px;
+  }
+  .accordion-body__contents {
+    padding: 1.5em 1.5em;
+  }
+  .edit-villaprice input {
+    max-width: 170px;
+    width: 100%;
+    margin-left: -25px;
+  }
+}
+@media (max-width: 640px) {
+  .villa-card {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .villa-card .villa-desc {
+    padding: 0px;
+  }
+  .villa-card .villa-desc h1 {
+    font-size: 20px;
+  }
+  .villa-container {
+    margin-left: 0px;
+  }
+  .edit-villaprice input {
+    max-width: 140px;
+    width: 100%;
+    margin-left: -18px;
+  }
+  .edit-villadetails textarea {
+    max-width: 140px;
+    width: 100%;
+  }
+  .accordion-body__contents {
+    padding: 1.5em 0.5em;
+  }
+}
+.edit-accord {
+  margin-top: 10px;
+}
+.edit-accordion {
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  font-family: "Montserrat";
+}
+.accordion-header {
+  background: var(--heading-color);
+  font-weight: 700;
+}
+.accordion-header {
+  padding: 10px 20px;
+  background: none;
+  color: var(--heading-color);
+  cursor: pointer;
+  font-size: 0.7em;
+  letter-spacing: 0.1em;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+.accordion__item {
+  border-bottom: 1px solid var(--main-btn-color);
+}
+.accordion-header:hover {
+  background: var(--main-btn-color);
+  position: relative;
+  z-index: 5;
+  color: #fff;
+}
+.accordion-body {
+  color: var(--txt-field-color);
+  display: none;
+}
+.accordion-body__contents {
+  font-size: 0.85em;
+  background-color: #fff;
+  display: grid;
+}
+.accordion__item.active:last-child .accordion-header {
+  border-radius: none;
+}
+.accordion:first-child > .accordion__item > .accordion-header {
+  border-bottom: 1px solid transparent;
+}
+.accordion__item > .accordion-header:after {
+  content: "\f3d0";
+  font-family: IonIcons;
+  font-size: 1.2em;
+  float: right;
+  position: relative;
+  top: -2px;
+  transition: 0.3s all;
+  transform: rotate(-90deg);
+}
+.accordion__item.active > .accordion-header:after {
+  transform: rotate(0deg);
+}
+.accordion__item.active .accordion-header {
+  background: var(--main-btn-color);
+  color: #fff;
+}
+@media screen and (max-width: 1000px) {
+  .edit-accordion {
+    width: 100%;
+  }
+}
+.edit-villadesc,
+.edit-villainc,
+.edit-villaprice {
+  display: flex;
+  margin: 5px 10px;
+}
+.edit-villadetails label {
+  margin-right: 10px;
+  width: 120px;
+}
+.edit-villaprice input {
+  border-radius: 2px;
+  border: 1px solid var(--heading-color);
+  color: var(--txt-field-color);
+}
+.edit-villadetails textarea {
+  resize: none;
+  overflow-y: scroll;
+  height: 100px;
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid var(--heading-color);
+  color: var(--txt-field-color);
+  float: right;
+  font-family: "Montserrat";
+}
+.editvilla-btn {
+  text-align: right;
+  margin: 10px 10px;
+}
+.editvilla-btn .canceledit-btn,
+.editvilla-btn .saveedit-btn {
+  font-size: 14px;
+  padding: 5px 8px;
+}
+.saveedit-btn {
+  background-color: var(--main-btn-color);
+  border: 1px solid #10393f;
+  color: #fff;
+  border-radius: 5px;
+}
+.canceledit-btn {
+  border: 1px solid #10393f;
+  color: var(--txt-field-color);
+  border-radius: 5px;
+}
+.editvilla-btn .canceledit-btn:hover,
+.editvilla-btn .saveedit-btn:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px rgba(34, 34, 34, 0.2) inset;
+}
+.upload-accord {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-family: inherit;
+  margin: 0 0 0.75em 0;
+  color: #728c8d;
+}
+.box {
+  display: block;
+  max-width: 140px;
+  height: 140px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+.upload-options {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: var(--main-btn-color);
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  transition: background-color ease-in-out 150ms;
+}
+.upload-options:hover {
+  background-color: #0f4f5e;
+}
+.upload-options input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.upload-options label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+}
+.upload-options label::after {
+  content: "edit";
+  font-family: "Material Icons";
+  position: absolute;
+  font-size: 20px;
+  color: #e6e6e6;
+  top: calc(50% - 1.3rem);
+  left: calc(50% - 0.5rem);
+  z-index: 0;
+}
+.upload-options label span {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+  text-align: center;
+}
+.upload-options label span:hover i.material-icons {
+  color: lightgray;
+}
+.js--image-preview {
+  height: 105px;
+  width: 140px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("");
+  background-color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.js--image-preview::after {
+  content: "photo_size_select_actual";
+  font-family: "Material Icons";
+  position: relative;
+  font-size: 50px;
+  color: #e6e6e6;
+  top: calc(50% - 2rem);
+  left: calc(50% - 1.5rem);
+  z-index: 0;
+}
+.js--image-preview.js--no-default::after {
+  display: none;
+}
+i.material-icons {
+  transition: color 100ms ease-in-out;
+  font-size: 2.25em;
+  line-height: 55px;
+  color: white;
+  display: block;
+}
+.drop {
+  display: block;
+  position: absolute;
+  background: rgba(95, 158, 160, 0.2);
+  border-radius: 100%;
+  transform: scale(0);
+}
+.animate {
+  animation: ripple 0.4s linear;
+}
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
   }
 }
