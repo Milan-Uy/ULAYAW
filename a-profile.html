@@ -268,45 +268,49 @@
                      <form class="update-form">
                         <div class="form-container">
                            <div class="col-3">
-                              <label>Contact Number</label>
+                              <label class="form-label">Contact Number</label>
                               <input  type="text" id="contact" placeholder="+639121569632" maxlength="13" value="+63" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
-                             <label>Location</label>
+                             <label class="form-label">Location</label>
                              <input id="lastname" type="text" placeholder="Abucay, Bataan, Philippines" readonly/>
                           </div>
                        </div>
                         <div class="form-container">
                            <div class="col-3">
-                              <label>Email Address</label>
+                              <label class="form-label">Email Address</label>
                               <input  type="email" id="email" placeholder="huloleisurefarm@gmail.com" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                            <div class="col-3">
-                              <label>Facebook Link</label>
+                              <label class="form-label">Facebook Link</label>
                               <input  type="email" id="email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
-                             <label>Instagram Link</label>
+                             <label class="form-label">Instagram Link</label>
                              <input  type="email" id="email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
                           </div>
                        </div>
                        <div class="form-container">
                         <div class="col-3">
-                           <label>Business Logo</label>
-                           <div class="business-logo">
-                            <div class="logo-upload">
-                               <div class="drop-logo">
-                                  <h6 class="image-txt">CHANGE AVATAR</h6>
-                                  <input type="file" accept="image/*" id="input-logo" hidden>
-                               </div>
-                            </div>
-                         </div>
+                           <label class="form-label">Business Logo</label>
+                            <div class="container">
+                              <div class="avatar-upload">
+                                  <div class="avatar-edit">
+                                      <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                      <label class="imageUpload" for="imageUpload"></label>
+                                  </div>
+                                  <div class="avatar-preview">
+                                      <div id="imagePreview">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
                         </div>
                      </div>
                      </form>
@@ -597,84 +601,20 @@
       };
 
         //upload pic
-        const dropArea = document.querySelector('.drop-logo');
-         const inputFile = document.getElementById('input-logo');
-
-         dropArea.addEventListener('click', function () {
-            inputFile.click()
-         })
-
-         inputFile.addEventListener('change', function () {
-            const file = this.files[0];
-
-            if(file.type.startsWith('image/')) {
-               if(file.size < 2000000) {
-                  create_thumbnail(file);
-               } else {
-                  alert('Image size must be less than 2MB');
-               }
-            } else {
-               alert('Must be image');
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+                $('#imagePreview').hide();
+                $('#imagePreview').fadeIn(650);
             }
-         })
-
-         dropArea.addEventListener('dragover', function (e) {
-            e.preventDefault();
-            this.style.borderStyle = 'solid';
-
-            const h3 = this.querySelector('h3');
-            h3.textContent = 'Release here to upload image';
-         })
-
-         dropArea.addEventListener('drop', function (e) {
-            e.preventDefault();
-
-            inputFile.files = e.dataTransfer.files;
-            const file = e.dataTransfer.files[0];
-
-            if(file.type.startsWith('image/')) {
-               if(file.size < 2000000) {
-                  create_thumbnail(file);
-               } else {
-                  alert('Image size must be less than 2MB');
-               }
-            } else {
-               alert('Must be image');
-            }
-         })
-
-         const command = ['dragleave', 'dragend']
-
-         command.forEach(item=> {
-            dropArea.addEventListener(item, function () {
-               this.style.borderStyle = 'dashed';
-
-               const h3 = this.querySelector('h3');
-               h3.textContent = 'Drag and drop or click here to select image';
-            })
-         })
-
-         function create_thumbnail(file) {
-            const img = document.querySelectorAll('.thumbnail');
-            const imgName = document.querySelectorAll('.img-name');
-            img.forEach(item=> item.remove());
-            imgName.forEach(item=> item.remove());
-
-            const reader = new FileReader();
-            reader.onload = ()=> {
-               const url = reader.result;
-               const img = document.createElement('img');
-               img.src = url;
-               img.className = 'thumbnail'
-               const span = document.createElement('span');
-               span.className = 'img-name';
-               span.textContent = file.name;
-               dropArea.appendChild(img);
-               dropArea.appendChild(span);
-               dropArea.style.borderColor = 'transparent';
-            }
-            reader.readAsDataURL(file);
-         }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imageUpload").change(function() {
+        readURL(this);
+    });
 
          /*manage users*/
          jQuery(document).ready(function (e) {
