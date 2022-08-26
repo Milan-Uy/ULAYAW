@@ -67,22 +67,51 @@
                   <!--Manage Users Tab-->
                   <h4 class="tab-accordion-title" rel="tabTwo">Manage Users</h4>
                   <div id="tabTwo" class="tab-item">
-                    <h5>Tab 3 content</h5>
-                    <p>
-                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-                       quos dolorum mollitia magnam tempore nulla aliquam delectus
-                       molestias quia distinctio nesciunt soluta expedita fugit
-                       possimus ad labore? Obcaecati molestias aperiam exercitationem
-                       expedita provident numquam tempora nulla, beatae ab modi,
-                       molestiae, eius iure odio dolorum recusandae est. Distinctio a
-                       possimus placeat dolore iste animi aspernatur. Eius ea
-                       doloremque blanditiis, esse dolores sit ipsa molestiae expedita
-                       accusamus eos, labore ipsam iste ducimus optio itaque provident
-                       voluptate reprehenderit libero cum atque in porro. Iste, nihil?
-                       Ea temporibus tempore optio quis autem soluta voluptate.
-                       Doloribus perspiciatis impedit iure neque, hic exercitationem
-                       voluptates laudantium accusamus?
-                    </p>
+                    <h5>Guest List</h5>
+
+                    <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
+                    
+                    <table id="myTable">
+                      <thead>
+                         <tr class="header">
+                            <th style="width:45%;">Name</th>
+                            <th style="width:45%;">Email Address</th>
+                            <th style= "width:10%;"> </th>
+                         </tr>
+                      </thead>
+                      <tbody id="table_users">
+                         <tr>
+                            <td>Millano Uy</td>
+                            <td>millanouy@gmail.com</td>
+                            <td><button class="view-btn" onclick="()">View</button></td>
+                         </tr>
+                         <tr>
+                            <td> Ricko Ronquillo </td>
+                            <td> rickoronquillo@gmail.com</td>
+                            <td><button class="view-btn" onclick="()">View</button></td>
+                       </tr>
+                       <tr>
+                         <td>Nicky Merito</td>
+                         <td>nickymerito@gmail.com</td>
+                         <td><button class="view-btn" onclick="()">View</button></td>
+                      </tr>
+                      <tr>
+                        <td>Nicky Merito</td>
+                        <td>nickymerito@gmail.com</td>
+                        <td><button class="view-btn" onclick="()">View</button></td>
+                     </tr>
+                     <tr>
+                      <td>Hannah Villados</td>
+                      <td>hannahvillados@gmail.com</td>
+                      <td><button class="view-btn" onclick="()">View</button></td>
+                   </tr>
+                   <tr>
+                    <td>Bermin Sanchez</td>
+                    <td>berminsanchez@gmail.com</td>
+                    <td><button class="view-btn" onclick="()">View</button></td>
+                 </tr>
+          </tbody>
+       </table>
                   </div>
                   <!--Add Users Tab-->
                   <h4 class="tab-accordion-title" rel="tabThree">Add User</h4>
