@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Abril Fatface" rel="stylesheet" />
     <link rel="stylesheet" href="/css/utilities.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
@@ -50,10 +51,17 @@
       </div>
     </section>
     <!--Footer-->
-    <footer>
-      <div class="bottom">
-        <p>Copyright © 2022 <a href="#">ULAYAW.</a> All Rights Reserved.</p>
+    <section class="display-footer">
+      <div id="footer-placeholder">
+        <div id="footer-btm"></div>
       </div>
-    </footer>
+    </section>
+
+    <script>
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html #footer-btm");
+      });
+    </script>
   </body>
 </html>
