@@ -184,7 +184,7 @@
 .about-header {
   background: url(/images/about-bg.png) no-repeat center center/cover;
   opacity: 90%;
-  width: 100vw;
+  width: 100%;
   height: 110vh;
   position: relative;
 }
@@ -297,7 +297,6 @@
   .about-container {
     padding: 30px;
     width: 100%;
-    /* height: 75%; */
   }
 
   .about-container h1,

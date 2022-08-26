@@ -2643,7 +2643,7 @@ footer .content .middle {
   padding-left: 300px;
 }
 footer .content .right {
-  padding-left: 200px;
+  /* padding-left: 200px; */
 }
 footer .content .middle a {
   line-height: 22px;
