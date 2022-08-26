@@ -552,7 +552,7 @@
   will-change: opacity, max-height;
 }
 .accordion .accordion-content p {
-  font-size: 14px;
+  font-size: 16px;
   margin: 1em 0;
   margin-left: 20px;
   margin-bottom: 20px;
@@ -2732,6 +2732,13 @@ footer a:hover {
 footer .bottom a:hover {
   text-decoration: none;
 }
+
+.logo-footer img {
+  width: 180px;
+  height: 100px;
+  object-fit: cover;
+}
+
 @media (max-width: 1100px) {
   footer .content .middle {
     padding-left: 50px;
@@ -2768,13 +2775,13 @@ footer .bottom a:hover {
     padding-left: 0px;
   }
   footer .content .right input[type="submit"] {
-    width: 40%;
+    min-width: 50%;
   }
-}
-.logo-footer img {
-  width: 180px;
-  height: 100px;
-  object-fit: cover;
+
+  .logo-footer img {
+    width: 80%;
+    height: auto;
+  }
 }
 
 /* add new user */
