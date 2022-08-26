@@ -551,10 +551,23 @@
         </div>
       </div>
     </section>
+
+    <!--Footer-->
+    <section class="display-footer">
+      <div id="footer-placeholder">
+        <div id="footer-btm"></div>
+      </div>
+    </section>
+
     <script>
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");
+      });
+
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html #footer-btm");
       });
 
       //Tabs

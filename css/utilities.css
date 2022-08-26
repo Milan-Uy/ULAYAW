@@ -2708,6 +2708,18 @@ footer .bottom a {
   font-size: 12px;
   margin-top: 2px;
 }
+#footer-btm {
+  width: 100%;
+  text-align: center;
+  color: var(--mainbg-color);
+  padding: 10px 40px 5px 0;
+  font-size: 12px;
+  border-top: 1px solid var(--mainbg-color);
+  align-items: center;
+  background: #473a3a;
+  font-family: "Montserrat", sans-serif;
+}
+
 footer a {
   transition: all 0.3s ease;
 }
