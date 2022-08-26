@@ -2617,7 +2617,7 @@ a {
   color: #fff;
   text-decoration: none;
 }
-footer .content .box {
+footer .content .footer-box {
   width: 33%;
   transition: all 0.4s ease;
 }
@@ -3208,7 +3208,7 @@ footer .bottom a:hover {
 .avatar-upload {
   position: relative;
   max-width: 205px;
-  margin-left:15px;
+  margin-left: 15px;
 }
 .avatar-upload .avatar-edit {
   position: absolute;
@@ -3224,12 +3224,12 @@ footer .bottom a:hover {
   height: 34px;
   margin-bottom: 0;
   border-radius: 100%;
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid transparent;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   font-weight: normal;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .avatar-upload .avatar-edit input + label:hover {
   background: #f1f1f1;
@@ -3252,7 +3252,7 @@ footer .bottom a:hover {
   position: relative;
   border-radius: 100%;
   border: 1px solid var(--txt-field-color);
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
   opacity: 0.5;
 }
 .avatar-upload .avatar-preview > div {
@@ -3263,7 +3263,7 @@ footer .bottom a:hover {
   background-repeat: no-repeat;
   background-position: center;
 }
-#imagePreview{
+#imagePreview {
   background-image: url(/images/hulo.png);
 }
 .villa-container {
