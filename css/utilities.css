@@ -2760,8 +2760,8 @@ footer .bottom a:hover {
 /* add new user */
 .adduser-container {
   max-width: 780px;
-  margin: 20px;
-  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: 30px;
 }
 .adduser-form {
   width: 100%;
@@ -2773,6 +2773,11 @@ footer .bottom a:hover {
   flex-direction: row;
   align-items: center;
 }
+.adduser-form .form-container .col-6,
+.adduser-form .form-container .col-3 {
+  display: flex;
+  flex-direction: row;
+}
 .adduser-form .form-container .col-3 label,
 .adduser-form .form-container .col-6 label {
   display: block;
@@ -2781,11 +2786,10 @@ footer .bottom a:hover {
   font-size: 12px;
   font-weight: 100;
 }
-.adduser-form .form-container .col-3 input,
-.adduser-form .form-container .col-6 input {
+.adduser-form .form-container .col-3 input {
   margin: 10px 5px 10px 5px;
   font-size: 14px;
-  padding: 4px 5px;
+  padding: 4px 20px;
   width: 100%;
   outline: none;
   height: 35px;
@@ -2794,6 +2798,33 @@ footer .bottom a:hover {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
+
+.adduser-form .form-container .col-6 input {
+  margin: 10px 5px 10px 5px;
+  font-size: 14px;
+  padding: 4px 20px;
+  width: 60%;
+  outline: none;
+  height: 35px;
+  background: #f9f6f6;
+  border: 0.5px solid #b4acac;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.adduser-form .form-container .adduser-role {
+  margin-left: 5.5vw;
+  margin-top: 5px;
+  font-size: 14px;
+  padding: 4px 20px;
+  width: 30%;
+  outline: none;
+  height: 35px;
+  background: #f9f6f6;
+  border: 0.5px solid #b4acac;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
 .adduser-form .form-container .col-6 {
   width: 50%;
   margin: 0 10px;
