@@ -2643,7 +2643,7 @@ footer .content .middle {
   padding-left: 300px;
 }
 footer .content .right {
-  /* padding-left: 200px; */
+  padding-left: 200px;
 }
 footer .content .middle a {
   line-height: 22px;
@@ -2736,13 +2736,20 @@ footer .bottom a:hover {
   footer .content .middle {
     padding-left: 50px;
   }
+  footer .content .right {
+    padding-left: 0px;
+  }
 }
 @media (max-width: 950px) {
   footer .content .box {
     width: 50%;
   }
   .content .right {
-    margin-top: 40px;
+    /* margin-top: 40px; */
+    padding-left: 0px;
+  }
+
+  footer .content .right {
     padding-left: 0px;
   }
 }
