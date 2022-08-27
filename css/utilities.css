@@ -2605,7 +2605,7 @@ footer {
   padding: 0;
   box-sizing: border-box;
 }
-footer .content {
+footer .footer-content {
   max-width: 1350px;
   margin: auto;
   padding: 40px 20px 20px 20px;
@@ -2613,16 +2613,16 @@ footer .content {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-footer .content p,
+footer .footer-content p,
 a {
   color: #fff;
   text-decoration: none;
 }
-footer .content .footer-box {
+footer .footer-content .footer-box {
   width: 33%;
   transition: all 0.4s ease;
 }
-footer .content .topic {
+footer .footer-content .topic {
   font-size: 15px;
   font-weight: 600;
   color: #fff;
@@ -2630,26 +2630,26 @@ footer .content .topic {
   text-decoration: underline;
   text-underline-offset: 8px;
 }
-footer .content p {
+footer .footer-content p {
   text-align: justify;
 }
-footer .content .lower .topic {
+footer .footer-content .lower .topic {
   margin: 24px 0 5px 0;
 }
-footer .content .lower i {
+footer .footer-content .lower i {
   padding-right: 16px;
 }
-footer .content .middle {
+footer .footer-content .footer-middle {
   padding-left: 300px;
 }
-footer .content .right {
+footer .footer-content .footer-right {
   padding-left: 200px;
 }
-footer .content .middle a {
+footer .footer-content .footer-middle a {
   line-height: 22px;
   font-size: 12px;
 }
-footer .content .right input[type="text"] {
+footer .footer-content .footer-right input[type="text"] {
   height: 45px;
   width: 100%;
   outline: none;
@@ -2660,7 +2660,7 @@ footer .content .right input[type="text"] {
   font-size: 17px;
   border: 2px solid #222222;
 }
-footer .content .right input[type="submit"] {
+footer .footer-content .footer-right input[type="submit"] {
   height: 42px;
   width: 100%;
   font-size: 18px;
@@ -2675,10 +2675,10 @@ footer .content .right input[type="submit"] {
   border: 2px solid var(--mainbg-color);
   transition: all 0.3s ease-in-out;
 }
-.content .right input[type="submit"]:hover {
+.footer-content .footer-right input[type="submit"]:hover {
   color: var(--main-btn-color);
 }
-footer .content .media-icons a {
+footer .footer-content .media-icons a {
   font-size: 16px;
   height: 45px;
   width: 45px;
@@ -2690,7 +2690,7 @@ footer .content .media-icons a {
   margin: 30px 12px 0 0;
   transition: all 0.3s ease;
 }
-.content .media-icons a:hover {
+.footer-content .media-icons a:hover {
   border-color: var(--mainbg-color);
   background-color: var(--mainbg-color);
   color: var(--main-btn-color);
@@ -2740,23 +2740,23 @@ footer .bottom a:hover {
 }
 
 @media (max-width: 1100px) {
-  footer .content .middle {
+  footer .footer-content .footer-middle {
     padding-left: 50px;
   }
-  footer .content .right {
+  footer .footer-content .footer-right {
     padding-left: 0px;
   }
 }
 @media (max-width: 950px) {
-  footer .content .box {
+  footer .footer-content .box {
     width: 50%;
   }
-  .content .right {
+  .footer-content .footer-right {
     /* margin-top: 40px; */
     padding-left: 0px;
   }
 
-  footer .content .right {
+  footer .footer-content .footer-right {
     padding-left: 0px;
   }
 }
@@ -2764,17 +2764,17 @@ footer .bottom a:hover {
   footer {
     position: relative;
   }
-  footer .content .box {
+  footer .footer-content .box {
     width: 100%;
     margin-top: 30px;
   }
-  footer .content .middle {
+  footer .footer-content .footer-middle {
     padding-left: 0;
   }
-  footer .content .right {
+  footer .footer-content .footer-right {
     padding-left: 0px;
   }
-  footer .content .right input[type="submit"] {
+  footer .footer-content .footer-right input[type="submit"] {
     min-width: 50%;
   }
 
