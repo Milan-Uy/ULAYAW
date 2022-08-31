@@ -2569,7 +2569,6 @@ transform: scale(1) rotate(1deg);
 .ststbl,
 .tdbs,
 .thbs {
-  border: 1px solid #ddd;
   text-align: center;
   margin-top: 40px;
   overflow-x: auto;
@@ -2584,14 +2583,34 @@ transform: scale(1) rotate(1deg);
 .thbs,
 .tdbs {
   padding: 15px;
+  border-right: 1px solid #6b4f4f;
+}
+
+.tdbs1 {
+  padding: 15px;
 }
 
 .thbs {
   background-color: #6b4f4f;
   color: #f9f2e7;
+  border-right: 1px solid white;
 }
 tbody {
   background-color: #f9f2e7;
+}
+
+.btncancel {
+  background-color: #6b4f4f;
+  color: #f9f2e7;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  width: 80px;
+}
+
+.btncancel:hover {
+  background-color: #473a3a;
 }
 
 /*Footer*/
@@ -4302,5 +4321,55 @@ i.material-icons {
   }
   .arrow {
     margin-left: -2px;
+  }
+}
+
+/* manage bookings */
+.responsive-tabs dt {
+  font-size: 18px;
+}
+.responsive-tabs dt {
+  padding: 0.5em;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+}
+.responsive-tabs dt:first-child {
+  border-top: 0;
+}
+.responsive-tabs .active {
+  color: #1b5b65;
+  font-weight: bolder;
+  border-bottom: 3px solid #1b5b65;
+  padding-bottom: 5px;
+}
+
+.responsive-tabs .active + dd {
+  display: block;
+}
+.responsive-tabs dd {
+  display: none;
+  padding: 0.5em;
+}
+
+.responsive-tabs-placeholder {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .responsive-tabs {
+  }
+  .responsive-tabs dt {
+    float: left;
+    border-top: 0;
+  }
+  .responsive-tabs .active + dd {
+    display: none;
+  }
+
+  .responsive-tabs-placeholder {
+    clear: both;
+    display: block;
+    padding: 1em;
+    border-top: 1px solid #ccc;
   }
 }
