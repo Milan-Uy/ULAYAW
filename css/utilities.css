@@ -4373,3 +4373,27 @@ i.material-icons {
     border-top: 1px solid #ccc;
   }
 }
+
+.check {
+  color: #28a745;
+  cursor: pointer;
+  border: none;
+  background-color: #f9f2e7;
+}
+
+.cancel {
+  color: #a74528;
+  cursor: pointer;
+  border: none;
+  background-color: #f9f2e7;
+}
+
+.check:hover {
+  color: #24973e;
+  transform: scale(1.1);
+}
+
+.cancel:hover {
+  color: #973e24;
+  transform: scale(1.1);
+}
