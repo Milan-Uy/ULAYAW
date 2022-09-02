@@ -4469,3 +4469,61 @@ i.material-icons {
 .amount-sales {
   color: #ad0808;
 }
+
+/*View Guest List*/
+.guest-header,
+.booking-header {
+  width: 100%;
+  background-color: var(--mainbg-color);
+  box-shadow: rgba(45, 45, 61, 0.15) 0px 3px 8px -2px, rgba(56, 55, 55, 0.3) 0px 3px 7px -3px;
+  padding: 10px 30px 10px;
+  margin-top: 20px;
+  margin-bottom: 3px;
+  border-radius: 10px 10px 0px 0px;
+  z-index: 100;
+}
+.guest-header h6,
+.booking-header h6 {
+  color: var(--heading-color);
+  font-size: 16px;
+  font-weight: 700;
+}
+.guest-details {
+  width: 100%;
+  background-color: var(--mainbg-color);
+  padding: 20px 30px 20px;
+  z-index: -1;
+}
+.guestd-form .form-container .col-3 {
+  display: flex;
+  flex-direction: row;
+}
+.guestd-form label {
+  margin: 20px 0px 0px 10px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+  width: 110px;
+}
+.guestd-form h6 {
+  margin: 20px 0px 0px 20px;
+  color: var(--heading-color);
+  font-size: 12px;
+  font-weight: 700;
+}
+.booking-historytbl {
+  margin-top: -13px;
+}
+.booking-status {
+  background-color: transparent;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+.booking-status:active,
+.booking-status:hover,
+.booking-status:focus {
+  border: none;
+  outline: none;
+}

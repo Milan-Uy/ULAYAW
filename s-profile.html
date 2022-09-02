@@ -145,49 +145,159 @@
             <!-- Guest List Tab-->
             <h4 class="tab-accordion-title" rel="tabTwo">Manage Users</h4>
             <div id="tabTwo" class="tab-item">
-              <h5>Guest List</h5>
-              <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
-              <table id="myTable">
-                <thead>
-                  <tr class="header">
-                    <th style="width: 45%">Name</th>
-                    <th style="width: 45%">Email Address</th>
-                    <th style="width: 10%"></th>
-                  </tr>
-                </thead>
-                <tbody id="table_users">
-                  <tr>
-                    <td>Millano Uy</td>
-                    <td>millanouy@gmail.com</td>
-                    <td><button class="view-btn" onclick="()">View</button></td>
-                  </tr>
-                  <tr>
-                    <td>Ricko Ronquillo</td>
-                    <td>rickoronquillo@gmail.com</td>
-                    <td><button class="view-btn" onclick="()">View</button></td>
-                  </tr>
-                  <tr>
-                    <td>Nicky Merito</td>
-                    <td>nickymerito@gmail.com</td>
-                    <td><button class="view-btn" onclick="()">View</button></td>
-                  </tr>
-                  <tr>
-                    <td>Hannah Villados</td>
-                    <td>hannahvillados@gmail.com</td>
-                    <td><button class="view-btn" onclick="()">View</button></td>
-                  </tr>
-                  <tr>
-                    <td>Bermin Sanchez</td>
-                    <td>berminsanchez@gmail.com</td>
-                    <td><button class="view-btn" onclick="()">View</button></td>
-                  </tr>
-                  <tr>
-                    <td>Kyla Santos</td>
-                    <td>kylasantos@gmail.com</td>
-                    <td><button class="view-btn" onclick="()">View</button></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="guest-list">
+                <h5>Guest List</h5>
+                <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
+                <table id="myTable">
+                  <thead>
+                    <tr class="header">
+                      <th style="width: 45%">Name</th>
+                      <th style="width: 45%">Email Address</th>
+                      <th style="width: 10%"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_users">
+                    <tr>
+                      <td>Millano Uy</td>
+                      <td>millanouy@gmail.com</td>
+                      <td><button class="view-btn" onclick="()">View</button></td>
+                    </tr>
+                    <tr>
+                      <td>Ricko Ronquillo</td>
+                      <td>rickoronquillo@gmail.com</td>
+                      <td><button class="view-btn" onclick="()">View</button></td>
+                    </tr>
+                    <tr>
+                      <td>Nicky Merito</td>
+                      <td>nickymerito@gmail.com</td>
+                      <td><button class="view-btn" onclick="()">View</button></td>
+                    </tr>
+                    <tr>
+                      <td>Hannah Villados</td>
+                      <td>hannahvillados@gmail.com</td>
+                      <td><button class="view-btn" onclick="()">View</button></td>
+                    </tr>
+                    <tr>
+                      <td>Bermin Sanchez</td>
+                      <td>berminsanchez@gmail.com</td>
+                      <td><button class="view-btn" onclick="()">View</button></td>
+                    </tr>
+                    <tr>
+                      <td>Kyla Santos</td>
+                      <td>kylasantos@gmail.com</td>
+                      <td><button class="view-btn" onclick="()">View</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="view-sguest">
+                <h5>Guest Profile</h5>
+                <div class="guest-header">
+                  <h6>Guest Details</h6>
+                </div>
+                <div class="guest-details">
+                  <form class="guestd-form">
+                    <div class="form-container">
+                      <div class="col-3">
+                        <label>First Name:</label>
+                        <h6>Santos</h6>
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3">
+                        <label>Last Name:</label>
+                        <h6>Kyla Rozette</h6>
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3">
+                        <label>Email Address:</label>
+                        <h6>kylarozette@gmail.com</h6>
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3">
+                        <label>Contact Number:</label>
+                        <h6>0912-345-6789</h6>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="booking-header">
+                  <h6>Booking History</h6>
+                </div>
+                <div class="booking-historytbl">
+                  <table class="ststbl" style="margin-top: 10px">
+                    <thead>
+                      <tr>
+                        <th class="thbs">Ref. No.</th>
+                        <th class="thbs">Reserved Date</th>
+                        <th class="thbs">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table_status">
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs1">
+                        <select name="booking-status" id="booking-status" class="booking-status">
+                          <option value="Fully Paid">Fully Paid</option>
+                          <option value="Partially Paid">Partially Paid</option>
+                        </select>
+                      </td>
+                    </tbody>
+                    <tbody id="table_status">
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs1">
+                        <select name="booking-status" id="booking-status" class="booking-status">
+                          <option value="Fully Paid">Fully Paid</option>
+                          <option value="Partially Paid">Partially Paid</option>
+                        </select>
+                      </td>
+                    </tbody>
+                    <tbody id="table_status">
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs1">
+                        <select name="booking-status" id="booking-status" class="booking-status">
+                          <option value="Fully Paid">Fully Paid</option>
+                          <option value="Partially Paid">Partially Paid</option>
+                        </select>
+                      </td>
+                    </tbody>
+                    <tbody id="table_status">
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs1">
+                        <select name="booking-status" id="booking-status" class="booking-status">
+                          <option value="Fully Paid">Fully Paid</option>
+                          <option value="Partially Paid">Partially Paid</option>
+                        </select>
+                      </td>
+                    </tbody>
+                    <tbody id="table_status">
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs1">
+                        <select name="booking-status" id="booking-status" class="booking-status">
+                          <option value="Fully Paid">Fully Paid</option>
+                          <option value="Partially Paid">Partially Paid</option>
+                        </select>
+                      </td>
+                    </tbody>
+                    <tbody id="table_status">
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs">testing</td>
+                      <td class="tdbs1">
+                        <select name="booking-status" id="booking-status" class="booking-status">
+                          <option value="Fully Paid">Fully Paid</option>
+                          <option value="Partially Paid">Partially Paid</option>
+                        </select>
+                      </td>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
             <!-- Manage Bookings Tab-->
             <h4 class="tab-accordion-title" rel="tabThree">Manage Bookings</h4>
