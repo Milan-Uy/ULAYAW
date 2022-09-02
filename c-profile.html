@@ -152,7 +152,7 @@
                           d="M12.1 52.1l24.4 24.4 53-53"
                         />
                       </svg>
-                      I agree to <a href="#">Hulo Leisure Farm's Moment Policy </a>
+                      I agree to <a href="#" id="open-popup-btn-1">Hulo Leisure Farm's Moment Policy </a>
                     </label>
                   </div>
                   <div class="moments-box">
@@ -179,6 +179,60 @@
                 </form>
               </div>
             </div>
+
+            <!-- START OF POPUP -->
+            <div class="popup popup1 center">
+              <div class="description">
+                <h2 style="text-align: center"><b>MOMENTS POLICY</b></h2>
+                <br />
+              </div>
+              <div class="dismiss-btn">
+                <button id="dismiss-popup-btn-1">Close</button>
+              </div>
+            </div>
+
+            <div class="popup popup-short popup2 center">
+              <div class="popup-title">Registration</div>
+              <div class="description">Registration successful!</div>
+              <div class="dismiss-btn">
+                <button id="dismiss-popup-btn-2" onclick="changewindow()">Close</button>
+              </div>
+            </div>
+
+            <div class="popup popup-short popup3 center">
+              <div class="popup-title">Registration</div>
+              <div class="description">Error Occured!</div>
+              <div class="dismiss-btn">
+                <button id="dismiss-popup-btn-3">Close</button>
+              </div>
+            </div>
+
+            <div class="popup popup-short popup4 center">
+              <div class="popup-title">Registration</div>
+              <div class="description">Password does not match!</div>
+              <div class="dismiss-btn">
+                <button id="dismiss-popup-btn-4">Close</button>
+              </div>
+            </div>
+
+            <div class="popup popup-short popup5 center">
+              <div class="popup-title">Registration</div>
+              <div class="description">Please agree to the terms and conditions.</div>
+              <div class="dismiss-btn">
+                <button id="dismiss-popup-btn-5">Close</button>
+              </div>
+            </div>
+
+            <div class="popup popup-short popup6 center">
+              <div class="popup-title">Registration</div>
+              <div class="description">Number Insufficient.</div>
+              <div class="dismiss-btn">
+                <button id="dismiss-popup-btn-6">Close</button>
+              </div>
+            </div>
+
+            <!-- END OF POPUP -->
+
             <!--Customer Satisfaction Tab-->
             <h4 class="tab-accordion-title" rel="tabFour">Customer Satisfaction</h4>
             <div id="tabFour" class="tab-item">
@@ -268,6 +322,15 @@
 
         jQuery("ul.tabs li").removeClass("tab-active");
         jQuery("ul.tabs li[rel^='" + d_activeTab + "']").addClass("tab-active");
+      });
+
+      // Popup Button
+      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
 
       /** emoji feedback js **/
