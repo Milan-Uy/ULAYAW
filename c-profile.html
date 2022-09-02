@@ -1,457 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="css/style.css" />
-      <link rel="stylesheet" href="css/utilities.css" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-      <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" />
-      
-      <title>Profile</title>
-   </head>
-   <body>
-      <!--Navbar-->
-      <section class="display-navbar">
-         <div id="nav-placeholder"></div>
-      </section>
-      <!--Profile-->
-      <section class="sidebar-tabs">
-         <div class="sidebar container">
-            <!--Sidebar-->
-            <div class="tabs-wrapper">
-               <ul class="tabs">
-                  <!--List of Tabs-->
-                  <li class="tab-active" rel="tabОne">
-                     <i class="material-symbols-rounded">person </i>
-                     <span class="label">Profile</span>
-                  </li>
-                  <li rel="tabTwo">
-                     <i class="material-symbols-rounded">event_available</i>
-                     <span class="label">Booking Status</span>
-                  </li>
-                  <li rel="tabThree">
-                     <i class="material-symbols-rounded">photo_library</i>
-                     <span class="label">Upload a Moment</span>
-                  </li>
-                  <li rel="tabFour">
-                     <i class="material-symbols-rounded">rate_review</i>
-                     <span class="label">Customer Satisfaction</span>
-                  </li>
-                  <li rel="tabFive">
-                     <i class="material-symbols-rounded">logout</i>
-                     <span class="label">Logout</span>
-                  </li>
-               </ul>
-               <div class="tabs-container">
-                  <!--Profile Tab-->
-                  <h4 class="tab-accordion-active tab-accordion-title" rel="tabОne">Profile</h4>
-                  <div id="tabОne" class="tab-item">
-                     <h5>Welcome, Kyla Rozette</h5>
-                     <div class="edit-container">
-                        <div class="user-details">
-                           <h5 >User Details</h5>
-                           <button class="editprofile-btn" onclick="()">Edit Profile</button>
-                        </div>
-                        <div class="form-box">
-                           <form class="edit-form">
-                              <div class="form-container">
-                                 <div class="col-6">
-                                    <label>First Name</label>
-                                    <input  type="text" id="firstname" placeholder="First Name" readonly/>
-                                 </div>
-                                 <div class="col-6">
-                                    <label>Last Name</label>
-                                    <input id="lastname" type="text" placeholder="Last Name" readonly/>
-                                 </div>
-                              </div>
-                              <div class="form-container">
-                                 <div class="col-3">
-                                    <label>Contact Number</label>
-                                    <input  type="text" id="contact" placeholder="Contact Number" maxlength="13" value="+63" readonly/>
-                                 </div>
-                              </div>
-                              <div class="form-container">
-                                 <div class="col-3">
-                                    <label>Email Address</label>
-                                    <input  type="email" id="email" placeholder="Email Address" readonly/>
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                     <div class="edit-container">
-                        <div class="user-details">
-                           <h5 >Password</h5>
-                           <button class="editprofile-btn" onclick="()">Change</button>
-                        </div>
-                        <form class="edit-form">
-                           <div class="form-container">
-                              <div class="col-3">
-                                 <label>Password</label>
-                                 <input  type="password" id="password" placeholder="Password" readonly/>
-                              </div>
-                           </div>
-                        </form>
-                     </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" />
+
+    <title>Profile</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+    <!--Profile-->
+    <section class="sidebar-tabs">
+      <div class="sidebar container">
+        <!--Sidebar-->
+        <div class="tabs-wrapper">
+          <ul class="tabs">
+            <!--List of Tabs-->
+            <li class="tab-active" rel="tabОne">
+              <i class="material-symbols-rounded">person </i>
+              <span class="label">Profile</span>
+            </li>
+            <li rel="tabTwo">
+              <i class="material-symbols-rounded">event_available</i>
+              <span class="label">Booking Status</span>
+            </li>
+            <li rel="tabThree">
+              <i class="material-symbols-rounded">photo_library</i>
+              <span class="label">Upload a Moment</span>
+            </li>
+            <li rel="tabFour">
+              <i class="material-symbols-rounded">rate_review</i>
+              <span class="label">Customer Satisfaction</span>
+            </li>
+            <li rel="tabFive">
+              <i class="material-symbols-rounded">logout</i>
+              <span class="label">Logout</span>
+            </li>
+          </ul>
+          <div class="tabs-container">
+            <!--Profile Tab-->
+            <h4 class="tab-accordion-active tab-accordion-title" rel="tabОne">Profile</h4>
+            <div id="tabОne" class="tab-item">
+              <h5>Welcome, Kyla Rozette</h5>
+              <div class="edit-container">
+                <div class="user-details">
+                  <h5>User Details</h5>
+                  <button class="editprofile-btn" onclick="()">Edit Profile</button>
+                </div>
+                <div class="form-box">
+                  <form class="edit-form">
+                    <div class="form-container">
+                      <div class="col-6">
+                        <label>First Name</label>
+                        <input type="text" id="firstname" placeholder="First Name" readonly />
+                      </div>
+                      <div class="col-6">
+                        <label>Last Name</label>
+                        <input id="lastname" type="text" placeholder="Last Name" readonly />
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3">
+                        <label>Contact Number</label>
+                        <input type="text" id="contact" placeholder="Contact Number" maxlength="13" value="+63" readonly />
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3">
+                        <label>Email Address</label>
+                        <input type="email" id="email" placeholder="Email Address" readonly />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="edit-container">
+                <div class="user-details">
+                  <h5>Password</h5>
+                  <button class="editprofile-btn" onclick="()">Change</button>
+                </div>
+                <form class="edit-form">
+                  <div class="form-container">
+                    <div class="col-3">
+                      <label>Password</label>
+                      <input type="password" id="password" placeholder="Password" readonly />
+                    </div>
                   </div>
-                  <!--Booking Status Tab-->
-                  <h4 class="tab-accordion-title" rel="tabTwo">Booking Status</h4>
-                  <div id="tabTwo" class="tab-item">
-
-                     <div class="bookingstbl">
-
-                        <table class="ststbl">
-                     
-                           <thead>
-                           <tr>
-                             <th class="thbs">Ref. No.</th>
-                             <th class="thbs">Reserved Date</th>
-                             <th class="thbs">Reservation Created</th>
-                             <th class="thbs">Status</th>
-                             <th class="thbs">Action</th>
-                           </tr>
-                        </thead>
-                        <tbody id="table_status">
-                           <td class="tdbs">testing</td>
-                           <td class="tdbs">testing</td>
-                           <td class="tdbs">testing</td>
-                           <td class="tdbs">testing</td>
-                           <td><button type="button" class="btncancel">CANCEL</button></td>
-                           <!--Proceed with payment btn
-                           <td class="btnprcd"><button type="button" style="background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;">Proceed to Payment</button></td>-->
-                        </tbody>
-                        </table>
-                     </div>
-                     </div>
-                     
-                  <!--Upload Moment Tab-->
-                  <h4 class="tab-accordion-title" rel="tabThree">Upload a Moment</h4>
-                  <div id="tabThree" class="tab-item">
-                     <h5>Upload a Moment</h5>
-                        <div class="moment-form">
-                           <form action="#">
-                                 <div class="form-control checkbox-wrapper">
-                                    <input type="checkbox" name="checkbox" id="checkbox" value="checkbox one value">
-                                    <label for="checkbox">
-                                       <svg viewBox="0 0 100 100">
-                                          <path class="path" fill="none" stroke="#000" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M12.1 52.1l24.4 24.4 53-53" />
-                                       </svg>
-                                       I agree to <a href="#" >Hulo Leisure Farm's Moment Policy </a>
-                                    </label>
-                                 </div>
-                                 <div class="moments-box">
-                                    <form class="moment-details">
-                                       <div class="moment-desc">
-                                          <textarea id="moment-txt" name="moment-txt" placeholder="Write your moment here..."></textarea>
-                                       </div>
-                                       <div class="moment-btns">
-                                          <div class="moment-photo">
-                                             <div class="upload-container">
-                                                <div class="drop-area">
-                                                   <i class="material-symbols-outlined">cloud_upload </i>
-                                                   <h6 class="image-txt">Image size must be less than <span>2MB</span></h6>
-                                                   <input type="file" accept="image/*" id="input-file" hidden>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="mpost-btn bounce-in-on-hover">
-                                                <button class="post-btn" onclick="">POST</button>
-                                          </div>
-                                       </div>
-                                    </form>
-                                 </div>
-                           </form>
-
-                        </div>
-                     
-
-
-
-                  </div>
-                  <!--Customer Satisfaction Tab-->
-                  <h4 class="tab-accordion-title" rel="tabFour">
-                     Customer Satisfaction
-                  </h4>
-                  <div id="tabFour" class="tab-item">
-                     <h5>Customer Satisfaction</h5>
-                     <div class="line lupper"></div>
-                     <div class = "cs_icondiv">
-                        <img src ="/icons/sad.png" class="cs_icons sad" id="fbEmoji_sad">
-                        <img src ="/icons/neutral.png" class="cs_icons neutral" id="fbEmoji_neutral">
-                        <img src ="/icons/happy.png" class="cs_icons happy" id="fbEmoji_happy">
-                     </div>
-                     <div class="line llower"></div>
-                     <div class="cs_text">
-                        <p> Let us know what you like and where we can get better. Rate us and type your responses below. </p>
-                        <div class="fb_tfield">
-                           <textarea class="fb_text" id="fb_text" name="fb_text" placeholder="Write something.." style="height:200px"></textarea>
-                        </div>
-                     </div>
-                     <div class="lastrow"></div>
-                     <p class="cs_text-hide">Hide name</p>
-                     <label class="switch">
-                     <input type="checkbox" checked>
-                     <span class="slider round"></span>
-                     </label>
-                     <div class="submitbtn">
-                      <button class="fb_submit" onclick="()">Submit</button>
-                   </div>
-                   </div>
-                  </div>
-                  <!--Logout Tab-->
-                  <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
-                  <div id="tabFive" class="tab-item">
-                     <h5>Tab 5 content</h5>
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-                        quos dolorum mollitia magnam tempore nulla aliquam delectus
-                        molestias quia distinctio nesciunt soluta expedita fugit
-                        possimus ad labore? Obcaecati molestias aperiam exercitationem
-                        expedita provident numquam tempora nulla, beatae ab modi,
-                        molestiae, eius iure odio dolorum recusandae est. Distinctio a
-                        possimus placeat dolore iste animi aspernatur. Eius ea
-                        doloremque blanditiis, esse dolores sit ipsa molestiae expedita
-                        accusamus eos, labore ipsam iste ducimus optio itaque provident
-                        voluptate reprehenderit libero cum atque in porro. Iste, nihil?
-                        Ea temporibus tempore optio quis autem soluta voluptate.
-                        Doloribus perspiciatis impedit iure neque, hic exercitationem
-                        voluptates laudantium accusamus?
-                     </p>
-                  </div>
-               </div>
+                </form>
+              </div>
             </div>
-         </div>
-      </section>
+            <!--Booking Status Tab-->
+            <h4 class="tab-accordion-title" rel="tabTwo">Booking Status</h4>
+            <div id="tabTwo" class="tab-item">
+              <div class="bookingstbl">
+                <table class="ststbl">
+                  <thead>
+                    <tr>
+                      <th class="thbs">Ref. No.</th>
+                      <th class="thbs">Reserved Date</th>
+                      <th class="thbs">Reservation Created</th>
+                      <th class="thbs">Status</th>
+                      <th class="thbs">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_status">
+                    <td class="tdbs">testing</td>
+                    <td class="tdbs">testing</td>
+                    <td class="tdbs">testing</td>
+                    <td class="tdbs">testing</td>
+                    <td><button type="button" class="btncancel">CANCEL</button></td>
+                    <!--Proceed with payment btn
+                           <td class="btnprcd"><button type="button" style="background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;">Proceed to Payment</button></td>-->
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
-      <!--Footer-->
+            <!--Upload Moment Tab-->
+            <h4 class="tab-accordion-title" rel="tabThree">Upload a Moment</h4>
+            <div id="tabThree" class="tab-item">
+              <h5>Upload a Moment</h5>
+              <div class="moment-form">
+                <form action="#">
+                  <div class="form-control checkbox-wrapper">
+                    <input type="checkbox" name="checkbox" id="checkbox" value="checkbox one value" />
+                    <label for="checkbox">
+                      <svg viewBox="0 0 100 100">
+                        <path
+                          class="path"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="13"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-miterlimit="10"
+                          d="M12.1 52.1l24.4 24.4 53-53"
+                        />
+                      </svg>
+                      I agree to <a href="#">Hulo Leisure Farm's Moment Policy </a>
+                    </label>
+                  </div>
+                  <div class="moments-box">
+                    <form class="moment-details">
+                      <div class="moment-desc">
+                        <textarea id="moment-txt" name="moment-txt" placeholder="Write your moment here..."></textarea>
+                      </div>
+                      <div class="moment-btns">
+                        <div class="moment-photo">
+                          <div class="upload-container">
+                            <div class="drop-area">
+                              <i class="material-symbols-outlined">cloud_upload </i>
+                              <h6 class="image-txt">Image size must be less than <span>2MB</span></h6>
+                              <input type="file" accept="image/*" id="input-file" hidden />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mpost-btn bounce-in-on-hover">
+                          <button class="post-btn" onclick="">POST</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!--Customer Satisfaction Tab-->
+            <h4 class="tab-accordion-title" rel="tabFour">Customer Satisfaction</h4>
+            <div id="tabFour" class="tab-item">
+              <h5>Customer Satisfaction</h5>
+              <div class="line lupper"></div>
+              <div class="cs_icondiv">
+                <img src="/icons/sad.png" class="cs_icons sad" id="fbEmoji_sad" />
+                <img src="/icons/neutral.png" class="cs_icons neutral" id="fbEmoji_neutral" />
+                <img src="/icons/happy.png" class="cs_icons happy" id="fbEmoji_happy" />
+              </div>
+              <div class="line llower"></div>
+              <div class="cs_text">
+                <p>Let us know what you like and where we can get better. Rate us and type your responses below.</p>
+                <div class="fb_tfield">
+                  <textarea class="fb_text" id="fb_text" name="fb_text" placeholder="Write something.." style="height: 200px"></textarea>
+                </div>
+              </div>
+              <div class="lastrow">
+                <p class="cs_text-hide">Hide name</p>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider round"></span>
+                </label>
+
+                <div class="submitbtn">
+                  <button class="fb_submit" onclick="()">Submit</button>
+                </div>
+              </div>
+            </div>
+            <!--Logout Tab-->
+            <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
+            <div id="tabFive" class="tab-item">
+              <h5>Tab 5 content</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
+                quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
+                numquam tempora nulla, beatae ab modi, molestiae, eius iure odio dolorum recusandae est. Distinctio a possimus placeat dolore iste
+                animi aspernatur. Eius ea doloremque blanditiis, esse dolores sit ipsa molestiae expedita accusamus eos, labore ipsam iste ducimus
+                optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
+                voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Footer-->
     <section class="display-footer">
       <div id="footer-placeholder"></div>
     </section>
 
-      <script>
-         //Import Navbar
-         $(function(){
-         $("#nav-placeholder").load("navbar.html");
-         });
-         
-         //Import Footer
-         $(function () {
-         $("#footer-placeholder").load("footer.html");
-         });
-
-         //Tabs
-         jQuery(".tab-item").hide();
-         jQuery(".tab-item:first").show();
-         
-         jQuery("ul.tabs li").click(function () {
-           jQuery(".tab-item").hide();
-           var activeTab = $(this).attr("rel");
-           jQuery("#" + activeTab).fadeIn();
-         
-           jQuery("ul.tabs li").removeClass("tab-active");
-           jQuery(this).addClass("tab-active");
-         
-           jQuery(".tab-accordion-title").removeClass("tab-accordion-active");
-           jQuery(".tab-accordion-title[rel^='" + activeTab + "']").addClass(
-             "tab-accordion-active"
-           );
-         });
-         
-         jQuery(".tab-accordion-title").click(function () {
-           jQuery(".tab-item").hide();
-           var d_activeTab = $(this).attr("rel");
-           jQuery("#" + d_activeTab).fadeIn();
-         
-           jQuery(".tab-accordion-title").removeClass("tab-accordion-active");
-           jQuery(this).addClass("tab-accordion-active");
-         
-           jQuery("ul.tabs li").removeClass("tab-active");
-           jQuery("ul.tabs li[rel^='" + d_activeTab + "']").addClass("tab-active");
-         });
-         
-         /** emoji feedback js **/
-         
-         // $('#fbEmoji_sad').click(function() {
-         // $('#fbEmoji_sad').css({
-         // 'cursor' : 'pointer', 
-         // 'transform' : 'scale(1.1)', 
-         // 'filter': 'grayscale(0%)'
-         // });
-         // });
-         
-         
-         // $('#fbEmoji_neutral').click(function() {
-         // $('#fbEmoji_neutral').css({
-         // 'cursor' : 'pointer', 
-         // 'transform' : 'scale(1.1)', 
-         // 'filter': 'grayscale(0%)'
-         // });
-         // });
-         
-         
-         // $('#fbEmoji_happy').click(function() {
-         // $('#fbEmoji_happy').css({
-         // 'cursor' : 'pointer', 
-         // 'transform' : 'scale(1.1)', 
-         // 'filter': 'grayscale(0%)'
-         // });
-         // });
-
-         const sad = document.getElementById('fbEmoji_sad')
-         const neutral = document.getElementById('fbEmoji_neutral')
-         const happy = document.getElementById('fbEmoji_happy')
-        sad.addEventListener('click',(evt)=>{
-            if(evt.target.classList.contains('active')){
-               evt.target.classList.remove('active');
-            }else{
-               evt.target.classList.add('active');
-
-               happy.classList.remove('active')
-               neutral.classList.remove('active')
-            }
-        })
-
-        neutral.addEventListener('click',(evt)=>{
-            if(evt.target.classList.contains('active')){
-               evt.target.classList.remove('active');
-            }else{
-               evt.target.classList.add('active');
-
-               sad.classList.remove('active')
-               happy.classList.remove('active')
-            }
-        })
-
-        happy.addEventListener('click',(evt)=>{
-            if(evt.target.classList.contains('active')){
-               evt.target.classList.remove('active');
-            }else{
-               evt.target.classList.add('active');
-
-               sad.classList.remove('active')
-               neutral.classList.remove('active')
-            }
-        })
-
-         //upload pic
-         const dropArea = document.querySelector('.drop-area');
-         const inputFile = document.getElementById('input-file');
-
-         dropArea.addEventListener('click', function () {
-            inputFile.click()
-         })
-
-         inputFile.addEventListener('change', function () {
-            const file = this.files[0];
-
-            if(file.type.startsWith('image/')) {
-               if(file.size < 2000000) {
-                  create_thumbnail(file);
-               } else {
-                  alert('Image size must be less than 2MB');
-               }
-            } else {
-               alert('Must be image');
-            }
-         })
-
-
-         dropArea.addEventListener('dragover', function (e) {
-            e.preventDefault();
-            this.style.borderStyle = 'solid';
-
-            const h3 = this.querySelector('h3');
-            h3.textContent = 'Release here to upload image';
-         })
-
-
-
-         dropArea.addEventListener('drop', function (e) {
-            e.preventDefault();
-
-            inputFile.files = e.dataTransfer.files;
-            const file = e.dataTransfer.files[0];
-
-            if(file.type.startsWith('image/')) {
-               if(file.size < 2000000) {
-                  create_thumbnail(file);
-               } else {
-                  alert('Image size must be less than 2MB');
-               }
-            } else {
-               alert('Must be image');
-            }
-         })
-
-
-
-         const command = ['dragleave', 'dragend']
-
-         command.forEach(item=> {
-            dropArea.addEventListener(item, function () {
-               this.style.borderStyle = 'dashed';
-
-               const h3 = this.querySelector('h3');
-               h3.textContent = 'Drag and drop or click here to select image';
-            })
-         })
-
-
-         function create_thumbnail(file) {
-            const img = document.querySelectorAll('.thumbnail');
-            const imgName = document.querySelectorAll('.img-name');
-            img.forEach(item=> item.remove());
-            imgName.forEach(item=> item.remove());
-
-            const reader = new FileReader();
-            reader.onload = ()=> {
-               const url = reader.result;
-               const img = document.createElement('img');
-               img.src = url;
-               img.className = 'thumbnail'
-               const span = document.createElement('span');
-               span.className = 'img-name';
-               span.textContent = file.name;
-               dropArea.appendChild(img);
-               dropArea.appendChild(span);
-               dropArea.style.borderColor = 'transparent';
-            }
-            reader.readAsDataURL(file);
-         }
-
-
-
-
-
-
-         var btnUpload = $("#upload_file"),
-         btnOuter = $(".button_outer");
-      btnUpload.on("change", function(e){
-         var ext = btnUpload.val().split('.').pop().toLowerCase();
-         if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
-            $(".error_msg").text("Not an Image...");
-         } else {
-            $(".error_msg").text("");
-            btnOuter.addClass("file_uploading");
-            setTimeout(function(){
-               btnOuter.addClass("file_uploaded");
-            },3000);
-            var uploadedFile = URL.createObjectURL(e.target.files[0]);
-            setTimeout(function(){
-               $("#uploaded_view").append('<img src="'+uploadedFile+'" />').addClass("show");
-            },3500);
-         }
+    <script>
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
       });
-      $(".file_remove").on("click", function(e){
-         $("#uploaded_view").removeClass("show");
-         $("#uploaded_view").find("img").remove();
-         btnOuter.removeClass("file_uploading");
-         btnOuter.removeClass("file_uploaded");
+
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html");
       });
-      </script>
-   </body>
+
+      //Tabs
+      jQuery(".tab-item").hide();
+      jQuery(".tab-item:first").show();
+
+      jQuery("ul.tabs li").click(function () {
+        jQuery(".tab-item").hide();
+        var activeTab = $(this).attr("rel");
+        jQuery("#" + activeTab).fadeIn();
+
+        jQuery("ul.tabs li").removeClass("tab-active");
+        jQuery(this).addClass("tab-active");
+
+        jQuery(".tab-accordion-title").removeClass("tab-accordion-active");
+        jQuery(".tab-accordion-title[rel^='" + activeTab + "']").addClass("tab-accordion-active");
+      });
+
+      jQuery(".tab-accordion-title").click(function () {
+        jQuery(".tab-item").hide();
+        var d_activeTab = $(this).attr("rel");
+        jQuery("#" + d_activeTab).fadeIn();
+
+        jQuery(".tab-accordion-title").removeClass("tab-accordion-active");
+        jQuery(this).addClass("tab-accordion-active");
+
+        jQuery("ul.tabs li").removeClass("tab-active");
+        jQuery("ul.tabs li[rel^='" + d_activeTab + "']").addClass("tab-active");
+      });
+
+      /** emoji feedback js **/
+
+      // $('#fbEmoji_sad').click(function() {
+      // $('#fbEmoji_sad').css({
+      // 'cursor' : 'pointer',
+      // 'transform' : 'scale(1.1)',
+      // 'filter': 'grayscale(0%)'
+      // });
+      // });
+
+      // $('#fbEmoji_neutral').click(function() {
+      // $('#fbEmoji_neutral').css({
+      // 'cursor' : 'pointer',
+      // 'transform' : 'scale(1.1)',
+      // 'filter': 'grayscale(0%)'
+      // });
+      // });
+
+      // $('#fbEmoji_happy').click(function() {
+      // $('#fbEmoji_happy').css({
+      // 'cursor' : 'pointer',
+      // 'transform' : 'scale(1.1)',
+      // 'filter': 'grayscale(0%)'
+      // });
+      // });
+
+      const sad = document.getElementById("fbEmoji_sad");
+      const neutral = document.getElementById("fbEmoji_neutral");
+      const happy = document.getElementById("fbEmoji_happy");
+      sad.addEventListener("click", (evt) => {
+        if (evt.target.classList.contains("active")) {
+          evt.target.classList.remove("active");
+        } else {
+          evt.target.classList.add("active");
+
+          happy.classList.remove("active");
+          neutral.classList.remove("active");
+        }
+      });
+
+      neutral.addEventListener("click", (evt) => {
+        if (evt.target.classList.contains("active")) {
+          evt.target.classList.remove("active");
+        } else {
+          evt.target.classList.add("active");
+
+          sad.classList.remove("active");
+          happy.classList.remove("active");
+        }
+      });
+
+      happy.addEventListener("click", (evt) => {
+        if (evt.target.classList.contains("active")) {
+          evt.target.classList.remove("active");
+        } else {
+          evt.target.classList.add("active");
+
+          sad.classList.remove("active");
+          neutral.classList.remove("active");
+        }
+      });
+
+      //upload pic
+      const dropArea = document.querySelector(".drop-area");
+      const inputFile = document.getElementById("input-file");
+
+      dropArea.addEventListener("click", function () {
+        inputFile.click();
+      });
+
+      inputFile.addEventListener("change", function () {
+        const file = this.files[0];
+
+        if (file.type.startsWith("image/")) {
+          if (file.size < 2000000) {
+            create_thumbnail(file);
+          } else {
+            alert("Image size must be less than 2MB");
+          }
+        } else {
+          alert("Must be image");
+        }
+      });
+
+      dropArea.addEventListener("dragover", function (e) {
+        e.preventDefault();
+        this.style.borderStyle = "solid";
+
+        const h3 = this.querySelector("h3");
+        h3.textContent = "Release here to upload image";
+      });
+
+      dropArea.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        inputFile.files = e.dataTransfer.files;
+        const file = e.dataTransfer.files[0];
+
+        if (file.type.startsWith("image/")) {
+          if (file.size < 2000000) {
+            create_thumbnail(file);
+          } else {
+            alert("Image size must be less than 2MB");
+          }
+        } else {
+          alert("Must be image");
+        }
+      });
+
+      const command = ["dragleave", "dragend"];
+
+      command.forEach((item) => {
+        dropArea.addEventListener(item, function () {
+          this.style.borderStyle = "dashed";
+
+          const h3 = this.querySelector("h3");
+          h3.textContent = "Drag and drop or click here to select image";
+        });
+      });
+
+      function create_thumbnail(file) {
+        const img = document.querySelectorAll(".thumbnail");
+        const imgName = document.querySelectorAll(".img-name");
+        img.forEach((item) => item.remove());
+        imgName.forEach((item) => item.remove());
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          const url = reader.result;
+          const img = document.createElement("img");
+          img.src = url;
+          img.className = "thumbnail";
+          const span = document.createElement("span");
+          span.className = "img-name";
+          span.textContent = file.name;
+          dropArea.appendChild(img);
+          dropArea.appendChild(span);
+          dropArea.style.borderColor = "transparent";
+        };
+        reader.readAsDataURL(file);
+      }
+
+      var btnUpload = $("#upload_file"),
+        btnOuter = $(".button_outer");
+      btnUpload.on("change", function (e) {
+        var ext = btnUpload.val().split(".").pop().toLowerCase();
+        if ($.inArray(ext, ["gif", "png", "jpg", "jpeg"]) == -1) {
+          $(".error_msg").text("Not an Image...");
+        } else {
+          $(".error_msg").text("");
+          btnOuter.addClass("file_uploading");
+          setTimeout(function () {
+            btnOuter.addClass("file_uploaded");
+          }, 3000);
+          var uploadedFile = URL.createObjectURL(e.target.files[0]);
+          setTimeout(function () {
+            $("#uploaded_view")
+              .append('<img src="' + uploadedFile + '" />')
+              .addClass("show");
+          }, 3500);
+        }
+      });
+      $(".file_remove").on("click", function (e) {
+        $("#uploaded_view").removeClass("show");
+        $("#uploaded_view").find("img").remove();
+        btnOuter.removeClass("file_uploading");
+        btnOuter.removeClass("file_uploaded");
+      });
+    </script>
+  </body>
 </html>
