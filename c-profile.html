@@ -136,9 +136,9 @@
             <div id="tabThree" class="tab-item">
               <h5>Upload a Moment</h5>
               <div class="moment-form">
-                <form action="#">
+                <form action="#" class="moment-details">
                   <div class="form-control checkbox-wrapper">
-                    <input type="checkbox" name="checkbox" id="checkbox" value="checkbox one value" />
+                    <input type="checkbox" class="checkbox-visible" name="checkbox" id="checkbox" value="checkbox one value" required />
                     <label for="checkbox">
                       <svg viewBox="0 0 100 100">
                         <path
@@ -156,78 +156,38 @@
                     </label>
                   </div>
                   <div class="moments-box">
-                    <form class="moment-details">
-                      <div class="moment-desc">
-                        <textarea id="moment-txt" name="moment-txt" placeholder="Write your moment here..."></textarea>
-                      </div>
-                      <div class="moment-btns">
-                        <div class="moment-photo">
-                          <div class="upload-container">
-                            <div class="drop-area">
-                              <i class="material-symbols-outlined">cloud_upload </i>
-                              <h6 class="image-txt">Image size must be less than <span>2MB</span></h6>
-                              <input type="file" accept="image/*" id="input-file" hidden />
-                            </div>
+                    <!-- <form class="moment-details"> -->
+                    <div class="moment-desc">
+                      <textarea id="moment-txt" name="moment-txt" placeholder="Write your moment here..."></textarea>
+                    </div>
+                    <div class="moment-btns">
+                      <div class="moment-photo">
+                        <div class="upload-container">
+                          <div class="drop-area">
+                            <i class="material-symbols-outlined">cloud_upload </i>
+                            <h6 class="image-txt">Image size must be less than <span>2MB</span></h6>
+                            <input type="file" accept="image/*" id="input-file" hidden />
                           </div>
                         </div>
-                        <div class="mpost-btn bounce-in-on-hover">
-                          <button class="post-btn" onclick="">POST</button>
-                        </div>
                       </div>
-                    </form>
+                      <div class="mpost-btn bounce-in-on-hover">
+                        <button class="post-btn" onclick="">POST</button>
+                      </div>
+                    </div>
+                    <!-- </form> -->
                   </div>
                 </form>
               </div>
             </div>
 
             <!-- START OF POPUP -->
-            <div class="popup popup1 center">
+            <div class="popup popup1 offset_left">
               <div class="description">
                 <h2 style="text-align: center"><b>MOMENTS POLICY</b></h2>
                 <br />
               </div>
               <div class="dismiss-btn">
                 <button id="dismiss-popup-btn-1">Close</button>
-              </div>
-            </div>
-
-            <div class="popup popup-short popup2 center">
-              <div class="popup-title">Registration</div>
-              <div class="description">Registration successful!</div>
-              <div class="dismiss-btn">
-                <button id="dismiss-popup-btn-2" onclick="changewindow()">Close</button>
-              </div>
-            </div>
-
-            <div class="popup popup-short popup3 center">
-              <div class="popup-title">Registration</div>
-              <div class="description">Error Occured!</div>
-              <div class="dismiss-btn">
-                <button id="dismiss-popup-btn-3">Close</button>
-              </div>
-            </div>
-
-            <div class="popup popup-short popup4 center">
-              <div class="popup-title">Registration</div>
-              <div class="description">Password does not match!</div>
-              <div class="dismiss-btn">
-                <button id="dismiss-popup-btn-4">Close</button>
-              </div>
-            </div>
-
-            <div class="popup popup-short popup5 center">
-              <div class="popup-title">Registration</div>
-              <div class="description">Please agree to the terms and conditions.</div>
-              <div class="dismiss-btn">
-                <button id="dismiss-popup-btn-5">Close</button>
-              </div>
-            </div>
-
-            <div class="popup popup-short popup6 center">
-              <div class="popup-title">Registration</div>
-              <div class="description">Number Insufficient.</div>
-              <div class="dismiss-btn">
-                <button id="dismiss-popup-btn-6">Close</button>
               </div>
             </div>
 

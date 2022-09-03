@@ -1708,7 +1708,7 @@ input:checked + .slider:before {
 }
 
 label {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   display: block;
 }
 
@@ -2255,13 +2255,16 @@ transform: scale(1) rotate(1deg);
   stroke: var(--main-btn-color);
   transition: all 0.1s ease-out;
 }
-/** [type="checkbox"] {
+.checkbox-visible {
   appearance: none;
-} **/
-.moment-form a {
+}
+
+.moment-form a,
+.log-checkbox-content a {
   text-decoration: underline;
   color: var(--txt-field-color);
 }
+
 .moment-form form {
   border: none;
 }
@@ -2634,7 +2637,7 @@ footer .footer-content {
 }
 footer .footer-content p,
 a {
-  color: #fff;
+  /* color: #fff; */
   text-decoration: none;
 }
 footer .footer-content .footer-box {

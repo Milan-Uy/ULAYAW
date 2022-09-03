@@ -82,8 +82,8 @@
 
               <div class="log-checkbox-text">
                 <div class="log-checkbox-content">
-                  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                  <label for="termCon" class="text">I accepted all terms and conditions</label>
+                  <input class="logcheck" type="checkbox" id="termCon" required />
+                  <label for="termCon" class="text">I agree to the <a href="#" id="open-popup-btn-1">Terms and Conditions</a></label>
                 </div>
               </div>
 
@@ -102,6 +102,20 @@
         </div>
       </div>
     </section>
+
+    <!-- START OF POPUP -->
+    <div class="popup popup1 center">
+      <div class="description">
+        <h2 style="text-align: center"><b>Terms and Conditions</b></h2>
+        <br />
+      </div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup-btn-1">Close</button>
+      </div>
+    </div>
+
+    <!-- END OF POPUP -->
+
     <script>
       //Import Navbar
       $(function () {
@@ -121,6 +135,15 @@
       });
       login.addEventListener("click", () => {
         container.classList.remove("active");
+      });
+
+      // Popup Button
+      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
     </script>
   </body>
