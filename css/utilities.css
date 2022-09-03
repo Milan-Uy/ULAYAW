@@ -4400,7 +4400,6 @@ i.material-icons {
   transform: scale(1.1);
 }
 
-
 /* generate qr/pdf */
 
 .booking-receipt {
@@ -4552,7 +4551,7 @@ i.material-icons {
   background-size: 100px;
   color: #f9f2e7;
   border-radius: 10px 10px 0 0;
-
+}
 /*View Sales Report*/
 .pick-date {
   display: block;
@@ -4706,5 +4705,4 @@ i.material-icons {
 .booking-status:focus {
   border: none;
   outline: none;
-
 }
