@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -145,7 +147,7 @@
             <!-- Guest List Tab-->
             <h4 class="tab-accordion-title" rel="tabTwo">Manage Users</h4>
             <div id="tabTwo" class="tab-item">
-              <div class="guest-list">
+              <div class="guest-list" id="list">
                 <h5>Guest List</h5>
                 <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
                 <table id="myTable">
@@ -160,40 +162,41 @@
                     <tr>
                       <td>Millano Uy</td>
                       <td>millanouy@gmail.com</td>
-                      <td><button class="view-btn" onclick="()">View</button></td>
+                      <td><button class="view-btn" onclick="showUser()">View</button></td>
                     </tr>
                     <tr>
                       <td>Ricko Ronquillo</td>
                       <td>rickoronquillo@gmail.com</td>
-                      <td><button class="view-btn" onclick="()">View</button></td>
+                      <td><button class="view-btn" onclick="showUser()">View</button></td>
                     </tr>
                     <tr>
                       <td>Nicky Merito</td>
                       <td>nickymerito@gmail.com</td>
-                      <td><button class="view-btn" onclick="()">View</button></td>
+                      <td><button class="view-btn" onclick="showUser()">View</button></td>
                     </tr>
                     <tr>
                       <td>Hannah Villados</td>
                       <td>hannahvillados@gmail.com</td>
-                      <td><button class="view-btn" onclick="()">View</button></td>
+                      <td><button class="view-btn" onclick="showUser()">View</button></td>
                     </tr>
                     <tr>
                       <td>Bermin Sanchez</td>
                       <td>berminsanchez@gmail.com</td>
-                      <td><button class="view-btn" onclick="()">View</button></td>
+                      <td><button class="view-btn" onclick="showUser()">View</button></td>
                     </tr>
                     <tr>
                       <td>Kyla Santos</td>
                       <td>kylasantos@gmail.com</td>
-                      <td><button class="view-btn" onclick="()">View</button></td>
+                      <td><button class="view-btn" onclick="showUser()">View</button></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <div class="view-sguest">
+              <div class="view-sguest" id="user">
                 <h5>Guest Profile</h5>
+                <button class="backlist-btn" onclick="showList()"><h6>< Back</h6></button>
                 <div class="guest-header">
-                  <h6>Guest Details</h6>
+                  <h4>Guest Details</h4>
                 </div>
                 <div class="guest-details">
                   <form class="guestd-form">
@@ -224,7 +227,7 @@
                   </form>
                 </div>
                 <div class="booking-header">
-                  <h6>Booking History</h6>
+                  <h4>Booking History</h4>
                 </div>
                 <div class="booking-historytbl">
                   <table class="ststbl" style="margin-top: 10px">
@@ -500,7 +503,7 @@
                       <input class="range-date" id="start-date" placeholder="select a date" />
                     </div>
                     <div class="pick-end">
-                      <label>Date</label>
+                      <label>To</label>
                       <input id="end-date" class="range-date" placeholder="select a date" />
                     </div>
                   </div>
@@ -991,8 +994,36 @@
           tabs.filter(":first").trigger("click");
         });
       };
-
       $(".responsive-tabs").responsiveTabs();
+
+      //show & hide guest list
+      function showUser() {
+        document.getElementById("user").style.display = "block";
+        document.getElementById("list").style.display = "none";
+      }
+      function showList() {
+        document.getElementById("user").style.display = "none";
+        document.getElementById("list").style.display = "block";
+      }
+
+      //pick date
+      //Date Picker
+      let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
+
+      const picker = new Litepicker({
+        element: document.getElementById("start-date"),
+        elementEnd: document.getElementById("end-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
+      });
     </script>
   </body>
 </html>
