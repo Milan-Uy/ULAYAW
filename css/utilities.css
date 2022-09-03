@@ -3892,7 +3892,6 @@ i.material-icons {
   max-width: 860px;
   width: 100%;
   margin: 40px;
-  margin-left: 100px;
   height: 529px;
   overflow: hidden;
   background: var(--mainbg-color);
@@ -4030,7 +4029,7 @@ i.material-icons {
 .details {
   position: relative;
   width: 100%;
-  height: 75px;
+  height: 83px;
   background: #ffe4b8;
   margin-top: 5px;
   border-radius: 4px;
@@ -4317,7 +4316,7 @@ i.material-icons {
     height: 530px;
   }
   .day {
-    width: 55px;
+    width: 48px;
   }
   .arrow {
     margin-left: -2px;
@@ -4397,6 +4396,7 @@ i.material-icons {
   color: #973e24;
   transform: scale(1.1);
 }
+
 
 /* generate qr/pdf */
 
@@ -4549,4 +4549,135 @@ i.material-icons {
   background-size: 100px;
   color: #f9f2e7;
   border-radius: 10px 10px 0 0;
+
+/*View Sales Report*/
+.pick-date {
+  display: block;
+}
+.sales-option {
+  margin: 20px 0px;
+  width: 100%;
+  color: var(--txt-field-color);
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.range-date {
+  width: 180px;
+}
+.date-input {
+  display: flex;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+.pick-date label {
+  font-size: 12px;
+  color: var(--txt-field-color);
+  font-family: "Raleway";
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.pick-date input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 15px;
+  padding-right: 20px;
+  border: 1px solid #a0a0a0;
+  margin-right: 30px;
+}
+.pick-date input:focus {
+  outline: none;
+  background-color: #fbfbfb;
+  border: 1px solid #6b4f4f;
+}
+.range-date {
+  background: url("/icons/calendar.png") no-repeat right;
+  background-size: 30px;
+  cursor: pointer;
+}
+.download-pdf {
+  background: url("/icons/pdf.png") no-repeat right;
+  background-size: 40px;
+  width: 45px;
+  height: 48px;
+  border: none;
+  margin-top: 32px;
+}
+.download-pdf:hover {
+  width: 45px;
+  height: 48px;
+  filter: drop-shadow(1px 1px 1px #98c4ca);
+  cursor: pointer;
+}
+.total-sales {
+  float: right;
+}
+.tblfooter {
+  height: 50px;
+  color: var(--heading-color);
+  background-color: var(--mainbg-color);
+  border-top: 3px solid var(--heading-color);
+}
+.amount-sales {
+  color: #ad0808;
+}
+
+/*View Guest List*/
+.guest-header,
+.booking-header {
+  width: 100%;
+  background-color: var(--mainbg-color);
+  box-shadow: rgba(45, 45, 61, 0.15) 0px 3px 8px -2px, rgba(56, 55, 55, 0.3) 0px 3px 7px -3px;
+  padding: 10px 30px 10px;
+  margin-top: 20px;
+  margin-bottom: 3px;
+  border-radius: 10px 10px 0px 0px;
+  z-index: 100;
+}
+.guest-header h6,
+.booking-header h6 {
+  color: var(--heading-color);
+  font-size: 16px;
+  font-weight: 700;
+}
+.guest-details {
+  width: 100%;
+  background-color: var(--mainbg-color);
+  padding: 20px 30px 20px;
+  z-index: -1;
+}
+.guestd-form .form-container .col-3 {
+  display: flex;
+  flex-direction: row;
+}
+.guestd-form label {
+  margin: 20px 0px 0px 10px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+  width: 110px;
+}
+.guestd-form h6 {
+  margin: 20px 0px 0px 20px;
+  color: var(--heading-color);
+  font-size: 12px;
+  font-weight: 700;
+}
+.booking-historytbl {
+  margin-top: -13px;
+}
+.booking-status {
+  background-color: transparent;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+.booking-status:active,
+.booking-status:hover,
+.booking-status:focus {
+  border: none;
+  outline: none;
+
 }
