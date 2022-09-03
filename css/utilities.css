@@ -4400,7 +4400,6 @@ i.material-icons {
   transform: scale(1.1);
 }
 
-
 /* generate qr/pdf */
 
 .booking-receipt {
@@ -4417,6 +4416,8 @@ i.material-icons {
   background-attachment: scroll;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
+  margin-bottom: 50px;
+  border-radius: 20px;
 }
 
 .refno {
@@ -4438,7 +4439,7 @@ i.material-icons {
 }
 
 .r-header {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 0px;
   margin-top: 20px;
@@ -4509,6 +4510,10 @@ i.material-icons {
   max-width: 580px !important;
 }
 
+tr {
+  background-color: #f0f0f0;
+}
+
 .receipt-content {
   background-color: white;
   background-image: none;
@@ -4519,6 +4524,8 @@ i.material-icons {
   padding-bottom: 0;
   padding-right: 20px;
   padding-left: 20px;
+  margin-bottom: 50px;
+  border-radius: 0px 0px 20px 20px;
 }
 
 .receipt-container {
@@ -4540,6 +4547,13 @@ i.material-icons {
   text-align: center;
 }
 
+.r-textf {
+  font-size: 13px;
+  font-weight: normal;
+  padding: 0px 6px;
+  vertical-align: top;
+}
+
 .masthead {
   padding-top: 120px;
   padding-bottom: 10px;
@@ -4552,7 +4566,51 @@ i.material-icons {
   background-size: 100px;
   color: #f9f2e7;
   border-radius: 10px 10px 0 0;
+}
+.rec-btn {
+  cursor: pointer;
+  padding: 5px 20px;
+  color: white;
+  background-color: #1b5b65;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  font-size: 13px;
+}
 
+.rec-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
+  background-color: #023b4b;
+}
+
+.qr-todo {
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+.qrtd-table td {
+  background-color: white;
+  padding: 10px;
+}
+.qrtd-table {
+  margin-top: 30px;
+}
+.qr-table {
+  margin-top: 5px;
+}
+
+.qr-table td {
+  background-color: white;
+  padding: 10px;
+}
+
+.tfleft {
+  font-weight: bolder;
+}
+.qrname {
+  width: 20%;
+}
 /*View Sales Report*/
 .pick-date {
   display: block;
@@ -4682,5 +4740,4 @@ i.material-icons {
 .booking-status:focus {
   border: none;
   outline: none;
-
 }
