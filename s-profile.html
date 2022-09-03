@@ -503,7 +503,7 @@
                       <input class="range-date" id="start-date" placeholder="select a date" />
                     </div>
                     <div class="pick-end">
-                      <label>Date</label>
+                      <label>To</label>
                       <input id="end-date" class="range-date" placeholder="select a date" />
                     </div>
                   </div>
@@ -996,6 +996,7 @@
       };
       $(".responsive-tabs").responsiveTabs();
 
+      //show & hide guest list
       function showUser() {
         document.getElementById("user").style.display = "block";
         document.getElementById("list").style.display = "none";
@@ -1004,6 +1005,25 @@
         document.getElementById("user").style.display = "none";
         document.getElementById("list").style.display = "block";
       }
+
+      //pick date
+      //Date Picker
+      let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
+
+      const picker = new Litepicker({
+        element: document.getElementById("start-date"),
+        elementEnd: document.getElementById("end-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
+      });
     </script>
   </body>
 </html>
