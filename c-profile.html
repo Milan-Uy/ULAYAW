@@ -136,12 +136,18 @@
             <div id="tabThree" class="tab-item">
               <h5>Upload a Moment</h5>
               <!-- ALERT -->
-              <div class="alertMessage">
-                <span class="close" id="close-alert">×</span>
-                <strong>Moment Successfully Uploaded</strong>.
-              </div>
+
               <div class="moment-form">
                 <form action="#" class="moment-details">
+                  <div class="alertMessage">
+                    <span class="close" id="close-alert">×</span>
+                    <i class="fas fa-exclamation-circle alert-icon"></i>
+                    <strong>Moment Successfully Uploaded</strong>.
+                  </div>
+                  <div class="alertMessage alert2">
+                    <span class="close" id="close-alert">×</span>
+                    <strong>Error Occured!</strong>.
+                  </div>
                   <div class="form-control checkbox-wrapper">
                     <input type="checkbox" class="checkbox-visible" name="checkbox" id="checkbox" value="checkbox one value" required />
                     <label for="checkbox">
@@ -298,8 +304,9 @@
         document.getElementsByClassName("alertMessage")[0].classList.remove("show");
       });
 
-      // document.getElementById("open-alert").addEventListener("click", function () {
-      //   alertMessage.classList.toggle("show");
+      // function openAlert() {
+      // var openA = document.getElementById("open-alert");
+      //   openA.classList.toggle("show");
       // });
 
       // Popup Button
