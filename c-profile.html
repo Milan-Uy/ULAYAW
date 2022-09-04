@@ -135,6 +135,11 @@
             <h4 class="tab-accordion-title" rel="tabThree">Upload a Moment</h4>
             <div id="tabThree" class="tab-item">
               <h5>Upload a Moment</h5>
+              <!-- ALERT -->
+              <div class="alertMessage">
+                <span class="close" id="close-alert">×</span>
+                <strong>Moment Successfully Uploaded</strong>.
+              </div>
               <div class="moment-form">
                 <form action="#" class="moment-details">
                   <div class="form-control checkbox-wrapper">
@@ -171,7 +176,7 @@
                         </div>
                       </div>
                       <div class="mpost-btn bounce-in-on-hover">
-                        <button class="post-btn" onclick="">POST</button>
+                        <button class="post-btn" onclick="" id="open-alert">POST</button>
                       </div>
                     </div>
                     <!-- </form> -->
@@ -283,6 +288,19 @@
         jQuery("ul.tabs li").removeClass("tab-active");
         jQuery("ul.tabs li[rel^='" + d_activeTab + "']").addClass("tab-active");
       });
+
+      // Alert
+      document.getElementById("open-alert").addEventListener("click", function () {
+        document.getElementsByClassName("alertMessage")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert").addEventListener("click", function () {
+        document.getElementsByClassName("alertMessage")[0].classList.remove("show");
+      });
+
+      // document.getElementById("open-alert").addEventListener("click", function () {
+      //   alertMessage.classList.toggle("show");
+      // });
 
       // Popup Button
       document.getElementById("open-popup-btn-1").addEventListener("click", function () {
