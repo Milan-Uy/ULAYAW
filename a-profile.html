@@ -115,6 +115,14 @@
 
               <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
 
+              <!-- ALERT -->
+
+              <div class="alertMessage alert">
+                <span class="close" id="close-alert">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>User Successfully Updated</strong>
+              </div>
+              
               <table id="myTable">
                 <thead>
                    <tr class="header">
@@ -141,8 +149,8 @@
                          <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content ">
-                               <a class = "dd-content remove-user" href = "#"> Remove User </a>
-                               <a class = "dd-content edit-profile" href = "#"> Edit Profile </a>
+                               <a class = "dd-content remove-user" href = "#" id="open-popup"> Remove User </a>
+                               <a class = "dd-content edit-profile" href = "#" id="open-alert"> Edit Profile </a>
                             </div>
                          </div>
                       </td>
@@ -200,6 +208,12 @@
             <h4 class="tab-accordion-title" rel="tabThree">Add User</h4>
             <div id="tabThree" class="tab-item">
               <h5>Add New User</h5>
+              <!-- ALERT -->
+              <div class="alertMessage alert2">
+                <span class="close" id="close-alert2">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>User Successfully Added</strong>
+              </div>
               <div class="adduser-container">
                 <div class="form-box">
                   <form class="adduser-form">
@@ -255,7 +269,7 @@
                         </div>
                       </div>
                     </div>
-                    <button class="adduser-btn" onclick="()">Add User</button>
+                    <button class="adduser-btn" onclick="()" id="open-alert2">Add User</button>
                   </form>
                 </div>
               </div>
@@ -264,9 +278,15 @@
               <div id="tabFour" class="tab-item updateapp">
                 <h5>Update Application</h5>
                 <div class="update-container">
+              <!-- ALERT -->
+              <div class="alertMessage alert3">
+                <span class="close" id="close-alert3">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Information Successfully Updated</strong>
+              </div>
                   <div class="app-details">
                      <h4>Basic Information</h4>
-                     <button class="editapp-btn" onclick="()">Edit</button>
+                     <button class="editapp-btn" onclick="()" id="open-alert3">Edit</button>
                   </div>
                   <div class="form-box">
                      <form class="update-form">
@@ -322,6 +342,12 @@
                </div>
                <div class="villa-container">
                 <h4>Villa</h4>
+                <!-- ALERT -->
+              <div class="alertMessage alert4">
+                <span class="close" id="close-alert4">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Villas Successfully Updated</strong>
+              </div>
                 <div class="villa-card">
                   <div class="villa-pic">
                     <div class="photo" style="background-image: url(images/casa_aurelia.JPG)"></div>
@@ -351,7 +377,7 @@
                                </div>
                                <div class="editvilla-btn">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
                                </div>
                               </form>
                             </div>
@@ -419,7 +445,7 @@
 
                               <div class="editvilla-btn photos">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
                                </div>
                             </div>
                           </div>
@@ -457,7 +483,7 @@
                                </div>
                                <div class="editvilla-btn">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
                                </div>
                               </form>
                             </div>
@@ -525,7 +551,7 @@
 
                               <div class="editvilla-btn photos">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
                                </div>
                             </div>
                           </div>
@@ -616,6 +642,40 @@
           }
         }
       };
+
+      // Alert
+      document.getElementById("open-alert").addEventListener("click", function () {
+        document.getElementsByClassName("alert")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert").addEventListener("click", function () {
+        document.getElementsByClassName("alert")[0].classList.remove("show");
+      });
+
+      document.getElementById("open-alert2").addEventListener("click", function () {
+        document.getElementsByClassName("alert2")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert2").addEventListener("click", function () {
+        document.getElementsByClassName("alert2")[0].classList.remove("show");
+      });
+
+      document.getElementById("open-alert3").addEventListener("click", function () {
+        document.getElementsByClassName("alert3")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert3").addEventListener("click", function () {
+        document.getElementsByClassName("alert3")[0].classList.remove("show");
+      });
+
+      document.getElementById("open-alert4").addEventListener("click", function () {
+        document.getElementsByClassName("alert4")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert4").addEventListener("click", function () {
+        document.getElementsByClassName("alert4")[0].classList.remove("show");
+      });
+
 
         //upload pic
         function readURL(input) {

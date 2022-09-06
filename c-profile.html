@@ -60,28 +60,28 @@
               <div class="edit-container">
                 <div class="user-details">
                   <h5>User Details</h5>
-                  <button class="editprofile-btn" onclick="()">Edit Profile</button>
+                  <button class="editprofile-btn" onclick="()" id="removeReadOnly">Edit Profile</button>
                 </div>
                 <div class="form-box">
                   <form class="edit-form">
                     <div class="form-container">
-                      <div class="col-6">
+                      <div class="col-6 hide-txt1 hide-text-bg">
                         <label>First Name</label>
                         <input type="text" id="firstname" placeholder="First Name" readonly />
                       </div>
-                      <div class="col-6">
+                      <div class="col-6 hide-txt2 hide-text-bg">
                         <label>Last Name</label>
                         <input id="lastname" type="text" placeholder="Last Name" readonly />
                       </div>
                     </div>
                     <div class="form-container">
-                      <div class="col-3">
+                      <div class="col-3 hide-txt3 hide-text-bg">
                         <label>Contact Number</label>
                         <input type="text" id="contact" placeholder="Contact Number" maxlength="13" value="+63" readonly />
                       </div>
                     </div>
                     <div class="form-container">
-                      <div class="col-3">
+                      <div class="col-3 hide-txt4 hide-text-bg">
                         <label>Email Address</label>
                         <input type="email" id="email" placeholder="Email Address" readonly />
                       </div>
@@ -92,13 +92,21 @@
               <div class="edit-container">
                 <div class="user-details">
                   <h5>Password</h5>
-                  <button class="editprofile-btn" onclick="()">Change</button>
+                  <button class="editprofile-btn" onclick="()" id="removeReadOnly2">Change</button>
                 </div>
                 <form class="edit-form">
-                  <div class="form-container">
-                    <div class="col-3">
-                      <label>Password</label>
+                  <div class="form-container flex-column">
+                    <div class="col-6 hide-txt5 hide-text-bg">
+                      <label>Current Password</label>
                       <input type="password" id="password" placeholder="Password" readonly />
+                    </div>
+                    <div class="col-6 hide-txt6 hide-text-bg">
+                      <label>Re-Enter Password</label>
+                      <input type="password" id="rePassword" placeholder="Password" readonly />
+                    </div>
+                    <div class="col-6 hide-txt7 hide-text-bg">
+                      <label>New Password</label>
+                      <input type="password" id="newPassword" placeholder="New Password" readonly />
                     </div>
                   </div>
                 </form>
@@ -135,18 +143,18 @@
             <h4 class="tab-accordion-title" rel="tabThree">Upload a Moment</h4>
             <div id="tabThree" class="tab-item">
               <h5>Upload a Moment</h5>
-              <!-- ALERT -->
 
               <div class="moment-form">
                 <form action="#" class="moment-details">
-                  <div class="alertMessage">
+                  <!-- ALERT -->
+                  <div class="alertMessage alert">
                     <span class="close" id="close-alert">×</span>
                     <i class="fas fa-exclamation-circle alert-icon"></i>
-                    <strong>Moment Successfully Uploaded</strong>.
+                    <strong>Moment Successfully Uploaded!</strong>
                   </div>
                   <div class="alertMessage alert2">
                     <span class="close" id="close-alert">×</span>
-                    <strong>Error Occured!</strong>.
+                    <strong>Error Occured!</strong>
                   </div>
                   <div class="form-control checkbox-wrapper">
                     <input type="checkbox" class="checkbox-visible" name="checkbox" id="checkbox" value="checkbox one value" required />
@@ -308,6 +316,27 @@
       // var openA = document.getElementById("open-alert");
       //   openA.classList.toggle("show");
       // });
+
+      // Remove readOnly
+      document.getElementById("removeReadOnly").addEventListener("click", function () {
+        document.getElementById("firstname").toggleAttribute("readonly");
+        document.getElementById("contact").toggleAttribute("readonly");
+        document.getElementById("email").toggleAttribute("readonly");
+        document.getElementById("lastname").toggleAttribute("readonly");
+        document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+      });
+
+      document.getElementById("removeReadOnly2").addEventListener("click", function () {
+        document.getElementById("password").toggleAttribute("readonly");
+        document.getElementById("rePassword").toggleAttribute("readonly");
+        document.getElementById("newPassword").toggleAttribute("readonly");
+        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+      });
 
       // Popup Button
       document.getElementById("open-popup-btn-1").addEventListener("click", function () {
