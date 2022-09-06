@@ -305,11 +305,11 @@
 
       // Alert
       document.getElementById("open-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alertMessage")[0].classList.add("show");
+        document.getElementsByClassName("alertMessage")[0].style.display = "block";
       });
 
       document.getElementById("close-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alertMessage")[0].classList.remove("show");
+        document.getElementsByClassName("alertMessage")[0].style.display = "none";
       });
 
       // function openAlert() {
