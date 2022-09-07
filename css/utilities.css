@@ -2268,7 +2268,7 @@ transform: scale(1) rotate(1deg);
   stroke: var(--main-btn-color);
   transition: all 0.1s ease-out;
 }
-.checkbox-visible {
+.form-control .checkbox-visible {
   appearance: none;
 }
 
@@ -2683,6 +2683,7 @@ footer .footer-content .footer-right {
 footer .footer-content .footer-middle a {
   line-height: 22px;
   font-size: 12px;
+  color: #ffff;
 }
 footer .footer-content .footer-right input[type="text"] {
   height: 45px;
@@ -2724,6 +2725,7 @@ footer .footer-content .media-icons a {
   border: 2px solid #fff;
   margin: 30px 12px 0 0;
   transition: all 0.3s ease;
+  color: #ffff;
 }
 .footer-content .media-icons a:hover {
   border-color: var(--mainbg-color);
