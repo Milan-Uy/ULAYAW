@@ -1138,6 +1138,12 @@ p {
   flex-direction: row;
   align-items: center;
 }
+
+.form-container.flex-column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .edit-form .form-container .col-3 label,
 .edit-form .form-container .col-6 label {
   display: block;
@@ -1154,14 +1160,21 @@ p {
   border-radius: 5px;
   border: 0px solid #6b4f4f;
   width: 100%;
+  background: white;
+  outline: none;
+}
+
+.edit-form .form-container .hide-text-bg input,
+.edit-form .form-container .hide-text-bg input {
   background: none;
   outline: none;
 }
+
 .edit-form .form-container .col-6 {
   width: 50%;
   margin: 0 10px;
 }
-.edit-form .form-container .col-3 {
+.edit-form .form-container.flex-column .col-3 {
   width: 100%;
   margin: 0 10px;
 }
@@ -2255,7 +2268,7 @@ transform: scale(1) rotate(1deg);
   stroke: var(--main-btn-color);
   transition: all 0.1s ease-out;
 }
-.checkbox-visible {
+.form-control .checkbox-visible {
   appearance: none;
 }
 
@@ -2670,6 +2683,7 @@ footer .footer-content .footer-right {
 footer .footer-content .footer-middle a {
   line-height: 22px;
   font-size: 12px;
+  color: #ffff;
 }
 footer .footer-content .footer-right input[type="text"] {
   height: 45px;
@@ -2711,6 +2725,7 @@ footer .footer-content .media-icons a {
   border: 2px solid #fff;
   margin: 30px 12px 0 0;
   transition: all 0.3s ease;
+  color: #ffff;
 }
 .footer-content .media-icons a:hover {
   border-color: var(--mainbg-color);
