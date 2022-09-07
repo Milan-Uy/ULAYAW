@@ -1138,6 +1138,12 @@ p {
   flex-direction: row;
   align-items: center;
 }
+
+.form-container.flex-column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .edit-form .form-container .col-3 label,
 .edit-form .form-container .col-6 label {
   display: block;
@@ -1154,14 +1160,21 @@ p {
   border-radius: 5px;
   border: 0px solid #6b4f4f;
   width: 100%;
+  background: white;
+  outline: none;
+}
+
+.edit-form .form-container .hide-text-bg input,
+.edit-form .form-container .hide-text-bg input {
   background: none;
   outline: none;
 }
+
 .edit-form .form-container .col-6 {
   width: 50%;
   margin: 0 10px;
 }
-.edit-form .form-container .col-3 {
+.edit-form .form-container.flex-column .col-3 {
   width: 100%;
   margin: 0 10px;
 }
