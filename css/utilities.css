@@ -1191,6 +1191,26 @@ p {
   border-radius: 5px;
 }
 
+.flex-end-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.saveProfile-btn {
+  cursor: pointer;
+  padding: 10px 25px;
+  margin-right: 20px;
+  color: #f9f2e7;
+  background-color: #1b5b65;
+  border: none;
+  border-radius: 5px;
+  display: none;
+}
+
+.saveProfile-btn.showProfile-btn {
+  display: block;
+}
+
 .editprofile-btn:hover {
   cursor: pointer;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
@@ -1211,7 +1231,8 @@ p {
   .user-details h5 {
     font-size: 15px;
   }
-  .user-details .editprofile-btn {
+  .user-details .editprofile-btn,
+  .flex-end-container .saveProfile-btn {
     padding: 7px 12px;
     font-size: 12px;
   }
