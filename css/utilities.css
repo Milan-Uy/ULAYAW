@@ -1784,6 +1784,7 @@ span.price {
   margin: 0 auto;
   padding-bottom: 15px;
   font-family: "Cinzel";
+  color: #6b4f4f;
 }
 hr {
   border: 0.5px solid lightgrey;
@@ -5119,3 +5120,97 @@ tr {
 }
 
 /*Reservation Details*/
+
+.headtextrd {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 15px;
+  font-family: "Cinzel";
+  font-style: normal;
+  color: #6b4f4f;
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f9f2e7;
+  width: 100%;
+}
+.card2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  text-align: center;
+  background-color: #f9f2e7;
+}
+.rdimg {
+  width: 100%;
+  margin: 0;
+  float: left;
+  display: ;
+}
+.confirm-btn {
+  background-color: #6b4f4f;
+  color: white;
+  padding: 12px;
+  margin: 0 auto;
+  border: none;
+  width: 250px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat";
+}
+.confirm-btn:hover {
+  background-color: #483434;
+}
+
+.cr-btn {
+  background-color: #6b4f4f;
+  color: white;
+  padding: 12px;
+  margin: 0 auto;
+  border: none;
+  width: 250px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat";
+}
+.cr-btn:hover {
+  background-color: #483434;
+}
