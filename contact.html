@@ -101,28 +101,34 @@
         <div class="column big">
           <div class="column-2 bg-light">
             <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste repellat, asperiores reprehenderit assumenda quos cupiditate.</h3>
+            <!-- ALERT -->
+            <div class="alertMessage alert">
+              <span class="close" id="close-alert">×</span>
+              <i class="fas fa-exclamation-circle alert-icon"></i>
+              <strong>Message Sent Successfully!</strong>
+            </div>
             <form action="" class="callback-form">
               <div class="form-control">
                 <label for="name"></label>
-                <input type="text" name="name" id="name" placeholder="Enter name" />
+                <input type="text" name="name" id="name" placeholder="Enter name" required />
               </div>
               <div class="form-control">
                 <label for="email"></label>
-                <input type="email" name="email" id="email" placeholder="Enter email" />
+                <input type="email" name="email" id="email" placeholder="Enter email" required />
               </div>
               <div class="form-control">
                 <label for="phone"></label>
-                <input type="text" name="phone" id="phone" placeholder="Enter phone" />
+                <input type="text" name="phone" id="phone" placeholder="Enter phone" required />
               </div>
               <div class="form-control">
                 <label for="subject"></label>
-                <input type="text" name="subject" id="subject" placeholder="Enter subject" />
+                <input type="text" name="subject" id="subject" placeholder="Enter subject" required />
               </div>
               <div class="form-control">
                 <label for="message"></label>
-                <textarea type="text" name="message" id="message" placeholder="Enter message"></textarea>
+                <textarea type="text" name="message" id="message" placeholder="Enter message" required ></textarea>
               </div>
-              <input type="submit" value="Send" id="submit" class="btn" />
+              <input type="submit" value="Send" id="open-alert" class="btn" />
             </form>
           </div>
         </div>
@@ -138,6 +144,16 @@
       $(function () {
         $("#nav-placeholder").load("navbar.html");
       });
+
+      // Alert
+      document.getElementById("open-alert").addEventListener("click", function () {
+        document.getElementsByClassName("alert")[0].style.display = "block";
+      });
+
+      document.getElementById("close-alert").addEventListener("click", function () {
+        document.getElementsByClassName("alert")[0].style.display = "none";
+      });
+      
       //Import Footer
       $(function () {
         $("#footer-placeholder").load("footer.html");

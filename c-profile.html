@@ -87,7 +87,7 @@
                       </div>
                     </div>
                     <div class="flex-end-container">
-                      <button class="saveProfile-btn" onclick="()">Save Changes</button>
+                      <button class="saveProfile-btn" id="saveProfile-btn" onclick="()">Save Changes</button>
                     </div>
                   </form>
                 </div>
@@ -113,7 +113,7 @@
                     </div>
                   </div>
                   <div class="flex-end-container">
-                    <button class="saveProfile-btn saveProfile-btn2" onclick="()">Save Changes</button>
+                    <button class="saveProfile-btn saveProfile-btn2" id="saveProfile-btn2" onclick="()">Save Changes</button>
                   </div>
                 </form>
               </div>
@@ -158,7 +158,7 @@
                     <i class="fas fa-exclamation-circle alert-icon"></i>
                     <strong>Moment Successfully Uploaded!</strong>
                   </div>
-                  <div class="alertMessage alert2">
+                  <div class="alertMessage alertError">
                     <span class="close" id="close-alert">×</span>
                     <strong>Error Occured!</strong>
                   </div>
@@ -222,6 +222,12 @@
             <h4 class="tab-accordion-title" rel="tabFour">Customer Satisfaction</h4>
             <div id="tabFour" class="tab-item">
               <h5>Customer Satisfaction</h5>
+              <!-- ALERT -->
+              <div class="alertMessage alert2">
+                <span class="close" id="close-alert2">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Customer Satisfaction Sent Successfully!</strong>
+              </div>
               <div class="line lupper"></div>
               <div class="cs_icondiv">
                 <img src="/icons/sad.png" class="cs_icons sad" id="fbEmoji_sad" />
@@ -243,7 +249,7 @@
                 </label>
 
                 <div class="submitbtn">
-                  <button class="fb_submit" style="display: inline" onclick="()">Submit</button>
+                  <button class="fb_submit" id="open-alert2" style="display: inline" onclick="()">Submit</button>
                 </div>
               </div>
             </div>
@@ -311,11 +317,19 @@
 
       // Alert
       document.getElementById("open-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alertMessage")[0].style.display = "block";
+        document.getElementsByClassName("alert")[0].style.display = "block";
       });
 
       document.getElementById("close-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alertMessage")[0].style.display = "none";
+        document.getElementsByClassName("alert")[0].style.display = "none";
+      });
+
+      document.getElementById("open-alert2").addEventListener("click", function () {
+        document.getElementsByClassName("alert2")[0].style.display = "block";
+      });
+
+      document.getElementById("close-alert2").addEventListener("click", function () {
+        document.getElementsByClassName("alert2")[0].style.display = "none";
       });
 
       // function openAlert() {
@@ -337,6 +351,28 @@
       });
 
       document.getElementById("removeReadOnly2").addEventListener("click", function () {
+        document.getElementById("password").toggleAttribute("readonly");
+        document.getElementById("rePassword").toggleAttribute("readonly");
+        document.getElementById("newPassword").toggleAttribute("readonly");
+        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
+      });
+
+      document.getElementById("saveProfile-btn").addEventListener("click", function () {
+        document.getElementById("firstname").toggleAttribute("readonly");
+        document.getElementById("contact").toggleAttribute("readonly");
+        document.getElementById("email").toggleAttribute("readonly");
+        document.getElementById("lastname").toggleAttribute("readonly");
+        document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
+      });
+
+      document.getElementById("saveProfile-btn2").addEventListener("click", function () {
         document.getElementById("password").toggleAttribute("readonly");
         document.getElementById("rePassword").toggleAttribute("readonly");
         document.getElementById("newPassword").toggleAttribute("readonly");
