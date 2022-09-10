@@ -56,27 +56,27 @@
 
             <form action="#">
               <div class="log-input-field">
-                <input class="log-input" type="text" placeholder="Enter your first name" required />
+                <input id="firstName" class="log-input" type="text" placeholder="Enter your first name" required value="" />
                 <i class="uil uil-user"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" type="text" placeholder="Enter your last name" required />
+                <input id="lastName" class="log-input" type="text" placeholder="Enter your last name" required value="" />
                 <i class="uil uil-user"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" type="text" placeholder="Enter your email" required />
+                <input id="email" class="log-input" type="text" placeholder="Enter your email" required value="" />
                 <i class="uil uil-envelope icon"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" type="number" placeholder="Enter your contact number" required />
+                <input id="contact" class="log-input" type="number" placeholder="Enter your contact number" required value="" />
                 <i class="uil uil-user"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" type="password" class="password" placeholder="Create a password" required />
+                <input id="password" class="log-input" type="password" class="password" placeholder="Create a password" required value="" />
                 <i class="uil uil-lock icon"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" type="password" class="password" placeholder="Confirm a password" required />
+                <input class="log-input" type="password" class="password" placeholder="Confirm a password" required value="" />
                 <i class="uil uil-lock icon"></i>
               </div>
 
@@ -88,7 +88,7 @@
               </div>
 
               <div class="log-input-field button">
-                <input class="log-input-btn" type="button" value="Register" />
+                <input onclick="signup()" class="log-input-btn" type="button" value="Register" />
               </div>
 
               <div class="log-r-haveacc">
@@ -145,6 +145,38 @@
       document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
         document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
+
+      function signup() {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const contact = document.getElementById("contact").value;
+        const password = document.getElementById("password").value;
+        let signupData = {
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          contact: contact,
+          role: "Guest",
+        };
+        console.log(signupData);
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(signupData),
+        };
+        fetch("http://ulayaw-backend.herokuapp.com/auth/signup", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            // write action code here
+            // if  success
+            // if fail
+          });
+      }
     </script>
   </body>
 </html>
