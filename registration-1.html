@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abril Fatface" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+
+    <title>Registration</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+
+    <section class="log-body">
+      <div class="log-container">
+        <div class="log-forms">
+          <div class="logform r-login">
+            <span class="log-title">Registration</span>
+
+            <form action="#">
+              <div class="log-input-field">
+                <input class="log-input" type="text" placeholder="Enter your email" required />
+                <i class="uil uil-envelope icon"></i>
+              </div>
+
+              <div class="log-input-field button">
+                <a href="registration-2.html"><input class="log-input-btn" type="button" value="Continue" /></a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- START OF POPUP -->
+    <div class="popup popup1 center">
+      <div class="description">
+        <h2 style="text-align: center"><b>Terms and Conditions</b></h2>
+        <br />
+      </div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup-btn-1">Close</button>
+      </div>
+    </div>
+
+    <!-- END OF POPUP -->
+
+    <script>
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+
+      const container = document.querySelector(".log-container");
+      const container1 = document.querySelector(".container1"),
+        pwShowHide = document.querySelectorAll(".showHidePw"),
+        pwFields = document.querySelectorAll(".password"),
+        signUp = document.querySelector(".signup-link"),
+        login = document.querySelector(".login-link");
+    </script>
+  </body>
+</html>
