@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Abril Fatface" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilities.css" />
+
+    <title>Registration</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+
+    <section class="reg-body">
+      <div class="reg-container">
+        <span class="reg-title">Registration</span>
+        <div class="reg-content">
+          <form action="#" class="reg-form">
+            <div class="reg-user-details">
+              <div class="reg-input-box">
+                <span class="reg-details">First Name</span>
+                <input id="firstName" type="text" placeholder="Enter your first name" required value="" />
+              </div>
+              <div class="reg-input-box">
+                <span class="reg-details">Last Name</span>
+                <input id="lastName" type="text" placeholder="Enter your last name" required value="" />
+              </div>
+              <div class="reg-input-box">
+                <span class="reg-details">Email</span>
+                <input id="email" type="text" placeholder="Enter your email" required value="" />
+              </div>
+              <div class="reg-input-box">
+                <span class="reg-details">Phone Number</span>
+                <input id="contact" type="text" placeholder="Enter your number" required value="" />
+              </div>
+              <div class="reg-input-box">
+                <span class="reg-details">Password</span>
+                <input id="password" type="text" placeholder="Enter your password" required value="" />
+              </div>
+              <div class="reg-input-box">
+                <span class="reg-details">Confirm Password</span>
+                <input type="text" placeholder="Confirm your password" required value="" />
+              </div>
+            </div>
+
+            <div class="log-checkbox-text">
+              <div class="log-checkbox-content">
+                <input id="password" class="logcheck" type="checkbox" id="termCon" required />
+                <label for="termCon" class="text"
+                  >I agree to the <a href="#" id="open-popup-btn-1">Hulo Leisure Farm's Terms and Conditions</a></label
+                >
+              </div>
+            </div>
+
+            <div class="log-input-field button">
+              <a href="c-profile.html"><input class="log-input-btn" onclick="signup()" type="button" value="Register" /></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- START OF POPUP -->
+    <div class="popup popup1 center">
+      <div class="description">
+        <h2 style="text-align: center"><b>Terms and Conditions</b></h2>
+        <br />
+      </div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup-btn-1">Close</button>
+      </div>
+    </div>
+
+    <!-- END OF POPUP -->
+
+    <script>
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+
+      const container = document.querySelector(".log-container");
+      const container1 = document.querySelector(".container1"),
+        pwShowHide = document.querySelectorAll(".showHidePw"),
+        pwFields = document.querySelectorAll(".password"),
+        signUp = document.querySelector(".signup-link"),
+        login = document.querySelector(".login-link");
+
+      // js code to appear signup and login form
+      signUp.addEventListener("click", () => {
+        container.classList.add("active");
+      });
+      login.addEventListener("click", () => {
+        container.classList.remove("active");
+      });
+
+      // Popup Button
+      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
+      function signup() {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const contact = document.getElementById("contact").value;
+        const password = document.getElementById("password").value;
+        let signupData = {
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          contact: contact,
+          role: "Guest",
+        };
+        console.log(signupData);
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(signupData),
+        };
+        fetch("http://ulayaw-backend.herokuapp.com/auth/signup", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            // write action code here
+            // if  success
+            // if fail
+          });
+      }
+    </script>
+  </body>
+</html>
