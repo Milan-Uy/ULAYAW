@@ -1401,8 +1401,7 @@ input:checked + .slider:before {
   align-items: center;
   margin-top: 5px;
 }
-.log-body,
-.reg-body {
+.log-body {
   background-image: url("/images/Login.png");
   height: 100vh;
   width: 100%;
@@ -1425,20 +1424,7 @@ input:checked + .slider:before {
   margin: 0 20px;
 }
 
-.log-container1 {
-  position: relative;
-  max-width: 430px;
-  width: 100%;
-  height: 700px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin: 0 0px;
-}
-
-.log-container .log-forms,
-.log-container1 .log-forms {
+.log-container .log-forms {
   display: flex;
   align-items: center;
   height: 440px;
@@ -1446,16 +1432,34 @@ input:checked + .slider:before {
   transition: height 0.2s ease;
 }
 
-.log-container .logform,
-.log-container1 .logform {
+.log-container .logform {
   width: 50%;
   padding: 0px 30px 0px 30px;
   background-color: #fff;
   transition: margin-left 0.18s ease;
 }
 
-.log-container .logform .log-title,
-.reg-container .reg-title {
+.log-container.active .r-login {
+  margin-left: -50%;
+  opacity: 0;
+  transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+
+.log-container .r-signup {
+  opacity: 0;
+  transition: opacity 0.09s ease;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.log-container.active .r-signup {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.log-container.active .log-forms {
+  height: 650px;
+}
+.log-container .logform .log-title {
   position: relative;
   font-size: 35px;
   font-weight: 600;
@@ -1463,8 +1467,7 @@ input:checked + .slider:before {
   color: #483434;
 }
 
-.logform .log-title::before,
-.reg-container .reg-title::before {
+.logform .log-title::before {
   content: "";
   position: absolute;
   left: 0;
@@ -1587,95 +1590,6 @@ input:checked + .slider:before {
   height: 50px;
   width: 100%;
   margin-top: 0px;
-}
-
-/* reg part 3*/
-.reg-container {
-  max-width: 700px;
-  width: 100%;
-  background-color: #fff;
-  padding: 25px 30px;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-.reg-content .reg-form .reg-user-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px 0 12px 0;
-  font-family: "Montserrat", sans-serif;
-}
-.reg-form .reg-user-details .reg-input-box {
-  margin-bottom: 15px;
-  width: calc(100% / 2 - 20px);
-}
-.reg-form .reg-input-box span.reg-details {
-  display: block !important;
-  font-weight: 500 !important;
-  margin-bottom: 5px !important;
-}
-.reg-user-details .reg-input-box input {
-  height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
-}
-.reg-user-details .reg-input-box input:focus,
-.reg-user-details .reg-input-box input:valid {
-  border-color: #483434;
-}
-.reg-form .gender-details .gender-title {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.reg-form .button {
-  height: 45px;
-  margin: 35px 0;
-}
-.reg-form .button input {
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  color: #fff;
-  font-weight: 500;
-  background-color: #6b4f4f;
-}
-.reg-form .button input:hover {
-  background-color: #483434;
-}
-@media (max-width: 584px) {
-  .reg-container {
-    max-width: 100%;
-  }
-  .reg-form .reg-user-details .reg-input-box {
-    margin-bottom: 15px;
-    width: 100%;
-  }
-  .reg-content .reg-form .reg-user-details {
-    max-height: 300px;
-    overflow-y: scroll;
-  }
-  .reg-user-details::-webkit-scrollbar {
-    width: 5px;
-  }
-}
-@media (max-width: 459px) {
-  .reg-container .reg-content {
-    flex-direction: column;
-  }
 }
 
 /* view villa new */
