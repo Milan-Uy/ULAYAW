@@ -22,16 +22,18 @@
       <div class="log-container">
         <div class="log-forms">
           <div class="logform r-login">
-            <span class="log-title">Registration</span>
+            <span class="log-title">Verification Code</span>
 
             <form action="#">
-              <div class="log-input-field">
-                <input class="log-input" type="text" placeholder="Enter your email" required />
-                <i class="uil uil-envelope icon"></i>
+              <div class="code-container">
+                <label for="vcode1">Enter the 6-digit verification code that we sent to your email.</label>
+                <div class="log-input-field">
+                  <input class="log-input" type="number" class="code" placeholder="Enter code" required />
+                  <i class="uil uil-lock icon"></i>
+                </div>
               </div>
-
               <div class="log-input-field button">
-                <a href="registration-2.html"><input class="log-input-btn" type="button" value="Continue" /></a>
+                <a href="#"><input class="log-input-btn" type="button" value="Submit" /></a>
               </div>
             </form>
           </div>
