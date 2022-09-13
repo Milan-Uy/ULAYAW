@@ -1,17 +1,74 @@
 <!DOCTYPE html>
 <html>
-  <style>
-    body {
-      background-color: #f9f2e7;
-    }
-  </style>
   <head>
     <meta charset="utf-8" />
     <title>Villas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/utilities.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   </head>
+  <style>
+    body {
+      background-color: #f9f2e7;
+      line-height: 1.2;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .navbar {
+      position: unset;
+      display: unset;
+      flex-wrap: unset;
+      align-items: unset;
+      justify-content: unset;
+      padding-top: 0rem;
+      padding-bottom: 0rem;
+    }
+    button.carousel-control-prev,
+    button.carousel-control-next {
+      width: 4rem;
+      height: 4rem;
+      margin-top: 50%;
+      border-radius: 50%;
+      font-size: 28px;
+    }
+    .card {
+      max-width: 712px;
+      width: 100%;
+      height: 100%;
+      flex-direction: row;
+      background-color: transparent;
+      border: 0px;
+      border-radius: 0rem;
+    }
+    .mt-3 {
+      margin-top: 0rem !important;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .container {
+      width: 100%;
+      padding-right: 0rem;
+      padding-left: 0rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    h3 {
+      font-weight: 700;
+      line-height: 0;
+    }
+    .v-tab-panel ul {
+      margin-bottom: 0rem;
+    }
+    .carousel-indicators [data-bs-target] {
+      width: 8px;
+      height: 8px;
+      border-radius: 50px;
+      border-bottom: 0px;
+      border-top: 0px;
+    }
+  </style>
   <body>
     <!--Navbar-->
     <section class="display-navbar">
@@ -33,7 +90,40 @@
           <!-- single room FIRST ROW -->
           <article class="villa-room">
             <div class="villa-room-image">
-              <img class="v-img" src="images/AUR1.png" alt="villa-room image" />
+              <div class="container mt-3">
+                <div class="card">
+                  <!-- Carousel -->
+                  <div id="slideshow" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active"></button>
+                      <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1"></button>
+                      <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="v-img" src="images/AUR1.png" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/CELSO1.jpg" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/KUBO1.jpg" style="width: 100%" />
+                      </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="villa-room-text">
               <h3>Casa Aurelia</h3>
@@ -198,7 +288,40 @@
           <!-- single room SECOND ROW -->
           <article class="villa-room">
             <div class="villa-room-image">
-              <img class="v-img" src="images/PRIMA1.JPG" alt="room image" />
+              <div class="container mt-3">
+                <div class="card">
+                  <!-- Carousel -->
+                  <div id="slideshow2" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#slideshow2" data-bs-slide-to="0" class="active"></button>
+                      <button type="button" data-bs-target="#slideshow2" data-bs-slide-to="1"></button>
+                      <button type="button" data-bs-target="#slideshow2" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="v-img" src="images/PRIMA1.JPG" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/CELSO1.jpg" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/KUBO1.jpg" style="width: 100%" />
+                      </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slideshow2" data-bs-slide="prev">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slideshow2" data-bs-slide="next">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="villa-room-text">
               <h3>Caminos de Primavera</h3>
@@ -383,7 +506,40 @@
           <!-- single room THIRD ROW -->
           <article class="villa-room">
             <div class="villa-room-image">
-              <img class="v-img" src="images/SALUD1.JPG" alt="villa-room image" />
+              <div class="container mt-3">
+                <div class="card">
+                  <!-- Carousel -->
+                  <div id="slideshow3" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#slideshow3" data-bs-slide-to="0" class="active"></button>
+                      <button type="button" data-bs-target="#slideshow3" data-bs-slide-to="1"></button>
+                      <button type="button" data-bs-target="#slideshow3" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="v-img" src="images/SALUD1.JPG" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/CELSO1.jpg" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/KUBO1.jpg" style="width: 100%" />
+                      </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slideshow3" data-bs-slide="prev">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slideshow3" data-bs-slide="next">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="villa-room-text">
               <h3>Casa Salud</h3>
@@ -507,7 +663,40 @@
           <!-- single room FOURTH ROW-->
           <article class="villa-room">
             <div class="villa-room-image">
-              <img class="v-img" src="images/KUBO1.jpg" alt="room image" />
+              <div class="container mt-3">
+                <div class="card">
+                  <!-- Carousel -->
+                  <div id="slideshow4" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#slideshow4" data-bs-slide-to="0" class="active"></button>
+                      <button type="button" data-bs-target="#slideshow4" data-bs-slide-to="1"></button>
+                      <button type="button" data-bs-target="#slideshow4" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="v-img" src="images/KUBO1.jpg" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/CELSO1.jpg" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/AUR1.png" style="width: 100%" />
+                      </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slideshow4" data-bs-slide="prev">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slideshow4" data-bs-slide="next">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="villa-room-text">
               <h3>Kubo ni Basyong</h3>
@@ -566,7 +755,40 @@
           <!-- single room THIRD ROW -->
           <article class="villa-room">
             <div class="villa-room-image">
-              <img class="v-img" src="images/CELSO1.jpg" alt="villa-room image" />
+              <div class="container mt-3">
+                <div class="card">
+                  <!-- Carousel -->
+                  <div id="slideshow5" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#slideshow5" data-bs-slide-to="0" class="active"></button>
+                      <button type="button" data-bs-target="#slideshow5" data-bs-slide-to="1"></button>
+                      <button type="button" data-bs-target="#slideshow5" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="v-img" src="images/CELSO1.jpg" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/PRIMA1.JPG" style="width: 100%" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="v-img" src="images/KUBO1.jpg" style="width: 100%" />
+                      </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slideshow5" data-bs-slide="prev">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slideshow5" data-bs-slide="next">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="villa-room-text">
               <h3>Celso Tagle Hall</h3>
