@@ -4865,6 +4865,7 @@ tr {
 .content-slider {
   width: 100%;
   height: 360px;
+  background-color: white;
 }
 
 .slider {
@@ -4878,6 +4879,7 @@ tr {
 .mask {
   overflow: hidden;
   height: 320px;
+  background-color: white;
 }
 
 .slider ul {
