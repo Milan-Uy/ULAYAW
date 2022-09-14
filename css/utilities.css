@@ -4866,6 +4866,7 @@ tr {
   width: 100%;
   height: 360px;
   background-color: white;
+  display: flex;
 }
 
 .slider {
@@ -4880,6 +4881,7 @@ tr {
   overflow: hidden;
   height: 320px;
   background-color: white;
+  display: flex;
 }
 
 .slider ul {
@@ -4897,7 +4899,6 @@ tr {
 }
 
 .slider .quote {
-  font-size: 40px;
   font-style: italic;
 }
 .slider .emoticon {
@@ -4905,8 +4906,9 @@ tr {
 }
 
 .slider .source {
-  font-size: 20px;
-  text-align: right;
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 80px;
 }
 
 .slider li.anim1 {
@@ -4931,6 +4933,16 @@ tr {
 
 .slider:hover li {
   animation-play-state: paused;
+}
+@media screen and (min-width: 601px) {
+  .quote {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .source {
+    font-size: 15px;
+  }
 }
 
 @keyframes cycle {
