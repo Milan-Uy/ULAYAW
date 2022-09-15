@@ -26,12 +26,16 @@
 
             <form onsubmit="event.preventDefault(); loginUser();">
               <div class="log-input-field">
-                <input class="log-input" id="loginEmail" type="text" placeholder="Enter your email" required />
+                <input class="log-input" id="loginEmail" onkeydown="errorCheck()" type="text" placeholder="Enter your email" required />
                 <i class="uil uil-envelope icon"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" id="loginPw" type="password" class="password" placeholder="Enter your password" required />
+                <input class="log-input" id="loginPw" onkeydown="errorCheck()" type="password" class="password" placeholder="Enter your password" required />
                 <i class="uil uil-lock icon"></i>
+              </div>
+
+              <div id="loginError" class="login-error" style="display: none;">
+                <!-- <small>Invalid Username and/or Password</small> -->
               </div>
 
               <div class="log-checkbox-text">
@@ -39,7 +43,7 @@
               </div>
 
               <div class="log-input-field button">
-                <input class="log-input-btn" type="submit"  type="button" value="Login" />
+                <input class="log-input-btn" type="submit" id="loginBtn"  type="button" value="Login" />
               </div>
               <div class="log-checkbox-text">
                 <ul class="text noaccount">
@@ -163,6 +167,10 @@
       });
 
       const loginUser = () =>{
+       const loginBtn = document.getElementById("loginBtn");
+       loginBtn.disabled = true;
+       loginBtn.style.backgroundColor = 'grey'
+      
         const email = document.getElementById("loginEmail").value;
         const password = document.getElementById("loginPw").value;
 
@@ -182,16 +190,25 @@
         fetch("http://ulayaw-backend.herokuapp.com/auth/login", options)
           .then((response) => response.json())
           .then((data) => {
+            document.getElementById("loginBtn").disabled = false;
+            loginBtn.style.backgroundColor = '#6b4f4f'
             if(data.token){
               localStorage.setItem('access_token', data.token);
               localStorage.setItem('user_role', data.userRole);
               navigate();
-            }else
-            if(data.key === 'USERNOEXIST'){
-
+            }else{
+              const loginDiv = document.getElementById('loginError')
+              loginDiv.style.display = 'block';
+              loginDiv.innerHTML = `<small>${data.payload}</small>`
             }
             console.log(data);
           });
+      }
+      const errorCheck = () =>{
+        const loginDiv = document.getElementById('loginError');
+          if(loginDiv.style.display === 'block'){
+          loginDiv.style.display ='none';
+          }
       }
 
       const signup = () => {

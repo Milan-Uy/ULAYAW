@@ -500,3 +500,14 @@
 .close:hover {
   color: white;
 }
+
+/* login */
+.login-error{
+  text-align: center;
+  margin: 5px 0;
+}
+
+.login-error small{
+  color: red;
+  font-family: "Montserrat", sans-serif;
+}
