@@ -24,13 +24,13 @@
           <div class="logform r-login">
             <span class="log-title">Login</span>
 
-            <form action="#">
+            <form onsubmit="event.preventDefault(); loginUser();">
               <div class="log-input-field">
-                <input class="log-input" type="text" placeholder="Enter your email" required />
+                <input class="log-input" id="loginEmail" type="text" placeholder="Enter your email" required />
                 <i class="uil uil-envelope icon"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" type="password" class="password" placeholder="Enter your password" required />
+                <input class="log-input" id="loginPw" type="password" class="password" placeholder="Enter your password" required />
                 <i class="uil uil-lock icon"></i>
               </div>
 
@@ -39,7 +39,7 @@
               </div>
 
               <div class="log-input-field button">
-                <input class="log-input-btn" type="button" value="Login" />
+                <input class="log-input-btn" type="submit"  type="button" value="Login" />
               </div>
               <div class="log-checkbox-text">
                 <ul class="text noaccount">
@@ -122,6 +122,17 @@
     <!-- END OF POPUP -->
 
     <script>
+      const navigate = () =>{
+        if(localStorage.getItem('access_token')){
+        if(localStorage.getItem('user_role') === 'Guest'){
+          window.location.replace('/c-profile.html');
+        }else
+        if(localStorage.getItem('user_role') === 'Admin'){
+          window.location.replace('/a-profile.html');
+        }
+      }
+      }
+      navigate();
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");
@@ -151,7 +162,39 @@
         document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
 
-      function signup() {
+      const loginUser = () =>{
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPw").value;
+
+        let loginData ={
+          email: email,
+          password: password
+        }
+
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(loginData),
+        };
+
+        fetch("http://ulayaw-backend.herokuapp.com/auth/login", options)
+          .then((response) => response.json())
+          .then((data) => {
+            if(data.token){
+              localStorage.setItem('access_token', data.token);
+              localStorage.setItem('user_role', data.userRole);
+              navigate();
+            }else
+            if(data.key === 'USERNOEXIST'){
+
+            }
+            console.log(data);
+          });
+      }
+
+      const signup = () => {
         const firstName = document.getElementById("firstName").value;
         const lastName = document.getElementById("lastName").value;
         const email = document.getElementById("email").value;

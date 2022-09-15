@@ -48,8 +48,11 @@
               <span class="label">Customer Satisfaction</span>
             </li>
             <li rel="tabFive">
-              <i class="material-symbols-rounded">logout</i>
-              <span class="label">Logout</span>
+              <a onclick="logout()">
+                <i class="material-symbols-rounded">logout</i>
+                <span class="label">Logout</span>
+              </a>  
+            
             </li>
           </ul>
           <div class="tabs-container">
@@ -254,7 +257,7 @@
               </div>
             </div>
             <!--Logout Tab-->
-            <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
+            <!-- <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
             <div id="tabFive" class="tab-item">
               <h5>Tab 5 content</h5>
               <p>
@@ -265,7 +268,7 @@
                 optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
                 voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -559,6 +562,11 @@
         btnOuter.removeClass("file_uploading");
         btnOuter.removeClass("file_uploaded");
       });
+
+      const logout = () =>{
+        localStorage.clear();
+        window.location.replace('/login-reg.html');
+      }
     </script>
   </body>
 </html>
