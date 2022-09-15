@@ -363,6 +363,10 @@
   height: 205px;
 }
 
+.popup-logout {
+  height: 170px;
+}
+
 .popup-long {
   overflow-y: scroll;
   height: 450px;
