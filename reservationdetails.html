@@ -155,11 +155,43 @@
           <p>Add-on2<span class="price">P200.00</span></p>
          <hr>
           <h3>Total <span class="price" style="color:black"><b>P25,350.00</b></span></h3>
-          <p>By clicking the confirm reservation, you are agreeing to the</p> <a href="">Booking Policy</a><p>of the Hulo Leisure farm</p>
+          <p>By clicking the confirm reservation, you are agreeing to the</p> <a href="#" id="open-popup-btn-1" >Booking Policy</a><p>of the Hulo Leisure farm</p>
           <input class="cr-btn" type="button" value="Confirm Reservation">
         </div>
       </div>
     </div>
+
+        <!-- START OF POPUP -->
+        <div class="popup popup1 center popup-long ">
+          <div class="description popup-content-left">
+            <h2 style="text-align: center"><b>Booking Policy</b></h2>
+            <br />
+            1. Reservation
+            <br>
+            * A deposit of 20% to reserve the date.
+            <br>
+            * Another 30% deposit must be made 5 days before the booked date
+            <br>
+            * The remaining 50% can be paid upon check-in.
+            <br>
+            2. Early Check-in / Late Check-out
+            <br>
+            * It is subject to the house/room availability of that significant day. The request needs to be reconfirmed with the booking officer or Bed and Breakfast staff.
+            <br>
+            3. Booking Confirmation 
+            <br>
+            * Upon deposit of payment, a booking confirmation must be received as this will be served as proof of your reservation.
+            <br>
+              4.  Incidental Fee
+            <br>
+            * Upon check-in, we will request for a security deposit/incidental deposit of ₱2,000. It will be returned if no damage or loss has emerged on our property.
+          </div>
+          <div class="dismiss-btn">
+            <button id="dismiss-popup-btn-1">Close</button>
+          </div>
+        </div>
+            <!-- END OF POPUP -->
+
   </body>
 
   <script>
@@ -167,6 +199,16 @@
     $(function () {
       $("#nav-placeholder").load("navbar.html");
     });
+
+      // Popup Button
+      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+      document.getElementsByClassName("popup1")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+      document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
     //Date Picker
 
     // endDate.setDate(endDate.getDate() + 1);
@@ -199,5 +241,6 @@
       if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
     }
     window.onload = spinner;
+
   </script>
 </html>

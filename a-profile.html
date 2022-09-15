@@ -46,7 +46,7 @@
             </li>
             <li rel="tabFive">
               <i class="material-symbols-rounded">logout</i>
-              <span class="label">Logout</span>
+              <span class="label" id="open-popup-btn-1">Logout</span>
             </li>
           </ul>
           <div class="tabs-container">
@@ -122,6 +122,14 @@
                 <i class="fas fa-exclamation-circle alert-icon"></i>
                 <strong>User Successfully Updated</strong>
               </div>
+
+              <!-- ALERT -->
+
+              <div class="alertMessage alert5">
+                <span class="close" id="close-alert5">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>User Successfully Changed Role</strong>
+              </div>
               
               <table id="myTable">
                 <thead>
@@ -149,7 +157,7 @@
                          <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content ">
-                               <a class = "dd-content remove-user" href = "#" id="open-popup"> Remove User </a>
+                               <a class = "dd-content remove-user" href = "#"> Remove User </a>
                                <a class = "dd-content edit-profile" href = "#" id="open-alert"> Edit Profile </a>
                             </div>
                          </div>
@@ -578,6 +586,54 @@
       </div>
     </section>
 
+    <!-- START OF POPUP -->
+
+    <div class="popup popup-logout popup1 center">
+      <div class="popup-title">Logout</div>
+      <div class="description">Are you sure you want to logout?</div>
+      <div class="dismiss-btn">
+        <button id="confirm-popup-btn-1">Yes</button>
+        <button id="dismiss-popup-btn-1">No</button>
+      </div>
+    </div>
+
+    <div class="popup popup2 center">
+      <div class="popup-title">Remove User</div>
+      <div class="description">Are you sure you want to remove the user?</div>
+      <div class="dismiss-btn">
+      <button id="confirm-popup-btn-2">Yes</button>
+      <button id="dismiss-popup-btn-2">No</button>
+      </div>
+   </div>
+
+   <div class="popup popup3 center">
+    <div class="popup-title">User Profile</div>
+    <div class="description">Edit User Information
+       <br><br>
+       <form action = "">
+          <div class="form-group">
+             <label for="fname">First Name:</label>
+             <input type="text" id="fname" required>
+           </div>
+          <div class="form-group">
+             <label for="fname">Last Name:</label>
+             <input type="text" id="lname" required>
+           </div>
+           <div class="form-group">
+             <label for="name">Email:</label>
+             <input type="email" name="name" id="Email" required>
+           </div>
+           <div class="form-group">
+             <label for="name">Contact Number: </label>
+             <input type="text" minlength="13" name="name" id="contact" required>
+           </div>
+           <div class = "submitbtn">
+             <input type="submit" value = "Confirm">
+       </form>
+             <input type="button" id="dismiss-popup-btn-3" value = "Cancel">
+          </div>
+    </div>
+
     <!--Footer-->
     <section class="display-footer">
       <div id="footer-placeholder">
@@ -643,6 +699,16 @@
         }
       };
 
+      // Popup Button
+      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
+
       // Alert
       document.getElementById("open-alert").addEventListener("click", function () {
         document.getElementsByClassName("alert")[0].classList.add("show");
@@ -676,6 +742,13 @@
         document.getElementsByClassName("alert4")[0].classList.remove("show");
       });
 
+      document.getElementById("confirm-popup-btn-2").addEventListener("click", function () {
+        document.getElementsByClassName("alert5")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert5").addEventListener("click", function () {
+        document.getElementsByClassName("alert5")[0].classList.remove("show");
+      });
 
         //upload pic
         function readURL(input) {
