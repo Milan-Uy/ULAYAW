@@ -187,7 +187,7 @@
           body: JSON.stringify(loginData),
         };
 
-        fetch("http://ulayaw-backend.herokuapp.com/auth/login", options)
+        fetch("https://ulayaw-backend.herokuapp.com/auth/login", options)
           .then((response) => response.json())
           .then((data) => {
             document.getElementById("loginBtn").disabled = false;
@@ -233,7 +233,7 @@
           },
           body: JSON.stringify(signupData),
         };
-        fetch("http://ulayaw-backend.herokuapp.com/auth/signup", options)
+        fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
