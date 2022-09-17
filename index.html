@@ -4,14 +4,172 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/e32153d801.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
-    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+    <title>Home Page</title>
   </head>
-  <body>
+
+  <body class="bodyhp">
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+    <!--Home Page-->
+    <section class="book-header">
+      <h1>
+        LUXURY MEETS <br />
+        NATURE
+      </h1>
+      <div class="check-availability">
+        <form class="checkavail-form">
+          <div class="form-item check-flex-item">
+            <i class="icon material-symbols-outlined">event_upcoming</i>
+            <label>Check in</label>
+            <input class="select-date" id="checkin-date" placeholder="select a date" />
+          </div>
+          <div class="form-item check-flex-item">
+            <i class="icon material-symbols-outlined">event_busy</i>
+            <label>Check out</label>
+            <input id="checkout-date" class="select-date" placeholder="select a date" />
+          </div>
+          <div class="form-item check-flex-item-m">
+            <i class="icon material-symbols-outlined">groups</i>
+            <label>Guests</label>
+            <input
+              class="guest"
+              type="number"
+              placeholder="1"
+              pattern="[0-9]*"
+              id="spinner"
+              name="value"
+              value="1"
+              min="1"
+              max="30"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="2"
+              required
+            />
+          </div>
+          <div class="form-item check-flex-item-sm">
+            <div class="search-icon">
+              <button type="submit">
+                <span class="icon"><i class="material-symbols-rounded"> search </i></span>
+                <span class="text">CHECK AVAILABILITY</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <div class="section-stroke">
+      <img src="images/brush-stroke.png" />
+    </div>
+    <!-- 2ND ROW -->
+    <div style="text-align: center"></div>
+    <div class="containerhp">
+      <div class="row">
+        <div class="column-66">
+          <h1 class="xlarge-font"><b>ENJOY YOUR DREAM VACATION</b></h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tellus mi, tincidunt at lacus sit amet, dictum volutpat mauris. Aliquam eget
+            tellus vitae nisl suscipit aliquam. Etiam eu dapibus velit. Mauris sagittis lorem diam, eget consequat ligula dictum vel. Vivamus rutrum
+            tempus felis, sagittis finibus dui venenatis eget. Nam fringilla mattis sem, a tempor ligula venenatis ut. Pellentesque odio nisi, porta
+            ac suscipit non, porttitor quis tortor.
+          </p>
+        </div>
+        <div class="column-33">
+          <img class="img1" src="images/overlappic1hp.JPG" />
+        </div>
+        <div class="cshp">
+          <h1 class="xlarge-font">CUSTOMER SATISFACTION</h1>
+        </div>
+        <div class="content-slider">
+          <div class="slider">
+            <div class="mask">
+              <ul>
+                <li class="anim1">
+                  <div class="quote">SORRY KYLA.</div>
+                  <div class="emoticon"></div>
+                  <div class="source">- USER NAME</div>
+                </li>
+                <li class="anim2">
+                  <div class="quote">Lorem lorem sinta buto ng papaya.</div>
+                  <div class="emoticon"></div>
+                  <div class="source">- USER NAME</div>
+                </li>
+                <li class="anim3">
+                  <div class="quote">Lorem lorem sinta buto ng papaya.</div>
+                  <div class="emoticon"></div>
+                  <div class="source">- USER NAME</div>
+                </li>
+                <li class="anim4">
+                  <div class="quote">Lorem lorem sinta buto ng papaya.</div>
+                  <div class="emoticon"></div>
+                  <div class="source">- USER NAME</div>
+                </li>
+                <li class="anim5">
+                  <div class="quote">Lorem lorem sinta buto ng papaya.</div>
+                  <div class="emoticon"></div>
+                  <div class="source">- USER NAME</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
-      window.location.replace('/homepage.html');
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html");
+      });
+      //Date Picker
+      let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
+
+      const picker = new Litepicker({
+        element: document.getElementById("checkin-date"),
+        elementEnd: document.getElementById("checkout-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
+        minDate: startDate, //It will not allow to select past days
+      });
+      //Input Number
+      function spinner() {
+        // Spinner
+        $("#spinner").spinner();
+
+        //Input only numbers
+        $("#spinner").keyup(function () {
+          this.value = this.value.replace(/[^0-9]/g, "");
+        });
+      }
+      //Input max number
+      function maxLengthCheck(object) {
+        if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
+      }
+      window.onload = spinner;
     </script>
   </body>
 </html>
