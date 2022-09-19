@@ -51,8 +51,7 @@
               <a onclick="logout()">
                 <i class="material-symbols-rounded">logout</i>
                 <span class="label">Logout</span>
-              </a>  
-            
+              </a>
             </li>
           </ul>
           <div class="tabs-container">
@@ -107,12 +106,12 @@
                       <input type="password" id="password" placeholder="Password" readonly />
                     </div>
                     <div class="col-6 hide-txt6 hide-text-bg">
-                      <label>Re-Enter Password</label>
-                      <input type="password" id="rePassword" placeholder="Password" readonly />
-                    </div>
-                    <div class="col-6 hide-txt7 hide-text-bg">
                       <label>New Password</label>
                       <input type="password" id="newPassword" placeholder="New Password" readonly />
+                    </div>
+                    <div class="col-6 hide-txt7 hide-text-bg">
+                      <label>Re-Enter Password</label>
+                      <input type="password" id="rePassword" placeholder="Password" readonly />
                     </div>
                   </div>
                   <div class="flex-end-container">
@@ -563,10 +562,10 @@
         btnOuter.removeClass("file_uploaded");
       });
 
-      const logout = () =>{
+      const logout = () => {
         localStorage.clear();
-        window.location.replace('/login-reg.html');
-      }
+        window.location.replace("/login-reg.html");
+      };
     </script>
   </body>
 </html>

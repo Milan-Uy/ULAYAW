@@ -46,7 +46,7 @@
             </li>
             <li rel="tabFive">
               <i class="material-symbols-rounded">logout</i>
-              <span class="label" id="open-popup-btn-1">Logout</span>
+              <span class="label">Logout</span>
             </li>
           </ul>
           <div class="tabs-container">
@@ -588,14 +588,14 @@
 
     <!-- START OF POPUP -->
 
-    <div class="popup popup-logout popup1 center">
+    <!-- <div class="popup popup-logout popup1 center">
       <div class="popup-title">Logout</div>
       <div class="description">Are you sure you want to logout?</div>
       <div class="dismiss-btn">
         <button id="confirm-popup-btn-1">Yes</button>
         <button id="dismiss-popup-btn-1">No</button>
       </div>
-    </div>
+    </div> -->
 
     <div class="popup popup2 center">
       <div class="popup-title">Remove User</div>
@@ -700,13 +700,14 @@
       };
 
       // Popup Button
-      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.add("active");
-      });
+      
+      // document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+      //   document.getElementsByClassName("popup1")[0].classList.add("active");
+      // });
 
-      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.remove("active");
-      });
+      // document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+      //   document.getElementsByClassName("popup1")[0].classList.remove("active");
+      // });
 
 
       // Alert
