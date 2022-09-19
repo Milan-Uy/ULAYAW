@@ -139,7 +139,7 @@
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
-                    <td><button type="button" class="btncancel">CANCEL</button></td>
+                    <td><button type="button" class="btncancel" id="open-popup-btn-2">CANCEL</button></td>
                     <!--Proceed with payment btn
                            <td class="btnprcd"><button type="button" style="background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;">Proceed to Payment</button></td>-->
                   </tbody>
@@ -215,6 +215,15 @@
               </div>
               <div class="dismiss-btn">
                 <button id="dismiss-popup-btn-1">Close</button>
+              </div>
+            </div>
+
+            <div class="popup popup2 offset_left popup-short">
+              <div class="popup-title">Cancel Reservation</div>
+              <div class="description">Are you sure you want to cancel the reservation?</div>
+              <div class="dismiss-btn">
+                <button id="confirm-popup-btn-2">Yes</button>
+                <button id="dismiss-popup-btn-2">No</button>
               </div>
             </div>
 
@@ -391,6 +400,14 @@
 
       document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
         document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
+      document.getElementById("open-popup-btn-2").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup-btn-2").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
 
       /** emoji feedback js **/
