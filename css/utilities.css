@@ -4905,6 +4905,22 @@ tr {
   align-items: right;
 }
 
+.cs_iconsdisplay {
+  width: 3vw;
+  height: 3vw;
+  margin-top: 8%;
+  margin-right: 1vw;
+}
+.saddp {
+  margin-left: 25vw;
+}
+.happydp {
+  margin-left: 25vw;
+}
+.neutraldp {
+  margin-left: 25vw;
+}
+
 .slider .source {
   text-align: center;
   margin-top: 50px;
