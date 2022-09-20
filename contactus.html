@@ -133,12 +133,49 @@
     body {
       background-color: #f9f2e7;
     }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      width: 400px;
+      height: 200px;
+      background: #483434;
+      padding: 30px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      color: #fff;
+      margin: 20px;
+      font-family: "Montserrat", sans-serif;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-title {
+      margin-top: 0;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+    }
+    .card-content {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    }
+
+    .material-icons.md-48 {
+      font-size: 70px;
+    }
   </style>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     <title>Contact Us</title>
@@ -158,6 +195,27 @@
     </div>
     <section class="contact-body">
       <div class="main-bg">
+        <div class="wrapper">
+          <div class="card">
+            <p class="card-content">
+              <span class="material-icons md-48"> call </span> <br />
+              0934-455-4534
+            </p>
+          </div>
+          <div class="card">
+            <p class="card-content">
+              <span class="material-icons md-48"> location_on </span><br />
+              Hulo Agri & Leisure Farm, Hacienda Rd, Abucay, 2114 Bataan
+            </p>
+          </div>
+          <div class="card">
+            <p class="card-content">
+              <span class="material-icons md-48"> mail </span> <br />
+              huloleisurefarm@gmail.com
+            </p>
+          </div>
+        </div>
+
         <section class="centercontact">
           <div class="container">
             <div class="content">
@@ -165,7 +223,7 @@
                 <img src="images/leaves1.png" alt="" />
               </div>
               <form action="#">
-                <div class="topic">Need something? Send us a message!</div>
+                <div class="topic">Send us a message!</div>
                 <!-- ALERT -->
                 <div class="alertMessage alert">
                   <span class="close" id="close-alert">×</span>
@@ -179,6 +237,10 @@
                 <div class="input-box">
                   <input type="text" required />
                   <label>Enter your email</label>
+                </div>
+                <div class="input-box">
+                  <input type="text" required />
+                  <label>Enter your subject</label>
                 </div>
                 <div class="input-box1">
                   <input type="text" required />
