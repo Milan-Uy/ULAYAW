@@ -5149,7 +5149,7 @@ tr {
   }
 }
 
-/*Reservation Details*/
+/*Reservation Details
 
 .headtextrd {
   text-align: center;
@@ -5166,19 +5166,20 @@ tr {
   padding: 0 10px;
 }
 
-/* Remove extra left and right margins, due to padding */
+
+/* Remove extra left and right margins, due to padding 
 .row {
   margin: 0 -5px;
 }
 
-/* Clear floats after the columns */
+/* Clear floats after the columns 
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive columns */
+/* Responsive columns 
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
@@ -5187,7 +5188,7 @@ tr {
   }
 }
 
-/* Style the counter cards */
+/* Style the counter cards 
 .card1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
@@ -5243,7 +5244,7 @@ tr {
 .cr-btn:hover {
   background-color: #483434;
 }
-
+*/
 /*code verification*/
 .emailtable {
   margin-top: 40px;
