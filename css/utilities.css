@@ -1385,21 +1385,17 @@ input:checked + .slider:before {
 }
 
 /**new login reg **/
-.noaccount {
-  margin-left: 30px;
-}
 
-.haveaccount {
-  margin-left: 35px;
-}
 .signup-link,
 .login-link {
   margin-left: 10px;
 }
 .logform .log-r-haveacc {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: 5px;
+  font-family: "Montserrat", sans-serif;
 }
 .log-body {
   background-image: url("/images/Login.png");
@@ -1528,6 +1524,19 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   margin-top: 20px;
+}
+
+.logform .log-checkbox-text1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding-left: 0px;
+}
+.noaccyet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .log-checkbox-text .log-checkbox-content {
@@ -3000,7 +3009,7 @@ footer .bottom a:hover {
   border-radius: 6rem;
   border: 1px solid #a0a0a0;
   padding: 0.6rem 2rem 0.6rem 1rem;
-  width: 20rem;
+  width: 15rem;
   margin-top: 20px;
 }
 
@@ -5364,7 +5373,8 @@ button:focus {
   align-items: center;
 }
 
-.log-checkbox-text {
+.log-checkbox-text,
+.log-checkbox-text1 {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
 }

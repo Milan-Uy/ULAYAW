@@ -30,11 +30,19 @@
                 <i class="uil uil-envelope icon"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" id="loginPw" onkeydown="errorCheck()" type="password" class="password" placeholder="Enter your password" required />
+                <input
+                  class="log-input"
+                  id="loginPw"
+                  onkeydown="errorCheck()"
+                  type="password"
+                  class="password"
+                  placeholder="Enter your password"
+                  required
+                />
                 <i class="uil uil-lock icon"></i>
               </div>
 
-              <div id="loginError" class="login-error" style="display: none;">
+              <div id="loginError" class="login-error" style="display: none">
                 <!-- <small>Invalid Username and/or Password</small> -->
               </div>
 
@@ -43,13 +51,15 @@
               </div>
 
               <div class="log-input-field button">
-                <input class="log-input-btn" type="submit" id="loginBtn"  type="button" value="Login" />
+                <input class="log-input-btn" type="submit" id="loginBtn" type="button" value="Login" />
               </div>
-              <div class="log-checkbox-text">
-                <ul class="text noaccount">
-                  No account yet?
-                </ul>
-                <a href="#" class="text signup-link">Register here.</a>
+              <div class="log-checkbox-text1">
+                <div class="noaccyet">
+                  <ul class="text noaccount">
+                    No account?
+                  </ul>
+                  <a href="#" class="text signup-link">Register here.</a>
+                </div>
               </div>
             </form>
           </div>
@@ -97,7 +107,7 @@
 
               <div class="log-r-haveacc">
                 <ul class="text haveaccount">
-                  Already have an account?
+                  Have an account?
                 </ul>
                 <a href="#" class="text login-link">Login here.</a>
               </div>
@@ -126,16 +136,15 @@
     <!-- END OF POPUP -->
 
     <script>
-      const navigate = () =>{
-        if(localStorage.getItem('access_token')){
-        if(localStorage.getItem('user_role') === 'Guest'){
-          window.location.replace('/c-profile.html');
-        }else
-        if(localStorage.getItem('user_role') === 'Admin'){
-          window.location.replace('/a-profile.html');
+      const navigate = () => {
+        if (localStorage.getItem("access_token")) {
+          if (localStorage.getItem("user_role") === "Guest") {
+            window.location.replace("/c-profile.html");
+          } else if (localStorage.getItem("user_role") === "Admin") {
+            window.location.replace("/a-profile.html");
+          }
         }
-      }
-      }
+      };
       navigate();
       //Import Navbar
       $(function () {
@@ -166,18 +175,18 @@
         document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
 
-      const loginUser = () =>{
-       const loginBtn = document.getElementById("loginBtn");
-       loginBtn.disabled = true;
-       loginBtn.style.backgroundColor = 'grey'
-      
+      const loginUser = () => {
+        const loginBtn = document.getElementById("loginBtn");
+        loginBtn.disabled = true;
+        loginBtn.style.backgroundColor = "grey";
+
         const email = document.getElementById("loginEmail").value;
         const password = document.getElementById("loginPw").value;
 
-        let loginData ={
+        let loginData = {
           email: email,
-          password: password
-        }
+          password: password,
+        };
 
         let options = {
           method: "POST",
@@ -191,25 +200,25 @@
           .then((response) => response.json())
           .then((data) => {
             document.getElementById("loginBtn").disabled = false;
-            loginBtn.style.backgroundColor = '#6b4f4f'
-            if(data.token){
-              localStorage.setItem('access_token', data.token);
-              localStorage.setItem('user_role', data.userRole);
+            loginBtn.style.backgroundColor = "#6b4f4f";
+            if (data.token) {
+              localStorage.setItem("access_token", data.token);
+              localStorage.setItem("user_role", data.userRole);
               navigate();
-            }else{
-              const loginDiv = document.getElementById('loginError')
-              loginDiv.style.display = 'block';
-              loginDiv.innerHTML = `<small>${data.payload}</small>`
+            } else {
+              const loginDiv = document.getElementById("loginError");
+              loginDiv.style.display = "block";
+              loginDiv.innerHTML = `<small>${data.payload}</small>`;
             }
             console.log(data);
           });
-      }
-      const errorCheck = () =>{
-        const loginDiv = document.getElementById('loginError');
-          if(loginDiv.style.display === 'block'){
-          loginDiv.style.display ='none';
-          }
-      }
+      };
+      const errorCheck = () => {
+        const loginDiv = document.getElementById("loginError");
+        if (loginDiv.style.display === "block") {
+          loginDiv.style.display = "none";
+        }
+      };
 
       const signup = () => {
         const firstName = document.getElementById("firstName").value;
@@ -241,7 +250,7 @@
             // if  success
             // if fail
           });
-      }
+      };
     </script>
   </body>
 </html>
