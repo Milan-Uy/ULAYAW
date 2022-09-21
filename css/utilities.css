@@ -2114,7 +2114,17 @@ transform: scale(1) rotate(1deg);
     font-size: 12px;
   }
 }
-
+@media (max-width: 450px) {
+  .checkavail-form {
+    padding: 25px 35px 25px 20px;
+  }
+  .form-item {
+    margin-left: 65px;
+  }
+  .search-icon {
+    margin-left: -25px;
+  }
+}
 /*Upload Moment*/
 .moment-form {
   padding: 4rem 0;
