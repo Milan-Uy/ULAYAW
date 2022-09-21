@@ -2851,7 +2851,22 @@ footer .bottom a:hover {
     height: auto;
   }
 }
-
+@media (max-width: 450px) {
+  footer .footer-content .footer-box {
+    width: 80%;
+    transition: all 0.4s ease;
+  }
+  .logo-footer img {
+    width: 50%;
+    height: auto;
+  }
+  footer .footer-content {
+    padding: 20px 20px 20px 20px;
+  }
+  footer .footer-content .footer-box {
+    margin-top: 10px;
+  }
+}
 /* add new user */
 .adduser-container {
   max-width: 780px;
