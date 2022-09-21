@@ -737,6 +737,7 @@ p {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   position: relative;
   margin: auto;
+  overflow: auto;
 }
 .v-tab-control {
   display: inline-block;
@@ -1958,6 +1959,7 @@ hr {
 .blog-card a {
   color: inherit;
 }
+
 /*.blog-card:hover .photo {
 transform: scale(1) rotate(1deg);
 }*/
@@ -2372,6 +2374,10 @@ transform: scale(1) rotate(1deg);
 }
 
 /* Booking Status*/
+
+.bookingstbl {
+  overflow: auto;
+}
 .ststbl,
 .tdbs,
 .thbs {
@@ -2390,10 +2396,12 @@ transform: scale(1) rotate(1deg);
 .tdbs {
   padding: 15px;
   border-right: 1px solid #6b4f4f;
+  background-color: #f9f2e7;
 }
 
 .tdbs1 {
   padding: 15px;
+  background-color: #f9f2e7;
 }
 
 .thbs {
@@ -2838,6 +2846,11 @@ footer .bottom a:hover {
   color: #473a3a;
   margin-top: 20px;
 }
+
+.guest-list {
+  overflow: auto;
+}
+
 #myTable th,
 #myTable td {
   text-align: left;
@@ -4206,6 +4219,7 @@ i.material-icons {
 }
 
 /* manage bookings */
+
 .responsive-tabs dt {
   font-size: 18px;
 }
