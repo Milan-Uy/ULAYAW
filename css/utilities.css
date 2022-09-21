@@ -1552,6 +1552,7 @@ input:checked + .slider:before {
 .logform .text {
   color: #333;
   font-size: 14px;
+  padding-inline-start: 0px;
 }
 
 .logform a.text {
