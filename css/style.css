@@ -231,7 +231,7 @@
 
 .manMoments {
   box-sizing: border-box;
-  background-color: var(--mainbg-color);
+  background-color: #f9f2e7;
   padding: 10px 40px 30px;
   width: 100%;
   max-width: 1000px;

@@ -2386,10 +2386,12 @@ transform: scale(1) rotate(1deg);
 .tdbs {
   padding: 15px;
   border-right: 1px solid #6b4f4f;
+  background-color: #f9f2e7;
 }
 
 .tdbs1 {
   padding: 15px;
+  background-color: #f9f2e7;
 }
 
 .thbs {
