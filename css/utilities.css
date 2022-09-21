@@ -481,7 +481,7 @@
   width: 100%;
   padding: 1em 0;
   color: #6b4f4f;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 500;
   border: none;
   background: none;
@@ -568,6 +568,25 @@
   .faqs-txt {
     padding: 80px;
     padding-right: 80px;
+  }
+}
+@media (max-width: 450px) {
+  .faqs-header h1,
+  .villas-header h1,
+  .moments-header h1 {
+    margin-left: 30px;
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .faqs-txt {
+    padding: 30px;
+    padding-right: 30px;
+  }
+  .accordion button .icon {
+    margin: -5px 0px 0px 0px;
+  }
+  .accordion button {
+    font-size: 0.75 em;
   }
 }
 
