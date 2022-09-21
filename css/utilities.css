@@ -2449,7 +2449,25 @@ transform: scale(1) rotate(1deg);
 .drop-area:hover .img-name {
   opacity: 1;
 }
-
+@media (max-width: 640px) {
+  .moments-box {
+    padding: 15px 15px 30px 15px;
+  }
+  .form-control.checkbox-wrapper label::before,
+  .moment-form a::before {
+    top: -1px;
+  }
+  .form-control.checkbox-wrapper label {
+    margin-top: -35px;
+  }
+  .tabs .material-symbols-rounded {
+    margin-left: 0px;
+  }
+  .sidebar .tabs li {
+    width: 50px;
+    height: 50px;
+  }
+}
 /* admin login */
 
 .al-container {
