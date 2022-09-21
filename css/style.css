@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Waterfall&display=swap");
 
 :root {
-  --mainbg-color: #f9f2e7;
+  --mainbg-color: #efeeeb;
   --txt-field-color: #333;
   --heading-color: #6b4f4f;
   --main-btn-color: #1b5b65;
@@ -69,45 +69,6 @@
   padding-top: 5rem;
   margin-top: -3rem;
   background-color: var(--mainbg-color);
-}
-
-.map-wrapper {
-  padding: 1rem;
-  /* justify-content: right;
-  align-items: right;
-  text-align: right; */
-}
-
-.contact-map img {
-  margin-top: 2rem;
-  padding-right: 20px;
-  /* box-shadow: 0 0 10px 0 rgb(100, 100, 100); */
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-}
-
-.contactHead h1 {
-  font-weight: 300;
-  line-height: 1;
-  font-size: 50px;
-}
-
-.contact.flex-columns h2 {
-  color: var(--heading-color);
-  margin-top: 1rem;
-  font-size: 1.8rem;
-  font-weight: 100;
-  font-family: "Montserrat", sans-serif;
-}
-
-.contact-line {
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 3rem;
-  border: none;
-  height: 1px;
-  background-color: #333;
 }
 
 .contact-header {
