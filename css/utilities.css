@@ -2729,6 +2729,43 @@ footer .bottom a:hover {
     font-size: 12px;
   }
 }
+@media screen and (min-width: 451px) {
+  #contact {
+    width: 40%;
+  }
+  #email {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .adduser-form .form-container {
+    flex-direction: column;
+  }
+  .adduser-form .form-container .col-3 label,
+  .adduser-form .form-container .col-6 label {
+    display: flex;
+    flex-direction: column;
+  }
+  .adduser-form .form-container .col-6,
+  .adduser-form .form-container .col-3 {
+    display: flex;
+    flex-direction: column;
+  }
+  .adduser-form .form-container .col-6 {
+    width: 100%;
+    margin: 0px 0px;
+  }
+  .adduser-form .form-container .col-6 input {
+    width: 100%;
+  }
+  .adduser-input {
+    width: 100%;
+  }
+  .adduser-form .form-container .adduser-role {
+    width: 80%;
+    margin-left: 10px;
+  }
+}
 
 /* manage users */
 
@@ -3043,6 +3080,11 @@ footer .bottom a:hover {
   cursor: pointer;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
 }
+@media screen and (min-width: 455px) {
+  .avatar-upload .avatar-edit {
+    right: -10px;
+  }
+}
 @media screen and (max-width: 786px) {
   .tabs-container {
     margin-left: 0px;
@@ -3064,6 +3106,26 @@ footer .bottom a:hover {
     font-size: 12px;
   }
 }
+@media screen and (max-width: 450px) {
+  .update-form .form-container .col-3 {
+    display: flex;
+    flex-direction: column;
+  }
+  .update-form .form-container .col-3 .form-label {
+    margin: 0px;
+  }
+  .avatar-upload .avatar-edit {
+    right: 84px;
+  }
+  .edit-villadesc,
+  .edit-villainc,
+  .edit-villaprice {
+    flex-direction: column;
+  }
+  .edit-villadetails textarea {
+    max-width: 180px;
+  }
+}
 .avatar-upload {
   position: relative;
   max-width: 205px;
@@ -3071,7 +3133,6 @@ footer .bottom a:hover {
 }
 .avatar-upload .avatar-edit {
   position: absolute;
-  right: -10px;
   z-index: 1;
 }
 .avatar-upload .avatar-edit input {
@@ -3258,10 +3319,8 @@ transform: scale(1) rotate(1deg);
   .edit-villaprice input {
     max-width: 140px;
     width: 100%;
-    margin-left: -18px;
   }
   .edit-villadetails textarea {
-    max-width: 140px;
     width: 100%;
   }
   .accordion-body__contents {
