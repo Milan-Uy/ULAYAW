@@ -157,8 +157,8 @@
                          <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content ">
-                               <a class = "dd-content remove-user" href = "#"> Remove User </a>
-                               <a class = "dd-content edit-profile" href = "#" id="open-alert1"> Edit Profile </a>
+                               <a class = "dd-content remove-user" href = "#" id="open-popup2-btn"> Remove User </a>
+                               <a class = "dd-content edit-profile" href = "#" id="open-popup3-btn"> Edit Profile </a>
                             </div>
                          </div>
                       </td>
@@ -588,7 +588,7 @@
 
     <!-- START OF POPUP -->
 
-    <div class="popup popup2 center">
+    <div class="popup popup2 popup-short center">
       <div class="popup-title">Remove User</div>
       <div class="description">Are you sure you want to remove the user?</div>
       <div class="dismiss-btn">
@@ -599,8 +599,7 @@
 
    <div class="popup popup3 center">
     <div class="popup-title">User Profile</div>
-    <div class="description">Edit User Information
-       <br><br>
+    <div class="description">
        <form action = "">
           <div class="form-group">
              <label for="fname">First Name:</label>
@@ -619,11 +618,12 @@
              <input type="text" minlength="13" name="name" id="contact" required>
            </div>
            <div class = "submitbtn">
-             <input type="submit" value = "Confirm">
-       </form>
+             <input type="submit" id="open-alert1" value = "Confirm">
              <input type="button" id="dismiss-popup3-btn" value = "Cancel">
           </div>
+       </form>
     </div>
+  </div>
 
     <!--Footer-->
     <section class="display-footer">
@@ -691,6 +691,14 @@
       };
 
       // Popup Button
+      document.getElementById("open-popup2-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.remove("active");
+      });
+
       document.getElementById("open-popup3-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup3")[0].classList.add("active");
       });
@@ -698,6 +706,7 @@
       document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup3")[0].classList.remove("active");
       });
+
 
       // Alert
       document.getElementById("open-alert1").addEventListener("click", function () {
