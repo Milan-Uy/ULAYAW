@@ -139,7 +139,7 @@
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
-                    <td><button type="button" class="btncancel" id="open-popup-btn-2">CANCEL</button></td>
+                    <td><button type="button" class="btncancel" id="open-popup2-btn">CANCEL</button></td>
                     <!--Proceed with payment btn
                            <td class="btnprcd"><button type="button" style="background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;">Proceed to Payment</button></td>-->
                   </tbody>
@@ -179,7 +179,7 @@
                           d="M12.1 52.1l24.4 24.4 53-53"
                         />
                       </svg>
-                      I agree to <a href="#" id="open-popup-btn-1">Hulo Leisure Farm's Moment Policy </a>
+                      I agree to <a href="#" id="open-popup1-btn">Hulo Leisure Farm's Moment Policy </a>
                     </label>
                   </div>
                   <div class="moments-box">
@@ -214,7 +214,7 @@
                 <br />
               </div>
               <div class="dismiss-btn">
-                <button id="dismiss-popup-btn-1">Close</button>
+                <button id="dismiss-popup1-btn">Close</button>
               </div>
             </div>
 
@@ -222,8 +222,8 @@
               <div class="popup-title">Cancel Reservation</div>
               <div class="description">Are you sure you want to cancel the reservation?</div>
               <div class="dismiss-btn">
-                <button id="confirm-popup-btn-2">Yes</button>
-                <button id="dismiss-popup-btn-2">No</button>
+                <button id="confirm-popup2-btn">Yes</button>
+                <button id="dismiss-popup2-btn">No</button>
               </div>
             </div>
 
@@ -394,19 +394,23 @@
       });
 
       // Popup Button
-      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+      document.getElementById("open-popup1-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup1")[0].classList.add("active");
       });
 
-      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+      document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
 
-      document.getElementById("open-popup-btn-2").addEventListener("click", function () {
+      document.getElementById("open-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.add("active");
       });
 
-      document.getElementById("dismiss-popup-btn-2").addEventListener("click", function () {
+      document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.remove("active");
+      });
+
+      document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
 

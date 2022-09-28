@@ -117,8 +117,8 @@
 
               <!-- ALERT -->
 
-              <div class="alertMessage alert">
-                <span class="close" id="close-alert">×</span>
+              <div class="alertMessage alert1">
+                <span class="close" id="close-alert1">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
                 <strong>User Successfully Updated</strong>
               </div>
@@ -158,7 +158,7 @@
                             <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content ">
                                <a class = "dd-content remove-user" href = "#"> Remove User </a>
-                               <a class = "dd-content edit-profile" href = "#" id="open-alert"> Edit Profile </a>
+                               <a class = "dd-content edit-profile" href = "#" id="open-alert1"> Edit Profile </a>
                             </div>
                          </div>
                       </td>
@@ -588,21 +588,12 @@
 
     <!-- START OF POPUP -->
 
-    <!-- <div class="popup popup-logout popup1 center">
-      <div class="popup-title">Logout</div>
-      <div class="description">Are you sure you want to logout?</div>
-      <div class="dismiss-btn">
-        <button id="confirm-popup-btn-1">Yes</button>
-        <button id="dismiss-popup-btn-1">No</button>
-      </div>
-    </div> -->
-
     <div class="popup popup2 center">
       <div class="popup-title">Remove User</div>
       <div class="description">Are you sure you want to remove the user?</div>
       <div class="dismiss-btn">
-      <button id="confirm-popup-btn-2">Yes</button>
-      <button id="dismiss-popup-btn-2">No</button>
+      <button id="confirm-popup2-btn">Yes</button>
+      <button id="dismiss-popup2-btn">No</button>
       </div>
    </div>
 
@@ -630,7 +621,7 @@
            <div class = "submitbtn">
              <input type="submit" value = "Confirm">
        </form>
-             <input type="button" id="dismiss-popup-btn-3" value = "Cancel">
+             <input type="button" id="dismiss-popup3-btn" value = "Cancel">
           </div>
     </div>
 
@@ -700,23 +691,21 @@
       };
 
       // Popup Button
-      
-      // document.getElementById("open-popup-btn-1").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup1")[0].classList.add("active");
-      // });
-
-      // document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup1")[0].classList.remove("active");
-      // });
-
-
-      // Alert
-      document.getElementById("open-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].classList.add("show");
+      document.getElementById("open-popup3-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup3")[0].classList.add("active");
       });
 
-      document.getElementById("close-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].classList.remove("show");
+      document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup3")[0].classList.remove("active");
+      });
+
+      // Alert
+      document.getElementById("open-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.remove("show");
       });
 
       document.getElementById("open-alert2").addEventListener("click", function () {
@@ -743,7 +732,7 @@
         document.getElementsByClassName("alert4")[0].classList.remove("show");
       });
 
-      document.getElementById("confirm-popup-btn-2").addEventListener("click", function () {
+      document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("alert5")[0].classList.add("show");
       });
 
