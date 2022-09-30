@@ -133,19 +133,25 @@
       </div>
     </div>
 
-    <!-- END OF POPUP -->
+    <div class="popup popup2 popup-short center">
+      <div class="popup-title">Reservation</div>
+      <div class="description">Reservation Successful!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup2-btn">Close</button>
+      </div>
+    </div>
 
+    <div class="popup popup3 popup-short center">
+      <div class="popup-title">Reservation</div>
+      <div class="description">Error Occured!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup3-btn">Close</button>
+      </div>
+    </div>
+
+    <!-- END OF POPUP -->
+    <script src="app.js"></script>
     <script>
-      const navigate = () => {
-        if (localStorage.getItem("access_token")) {
-          if (localStorage.getItem("user_role") === "Guest") {
-            window.location.replace("/c-profile.html");
-          } else if (localStorage.getItem("user_role") === "Admin") {
-            window.location.replace("/a-profile.html");
-          } else if (localStorage.getItem("user_role") === "Manager" || localStorage.getItem("user_role") === "Marketing Specialist") {
-            window.location.replace("/s-profile.html");
-        }
-      };
       navigate();
       //Import Navbar
       $(function () {
@@ -205,6 +211,7 @@
             if (data.token) {
               localStorage.setItem("access_token", data.token);
               localStorage.setItem("user_role", data.userRole);
+              localStorage.setItem("status", data.user.status);
               navigate();
             } else {
               const loginDiv = document.getElementById("loginError");
@@ -247,9 +254,20 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            // write action code here
-            // if  success
-            // if fail
+            if (data.key === "USERCREATED") {
+              // go to login page and say successfully sign up
+              document.getElementsByClassName("popup2")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup2")[0].classList.remove("active");
+              });
+            } else if (data.key === "NOTVALIDATED") {
+              document.getElementsByClassName("popup3")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup3")[0].classList.remove("active");
+              });
+            }
           });
       };
     </script>

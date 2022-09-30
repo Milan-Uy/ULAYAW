@@ -2747,14 +2747,14 @@ footer .bottom a:hover {
     font-size: 12px;
   }
 }
-@media screen and (min-width: 451px) {
+/* @media screen and (max-width: 451px) {
   #contact {
     width: 40%;
   }
   #email {
     width: 60%;
   }
-}
+} */
 @media screen and (max-width: 450px) {
   .adduser-form .form-container {
     flex-direction: column;
