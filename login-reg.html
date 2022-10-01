@@ -86,11 +86,21 @@
                 <i class="uil uil-phone icon"></i>
               </div>
               <div class="log-input-field">
-                <input id="password" class="log-input" type="password" class="password" placeholder="Create a password" required value="" />
+                <input
+                  id="password"
+                  class="log-input"
+                  type="password"
+                  class="password"
+                  placeholder="Create a password"
+                  pattern="(?=^.{8,}$)(?=.*[A-Z])(?=.*?[~`!@#$%\^&*()\-_=+[\]{};:\x27.,\x22\\|/?<>]).{8,}"
+                  title="Password must at least be 8 characters in length, and contain 1 uppercase character and 1 special character."
+                  required
+                  value=""
+                />
                 <i class="uil uil-lock icon"></i>
               </div>
               <div class="log-input-field">
-                <input class="log-input" type="password" class="password" placeholder="Confirm a password" required value="" />
+                <input id="confirmpass" class="log-input" type="password" class="password" placeholder="Confirm a password" required value="" />
                 <i class="uil uil-lock icon"></i>
               </div>
 
@@ -134,18 +144,26 @@
     </div>
 
     <div class="popup popup2 popup-short center">
-      <div class="popup-title">Reservation</div>
-      <div class="description">Reservation Successful!</div>
+      <div class="popup-title">Registration</div>
+      <div class="description">Registration Successful!</div>
       <div class="dismiss-btn">
         <button id="dismiss-popup2-btn">Close</button>
       </div>
     </div>
 
     <div class="popup popup3 popup-short center">
-      <div class="popup-title">Reservation</div>
+      <div class="popup-title">Registration</div>
       <div class="description">Error Occured!</div>
       <div class="dismiss-btn">
         <button id="dismiss-popup3-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup4 popup-short center">
+      <div class="popup-title">Registration</div>
+      <div class="description">Password does not Match!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup4-btn">Close</button>
       </div>
     </div>
 
@@ -235,6 +253,7 @@
         const email = document.getElementById("email").value;
         const contact = document.getElementById("contact").value;
         const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmpass").value;
         let signupData = {
           email: email,
           password: password,
@@ -254,23 +273,32 @@
         fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
-            // write action code here
-            // if  success
-            // if fail
-            if (data.key === "USERCREATED") {
-              // go to login page and say successfully sign up
-              document.getElementsByClassName("popup2")[0].classList.add("active");
+            if (password != confirmPassword) {
+              document.getElementsByClassName("popup4")[0].classList.add("active");
 
-              document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
-                document.getElementsByClassName("popup2")[0].classList.remove("active");
+              document.getElementById("dismiss-popup4-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup4")[0].classList.remove("active");
               });
-            } else if (data.key === "NOTVALIDATED") {
-              document.getElementsByClassName("popup3")[0].classList.add("active");
+            } else {
+              console.log(data);
+              // write action code here
+              // if  success
+              // if fail
+              if (data.key === "USERCREATED") {
+                // go to login page and say successfully sign up
+                document.getElementsByClassName("popup2")[0].classList.add("active");
 
-              document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
-                document.getElementsByClassName("popup3")[0].classList.remove("active");
-              });
+                document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+                  document.getElementsByClassName("popup2")[0].classList.remove("active");
+                  window.location = "login-reg.html";
+                });
+              } else if (data.key === "NOTVALIDATED") {
+                document.getElementsByClassName("popup3")[0].classList.add("active");
+
+                document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
+                  document.getElementsByClassName("popup3")[0].classList.remove("active");
+                });
+              }
             }
           });
       };
