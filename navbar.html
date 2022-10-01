@@ -30,11 +30,11 @@
         </div>
         <div class="navbar">
           <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="villa.html">Villas</a></li>
-            <li><a href="Moments.html">Moments</a></li>
-            <li><a href="login-reg.html">Log In</a></li>
+            <li><a id="index" href="index.html">Home</a></li>
+            <li><a id="about" href="about.html">About Us</a></li>
+            <li><a id="villa" href="villa.html">Villas</a></li>
+            <li><a id="Moments" href="Moments.html">Moments</a></li>
+            <li><a id="login-reg" href="login-reg.html">Log In</a></li>
             <div class="book-btn bounce-in-on-hover">
               <a class="book-btn" href="c-booknow.html">BOOK NOW</a>
             </div>
@@ -44,6 +44,44 @@
     </header>
     <!--End of Navbar-->
     <script>
+      // nav underline
+      switch (window.location.pathname) {
+        case "/villa.html":
+          document.getElementById("villa").classList.add("active");
+          break;
+        case "/index.html":
+          document.getElementById("index").classList.add("active");
+          break;
+        case "/about.html":
+          document.getElementById("about").classList.add("active");
+          break;
+        case "/moments.html":
+          document.getElementById("moments").classList.add("active");
+          break;
+      }
+
+      $(window).on("beforeunload", function () {
+        console.log(window.location.pathname);
+        switch (window.location.pathname) {
+          case "/villa.html":
+            const chosen = document.getElementById("villas");
+            console.log(chosen);
+            document.getElementById("villas").classList.add("active");
+            console.log("here");
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+        }
+      });
+
       //Navbar Effect
       $(document).ready(function () {
         var bottom = $(".nav-header").outerHeight();

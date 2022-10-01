@@ -46,7 +46,7 @@
             </li>
             <li rel="tabFive">
               <i class="material-symbols-rounded">logout</i>
-              <span class="label" id="open-popup-btn-1">Logout</span>
+              <span class="label">Logout</span>
             </li>
           </ul>
           <div class="tabs-container">
@@ -117,8 +117,8 @@
 
               <!-- ALERT -->
 
-              <div class="alertMessage alert">
-                <span class="close" id="close-alert">×</span>
+              <div class="alertMessage alert1">
+                <span class="close" id="close-alert1">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
                 <strong>User Successfully Updated</strong>
               </div>
@@ -157,8 +157,8 @@
                          <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content ">
-                               <a class = "dd-content remove-user" href = "#"> Remove User </a>
-                               <a class = "dd-content edit-profile" href = "#" id="open-alert"> Edit Profile </a>
+                               <a class = "dd-content remove-user" href = "#" id="open-popup2-btn"> Remove User </a>
+                               <a class = "dd-content edit-profile" href = "#" id="open-popup3-btn"> Edit Profile </a>
                             </div>
                          </div>
                       </td>
@@ -196,8 +196,8 @@
                     <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
                     <a class = "dd-content edit-popup" href = "#"> Manager </a>
                     <a class = "dd-content edit-popup" href = "#"> Admin </a>
-                </div>
-             </div>
+                  </div>
+                  </div>
           </td>
           <td>
              <div class="dropdown">
@@ -245,7 +245,6 @@
                           placeholder="Contact Number"
                           maxlength="13"
                           value="+63"
-                          style="width: 40%"
                           required
                         />
                       </div>
@@ -253,7 +252,7 @@
                     <div class="form-container">
                       <div class="col-3">
                         <label style="margin-right:1.5vw">Email Address</label>
-                        <input class="adduser-input" type="email" id="email" placeholder="Enter email address" style="width: 60%" required />
+                        <input class="adduser-input " type="email" id="email" placeholder="Enter email address"  required />
                       </div>
                     </div>
                     <div class="form-container">
@@ -584,32 +583,23 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- START OF POPUP -->
 
-    <div class="popup popup-logout popup1 center">
-      <div class="popup-title">Logout</div>
-      <div class="description">Are you sure you want to logout?</div>
-      <div class="dismiss-btn">
-        <button id="confirm-popup-btn-1">Yes</button>
-        <button id="dismiss-popup-btn-1">No</button>
-      </div>
-    </div>
-
-    <div class="popup popup2 center">
+    <div class="popup popup2 popup-short center">
       <div class="popup-title">Remove User</div>
       <div class="description">Are you sure you want to remove the user?</div>
       <div class="dismiss-btn">
-      <button id="confirm-popup-btn-2">Yes</button>
-      <button id="dismiss-popup-btn-2">No</button>
+      <button id="confirm-popup2-btn">Yes</button>
+      <button id="dismiss-popup2-btn">No</button>
       </div>
    </div>
 
    <div class="popup popup3 center">
     <div class="popup-title">User Profile</div>
-    <div class="description">Edit User Information
-       <br><br>
+    <div class="description">
        <form action = "">
           <div class="form-group">
              <label for="fname">First Name:</label>
@@ -628,11 +618,12 @@
              <input type="text" minlength="13" name="name" id="contact" required>
            </div>
            <div class = "submitbtn">
-             <input type="submit" value = "Confirm">
-       </form>
-             <input type="button" id="dismiss-popup-btn-3" value = "Cancel">
+             <input type="submit" id="open-alert1" value = "Confirm">
+             <input type="button" id="dismiss-popup3-btn" value = "Cancel">
           </div>
+       </form>
     </div>
+  </div>
 
     <!--Footer-->
     <section class="display-footer">
@@ -700,22 +691,30 @@
       };
 
       // Popup Button
-      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.add("active");
+      document.getElementById("open-popup2-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.add("active");
       });
 
-      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.remove("active");
+      });
+
+      document.getElementById("open-popup3-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup3")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup3")[0].classList.remove("active");
       });
 
 
       // Alert
-      document.getElementById("open-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].classList.add("show");
+      document.getElementById("open-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.add("show");
       });
 
-      document.getElementById("close-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].classList.remove("show");
+      document.getElementById("close-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.remove("show");
       });
 
       document.getElementById("open-alert2").addEventListener("click", function () {
@@ -742,7 +741,7 @@
         document.getElementsByClassName("alert4")[0].classList.remove("show");
       });
 
-      document.getElementById("confirm-popup-btn-2").addEventListener("click", function () {
+      document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("alert5")[0].classList.add("show");
       });
 

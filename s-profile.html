@@ -147,9 +147,9 @@
             <!-- Guest List Tab-->
             <h4 class="tab-accordion-title" rel="tabTwo">Manage Users</h4>
             <div id="tabTwo" class="tab-item">
+              <h5>Guest List</h5>
+              <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
               <div class="guest-list" id="list">
-                <h5>Guest List</h5>
-                <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
                 <table id="myTable">
                   <thead>
                     <tr class="header">
@@ -322,8 +322,8 @@
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs1">
-                        <button type="button" class="material-symbols-outlined cancel">cancel</button
-                        ><button type="button" class="material-symbols-outlined check">check_circle</button>
+                        <button type="button" id="open-popup1-btn" class="material-symbols-outlined cancel">cancel</button>
+                        <button type="button" class="material-symbols-outlined check">check_circle</button>
                       </td>
                     </tbody>
                     <tbody id="table_status">
@@ -474,18 +474,36 @@
                 </dd>
               </dl>
             </div>
+
+            <!-- START OF POPUP -->
+
+            <div class="popup popup1 center">
+              <div class="popup-title">Remove User</div>
+              <div class="description">Are you sure you want to cancel the reservation?</div>
+              <div class="dismiss-btn">
+                <button id="confirm-popup1-btn">Yes</button>
+                <button id="dismiss-popup1-btn">No</button>
+              </div>
+            </div>
+
             <!-- Manage Moments Tab-->
             <h4 class="tab-accordion-title" rel="tabFour">Manage Moments</h4>
             <div id="tabFour" class="tab-item manageMoments">
               <div class="manMoments">
                 <h5>Manage Moments</h5>
                 <p>
+                  <!-- Alerts -->
+                  <div class="alertMessage alert1">
+                    <span class="close" id="close-alert1">×</span>
+                    <i class="fas fa-exclamation-circle alert-icon"></i>
+                    <strong>Successfully Added to Moments!</strong>
+                  </div>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
                   quia distinctio nesciunt soluta expedita fugit possimus ad labore?
                 </p>
                 <img src="/images/manageMoments-img.png" alt="" />
                 <div class="manageMoments-btn-container">
-                  <button class="manageMoments-btn">ADD TO MOMENTS</button>
+                  <button class="manageMoments-btn" id="open-alert1">ADD TO MOMENTS</button>
                   <button class="manageMoments-btn">REJECT</button>
                 </div>
               </div>
@@ -1024,6 +1042,26 @@
         maxDays: 730, // Sets the min amount of days to 1
         format: "D MMM, YYYY", // Format date
       });
+
+      // Alert
+        document.getElementById("open-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.add("show");
+      });
+
+      document.getElementById("close-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.remove("show");
+      });
+
+      // Popup Button
+
+      document.getElementById("open-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.add("active");
+      });
+
+      document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
     </script>
   </body>
 </html>
