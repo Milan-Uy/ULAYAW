@@ -68,7 +68,7 @@
           <div class="logform r-signup">
             <span class="log-title">Registration</span>
 
-            <form action="javascript:signup();">
+            <form action="#">
               <div class="log-input-field">
                 <input id="firstName" class="log-input" type="text" placeholder="Enter your first name" required value="" />
                 <i class="uil uil-user"></i>
@@ -82,7 +82,7 @@
                 <i class="uil uil-at icon"></i>
               </div>
               <div class="log-input-field">
-                <input id="contact" class="log-input" type="tel" placeholder="Enter your contact number" required value="" />
+                <input id="contact" class="log-input" type="number" placeholder="Enter your contact number" required value="" />
                 <i class="uil uil-phone icon"></i>
               </div>
               <div class="log-input-field">
@@ -102,7 +102,7 @@
               </div>
 
               <div class="log-input-field button">
-                <input class="log-input-btn" type="submit" value="Register" />
+                <input onclick="signup()" class="log-input-btn" type="button" value="Register" />
               </div>
 
               <div class="log-r-haveacc">
