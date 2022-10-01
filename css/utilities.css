@@ -1469,10 +1469,11 @@ input:checked + .slider:before {
 
 .logform a.text {
   color: #483434;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .logform a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  font-weight: bold;
 }
 
 .logform .log-input-btn {
@@ -2747,14 +2748,14 @@ footer .bottom a:hover {
     font-size: 12px;
   }
 }
-@media screen and (min-width: 451px) {
+/* @media screen and (max-width: 451px) {
   #contact {
     width: 40%;
   }
   #email {
     width: 60%;
   }
-}
+} */
 @media screen and (max-width: 450px) {
   .adduser-form .form-container {
     flex-direction: column;
