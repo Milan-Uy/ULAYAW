@@ -211,6 +211,7 @@
             if (data.token) {
               localStorage.setItem("access_token", data.token);
               localStorage.setItem("user_role", data.userRole);
+              localStorage.setItem("user_id", data.user._id);
               localStorage.setItem("status", data.user.status);
               navigate();
             } else {

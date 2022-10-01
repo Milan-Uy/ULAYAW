@@ -13,3 +13,22 @@ const navigate = () => {
     }
   }
 };
+
+
+const getUser = () => {
+  let options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: "Bearer " + localStorage.getItem("access_token"),
+    },
+  };
+  return new Promise((resolve, reject)=>{
+    fetch("https://ulayaw-backend.herokuapp.com/user/getOne/63234e78c9a2312731708a07", options)
+    .then((response) => response.json())
+    .then((data) => {
+       resolve(data.payload);
+    });
+  })
+  
+}
