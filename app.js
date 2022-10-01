@@ -14,7 +14,6 @@ const navigate = () => {
   }
 };
 
-
 const getUser = () => {
   let options = {
     method: "GET",
@@ -23,12 +22,11 @@ const getUser = () => {
       Authorization: "Bearer " + localStorage.getItem("access_token"),
     },
   };
-  return new Promise((resolve, reject)=>{
-    fetch("https://ulayaw-backend.herokuapp.com/user/getOne/63234e78c9a2312731708a07", options)
-    .then((response) => response.json())
-    .then((data) => {
-       resolve(data.payload);
-    });
-  })
-  
-}
+  return new Promise((resolve, reject) => {
+    fetch("https://ulayaw-backend.herokuapp.com/user/getOne/" + localStorage.getItem("user_id"), options)
+      .then((response) => response.json())
+      .then((data) => {
+        resolve(data.payload);
+      });
+  });
+};
