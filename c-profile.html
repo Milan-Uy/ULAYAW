@@ -59,13 +59,19 @@
             <h4 class="tab-accordion-active tab-accordion-title" rel="tabОne">Profile</h4>
             <div id="tabОne" class="tab-item">
               <h5 id="nameTag">Welcome, Unknown User</h5>
+              <!-- ALERT -->
+              <div class="alertMessage alert3">
+                <span class="close" id="close-alert3">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Moment Successfully Uploaded!</strong>
+              </div>
               <div class="edit-container">
                 <div class="user-details">
                   <h5>User Details</h5>
                   <button class="editprofile-btn" id="removeReadOnly">Edit Profile</button>
                 </div>
                 <div class="form-box">
-                  <form class="edit-form">
+                  <form action="javascript:saveProfile();" class="edit-form">
                     <div class="form-container">
                       <div class="col-6 hide-txt1 hide-text-bg">
                         <label>First Name</label>
@@ -89,7 +95,7 @@
                       </div>
                     </div>
                     <div class="flex-end-container">
-                      <button class="saveProfile-btn" id="saveProfile-btn">Save Changes</button>
+                      <button type="submit" class="saveProfile-btn" id="saveProfile-btn">Save Changes</button>
                     </div>
                   </form>
                 </div>
@@ -97,9 +103,9 @@
               <div class="edit-container">
                 <div class="user-details">
                   <h5>Password</h5>
-                  <button class="editprofile-btn" onclick="()" id="removeReadOnly2">Change</button>
+                  <button class="editprofile-btn" id="removeReadOnly2">Change</button>
                 </div>
-                <form class="edit-form">
+                <form action="javascript:saveProfile();" class="edit-form">
                   <div class="form-container flex-column">
                     <div class="col-6 hide-txt5 hide-text-bg">
                       <label>Current Password</label>
@@ -115,7 +121,7 @@
                     </div>
                   </div>
                   <div class="flex-end-container">
-                    <button class="saveProfile-btn saveProfile-btn2" id="saveProfile-btn2">Save Changes</button>
+                    <button type="submit" class="saveProfile-btn saveProfile-btn2" id="saveProfile-btn2">Save Changes</button>
                   </div>
                 </form>
               </div>
@@ -215,7 +221,7 @@
               <div class="alertMessage alert2">
                 <span class="close" id="close-alert2">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>Customer Satisfaction Sent Successfully!</strong>
+                <strong>Profile Updated Successfully!</strong>
               </div>
               <div class="line lupper"></div>
               <form action="javascript:sendCustomerS();">
@@ -239,7 +245,7 @@
                   </label>
 
                   <div class="submitbtn">
-                    <button class="fb_submit" id="open-alert2" style="display: inline">Submit</button>
+                    <button type="submit" class="fb_submit" id="open-alert2" style="display: inline">Submit</button>
                   </div>
                 </div>
               </form>
@@ -425,12 +431,12 @@
       document.getElementById("removeReadOnly").addEventListener("click", function () {
         document.getElementById("firstname").toggleAttribute("readonly");
         document.getElementById("contact").toggleAttribute("readonly");
-        // document.getElementById("email").toggleAttribute("readonly");
+        document.getElementById("email").toggleAttribute("readonly");
         document.getElementById("lastname").toggleAttribute("readonly");
         document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
-        // document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
       });
 
@@ -444,15 +450,15 @@
         document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
       });
 
-      document.getElementById("saveProfile-btn").addEventListener("click", function (e) {
-        e.preventDefault();
+      const saveProfile = () => {
+        // e.preventDefault();
         let firstname = document.getElementById("firstname");
         firstname.toggleAttribute("readonly");
         let lastname = document.getElementById("lastname");
         lastname.toggleAttribute("readonly");
         let contact = document.getElementById("contact");
-        // contact.toggleAttribute("readonly");
-        // let email = document.getElementById("email")
+        contact.toggleAttribute("readonly");
+        let email = document.getElementById("email");
         email.toggleAttribute("readonly");
         document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
@@ -480,9 +486,14 @@
           .then((data) => {
             if (data.payload) {
               setValues();
+              document.getElementsByClassName("alert3")[0].style.display = "block";
+
+              document.getElementById("close-alert3").addEventListener("click", function () {
+                document.getElementsByClassName("alert3")[0].style.display = "none";
+              });
             }
           });
-      });
+      };
 
       document.getElementById("saveProfile-btn2").addEventListener("click", function () {
         document.getElementById("password").toggleAttribute("readonly");
