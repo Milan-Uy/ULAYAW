@@ -1266,7 +1266,18 @@ input:checked + .slider:before {
   -ms-transform: translateX(13px);
   transform: translateX(13px);
 }
-
+@media (max-width: 640px) {
+  .cs_icons {
+    height: 8vw;
+    width: 8vw;
+  }
+  .line {
+    width: 65vw;
+  }
+  .cs_text p {
+    margin-left: 2vw;
+  }
+}
 /* Rounded sliders */
 
 .slider.round {
@@ -2362,15 +2373,18 @@ transform: scale(1) rotate(1deg);
   .moment-form a::before {
     top: -1px;
   }
-  .form-control.checkbox-wrapper label {
-    margin-top: -35px;
-  }
   .tabs .material-symbols-rounded {
     margin-left: 0px;
   }
   .sidebar .tabs li {
     width: 50px;
     height: 50px;
+  }
+}
+@media (max-width: 360px) {
+  .form-control.checkbox-wrapper label {
+    margin-top: -35px;
+    margin-left: 12px;
   }
 }
 
