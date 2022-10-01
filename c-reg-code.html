@@ -28,50 +28,20 @@
               <div class="code-container">
                 <label for="vcode1">Enter the 6-digit verification code that we sent to your email.</label>
                 <div class="log-input-field">
-                  <input id="inputCode" class="log-input" type="number" class="code" placeholder="Enter code" required />
+                  <input class="log-input" type="number" class="code" placeholder="Enter code" required />
                   <i class="uil uil-lock icon"></i>
                 </div>
               </div>
-              <div id="verifyError" class="login-error" style="display: none">
-                <!-- <small>Invalid Username and/or Password</small> -->
-              </div>
               <div class="log-input-field button">
-                <a href="#"><input class="log-input-btn" type="button" value="Submit" onclick="verify()" /></a>
+                <a href="#"><input class="log-input-btn" type="button" value="Submit" /></a>
               </div>
             </form>
           </div>
         </div>
       </div>
     </section>
-    <script src="app.js"></script>
-    <script>
-      const verify = () => {
-        const inputCode = document.getElementById("inputCode").value;
-        const data = {
-          code: inputCode,
-        };
-        let options = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-          },
-          body: JSON.stringify(data),
-        };
 
-        fetch("http://ulayaw-backend.herokuapp.com/auth/verifyEmail", options)
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.key === "ACCOUNTVERIFIED") {
-              localStorage.setItem("status", "Verified");
-              navigate();
-            } else {
-              const loginDiv = document.getElementById("verifyError");
-              loginDiv.style.display = "block";
-              loginDiv.innerHTML = `<small>${data.message}</small>`;
-            }
-          });
-      };
+    <script>
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");
