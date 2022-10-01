@@ -62,7 +62,7 @@
               <div class="edit-container">
                 <div class="user-details">
                   <h5>User Details</h5>
-                  <button class="editprofile-btn"  id="removeReadOnly">Edit Profile</button>
+                  <button class="editprofile-btn" id="removeReadOnly">Edit Profile</button>
                 </div>
                 <div class="form-box">
                   <form class="edit-form">
@@ -115,7 +115,7 @@
                     </div>
                   </div>
                   <div class="flex-end-container">
-                    <button class="saveProfile-btn saveProfile-btn2" id="saveProfile-btn2" onclick="()">Save Changes</button>
+                    <button class="saveProfile-btn saveProfile-btn2" id="saveProfile-btn2">Save Changes</button>
                   </div>
                 </form>
               </div>
@@ -207,28 +207,6 @@
               </div>
             </div>
 
-            <!-- START OF POPUP -->
-            <div class="popup popup1 offset_left">
-              <div class="description">
-                <h2 style="text-align: center"><b>MOMENTS POLICY</b></h2>
-                <br />
-              </div>
-              <div class="dismiss-btn">
-                <button id="dismiss-popup1-btn">Close</button>
-              </div>
-            </div>
-
-            <div class="popup popup2 offset_left popup-short">
-              <div class="popup-title">Cancel Reservation</div>
-              <div class="description">Are you sure you want to cancel the reservation?</div>
-              <div class="dismiss-btn">
-                <button id="confirm-popup2-btn">Yes</button>
-                <button id="dismiss-popup2-btn">No</button>
-              </div>
-            </div>
-
-            <!-- END OF POPUP -->
-
             <!--Customer Satisfaction Tab-->
             <h4 class="tab-accordion-title" rel="tabFour">Customer Satisfaction</h4>
             <div id="tabFour" class="tab-item">
@@ -240,29 +218,31 @@
                 <strong>Customer Satisfaction Sent Successfully!</strong>
               </div>
               <div class="line lupper"></div>
-              <div class="cs_icondiv">
-                <img src="/icons/sad.png" class="cs_icons sad" id="fbEmoji_sad" />
-                <img src="/icons/neutral.png" class="cs_icons neutral" id="fbEmoji_neutral" />
-                <img src="/icons/happy.png" class="cs_icons happy" id="fbEmoji_happy" />
-              </div>
-              <div class="line llower"></div>
-              <div class="cs_text">
-                <p>Let us know what you like and where we can get better. Rate us and type your responses below.</p>
-                <div class="fb_tfield">
-                  <textarea class="fb_text" id="fb_text" name="fb_text" placeholder="Write something.." style="height: 200px"></textarea>
+              <form action="javascript:sendCustomerS();">
+                <div class="cs_icondiv">
+                  <img src="/icons/sad.png" class="cs_icons sad" id="fbEmoji_sad" />
+                  <img src="/icons/neutral.png" class="cs_icons neutral" id="fbEmoji_neutral" />
+                  <img src="/icons/happy.png" class="cs_icons happy" id="fbEmoji_happy" />
                 </div>
-              </div>
-              <div class="lastrow">
-                <p class="cs_text-hide" style="display: inline">Hide name</p>
-                <label class="switch">
-                  <input type="checkbox" checked id="fb_hide" />
-                  <span class="slider round"></span>
-                </label>
+                <div class="line llower"></div>
+                <div class="cs_text">
+                  <p>Let us know what you like and where we can get better. Rate us and type your responses below.</p>
+                  <div class="fb_tfield">
+                    <textarea class="fb_text" id="fb_text" name="fb_text" placeholder="Write something.." style="height: 200px" required></textarea>
+                  </div>
+                </div>
+                <div class="lastrow">
+                  <p class="cs_text-hide" style="display: inline">Hide name</p>
+                  <label class="switch">
+                    <input type="checkbox" checked id="fb_hide" />
+                    <span class="slider round"></span>
+                  </label>
 
-                <div class="submitbtn">
-                  <button class="fb_submit" id="open-alert2" style="display: inline">Submit</button>
+                  <div class="submitbtn">
+                    <button class="fb_submit" id="open-alert2" style="display: inline">Submit</button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             <!--Logout Tab-->
             <!-- <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
@@ -282,46 +262,65 @@
       </div>
     </section>
 
+    <!-- START OF POPUP -->
+    <div class="popup popup1 offset_left">
+      <div class="description">
+        <h2 style="text-align: center"><b>MOMENTS POLICY</b></h2>
+        <br />
+      </div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup1-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup2 offset_left popup-short">
+      <div class="popup-title">Cancel Reservation</div>
+      <div class="description">Are you sure you want to cancel the reservation?</div>
+      <div class="dismiss-btn">
+        <button id="confirm-popup2-btn">Yes</button>
+        <button id="dismiss-popup2-btn">No</button>
+      </div>
+    </div>
+
+    <!-- END OF POPUP -->
+
     <!--Footer-->
     <section class="display-footer">
       <div id="footer-placeholder"></div>
     </section>
     <script src="app.js"></script>
-    
+
     <script>
-      const  setValues = async () =>{
-       let user = await getUser()
+      const setValues = async () => {
+        let user = await getUser();
         console.log(user);
-      let nameTag = document.getElementById('nameTag');
-      nameTag.innerHTML = 'WELCOME, ' + user.firstName;
-      let firstname = document.getElementById('firstname');
-      firstname.value = user.firstName
-      let lastname = document.getElementById('lastname');
-      lastname.value = user.lastName
-      let contact = document.getElementById('contact');
-      contact.value = user.contact
-      let email = document.getElementById('email');
-      email.value = user.email
+        let nameTag = document.getElementById("nameTag");
+        nameTag.innerHTML = "WELCOME, " + user.firstName;
+        let firstname = document.getElementById("firstname");
+        firstname.value = user.firstName;
+        let lastname = document.getElementById("lastname");
+        lastname.value = user.lastName;
+        let contact = document.getElementById("contact");
+        contact.value = user.contact;
+        let email = document.getElementById("email");
+        email.value = user.email;
 
+        let desc = document.getElementById("fb_text");
+        desc.value = user.feedback.description;
+        let isAn = document.getElementById("fb_hide");
+        isAn.checked = user.feedback.isAnonymous;
 
-      let desc = document.getElementById('fb_text');
-      desc.value = user.feedback.description;
-      let isAn = document.getElementById('fb_hide');
-      isAn.checked = user.feedback.isAnonymous
-
-      if(user.feedback.rating === 1){
-        let sad = document.getElementById('fbEmoji_sad')
-        sad.classList.add('active')
-      }else
-      if(user.feedback.rating === 2){
-        let neutral = document.getElementById('fbEmoji_neutral')
-        neutral.classList.add('active')
-      }else
-      if(user.feedback.rating === 3){
-        let happy = document.getElementById('fbEmoji_happy')
-        happy.classList.add('active')
-      }
-      }
+        if (user.feedback.rating === 1) {
+          let sad = document.getElementById("fbEmoji_sad");
+          sad.classList.add("active");
+        } else if (user.feedback.rating === 2) {
+          let neutral = document.getElementById("fbEmoji_neutral");
+          neutral.classList.add("active");
+        } else if (user.feedback.rating === 3) {
+          let happy = document.getElementById("fbEmoji_happy");
+          happy.classList.add("active");
+        }
+      };
 
       setValues();
       //Import Navbar
@@ -371,30 +370,28 @@
         document.getElementsByClassName("alert")[0].style.display = "none";
       });
 
-      document.getElementById("open-alert2").addEventListener("click", function () {
-        let sad = document.getElementById('fbEmoji_sad')
-        let neutral = document.getElementById('fbEmoji_neutral')
-        let happy = document.getElementById('fbEmoji_happy')
-        if(sad.classList.contains('active')){
+      const sendCustomerS = () => {
+        let sad = document.getElementById("fbEmoji_sad");
+        let neutral = document.getElementById("fbEmoji_neutral");
+        let happy = document.getElementById("fbEmoji_happy");
+        if (sad.classList.contains("active")) {
           rating = 1;
-        }else
-        if(neutral.classList.contains('active')){
+        } else if (neutral.classList.contains("active")) {
           rating = 2;
-        }else
-        if(happy.classList.contains('active')){
+        } else if (happy.classList.contains("active")) {
           rating = 3;
-        }else{
+        } else {
           rating = 0;
         }
-        let desc = document.getElementById('fb_text').value;
-        let isAn = document.getElementById('fb_hide').checked ? true : false;
+        let desc = document.getElementById("fb_text").value;
+        let isAn = document.getElementById("fb_hide").checked ? true : false;
         // get values
         const data = {
-         feedback:{
-          rating: rating,
-          description: desc,
-          isAnonymous: isAn
-         }
+          feedback: {
+            rating: rating,
+            description: desc,
+            isAnonymous: isAn,
+          },
         };
         let options = {
           method: "PUT",
@@ -405,16 +402,15 @@
           body: JSON.stringify(data),
         };
 
-        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/"+ localStorage.getItem('user_id'), options)
+        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
           .then((response) => response.json())
           .then((data) => {
-            if(data.payload){
+            if (data.payload) {
               setValues();
               document.getElementsByClassName("alert2")[0].style.display = "block";
             }
           });
-       
-      });
+      };
 
       document.getElementById("close-alert2").addEventListener("click", function () {
         document.getElementsByClassName("alert2")[0].style.display = "none";
@@ -450,14 +446,14 @@
 
       document.getElementById("saveProfile-btn").addEventListener("click", function (e) {
         e.preventDefault();
-        let firstname = document.getElementById("firstname")
+        let firstname = document.getElementById("firstname");
         firstname.toggleAttribute("readonly");
-        let lastname = document.getElementById("lastname")
+        let lastname = document.getElementById("lastname");
         lastname.toggleAttribute("readonly");
-        let contact = document.getElementById("contact")
+        let contact = document.getElementById("contact");
         // contact.toggleAttribute("readonly");
         // let email = document.getElementById("email")
-        email.toggleAttribute("readonly")
+        email.toggleAttribute("readonly");
         document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
@@ -465,10 +461,10 @@
         document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
         // update user
         const data = {
-         firstName: firstname.value,
-         lastName: lastname.value,
-         contact: contact.value,
-        //  email: email.value,
+          firstName: firstname.value,
+          lastName: lastname.value,
+          contact: contact.value,
+          //  email: email.value,
         };
         let options = {
           method: "PUT",
@@ -479,10 +475,10 @@
           body: JSON.stringify(data),
         };
 
-        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/"+ localStorage.getItem('user_id'), options)
+        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
           .then((response) => response.json())
           .then((data) => {
-            if(data.payload){
+            if (data.payload) {
               setValues();
             }
           });
