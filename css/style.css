@@ -509,3 +509,21 @@
   color: red;
   font-family: "Montserrat", sans-serif;
 }
+
+/* QR Code */
+.qr-code {
+  opacity: 0;
+  /* display: flex; */
+  padding: 10px 0;
+  border-radius: 5px;
+  /* align-items: center; */
+  pointer-events: none;
+  /* justify-content: center; */
+  border: 1px solid #ccc;
+}
+
+.qr-code.active {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}

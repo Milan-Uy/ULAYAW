@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <style type="text/css">
       @import url("https://fonts.googleapis.com/css?family=Open+Sans");
@@ -162,6 +163,15 @@
                   </tr>
                 </table>
 
+                <table class="qrtd-table">
+                  <tr>
+                    <td class="qr-todo" style="width: 50%">
+                      <div class="qr-code"><img id="qr-id" src="/images/qr-code.png" width="150px" alt="" /></div>
+                    </td>
+                    <td class="qr-todo" style="width: 50%"></td>
+                  </tr>
+                </table>
+
                 <table class="qr-table">
                   <tr>
                     <td style="width: 50%"></td>
@@ -172,7 +182,7 @@
                   <tr>
                     <td style="width: 50%"></td>
                     <td class="r-pricetxt qrname">QR Code:</td>
-                    <td style="width: 30%"><button class="rec-btn">DOWNLOAD</button></td>
+                    <td style="width: 30%"><button id="generateQR" class="rec-btn" onclick="generateQR()">GENERATE QR</button></td>
                   </tr>
                 </table>
               </td>
@@ -183,5 +193,18 @@
         </td>
       </tr>
     </table>
+
+    <script>
+      const generateQR = () => {
+        let generateQR = document.getElementById("generateQR");
+        let grImg = document.getElementById("qr-id");
+        // qrInput = wrapper.querySelector(".form input"),
+        // let qrValue = qrInput.value.trim();
+        // if(!qrValue || preValue === qrValue) return;
+        // preValue = qrValue;
+        // qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+        document.getElementsByClassName("qr-code")[0].classList.add("active");
+      };
+    </script>
   </body>
 </html>
