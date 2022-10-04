@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/skn8ash.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:900" rel="stylesheet" type="text/css" />
+    <title>Home Page</title>
+  </head>
+  <style>
+    body {
+      line-height: 1.2;
+    }
+    /*navbar*/
+    .nav-header-index {
+      scroll-behavior: smooth;
+      font-family: "Raleway", sans-serif;
+      margin: 0px;
+      position: fixed;
+      width: 100%;
+      height: 70px;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      background-color: transparent;
+    }
+    .nav-header-index.sticky {
+      position: fixed;
+      background-color: #f9f2e7;
+      box-shadow: 0 2px 2px rgba(70, 67, 63, 0.1);
+    }
+    @keyframes header {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0%);
+      }
+    }
+    .navbar-img {
+      margin-left: -100px;
+      float: left;
+    }
+    .navbar-img img {
+      height: 70px;
+      width: auto;
+      justify-self: start;
+    }
+    .nav-header-index .title a {
+      font-size: 30px;
+      display: inline-block;
+      padding: 5px 0px;
+      color: #6b4f4f;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .nav-header-index .title a span {
+      color: #6b4f4f;
+    }
+    .navbar-index {
+      margin-right: -100px;
+      float: right;
+    }
+    .navbar-index ul {
+      list-style: none;
+      padding: 15px 15px 5px 15px;
+      margin: 0;
+    }
+    .navbar-index ul li {
+      display: inline;
+      padding: 0 15px;
+    }
+    .navbar-index ul li a {
+      display: inline-block;
+      padding: 10px 0px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #483434;
+      position: relative;
+      text-decoration: none;
+    }
+    .navbar-index ul li a::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      margin-top: -5px;
+      height: 2px;
+      right: 0px;
+      background-color: #1b5b65;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+    .navbar-index ul li a.active::before {
+      width: 100%;
+    }
+    .navbar-index ul li a:hover::before {
+      width: 100%;
+    }
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slideRight {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .book-btn {
+      padding: 6px 15px;
+      border-radius: 5px;
+      display: inline-block;
+      color: #fff;
+      background: #1b5b65;
+      align-items: center;
+    }
+    .book-btn a {
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
+    }
+    .bounce-in-on-hover {
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+    }
+    .bounce-in-on-hover:hover,
+    .bounce-in-on-hover:focus,
+    .bounce-in-on-hover:active {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      box-shadow: 0 0 8px 4px rgba(27, 91, 101, 0.25) inset, 0 0 8px 4px rgba(27, 91, 101, 0.25);
+    }
+    .toggle {
+      position: absolute;
+      top: 15px;
+      left: 0px;
+      display: none;
+    }
+    .toggle a {
+      display: inline-block;
+      position: relative;
+      z-index: 210;
+    }
+    .toggle a span {
+      display: block;
+      height: 2px;
+      width: 30px;
+      background-color: #483434;
+      margin-bottom: 8px;
+      -webkit-transition: transform 0.5s ease;
+    }
+    .toggle a span:nth-child(1) {
+      transform-origin: left top;
+    }
+    .toggle a span:nth-child(2) {
+      transform-origin: left bottom;
+    }
+    .toggle a.active span:nth-child(1) {
+      -webkit-transform: rotate(45deg) translateY(-7px);
+      transform: rotate(45deg) translateY(-7px);
+    }
+    .toggle a.active span:nth-child(2) {
+      -webkit-transform: rotate(-45deg) translateY(7px);
+      transform: rotate(-45deg) translateY(7px);
+    }
+    .toggle a.active span:nth-child(3) {
+      display: none;
+    }
+    @media (max-width: 991px) {
+      .toggle {
+        display: block;
+        margin-top: 10px;
+      }
+      .navbar-img {
+        margin-left: 20px;
+        float: none;
+        text-align: center;
+      }
+      .navbar-container {
+        position: relative;
+        max-width: 750px;
+      }
+      .nav-header-index {
+        position: fixed;
+        background-color: #f9f2e7;
+        padding: 0px 20px 0px 20px;
+      }
+      .nav-header-index .navbar {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        bottom: 0;
+        width: 200px;
+        background-color: #f9f2e7;
+        z-index: 200;
+        padding-top: 20px;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+        justify-content: center;
+      }
+      .navbar ul {
+        padding: 0px;
+        margin-left: 20px;
+      }
+      .book-btn {
+        margin-top: 20px;
+        padding-top: -20px;
+      }
+      .book-btn a {
+        margin-top: 0px;
+      }
+      .navbar.open {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+      }
+      .navbar ul li {
+        display: block;
+        margin: 0px 10px 0px 10px;
+      }
+    }
+    @keyframes bg-crossfade-1 {
+      0% {
+        opacity: 1;
+      }
+      4.1666666667% {
+        opacity: 1;
+      }
+      20.8333333333% {
+        opacity: 1;
+      }
+      29.1666666667% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+      95.8333333333% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes bg-crossfade-2 {
+      20.8333333333% {
+        opacity: 1;
+      }
+      29.1666666667% {
+        opacity: 1;
+      }
+      45.8333333333% {
+        opacity: 1;
+      }
+      54.1666666667% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes bg-crossfade-3 {
+      45.8333333333% {
+        opacity: 1;
+      }
+      54.1666666667% {
+        opacity: 1;
+      }
+      70.8333333333% {
+        opacity: 1;
+      }
+      79.1666666667% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes bg-crossfade-4 {
+      70.8333333333% {
+        opacity: 1;
+      }
+      79.1666666667% {
+        opacity: 1;
+      }
+      95.8333333333% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    .bg-crossfade-wrap {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      animation-name: bg-crossfade;
+      animation-duration: 18s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(1) {
+      animation-name: bg-crossfade-1;
+      z-index: 3;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(2) {
+      animation-name: bg-crossfade-2;
+      z-index: 2;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(3) {
+      animation-name: bg-crossfade-3;
+      z-index: 1;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(4) {
+      animation-name: bg-crossfade-4;
+      z-index: 0;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(1) {
+      background-image: url(images/index1.jpg);
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(2) {
+      background-image: url(images/index2.jpg);
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(3) {
+      background-image: url(images/index3.jpg);
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(4) {
+      background-image: url(images/index4.jpg);
+    }
+    .hero-title {
+      z-index: 1;
+      position: absolute;
+    }
+    .hero-title h1 {
+      margin-top: 80px;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 2px;
+      font: 900 120px/1 "Source Sans Pro", Arial, sans-serif;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      font-size: 70px;
+      top: 35%;
+      width: 100%;
+      text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%), 0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
+        0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%), 0 7px 0 hsl(174, 5%, 61%), 0 8px 0 hsl(174, 5%, 60%), 0 0 5px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2),
+        0 20px 20px rgba(0, 0, 0, 0.3);
+    }
+    .hero {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .checkavail-form-index {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #f9f2e7;
+      border-radius: 10px;
+      padding: 25px 80px 25px 80px;
+      margin-top: 110px;
+      justify-content: center;
+      font-family: "Raleway";
+    }
+    .checkavail-form-index .material-symbols-outlined {
+      display: flex;
+      position: absolute;
+      color: #6b4f4f;
+      font-size: 30px;
+      font-weight: 500;
+    }
+    .index-stroke {
+      margin-top: -150px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      max-height: 250px;
+      height: 100%;
+    }
+    .welcome-section {
+      background: url(images/tropical.png);
+      background-repeat: no-repeat;
+      background-size: 520px 680px;
+      background-color: #fffbf5;
+      height: 100%;
+      width: 100%;
+      margin-top: -10px;
+      display: flex;
+      padding: 80px 80px 40px 80px;
+    }
+    .welcome-desc {
+      margin: 20px 40px 10px 40px;
+      width: 50%;
+    }
+    @media (max-width: 600px) {
+      .reveal-text {
+        font-size: 1.8rem;
+      }
+    }
+    .reveal-text {
+      visibility: hidden;
+    }
+    .text-line {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+    .welcome-container {
+      max-width: 50%;
+    }
+    .welcome-pics {
+      width: 50%;
+      display: contents;
+    }
+    .welcome-grid {
+      display: grid;
+      grid-gap: 4px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 15vw;
+      list-style: none;
+    }
+
+    .welcome-grid figure,
+    .welcome-grid img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .welcome-grid img {
+      object-fit: cover;
+    }
+    .welcome-grid li:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+
+    .welcome-grid li:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .welcome-grid li:nth-child(3) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .welcome-grid li:nth-child(4) {
+      grid-column: 2 / span 2;
+      grid-row: 2;
+    }
+    .welcome-grid li:nth-child(1) img {
+      border-radius: 30px 0px 0px 80px;
+    }
+    .welcome-grid li:nth-child(3) img {
+      border-radius: 0px 80px 0px 0px;
+    }
+    .welcome-grid li:nth-child(4) img {
+      border-radius: 0px 0px 30px 0px;
+    }
+    .welcome-description {
+      font-family: "Raleway", sans-serif;
+      margin: auto;
+      padding: 20px 80px 20px 80px;
+      text-align: justify;
+      color: var(--txt-field-color);
+    }
+    .index-stroke-rotate {
+      margin-top: -35px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      max-height: 250px;
+      height: 100%;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+    .cabin-section {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0px 80px 40px 80px;
+    }
+    .cabin-title {
+      margin: auto;
+      text-align: center;
+      justify-content: center;
+      align-content: center;
+    }
+    .cabin-title .main-title {
+      height: 80px;
+    }
+    .main-title {
+      font-size: 48px;
+      font-weight: 500;
+      max-width: 620px;
+      height: 200px;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      line-height: 1.4;
+      color: var(--heading-color);
+    }
+    .sub-title {
+      font-size: 20px;
+      font-weight: 500;
+      max-width: 620px;
+      height: 20px;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      line-height: 1.4;
+      color: var(--main-btn-color);
+      text-align: center;
+      letter-spacing: 5px;
+      margin-left: 90px;
+    }
+    .card {
+      margin: 0 auto;
+      border: none;
+      background-color: transparent;
+    }
+    .pb-5,
+    .py-5 {
+      padding-bottom: 0em !important;
+    }
+    .card .carousel-item {
+      min-height: 190px;
+    }
+    .card .carousel-caption {
+      padding: 0;
+      right: 15px;
+      left: 15px;
+      top: 15px;
+      color: var(--txt-field-color);
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      min-height: 175px;
+      padding: 15px;
+      background-color: #fffbf5;
+    }
+    .card .carousel-caption .col-sm-3 {
+      display: flex;
+      align-items: center;
+    }
+    .card .carousel-caption .col-sm-9 {
+      text-align: left;
+      margin: auto;
+    }
+    .card .carousel-control-prev,
+    .card .carousel-control-next {
+      color: #3d3d3d !important;
+      opacity: 1 !important;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-image: none;
+      color: #fff;
+      font-size: 22px;
+      background-color: transparent;
+      height: 52px;
+      line-height: 52px;
+      width: 52px;
+      border-radius: 20%;
+    }
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+      opacity: 0.85;
+    }
+    .carousel-control-prev {
+      left: 82%;
+      top: -110%;
+    }
+    .carousel-control-next {
+      right: -3%;
+      top: -110%;
+    }
+    .carousel-caption h2 {
+      font-size: 22px;
+    }
+    .card .carousel-caption small {
+      font-size: 14px;
+      font-style: italic;
+    }
+    @media (min-width: 320px) and (max-width: 575px) {
+      .carousel-caption {
+        position: relative;
+      }
+      .card .carousel-caption {
+        left: 0;
+        top: 0;
+        margin-bottom: 15px;
+      }
+      .card .carousel-caption img {
+        margin: 0 auto;
+      }
+      .carousel-control-prev {
+        left: 70%;
+        top: -115%;
+      }
+      .carousel-control-next {
+        right: -3%;
+        top: -115%;
+      }
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+      .carousel-caption {
+        position: relative;
+      }
+      .card .carousel-caption {
+        left: 0;
+        top: 0;
+        margin-bottom: 15px;
+      }
+      .card .carousel-caption img {
+        margin: 0 auto;
+      }
+      .card .carousel-caption h3,
+      .card .carousel-caption small {
+        text-align: center;
+      }
+      .carousel-control-prev {
+        left: 35%;
+        top: 105%;
+      }
+      .carousel-control-next {
+        right: 35%;
+        top: 105%;
+      }
+    }
+    @media (min-width: 767px) and (max-width: 991px) {
+      .card .carousel-caption h3 {
+        margin-top: 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+    .testimonial-ttl {
+      width: 30%;
+      margin: auto;
+      padding: 20px 20px 20px 80px;
+      margin-top: 80px;
+    }
+    .testimonial-section {
+      background: url(icons/quote.png);
+      background-repeat: no-repeat;
+      background-size: 290px 280px;
+      background-color: #6b4f4f;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      padding: 20px;
+      width: 100%;
+    }
+    .testimonial-section .main-title {
+      display: inline-flex;
+      color: #fff;
+      margin-bottom: 0;
+      height: 200px;
+      line-height: 1;
+      max-width: 280px;
+      width: 100%;
+    }
+    .testimonial-section .sub-title {
+      margin-left: 0px;
+      font-size: 18px;
+    }
+    .testimonial-section h6 {
+      color: #fffbf5;
+    }
+    .testimonial-content {
+      width: 70%;
+      margin-top: 30px;
+    }
+    .content-feature {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding: 0 30px;
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 4px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    .wrapper-feature {
+      width: 33.3%;
+      height: 100%;
+      padding: 10px;
+    }
+    .box-feature {
+      position: relative;
+      max-height: 300px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 1.4px 1.7px rgba(0, 0, 0, 0.017), 0 3.3px 4px rgba(0, 0, 0, 0.024), 0 6.3px 7.5px rgba(0, 0, 0, 0.03),
+        0 11.2px 13.4px rgba(0, 0, 0, 0.036), 0 20.9px 25.1px rgba(0, 0, 0, 0.043), 0 50px 60px rgba(0, 0, 0, 0.06);
+    }
+    .box-feature .hide {
+      opacity: 0;
+    }
+    .box-feature .frame {
+      position: absolute;
+      border: 1px solid #fff;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .box-feature h2,
+    .box-feature p {
+      position: absolute;
+      color: #fff;
+      z-index: 2;
+      width: 100%;
+      transition: opacity 0.2s, transform 0.3s;
+    }
+    .box-feature h2 {
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 0;
+      letter-spacing: 1px;
+    }
+    .box-feature p {
+      bottom: 0;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .box-feature:hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature:hover:before {
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature img:hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature img:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .box-feature img:hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .feature-image h2 {
+      color: var(--heading-color);
+      top: 70%;
+      bottom: 0%;
+      transform: translate3d(0, 40px, 0);
+      text-align: center;
+      background: rgb(255, 251, 245, 0.9);
+      padding: 10px;
+    }
+    .feature-image p {
+      opacity: 0;
+      bottom: 0;
+      transform: translate3d(0, -10px, 0);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .feature-image:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(249, 242, 231, 0) 0%, rgba(255, 251, 245, 0.8) 75%);
+      z-index: 2;
+      bottom: -100%;
+      left: 0;
+    }
+    .feature-image:hover:before {
+      bottom: 0;
+    }
+    .feature-image:hover h2 {
+      color: var(--heading-color);
+      bottom: 20px;
+      transform: translate3d(0, -40px, 0);
+      background: transparent;
+    }
+    .feature-image:hover p {
+      top: 90%;
+      bottom: 0%;
+      color: rgb(49, 41, 41);
+      opacity: 1;
+      transform: translate3d(0, -60px, 0);
+    }
+    @media screen and (max-width: 880px) {
+      .wrapper-feature {
+        width: 50%;
+      }
+    }
+    @media screen and (max-width: 520px) {
+      .wrapper-feature {
+        width: 100%;
+      }
+    }
+    .index-end {
+      background: url(images/end-bg.JPG);
+      display: flex;
+      flex-direction: row;
+      height: 280px;
+      width: 100%;
+      object-fit: contain;
+      margin: auto;
+    }
+    .seefaqs {
+      padding: 80px 100px;
+      display: grid;
+      width: 60%;
+    }
+    .seefaqs .main-title {
+      color: #fff;
+      height: 60px;
+    }
+    .seefaqs .sub-title {
+      color: #fff;
+      font-size: 16px;
+      letter-spacing: 2px;
+      font-family: "Raleway", sans-serif;
+      float: left;
+      margin-left: 10px;
+    }
+    .seefaqs-btn {
+      top: 50%;
+      width: 10%;
+      height: 50px;
+      border-radius: 5px;
+      background: #1b5b65;
+      align-items: center;
+      display: flex;
+      margin: auto;
+    }
+    .seefaqs-btn-a {
+      color: #fff;
+      margin: auto;
+      padding: 10px 10px;
+      text-decoration: none;
+    }
+    .seefaqs-btn a {
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+    }
+  </style>
+
+  <body>
+    <!--Header-->
+    <header class="nav-header-index">
+      <div class="navbar-container">
+        <div class="navbar-img">
+          <img src="images/hulo-brwn.png" alt="Hulo Logo" />
+        </div>
+        <div class="toggle">
+          <a href="javascript:void(0);" class="ham-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div class="navbar-index">
+          <ul>
+            <li><a id="index" href="index.html">Home</a></li>
+            <li><a id="about" href="about.html">About Us</a></li>
+            <li><a id="villa" href="villa.html">Villas</a></li>
+            <li><a id="Moments" href="Moments.html">Moments</a></li>
+            <li><a id="login-reg" href="login-reg.html">Log In</a></li>
+            <div class="book-btn bounce-in-on-hover">
+              <a class="book-btn" href="c-booknow.html">BOOK NOW</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="bg-crossfade-wrap">
+        <div class="bg-crossfade-img"></div>
+        <div class="bg-crossfade-img"></div>
+        <div class="bg-crossfade-img"></div>
+        <div class="bg-crossfade-img"></div>
+      </div>
+      <div class="hero-title">
+        <h1>
+          ENJOY YOUR MOMENT <br />
+          WITH HULO
+        </h1>
+        <div class="check-availability">
+          <form class="checkavail-form-index">
+            <div class="form-item check-flex-item">
+              <i class="icon material-symbols-outlined">event_upcoming</i>
+              <label>Check in</label>
+              <input class="select-date" id="checkin-date" placeholder="select a date" />
+            </div>
+            <div class="form-item check-flex-item">
+              <i class="icon material-symbols-outlined">event_busy</i>
+              <label>Check out</label>
+              <input id="checkout-date" class="select-date" placeholder="select a date" />
+            </div>
+            <div class="form-item check-flex-item-m">
+              <i class="icon material-symbols-outlined">groups</i>
+              <label>Guests</label>
+              <input
+                class="guest"
+                type="number"
+                placeholder="1"
+                pattern="[0-9]*"
+                id="spinner"
+                name="value"
+                value="1"
+                min="1"
+                max="30"
+                step="1"
+                oninput="maxLengthCheck(this)"
+                maxlength="2"
+                required
+              />
+            </div>
+            <div class="form-item check-flex-item-sm">
+              <div class="search-icon">
+                <button type="submit">
+                  <span class="icon"><i class="material-symbols-rounded"> search </i></span>
+                  <span class="text">CHECK AVAILABILITY</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="index-stroke">
+      <img src="images/index copy stroke 3.png" />
+    </div>
+    <!--End of Header-->
+    <section class="welcome-section">
+      <div class="welcome-desc">
+        <h2 class="reveal-text main-title">Discover a world of luxury leisure and nature</h2>
+        <p class="welcome-description">
+          Experience Bali lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tellus mi, tincidunt at lacus sit amet, dictum volutpat
+          mauris. Aliquam eget tellus vitae nisl suscipit aliquam. Etiam eu dapibus velit. Mauris sagittis lorem diam, eget consequat ligula dictum
+          vel. Vivamus rutrum tempus felis, sagittis finibus dui venenatis eget. Nam fringilla mattis sem, a tempor ligula venenatis ut. Pellentesque
+          odio nisi, porta ac suscipit non, porttitor quis tortor.
+        </p>
+      </div>
+      <div class="welcome-pics">
+        <div class="welcome-container">
+          <ul class="welcome-grid">
+            <li>
+              <figure>
+                <img width="640" height="1118" src="images/grid0.jpg" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img width="640" height="427" src="images/grid2.JPG" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img width="640" height="427" src="images/grid1.JPG" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img width="640" height="418" src="images/grid3.JPG" alt="" />
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="index-stroke-rotate">
+      <img src="images/index-copy-stroke.png" />
+    </div>
+    <section class="cabin-section">
+      <div class="cabin-title">
+        <h6 class="reveal-text sub-title">ABSOLUTE COMFORT</h6>
+        <h2 class="reveal-text main-title">What our villa offers?</h2>
+      </div>
+      <div class="content-feature">
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="images/slider/bed.JPG" alt="" />
+            <h2>Comfy and Cozy</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam.
+            </p>
+          </div>
+        </div>
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="images/slider/kitchen.JPG" alt="" />
+            <h2>Fully Equipped</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            </p>
+          </div>
+        </div>
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="images/slider/bath.JPG" alt="" />
+            <h2>Relaxing Stay</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="testimonial-section">
+      <div class="testimonial-ttl">
+        <h6 class="reveal-text sub-title">RECENT REVIEWS</h6>
+        <h2 class="reveal-text main-title">What our traveler says</h2>
+      </div>
+      <div class="testimonial-content pt-5 pb-5">
+        <div class="card col-md-12 mt-2">
+          <div id="nextSlide" class="carousel slide" data-ride="carousel" data-interval="100000">
+            <div class="w-100 carousel-inner mb-5" role="listbox">
+              <div class="carousel-item active">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="carousel-caption">
+                      <div class="row">
+                        <div class="col-sm-3 col-4 align-items-start">
+                          <img src="icons/happy.png" alt="" class="rounded-circle img-fluid" />
+                        </div>
+                        <div class="col-sm-9 col-8">
+                          <h2>Anonymous</h2>
+                          <small
+                            >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="carousel-caption">
+                      <div class="row">
+                        <div class="col-sm-3 col-4 align-items-start">
+                          <img src="icons/neutral.png" alt="" class="rounded-circle img-fluid" />
+                        </div>
+                        <div class="col-sm-9 col-8">
+                          <h2>Micheal Smith</h2>
+                          <small
+                            >Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been
+                            experiencing since a recent vasectomy.</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="carousel-caption">
+                      <div class="row">
+                        <div class="col-sm-3 col-4 align-items-start">
+                          <img src="icons/sad.png" alt="" class="rounded-circle img-fluid" />
+                        </div>
+                        <div class="col-sm-9 col-8">
+                          <h2>John Doe</h2>
+                          <small
+                            >Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been
+                            experiencing since a recent vasectomy.</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="carousel-caption">
+                      <div class="row">
+                        <div class="col-sm-3 col-4 align-items-start">
+                          <img src="icons/happy.png" alt="" class="rounded-circle img-fluid" />
+                        </div>
+                        <div class="col-sm-9 col-8">
+                          <h2>Helena Doe</h2>
+                          <small
+                            >Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been
+                            experiencing since a recent vasectomy.</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#nextSlide" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#nextSlide" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="index-end">
+      <div class="seefaqs">
+        <h2 class="reveal-text main-title">Got some questions?</h2>
+        <h6 class="reveal-text sub-title">We've got you covered!</h6>
+      </div>
+      <div class="seefaqs-btn">
+        <a class="seefaqs-btn-a" href="faqs.html">See our FAQs</a>
+      </div>
+    </section>
+    <!--Footer-->
+    <section class="display-footer">
+      <div id="footer-placeholder"></div>
+    </section>
+
+    <script>
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html");
+      });
+
+      // nav underline
+      switch (window.location.pathname) {
+        case "/villa.html":
+          document.getElementById("villa").classList.add("active");
+          break;
+        case "/index.html":
+          document.getElementById("index").classList.add("active");
+          break;
+        case "/about.html":
+          document.getElementById("about").classList.add("active");
+          break;
+        case "/moments.html":
+          document.getElementById("moments").classList.add("active");
+          break;
+      }
+
+      $(window).on("beforeunload", function () {
+        console.log(window.location.pathname);
+        switch (window.location.pathname) {
+          case "/villa.html":
+            const chosen = document.getElementById("villas");
+            console.log(chosen);
+            document.getElementById("villas").classList.add("active");
+            console.log("here");
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+        }
+      });
+
+      //Navbar Effect
+      $(document).ready(function () {
+        var bottom = $(".nav-header-index").outerHeight();
+        var header = $(".nav-header-index").offset().top + bottom;
+
+        $(window).scroll(function () {
+          if ($(window).width() > 991) {
+            if ($(window).scrollTop() >= header) {
+              $(".nav-header-index").addClass("sticky");
+            } else {
+              $(".nav-header-index").removeClass("sticky");
+            }
+          }
+        });
+
+        $(".navbar-index ul li a").click(function () {
+          $(".navbar-index ul li a").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $(".ham-burger").click(function () {
+          $(this).toggleClass("active");
+          $(".navbar-index").toggleClass("open");
+        });
+      });
+
+      //text animate
+      window.addEventListener("load", function () {
+        let splitWords = function (selector) {
+          var elements = document.querySelectorAll(selector);
+
+          elements.forEach(function (el) {
+            el.dataset.splitText = el.textContent;
+            el.innerHTML = el.textContent
+              .split(/\s/)
+              .map(function (word) {
+                return word
+                  .split("-")
+                  .map(function (word) {
+                    return '<span class="word">' + word + "</span>";
+                  })
+                  .join('<span class="hyphen">-</span>');
+              })
+              .join('<span class="whitespace"> </span>');
+          });
+        };
+
+        let splitLines = function (selector) {
+          var elements = document.querySelectorAll(selector);
+
+          splitWords(selector);
+
+          elements.forEach(function (el) {
+            var lines = getLines(el);
+
+            var wrappedLines = "";
+            lines.forEach(function (wordsArr) {
+              wrappedLines += '<span class="text-line"><span class="words">';
+              wordsArr.forEach(function (word) {
+                wrappedLines += word.outerHTML;
+              });
+              wrappedLines += "</span></span>";
+            });
+            el.innerHTML = wrappedLines;
+          });
+        };
+
+        let getLines = function (el) {
+          var lines = [];
+          var line;
+          var words = el.querySelectorAll("span");
+          var lastTop;
+          for (var i = 0; i < words.length; i++) {
+            var word = words[i];
+            if (word.offsetTop != lastTop) {
+              // Don't start with whitespace
+              if (!word.classList.contains("whitespace")) {
+                lastTop = word.offsetTop;
+
+                line = [];
+                lines.push(line);
+              }
+            }
+            line.push(word);
+          }
+          return lines;
+        };
+
+        splitLines(".reveal-text");
+
+        let revealText = document.querySelectorAll(".reveal-text");
+
+        gsap.registerPlugin(ScrollTrigger);
+        let revealLines = revealText.forEach((element) => {
+          const lines = element.querySelectorAll(".words");
+
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: element,
+              toggleActions: "restart none none reset",
+            },
+          });
+          tl.set(element, { autoAlpha: 1 });
+          tl.from(lines, 1, {
+            yPercent: 100,
+            ease: Power3.out,
+            stagger: 0.25,
+            delay: 0.2,
+          });
+        });
+      });
+
+      //Date Picker
+      let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
+
+      const picker = new Litepicker({
+        element: document.getElementById("checkin-date"),
+        elementEnd: document.getElementById("checkout-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
+        minDate: startDate, //It will not allow to select past days
+      });
+      //Input Number
+      function spinner() {
+        // Spinner
+        $("#spinner").spinner();
+
+        //Input only numbers
+        $("#spinner").keyup(function () {
+          this.value = this.value.replace(/[^0-9]/g, "");
+        });
+      }
+      //Input max number
+      function maxLengthCheck(object) {
+        if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
+      }
+      window.onload = spinner;
+    </script>
+  </body>
+</html>
