@@ -59,7 +59,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("http://ulayaw-backend.herokuapp.com/auth/verifyEmail", options)
+        fetch("https://ulayaw-backend.herokuapp.com/auth/verifyEmail", options)
           .then((response) => response.json())
           .then((data) => {
             if (data.key === "ACCOUNTVERIFIED") {
