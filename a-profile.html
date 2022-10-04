@@ -45,8 +45,10 @@
               <span class="label"> Update Application</span>
             </li>
             <li rel="tabFive">
+              <a onclick="logout()">
               <i class="material-symbols-rounded">logout</i>
               <span class="label">Logout</span>
+              </a>
             </li>
           </ul>
           <div class="tabs-container">
@@ -930,6 +932,11 @@
           e.stopPropagation();
         }
       }
+
+      const logout = () => {
+        localStorage.clear();
+        window.location.replace("/login-reg.html");
+      };
     </script>
   </body>
 </html>
