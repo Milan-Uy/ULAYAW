@@ -105,7 +105,7 @@
                   <h5>Password</h5>
                   <button class="editprofile-btn" id="removeReadOnly2">Change</button>
                 </div>
-                <form action="javascript:saveProfile();" class="edit-form">
+                <form action="javascript:changePassword();" class="edit-form">
                   <div class="form-container flex-column">
                     <div class="col-6 hide-txt5 hide-text-bg">
                       <label>Current Password</label>
@@ -463,7 +463,7 @@
         document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
-        // document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
         // update user
         const data = {
@@ -491,6 +491,33 @@
               document.getElementById("close-alert3").addEventListener("click", function () {
                 document.getElementsByClassName("alert3")[0].style.display = "none";
               });
+            }
+          });
+      };
+
+      const changePassword = () => {
+        let oldPass = document.getElementById("password").value;
+        let newPass = document.getElementById("newPassword").value;
+        let rePass = document.getElementById("rePassword").value;
+        const data = {
+          oldPassword: oldPass,
+          newPassword: newPass,
+        };
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/auth/changePassword", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (newPass === rePass) {
+            } else if (oldPass === newPass) {
+            } else {
             }
           });
       };
