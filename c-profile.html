@@ -63,7 +63,7 @@
               <div class="alertMessage alert3">
                 <span class="close" id="close-alert3">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>Moment Successfully Uploaded!</strong>
+                <strong>Profile Updated Successfully!</strong>
               </div>
               <div class="edit-container">
                 <div class="user-details">
@@ -99,6 +99,22 @@
                     </div>
                   </form>
                 </div>
+              </div>
+              <!-- ALERT -->
+              <div class="alertMessage alert4">
+                <span class="close" id="close-alert4">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Password Updated Successfully!</strong>
+              </div>
+              <div class="alertMessage alert5">
+                <span class="close" id="close-alert5">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Password Does Not Match!</strong>
+              </div>
+              <div class="alertMessage alert-error">
+                <span class="close" id="close-alert-error">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Error Occured!</strong>
               </div>
               <div class="edit-container">
                 <div class="user-details">
@@ -221,7 +237,7 @@
               <div class="alertMessage alert2">
                 <span class="close" id="close-alert2">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>Profile Updated Successfully!</strong>
+                <strong>Customer Satisfaction Sent Successfully!</strong>
               </div>
               <div class="line lupper"></div>
               <form action="javascript:sendCustomerS();">
@@ -507,19 +523,39 @@
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/auth/changePassword", options)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            if (newPass === rePass) {
-            } else if (oldPass === newPass) {
-            } else {
-            }
+        if (newPass === rePass) {
+          fetch("https://ulayaw-backend.herokuapp.com/auth/changePassword", options)
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              if (data.key === "PASSUPDATED") {
+                document.getElementsByClassName("alert4")[0].style.display = "block";
+
+                document.getElementById("close-alert4").addEventListener("click", function () {
+                  document.getElementsByClassName("alert4")[0].style.display = "none";
+                });
+              } else {
+                document.getElementsByClassName("alert-error")[0].style.display = "block";
+
+                document.getElementById("close-alert-error").addEventListener("click", function () {
+                  document.getElementsByClassName("alert-error")[0].style.display = "none";
+                });
+              }
+            });
+        } else {
+          setTimeout(() => {
+            document.getElementsByClassName("alert5")[0].style.display = "block";
+          }, 5000);
+
+          document.getElementById("close-alert5").addEventListener("click", function () {
+            document.getElementsByClassName("alert5")[0].style.display = "none";
           });
+        }
       };
 
       document.getElementById("saveProfile-btn2").addEventListener("click", function () {

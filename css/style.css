@@ -324,6 +324,10 @@
   height: 205px;
 }
 
+.popup-medium {
+  height: 225px;
+}
+
 .popup-logout {
   height: 170px;
 }
