@@ -4483,7 +4483,7 @@ tr {
   background-color: #1b5b65;
   border: none;
   border-radius: 5px;
-  float: right;
+  float: LEFT;
   font-size: 13px;
 }
 
@@ -5146,9 +5146,6 @@ tr {
 .headertd {
   padding: 20px 0 20px 0;
   background-color: #483434;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .emailbody {

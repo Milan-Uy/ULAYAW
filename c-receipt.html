@@ -158,8 +158,8 @@
 
                 <table class="qrtd-table">
                   <tr>
-                    <td class="qr-todo" style="width: 50%">Bring this QR code to check-in</td>
-                    <td class="qr-todo" style="width: 50%">Click DOWNLOAD to save the QR code and/or Receipt on your device.</td>
+                    <td class="qr-todo" style="width: 50%">Click the button below to generate your qr code. Bring this QR code to check-in. <br><br> <button id="generateQR" class="rec-btn" onclick="generateQR()">GENERATE QR</button></td></td>
+                    <td class="qr-todo" style="width: 50%">Click DOWNLOAD to save the QR code and/or Receipt on your device. <br><br> <button onclick="window.print()" class="rec-btn">DOWNLOAD</button></td>
                   </tr>
                 </table>
 
@@ -172,18 +172,7 @@
                   </tr>
                 </table>
 
-                <table class="qr-table">
-                  <tr>
-                    <td style="width: 50%"></td>
-                    <td class="r-pricetxt qrname">PDF File:</td>
-                    <td style="width: 30%"><button onclick="window.print()" class="rec-btn">DOWNLOAD</button></td>
-                  </tr>
-
-                  <tr>
-                    <td style="width: 50%"></td>
-                    <td class="r-pricetxt qrname">QR Code:</td>
-                    <td style="width: 30%"><button id="generateQR" class="rec-btn" onclick="generateQR()">GENERATE QR</button></td>
-                  </tr>
+              
                 </table>
               </td>
             </tr>
