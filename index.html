@@ -1183,6 +1183,14 @@
     </section>
 
     <script>
+      const changeLoginToProfile = () => {
+        if (localStorage.getItem("access_token")) {
+          document.getElementById("login-reg").innerText = "Profile";
+        }
+      };
+
+      changeLoginToProfile();
+
       //Import Footer
       $(function () {
         $("#footer-placeholder").load("footer.html");

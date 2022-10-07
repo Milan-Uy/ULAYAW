@@ -15,9 +15,8 @@ const navigate = () => {
 };
 
 const changeLoginToProfile = () => {
-  let login = document.getElementById("login-reg");
   if (localStorage.getItem("access_token")) {
-    login.innerHTML = "Profile";
+    document.getElementById("login-reg").innerText = "Profile";
   }
 };
 
