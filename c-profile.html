@@ -83,7 +83,7 @@
                     <div class="form-container">
                       <div class="col-3 hide-txt3 hide-text-bg">
                         <label>Contact Number</label>
-                        <input type="text" id="contact" placeholder="Contact Number" maxlength="13" value="+63" readonly />
+                        <input type="tel" id="contact" placeholder="Contact Number" maxlength="11" minxlength="11" value="" readonly />
                       </div>
                     </div>
                     <div class="form-container">
@@ -127,7 +127,15 @@
                     </div>
                     <div class="col-6 hide-txt6 hide-text-bg">
                       <label>New Password</label>
-                      <input type="password" id="newPassword" placeholder="New Password" readonly />
+                      <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="New Password"
+                        readonly
+                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                        title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
+                        value=""
+                      />
                     </div>
                     <div class="col-6 hide-txt7 hide-text-bg">
                       <label>Re-Enter Password</label>
@@ -269,12 +277,6 @@
             <div id="tabFive" class="tab-item">
               <h5>Tab 5 content</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
-                quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
-                numquam tempora nulla, beatae ab modi, molestiae, eius iure odio dolorum recusandae est. Distinctio a possimus placeat dolore iste
-                animi aspernatur. Eius ea doloremque blanditiis, esse dolores sit ipsa molestiae expedita accusamus eos, labore ipsam iste ducimus
-                optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
-                voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
               </p>
             </div> -->
           </div>

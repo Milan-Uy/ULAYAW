@@ -82,7 +82,16 @@
                 <i class="uil uil-at icon"></i>
               </div>
               <div class="log-input-field">
-                <input id="contact" class="log-input" type="tel" minlength="11" placeholder="Enter your contact number" required value="" />
+                <input
+                  id="contact"
+                  class="log-input"
+                  type="tel"
+                  minlength="11"
+                  maxlength="11"
+                  placeholder="Enter your contact number"
+                  required
+                  value=""
+                />
                 <i class="uil uil-phone icon"></i>
               </div>
               <div class="log-input-field">
@@ -92,8 +101,8 @@
                   type="password"
                   class="password"
                   placeholder="Create a password"
-                  pattern="(?=^.{8,}$)(?=.*[A-Z])(?=.*?[~`!@#$%\^&*()\-_=+[\]{};:\x27.,\x22\\|/?<>]).{8,}"
-                  title="Password must at least be 8 characters in length, and contain 1 uppercase character and 1 special character."
+                  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                  title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
                   required
                   value=""
                 />
