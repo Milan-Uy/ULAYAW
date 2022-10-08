@@ -271,16 +271,17 @@
           },
           body: JSON.stringify(signupData),
         };
-        fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
-          .then((response) => response.json())
-          .then((data) => {
-            if (password != confirmPassword) {
-              document.getElementsByClassName("popup4")[0].classList.add("active");
 
-              document.getElementById("dismiss-popup4-btn").addEventListener("click", function () {
-                document.getElementsByClassName("popup4")[0].classList.remove("active");
-              });
-            } else {
+        if (password != confirmPassword) {
+          document.getElementsByClassName("popup4")[0].classList.add("active");
+
+          document.getElementById("dismiss-popup4-btn").addEventListener("click", function () {
+            document.getElementsByClassName("popup4")[0].classList.remove("active");
+          });
+        } else if (password === confirmPassword) {
+          fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
+            .then((response) => response.json())
+            .then((data) => {
               console.log(data);
               // write action code here
               // if  success
@@ -300,8 +301,8 @@
                   document.getElementsByClassName("popup3")[0].classList.remove("active");
                 });
               }
-            }
-          });
+            });
+        }
       };
     </script>
   </body>
