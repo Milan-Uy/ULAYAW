@@ -21,60 +21,22 @@
       <div id="nav-placeholder"></div>
     </section>
     <h1 class="headtextrd">Reservation Details</h1>
-    <div class="check-availability">
-      <form class="checkavail-form">
-        <div class="form-item check-flex-item">
-          <i class="icon material-symbols-outlined">event_upcoming</i>
-          <label>Check in</label>
-          <input class="select-date" id="checkin-date" placeholder="select a date" />
+
+    <div class="columnsContainer">
+      <div class="leftColumn">
+        <div class="card1">
+          <img class="rdimg" src="images/AUR2.png" />
+          <p>Casa Aurelia</p>
+          <p class="rdcontent">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
         </div>
-        <div class="form-item check-flex-item">
-          <i class="icon material-symbols-outlined">event_busy</i>
-          <label>Check out</label>
-          <input id="checkout-date" class="select-date" placeholder="select a date" />
-        </div>
-        <div class="form-item check-flex-item-m">
-          <i class="icon material-symbols-outlined">groups</i>
-          <label>Guests</label>
-          <input
-            class="guest"
-            type="number"
-            placeholder="1"
-            pattern="[0-9]*"
-            id="spinner"
-            name="value"
-            value="1"
-            min="1"
-            max="30"
-            step="1"
-            oninput="maxLengthCheck(this)"
-            maxlength="2"
-            required
-          />
-        </div>
-        <div class="form-item check-flex-item-sm">
-          <div class="search-icon">
-            <button type="submit">
-              <span class="icon"><i class="material-symbols-rounded"> search </i></span>
-              <span class="text">CHECK AVAILABILITY</span>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
-  <div class="row">
-    <div class="column">
-      <div class="card1">
-        <img class="rdimg" src="images/overlappic1hp.JPG" />
-        <p>Casa Aurelia</p>
-        <p class="rdcontent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
-    </div>
-  
-    <div class="column">
-      <div class="card2">
-        <label>Adults</label>
+
+      <div class="rightColumn">
+        <div class="card2">
+          <label>Adults</label>
           <input
             class="adults"
             type="number"
@@ -90,7 +52,7 @@
             maxlength="2"
             required
           />
-          
+
           <label>Children</label>
           <input
             class="children"
@@ -107,7 +69,7 @@
             maxlength="2"
             required
           />
-          <hr>
+          <hr />
           <p>Add ons:</p>
           <label>Breakfast</label>
           <input
@@ -141,57 +103,65 @@
             maxlength="2"
             required
           />
-          <input class="confirm-btn" type="button" value="Confirm">
+          <input class="confirm-btn" type="button" value="Confirm" />
+        </div>
       </div>
-      <div class="col-25">
+      <div class="col-50">
         <div class="containerps">
           <p>Your Reservation:</p>
-          <h3 style="padding-bottom: 10px;">Casa Aurelia <span class="price" style="color:black"><b>P25,000.00</b></span></h3>
-          <p>DATE </p>
-          <p>8 ADULTS,1 NIGHT </p>
-          <hr>
+          <h3 style="padding-bottom: 10px">
+            Casa Aurelia <span class="price" style="color: black"><b>P25,000.00</b></span>
+          </h3>
+          <p>DATE</p>
+          <p>8 ADULTS,1 NIGHT</p>
+          <hr />
           <p>Add-Ons Costs</p>
           <p>Add-on1 <span class="price">P150.00</span></p>
           <p>Add-on2<span class="price">P200.00</span></p>
-         <hr>
-          <h3>Total <span class="price" style="color:black"><b>P25,350.00</b></span></h3>
-          <p>By clicking the confirm reservation, you are agreeing to the</p> <a href="#" id="open-popup-btn-1" >Booking Policy</a><p>of the Hulo Leisure farm</p>
-          <input class="cr-btn" type="button" value="Confirm Reservation">
+          <hr />
+          <h3>
+            Total <span class="price" style="color: black"><b>P25,350.00</b></span>
+          </h3>
+          <p>By clicking the confirm reservation, you are agreeing to the</p>
+          <a href="#" id="open-popup-btn-1">Booking Policy</a>
+          <p>of the Hulo Leisure farm</p>
+          <input class="cr-btn" type="button" value="Confirm Reservation" />
         </div>
       </div>
     </div>
 
-        <!-- START OF POPUP -->
-        <div class="popup popup1 center popup-long ">
-          <div class="description popup-content-left">
-            <h2 style="text-align: center"><b>Booking Policy</b></h2>
-            <br />
-            1. Reservation
-            <br>
-            * A deposit of 20% to reserve the date.
-            <br>
-            * Another 30% deposit must be made 5 days before the booked date
-            <br>
-            * The remaining 50% can be paid upon check-in.
-            <br>
-            2. Early Check-in / Late Check-out
-            <br>
-            * It is subject to the house/room availability of that significant day. The request needs to be reconfirmed with the booking officer or Bed and Breakfast staff.
-            <br>
-            3. Booking Confirmation 
-            <br>
-            * Upon deposit of payment, a booking confirmation must be received as this will be served as proof of your reservation.
-            <br>
-              4.  Incidental Fee
-            <br>
-            * Upon check-in, we will request for a security deposit/incidental deposit of ₱2,000. It will be returned if no damage or loss has emerged on our property.
-          </div>
-          <div class="dismiss-btn">
-            <button id="dismiss-popup-btn-1">Close</button>
-          </div>
-        </div>
-            <!-- END OF POPUP -->
-
+    <!-- START OF POPUP -->
+    <div class="popup popup1 center popup-long">
+      <div class="description popup-content-left">
+        <h2 style="text-align: center"><b>Booking Policy</b></h2>
+        <br />
+        1. Reservation
+        <br />
+        * A deposit of 20% to reserve the date.
+        <br />
+        * Another 30% deposit must be made 5 days before the booked date
+        <br />
+        * The remaining 50% can be paid upon check-in.
+        <br />
+        2. Early Check-in / Late Check-out
+        <br />
+        * It is subject to the house/room availability of that significant day. The request needs to be reconfirmed with the booking officer or Bed
+        and Breakfast staff.
+        <br />
+        3. Booking Confirmation
+        <br />
+        * Upon deposit of payment, a booking confirmation must be received as this will be served as proof of your reservation.
+        <br />
+        4. Incidental Fee
+        <br />
+        * Upon check-in, we will request for a security deposit/incidental deposit of ₱2,000. It will be returned if no damage or loss has emerged on
+        our property.
+      </div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup-btn-1">Close</button>
+      </div>
+    </div>
+    <!-- END OF POPUP -->
   </body>
 
   <script>
@@ -200,14 +170,14 @@
       $("#nav-placeholder").load("navbar.html");
     });
 
-      // Popup Button
-      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+    // Popup Button
+    document.getElementById("open-popup-btn-1").addEventListener("click", function () {
       document.getElementsByClassName("popup1")[0].classList.add("active");
-      });
+    });
 
-      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+    document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
       document.getElementsByClassName("popup1")[0].classList.remove("active");
-      });
+    });
 
     //Date Picker
 
@@ -241,6 +211,5 @@
       if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
     }
     window.onload = spinner;
-
   </script>
 </html>
