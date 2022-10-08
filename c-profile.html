@@ -314,7 +314,7 @@
 
     <script>
       const setValues = async () => {
-        let user = await getUser();
+        let user = await getUser(localStorage.getItem("user_id"));
         console.log(user);
         let nameTag = document.getElementById("nameTag");
         nameTag.innerHTML = "WELCOME, " + user.firstName;

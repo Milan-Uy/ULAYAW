@@ -20,7 +20,7 @@ const changeLoginToProfile = () => {
   }
 };
 
-const getUser = () => {
+const getUser = (id) => {
   let options = {
     method: "GET",
     headers: {
@@ -29,10 +29,28 @@ const getUser = () => {
     },
   };
   return new Promise((resolve, reject) => {
-    fetch("https://ulayaw-backend.herokuapp.com/user/getOne/" + localStorage.getItem("user_id"), options)
+    fetch("https://ulayaw-backend.herokuapp.com/user/getOne/" + id, options)
       .then((response) => response.json())
       .then((data) => {
         resolve(data.payload);
       });
   });
 };
+
+const getUsers = (searchKey) =>{
+  let options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: "Bearer " + localStorage.getItem("access_token"),
+    },
+  };
+  const searchKey$ = searchKey ? `&searchKey=${searchKey}` : '';
+  return new Promise((resolve, reject) => {
+    fetch(`https://ulayaw-backend.herokuapp.com/getNonGuests?${searchKey$}`, options)
+      .then((response) => response.json())
+      .then((data) => {
+        resolve(data.payload);
+      });
+  });
+}

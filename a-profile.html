@@ -142,76 +142,8 @@
                    </tr>
                 </thead>
                 <tbody id="table_users">
-                   <tr>
-                      <td>Millano Uy</td>
-                      <td>
-                         Admin
-                         <div class="dropdown">
-                            <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
-                            <div class="dropdown-content">
-                               <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
-                               <a class = "dd-content edit-popup" href = "#"> Manager </a>
-                               <a class = "dd-content edit-popup" href = "#"> Admin </a>
-                            </div>
-                         </div>
-                      </td>
-                      <td>
-                         <div class="dropdown">
-                            <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
-                            <div class="dropdown-content ">
-                               <a class = "dd-content remove-user" href = "#" id="open-popup2-btn"> Remove User </a>
-                               <a class = "dd-content edit-profile" href = "#" id="open-popup3-btn"> Edit Profile </a>
-                            </div>
-                         </div>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td> Ricko Ronquillo </td>
-                      <td>
-                         Manager
-                         <div class="dropdown">
-                            <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
-                            <div class="dropdown-content">
-                              <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
-                              <a class = "dd-content edit-popup" href = "#"> Manager </a>
-                              <a class = "dd-content edit-popup" href = "#"> Admin </a>
-                            </div>
-                         </div>
-                      </div>
-                   </td>
-                   <td>
-                    <div class="dropdown">
-                     <li ><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
-                     <div class="dropdown-content">
-                      <a class = "dd-content remove-user" href = "#"> Remove User </a>
-                      <a class = "dd-content edit-profile" href = "#"> Edit Profile </a>
-                   </div>
-                </div>
-                </td>
-                 </tr>
-                 <tr>
-                   <td>Nicky Merito</td>
-                   <td>Marketing Specialist
-                   <div class="dropdown">
-                    <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
-                   <div class="dropdown-content">
-                    <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
-                    <a class = "dd-content edit-popup" href = "#"> Manager </a>
-                    <a class = "dd-content edit-popup" href = "#"> Admin </a>
-                  </div>
-                  </div>
-          </td>
-          <td>
-             <div class="dropdown">
-                <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
-                <div class="dropdown-content">
-                   <a class = "dd-content remove-user" href = "#"> Remove User </a>
-                   <a class = "dd-content edit-profile" href = "#"> Edit Profile </a>
-                </div>
-             </div>
-          </td>
-       </tr>
-    </tbody>
+                 
+                </tbody>
  </table>
             </div>
             <!--Add Users Tab-->
@@ -230,11 +162,11 @@
                     <div class="form-container">
                       <div class="col-6">
                         <label style="margin-right:3vw">First Name</label>
-                        <input class="adduser-input" type="text" placeholder="Enter name" required />
+                        <input id="a_firstName" class="adduser-input" type="text" placeholder="Enter name" required />
                       </div>
                       <div class="col-6">
                         <label>Last Name</label>
-                        <input class="adduser-input" type="text" placeholder="Enter last name" required />
+                        <input id="a_lastName" class="adduser-input" type="text" placeholder="Enter last name" required />
                       </div>
                     </div>
                     <div class="form-container">
@@ -243,7 +175,7 @@
                         <input
                           class="adduser-input"
                           type="text"
-                          id="contact"
+                          id="a_contact"
                           placeholder="Contact Number"
                           maxlength="13"
                           value="+63"
@@ -254,13 +186,13 @@
                     <div class="form-container">
                       <div class="col-3">
                         <label style="margin-right:1.5vw">Email Address</label>
-                        <input class="adduser-input " type="email" id="email" placeholder="Enter email address"  required />
+                        <input id="a_email" class="adduser-input " type="email" id="email" placeholder="Enter email address"  required />
                       </div>
                     </div>
                     <div class="form-container">
                       <div class="col-6">
                         <label style="margin-right:3vw">Password</label>
-                        <input class="adduser-input" type="password" placeholder="Enter your password" required />
+                        <input id="a_password" class="adduser-input" type="password" placeholder="Enter your password" required />
                       </div>
                       <div class="col-6">
                         <label>Confirm Password</label>
@@ -270,7 +202,7 @@
                     <div class="form-container">
                         <div class="col-3">
                           <label>Role</label>
-                          <select name="cars" id="roles" class="adduser-role">
+                          <select name="cars" id="a_role" class="adduser-role">
                             <option value="Admin">Admin </option>
                             <option value="Marketing Specialist">Marketing Specialist</option>
                             <option value="Manager">Manager</option>
@@ -278,7 +210,7 @@
                         </div>
                       </div>
                     </div>
-                    <button class="adduser-btn" onclick="()" id="open-alert2">Add User</button>
+                    <button class="adduser-btn" onclick="addUser()" id="open-alert2">Add User</button>
                   </form>
                 </div>
               </div>
@@ -635,8 +567,79 @@
     </section>
     <script src="app.js"></script>
     <script>
-      
+      const addUser = () =>{
+        
+        const firstName = document.getElementById('a_firstName').value;
+        const lastName = document.getElementById('a_lastName').value;
+        const contact = document.getElementById('a_contact').value;
+        const email = document.getElementById('a_email').value;
+        const password = document.getElementById('a_password').value;
+        const role = document.getElementById('a_role').value;
+        let signupData = {
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          contact: contact,
+          role: role,
+        };
+        console.log(signupData);
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(signupData),
+        };
+        fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          })
+      }
 
+
+      const setValues = async () =>{
+        let users = await getUsers(null, null);
+        console.log(users);
+        const list = document.getElementById('table_users');
+
+        // load all event listeners
+        let tr;
+        let th;
+        users.forEach(user=>{
+          tr = document.createElement('tr');
+          td1 = document.createElement('td');
+          td1.appendChild(document.createTextNode(user.firstName + ' ' + user.lastName));
+          tr.appendChild(td1);
+
+          td2 = document.createElement('td');
+          td2.innerHTML = `${user.role}
+                          <div class="dropdown">
+                            <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
+                            <div class="dropdown-content">
+                               <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
+                               <a class = "dd-content edit-popup" href = "#"> Manager </a>
+                               <a class = "dd-content edit-popup" href = "#"> Admin </a>
+                            </div>
+                         </div>`
+          tr.appendChild(td2);
+
+          td3 = document.createElement('td');
+          td3.innerHTML = `
+          <div class="dropdown">
+                            <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
+                            <div class="dropdown-content ">
+                               <a class = "dd-content remove-user" href = "#" id="open-popup2-btn"> Remove User </a>
+                               <a class = "dd-content edit-profile" href = "#" id="open-popup3-btn"> Edit Profile </a>
+                            </div>
+                         </div>`
+          tr.appendChild(td3);
+          list.appendChild(tr);
+        })
+       
+      }
+      setValues();
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");
