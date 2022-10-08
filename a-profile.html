@@ -44,11 +44,9 @@
               <i class="material-symbols-rounded">update</i>
               <span class="label"> Update Application</span>
             </li>
-            <li rel="tabFive">
-              <a onclick="logout()">
+            <li rel="tabFive" onclick="logout()">
               <i class="material-symbols-rounded">logout</i>
               <span class="label">Logout</span>
-              </a>
             </li>
           </ul>
           <div class="tabs-container">
@@ -158,7 +156,7 @@
               </div>
               <div class="adduser-container">
                 <div class="form-box">
-                  <form class="adduser-form">
+                  <form action="javascript:addUser()" class="adduser-form">
                     <div class="form-container">
                       <div class="col-6">
                         <label style="margin-right:3vw">First Name</label>
@@ -174,7 +172,7 @@
                         <label style="margin-right:0.5vw">Contact Number</label>
                         <input
                           class="adduser-input"
-                          type="text"
+                          type="tel"
                           id="a_contact"
                           placeholder="Contact Number"
                           maxlength="13"
@@ -196,13 +194,13 @@
                       </div>
                       <div class="col-6">
                         <label>Confirm Password</label>
-                        <input class="adduser-input" type="password" placeholder="Confirm your password" required />
+                        <input id="a_confirmPassword" class="adduser-input" type="password" placeholder="Confirm your password" required />
                       </div>
                     </div>
                     <div class="form-container">
                         <div class="col-3">
                           <label>Role</label>
-                          <select name="cars" id="a_role" class="adduser-role">
+                          <select id="a_role" class="adduser-role">
                             <option value="Admin">Admin </option>
                             <option value="Marketing Specialist">Marketing Specialist</option>
                             <option value="Manager">Manager</option>
@@ -210,7 +208,7 @@
                         </div>
                       </div>
                     </div>
-                    <button class="adduser-btn" onclick="addUser()" id="open-alert2">Add User</button>
+                    <button class="adduser-btn" >Add User</button>
                   </form>
                 </div>
               </div>
@@ -234,7 +232,7 @@
                         <div class="form-container">
                            <div class="col-3">
                               <label class="form-label">Contact Number</label>
-                              <input  type="text" id="contact" placeholder="+639121569632" maxlength="13" value="+63" readonly/>
+                              <input  type="text" id="update_contact" placeholder="+639121569632" maxlength="13" value="+63" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
@@ -246,19 +244,19 @@
                         <div class="form-container">
                            <div class="col-3">
                               <label class="form-label">Email Address</label>
-                              <input  type="email" id="email" placeholder="huloleisurefarm@gmail.com" readonly/>
+                              <input  type="email" id="update_email" placeholder="huloleisurefarm@gmail.com" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                            <div class="col-3">
                               <label class="form-label">Facebook Link</label>
-                              <input  type="email" id="email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
+                              <input  type="email" id="fb_email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
                              <label class="form-label">Instagram Link</label>
-                             <input  type="email" id="email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
+                             <input  type="email" id="ig_email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
                           </div>
                        </div>
                        <div class="form-container">
@@ -545,7 +543,7 @@
            </div>
            <div class="form-group">
              <label for="name">Email:</label>
-             <input type="email" name="name" id="Email" required>
+             <input type="email" name="name" id="change_email" required>
            </div>
            <div class="form-group">
              <label for="name">Contact Number: </label>
@@ -567,6 +565,7 @@
     </section>
     <script src="app.js"></script>
     <script>
+
       const addUser = () =>{
         
         const firstName = document.getElementById('a_firstName').value;
@@ -574,6 +573,7 @@
         const contact = document.getElementById('a_contact').value;
         const email = document.getElementById('a_email').value;
         const password = document.getElementById('a_password').value;
+        const confirmPassword = document.getElementById('a_confirmPassword').value;
         const role = document.getElementById('a_role').value;
         let signupData = {
           email: email,

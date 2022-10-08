@@ -51,7 +51,7 @@
               <i class="material-symbols-rounded">summarize</i>
               <span class="label">View Sales Report</span>
             </li>
-            <li rel="tabSix">
+            <li rel="tabFive" onclick="logout()">
               <i class="material-symbols-rounded">logout</i>
               <span class="label">Logout</span>
             </li>
@@ -600,12 +600,6 @@
             <div id="tabSix" class="tab-item">
               <h5>Tab 5 content</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
-                quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
-                numquam tempora nulla, beatae ab modi, molestiae, eius iure odio dolorum recusandae est. Distinctio a possimus placeat dolore iste
-                animi aspernatur. Eius ea doloremque blanditiis, esse dolores sit ipsa molestiae expedita accusamus eos, labore ipsam iste ducimus
-                optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
-                voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
               </p>
             </div>
           </div>
@@ -1064,6 +1058,10 @@
         document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
 
+      const logout = () => {
+        localStorage.clear();
+        window.location.replace("/login-reg.html");
+      };
     </script>
   </body>
 </html>

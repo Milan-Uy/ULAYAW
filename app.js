@@ -37,7 +37,7 @@ const getUser = (id) => {
   });
 };
 
-const getUsers = (searchKey) =>{
+const getUsers = (searchKey) => {
   let options = {
     method: "GET",
     headers: {
@@ -45,7 +45,7 @@ const getUsers = (searchKey) =>{
       Authorization: "Bearer " + localStorage.getItem("access_token"),
     },
   };
-  const searchKey$ = searchKey ? `&searchKey=${searchKey}` : '';
+  const searchKey$ = searchKey ? `&searchKey=${searchKey}` : "";
   return new Promise((resolve, reject) => {
     fetch(`https://ulayaw-backend.herokuapp.com/getNonGuests?${searchKey$}`, options)
       .then((response) => response.json())
@@ -53,4 +53,4 @@ const getUsers = (searchKey) =>{
         resolve(data.payload);
       });
   });
-}
+};
