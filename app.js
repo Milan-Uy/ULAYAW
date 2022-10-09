@@ -47,7 +47,7 @@ const getUsers = (searchKey) =>{
   };
   const searchKey$ = searchKey ? `&searchKey=${searchKey}` : '';
   return new Promise((resolve, reject) => {
-    fetch(`https://ulayaw-backend.herokuapp.com/getNonGuests?${searchKey$}`, options)
+    fetch(`https://ulayaw-backend.herokuapp.com/user/getNonGuests?${searchKey$}`, options)
       .then((response) => response.json())
       .then((data) => {
         resolve(data.payload);
