@@ -612,6 +612,8 @@
           .then((data) => {
             console.log(data);
             if (data.key === "USERCREATED") {
+              clearValues();
+              setValues();
               document.getElementsByClassName("alert2")[0].classList.add("show");
 
       document.getElementById("close-alert2").addEventListener("click", function () {
@@ -628,7 +630,11 @@
         }
       }
 
-
+      const clearValues = () =>{
+        const list = document.getElementById('table_users');
+        list.innerHTML = '';
+      }
+      
       const setValues = async () =>{
         let users = await getUsers(null, null);
         console.log(users);
