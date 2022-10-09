@@ -44,11 +44,9 @@
               <i class="material-symbols-rounded">update</i>
               <span class="label"> Update Application</span>
             </li>
-            <li rel="tabFive">
-              <a onclick="logout()">
+            <li rel="tabFive" onclick="logout()">
               <i class="material-symbols-rounded">logout</i>
               <span class="label">Logout</span>
-              </a>
             </li>
           </ul>
           <div class="tabs-container">
@@ -156,9 +154,19 @@
                 <i class="fas fa-exclamation-circle alert-icon"></i>
                 <strong>User Successfully Added</strong>
               </div>
+              <div class="alertMessage alert-pwnotmatch">
+                <span class="close" id="close-alert-pwnotmatch">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Password does not match</strong>
+              </div>
+              <div class="alertMessage alert-error">
+                <span class="close" id="close-alert-error">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Error Occured</strong>
+              </div>
               <div class="adduser-container">
                 <div class="form-box">
-                  <form class="adduser-form">
+                  <form action="javascript:addUser()" class="adduser-form">
                     <div class="form-container">
                       <div class="col-6">
                         <label style="margin-right:3vw">First Name</label>
@@ -174,11 +182,12 @@
                         <label style="margin-right:0.5vw">Contact Number</label>
                         <input
                           class="adduser-input"
-                          type="text"
+                          type="tel"
                           id="a_contact"
                           placeholder="Contact Number"
-                          maxlength="13"
-                          value="+63"
+                          minlength="11"
+                          maxlength="11"
+                          value=""
                           required
                         />
                       </div>
@@ -192,17 +201,20 @@
                     <div class="form-container">
                       <div class="col-6">
                         <label style="margin-right:3vw">Password</label>
-                        <input id="a_password" class="adduser-input" type="password" placeholder="Enter your password" required />
+                        <input id="a_password" class="adduser-input" type="password" placeholder="Enter your password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                        title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
+                        required
+                        value="" />
                       </div>
                       <div class="col-6">
                         <label>Confirm Password</label>
-                        <input class="adduser-input" type="password" placeholder="Confirm your password" required />
+                        <input id="a_confirmPassword" class="adduser-input" type="password" placeholder="Confirm your password" required />
                       </div>
                     </div>
                     <div class="form-container">
                         <div class="col-3">
                           <label>Role</label>
-                          <select name="cars" id="a_role" class="adduser-role">
+                          <select id="a_role" class="adduser-role">
                             <option value="Admin">Admin </option>
                             <option value="Marketing Specialist">Marketing Specialist</option>
                             <option value="Manager">Manager</option>
@@ -210,7 +222,7 @@
                         </div>
                       </div>
                     </div>
-                    <button class="adduser-btn" onclick="addUser()" id="open-alert2">Add User</button>
+                    <button class="adduser-btn" >Add User</button>
                   </form>
                 </div>
               </div>
@@ -234,7 +246,7 @@
                         <div class="form-container">
                            <div class="col-3">
                               <label class="form-label">Contact Number</label>
-                              <input  type="text" id="contact" placeholder="+639121569632" maxlength="13" value="+63" readonly/>
+                              <input  type="tel" id="update_contact" placeholder="+639121569632" minlength="11" maxlength="11" value="" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
@@ -246,19 +258,19 @@
                         <div class="form-container">
                            <div class="col-3">
                               <label class="form-label">Email Address</label>
-                              <input  type="email" id="email" placeholder="huloleisurefarm@gmail.com" readonly/>
+                              <input  type="email" id="update_email" placeholder="huloleisurefarm@gmail.com" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                            <div class="col-3">
                               <label class="form-label">Facebook Link</label>
-                              <input  type="email" id="email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
+                              <input  type="email" id="fb_email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
                              <label class="form-label">Instagram Link</label>
-                             <input  type="email" id="email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
+                             <input  type="email" id="ig_email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
                           </div>
                        </div>
                        <div class="form-container">
@@ -506,12 +518,6 @@
             <div id="tabFive" class="tab-item">
               <h5>Logout</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
-                quia distinctio nesciunt soluta expedita fugit possimus ad labore? Obcaecati molestias aperiam exercitationem expedita provident
-                numquam tempora nulla, beatae ab modi, molestiae, eius iure odio dolorum recusandae est. Distinctio a possimus placeat dolore iste
-                animi aspernatur. Eius ea doloremque blanditiis, esse dolores sit ipsa molestiae expedita accusamus eos, labore ipsam iste ducimus
-                optio itaque provident voluptate reprehenderit libero cum atque in porro. Iste, nihil? Ea temporibus tempore optio quis autem soluta
-                voluptate. Doloribus perspiciatis impedit iure neque, hic exercitationem voluptates laudantium accusamus?
               </p>
             </div>
           </div>
@@ -545,7 +551,7 @@
            </div>
            <div class="form-group">
              <label for="name">Email:</label>
-             <input type="email" name="name" id="Email" required>
+             <input type="email" name="name" id="change_email" required>
            </div>
            <div class="form-group">
              <label for="name">Contact Number: </label>
@@ -567,6 +573,7 @@
     </section>
     <script src="app.js"></script>
     <script>
+
       const addUser = () =>{
         
         const firstName = document.getElementById('a_firstName').value;
@@ -574,6 +581,7 @@
         const contact = document.getElementById('a_contact').value;
         const email = document.getElementById('a_email').value;
         const password = document.getElementById('a_password').value;
+        const confirmPassword = document.getElementById('a_confirmPassword').value;
         const role = document.getElementById('a_role').value;
         let signupData = {
           email: email,
@@ -591,11 +599,33 @@
           },
           body: JSON.stringify(signupData),
         };
+
+        if (password != confirmPassword) {
+        document.getElementsByClassName("alert-pwnotmatch")[0].classList.add("show");
+
+      document.getElementById("close-alert-pwnotmatch").addEventListener("click", function () {
+        document.getElementsByClassName("alert-pwnotmatch")[0].classList.remove("show");
+      });
+        } else if (password === confirmPassword) {
         fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            if (data.key === "USERCREATED") {
+              document.getElementsByClassName("alert2")[0].classList.add("show");
+
+      document.getElementById("close-alert2").addEventListener("click", function () {
+        document.getElementsByClassName("alert2")[0].classList.remove("show");
+      });
+            } else if (data.key === "NOTVALIDATED") {
+              document.getElementsByClassName("alert-error")[0].classList.add("show");
+
+              document.getElementById("close-alert-error").addEventListener("click", function () {
+                document.getElementsByClassName("alert-error")[0].classList.remove("show");
+              });
+            }
           })
+        }
       }
 
 

@@ -5021,7 +5021,7 @@ tr {
   }
 }*/
 
-/*Reservation Details
+/*Reservation Details*/
 
 .headtextrd {
   text-align: center;
@@ -5032,41 +5032,40 @@ tr {
   font-style: normal;
   color: #6b4f4f;
 }
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
+
+/* Create two equal columns that floats next to each other */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
-/* Remove extra left and right margins, due to padding 
-.row {
-  margin: 0 -5px;
+body {
+  margin: 0;
 }
 
-/* Clear floats after the columns 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.columnsContainer {
+  position: relative;
+  margin: 0.5em;
 }
 
-/* Responsive columns 
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
+.leftColumn,
+.rightColumn {
+  padding: 1.25em;
 }
 
-/* Style the counter cards 
+.leftColumn {
+  margin-bottom: 0.5em;
+}
+
+/* Style the counter cards */
 .card1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
   background-color: #f9f2e7;
-  width: 100%;
 }
 .card2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -5075,9 +5074,8 @@ tr {
   background-color: #f9f2e7;
 }
 .rdimg {
-  width: 100%;
-  margin: 0;
-  float: left;
+  width: 20%;
+  height: auto;
 }
 .confirm-btn {
   background-color: #6b4f4f;
