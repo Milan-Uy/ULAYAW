@@ -223,7 +223,7 @@
         background-color: #f9f2e7;
         padding: 0px 20px 0px 20px;
       }
-      .nav-header-index .navbar {
+      .nav-header-index .navbar-index {
         position: fixed;
         top: 65px;
         left: 0;
@@ -237,7 +237,7 @@
         transition: transform 0.5s ease;
         justify-content: center;
       }
-      .navbar ul {
+      .navbar-index ul {
         padding: 0px;
         margin-left: 20px;
       }
@@ -248,11 +248,11 @@
       .book-btn a {
         margin-top: 0px;
       }
-      .navbar.open {
+      .navbar-index.open {
         -webkit-transform: translateX(0%);
         transform: translateX(0%);
       }
-      .navbar ul li {
+      .navbar-index ul li {
         display: block;
         margin: 0px 10px 0px 10px;
       }
@@ -384,7 +384,6 @@
       position: absolute;
     }
     .hero-title h1 {
-      margin-top: 80px;
       text-align: center;
       font-weight: 500;
       letter-spacing: 2px;
@@ -416,6 +415,9 @@
       justify-content: center;
       font-family: "Raleway";
     }
+    .form-item .check-flex-item {
+      border: 0px solid transparent !important;
+    }
     .checkavail-form-index .material-symbols-outlined {
       display: flex;
       position: absolute;
@@ -423,6 +425,38 @@
       font-size: 30px;
       font-weight: 500;
     }
+    @media (max-width: 901px) {
+      .checkavail-form-index {
+        display: flex;
+        justify-content: center;
+        margin: 10px 40px;
+      }
+      .hero-title h1 {
+        font-size: 58px;
+      }
+    }
+    @media (max-width: 580px) {
+      .checkavail-form-index {
+        display: block;
+        justify-content: center;
+        padding: 15px 40px 10px 0px;
+        margin: 50px 20px 10px 20px;
+      }
+      .form-item {
+        margin-bottom: 5px !important;
+      }
+      .hero-title h1 {
+        font-size: 42px;
+      }
+      .search-icon {
+        margin-left: -15px !important;
+        margin-right: -28px;
+      }
+      .search-icon .text {
+        font-size: 11px !important;
+      }
+    }
+
     .index-stroke {
       margin-top: -150px;
       overflow: hidden;
@@ -446,9 +480,39 @@
       margin: 20px 40px 10px 40px;
       width: 50%;
     }
+    @media (max-width: 901px) {
+      .welcome-section {
+        padding: 80px 10px 10px 10px;
+      }
+      .welcome-desc {
+        width: 100%;
+      }
+      .welcome-section .main-title {
+        font-size: 30px;
+        max-width: 430px;
+        height: 120px;
+      }
+    }
     @media (max-width: 600px) {
+      .welcome-section {
+        display: block;
+      }
+      .welcome-desc {
+        margin: 10px;
+      }
+      .welcome-description {
+        padding: 10px 20px 20px 25px !important;
+        font-size: 14px;
+      }
       .reveal-text {
         font-size: 1.8rem;
+      }
+      .welcome-container {
+        max-width: 100% !important;
+        margin-left: -20px;
+      }
+      .welcome-grid {
+        grid-auto-rows: 30vw !important;
       }
     }
     .reveal-text {
@@ -547,6 +611,34 @@
     }
     .cabin-title .main-title {
       height: 80px;
+    }
+    @media (max-width: 631px) {
+      .cabin-section {
+        padding: 0px 20px 40px 20px;
+      }
+      .cabin-title .main-title {
+        font-size: 30px;
+        height: 50px;
+      }
+      .cabin-title .sub-title {
+        font-size: 12px;
+        height: 10px;
+        margin-left: 40px;
+      }
+      .wrapper-feature {
+        width: 80% !important;
+      }
+      .content-feature {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 361px) {
+      .feature-image h2 {
+        top: 65% !important;
+      }
+      .box-feature h2 {
+        font-size: 16px !important;
+      }
     }
     .main-title {
       font-size: 48px;
@@ -725,6 +817,28 @@
     .testimonial-content {
       width: 70%;
       margin-top: 30px;
+    }
+    @media (max-width: 901px) {
+      .testimonial-section {
+        display: block;
+      }
+      .testimonial-ttl {
+        width: 100%;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      .testimonial-section .main-title {
+        height: 120px;
+        font-size: 30px;
+        max-width: 320px;
+      }
+      .testimonial-section .sub-title {
+        font-size: 12px;
+      }
+      .testimonial-content {
+        margin-top: 0px;
+        width: 100%;
+      }
     }
     .content-feature {
       display: flex;
@@ -909,6 +1023,22 @@
       text-decoration: none;
       color: #fff;
     }
+    @media (max-width: 901px) {
+      .index-end {
+        display: block;
+      }
+      .seefaqs {
+        padding: 40px 40px;
+        width: 100%;
+      }
+      .seefaqs .main-title {
+        font-size: 30px;
+        height: 35px;
+      }
+      .seefaqs-btn {
+        width: 40%;
+      }
+    }
   </style>
 
   <body>
@@ -951,7 +1081,7 @@
           ENJOY YOUR MOMENT <br />
           WITH HULO
         </h1>
-        <div class="check-availability">
+        <div class="check-availability-index">
           <form class="checkavail-form-index">
             <div class="form-item check-flex-item">
               <i class="icon material-symbols-outlined">event_upcoming</i>
@@ -1183,14 +1313,6 @@
     </section>
 
     <script>
-      const changeLoginToProfile = () => {
-        if (localStorage.getItem("access_token")) {
-          document.getElementById("login-reg").innerText = "Profile";
-        }
-      };
-
-      changeLoginToProfile();
-
       //Import Footer
       $(function () {
         $("#footer-placeholder").load("footer.html");
