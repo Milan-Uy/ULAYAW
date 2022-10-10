@@ -5033,6 +5033,20 @@ tr {
   color: #6b4f4f;
 }
 
+.villatxt {
+  font-family: "Cinzel";
+  font-style: normal;
+  color: #6b4f4f;
+  font-size: 50px;
+}
+
+.pricetxt {
+  font-family: "Cinzel";
+  font-style: normal;
+  color: #6b4f4f;
+  font-size: 25px;
+}
+
 /* Create two equal columns that floats next to each other */
 *,
 *:before,
