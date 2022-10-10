@@ -532,7 +532,7 @@
       <div class="popup-title">Remove User</div>
       <div class="description">Are you sure you want to remove the user?</div>
       <div class="dismiss-btn">
-      <button id="confirm-popup2-btn">Yes</button>
+      <button id="confirm-popup2-btn" onclick="removeUser()">Yes</button>
       <button id="dismiss-popup2-btn">No</button>
       </div>
    </div>
@@ -540,7 +540,7 @@
    <div class="popup popup3 center">
     <div class="popup-title">User Profile</div>
     <div class="description">
-       <form action = "">
+       <form action = "javascript:editProfile()">
           <div class="form-group">
              <label for="fname">First Name:</label>
              <input type="text" id="fname" required>
@@ -603,9 +603,9 @@
         if (password != confirmPassword) {
         document.getElementsByClassName("alert-pwnotmatch")[0].classList.add("show");
 
-      document.getElementById("close-alert-pwnotmatch").addEventListener("click", function () {
-        document.getElementsByClassName("alert-pwnotmatch")[0].classList.remove("show");
-      });
+        document.getElementById("close-alert-pwnotmatch").addEventListener("click", function () {
+          document.getElementsByClassName("alert-pwnotmatch")[0].classList.remove("show");
+        });
         } else if (password === confirmPassword) {
         fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
           .then((response) => response.json())
@@ -616,9 +616,9 @@
               setValues();
               document.getElementsByClassName("alert2")[0].classList.add("show");
 
-      document.getElementById("close-alert2").addEventListener("click", function () {
-        document.getElementsByClassName("alert2")[0].classList.remove("show");
-      });
+              document.getElementById("close-alert2").addEventListener("click", function () {
+                document.getElementsByClassName("alert2")[0].classList.remove("show");
+              });
             } else if (data.key === "NOTVALIDATED") {
               document.getElementsByClassName("alert-error")[0].classList.add("show");
 
@@ -643,8 +643,9 @@
         // load all event listeners
         let tr;
         let th;
-        users.forEach(user=>{
+        users.forEach((user, index)=>{
           tr = document.createElement('tr');
+          // tr.classList.add('row-'+user._id)
           td1 = document.createElement('td');
           td1.appendChild(document.createTextNode(user.firstName + ' ' + user.lastName));
           tr.appendChild(td1);
@@ -666,8 +667,8 @@
           <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content ">
-                               <a class = "dd-content remove-user" href = "#" id="open-popup2-btn"> Remove User </a>
-                               <a class = "dd-content edit-profile" href = "#" id="open-popup3-btn"> Edit Profile </a>
+                               <a class = "${user._id} delete-profile-a dd-content remove-user" href = "#" > Remove User </a>
+                               <a class = "${user._id} edit-profile-a ${user.firstName} ${user.lastName} ${user.email} ${user.contact}  dd-content edit-profile" href = "#" > Edit Profile </a>
                             </div>
                          </div>`
           tr.appendChild(td3);
@@ -676,6 +677,121 @@
        
       }
       setValues();
+      const saveId = (e) => {
+        console.log(e);
+        if(e.target.classList[1] === 'edit-profile-a'){
+          let id = e.target.classList[0];
+          console.log(id);
+          sessionStorage.setItem('edit_id',id);
+           document.getElementById("fname").value = e.target.classList[2];
+           document.getElementById("lname").value  = e.target.classList[3];
+           document.getElementById("change_email").value  = e.target.classList[4];
+           document.getElementById("contact").value  = e.target.classList[5];
+        }
+        if(e.target.classList[1] === 'delete-profile-a'){
+          let id = e.target.classList[0];
+          sessionStorage.setItem('edit_id',id);
+        }
+       
+      }  
+      document.body.addEventListener('click', saveId);
+
+      
+      
+      const changePopup = document.querySelector('#myTable');
+         changePopup.addEventListener('click', updatePopup);
+         function updatePopup(e){
+            // if(e.target.classList.contains('edit-popup')){
+            //    document.getElementsByClassName("popup")[0].classList.add("active");
+            // }
+
+            if(e.target.classList.contains('remove-user')){
+               document.getElementsByClassName("popup2")[0].classList.add("active");
+            }
+
+            if(e.target.classList.contains('edit-profile')){
+               document.getElementsByClassName("popup3")[0].classList.add("active");
+            }
+         }
+
+    
+      const editProfile = () => {
+
+        // e.preventDefault();
+        let firstname = document.getElementById("fname").value;
+        let lastname = document.getElementById("lname").value;
+        let email = document.getElementById("change_email").value;
+        let contact = document.getElementById("contact").value;
+        
+        // update user
+        const data = {
+          firstName: firstname,
+          lastName: lastname,
+          email: email,
+          contact: contact,
+        };
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.payload) {
+              clearValues();
+              setValues();
+              document.getElementsByClassName("alert3")[0].style.display = "block";
+
+              document.getElementById("close-alert3").addEventListener("click", function () {
+                document.getElementsByClassName("alert3")[0].style.display = "none";
+              });
+            }
+          });
+      };
+
+
+      
+      const removeUser = () => {
+        // update user
+        const data = {
+          status: "Deleted",
+        };
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.payload) {
+              clearValues();
+              setValues();
+              document.getElementsByClassName("alert3")[0].style.display = "block";
+
+              document.getElementById("close-alert3").addEventListener("click", function () {
+                document.getElementsByClassName("alert3")[0].style.display = "none";
+              });
+            }
+          });
+      };
+
+      const logout = () => {
+        localStorage.clear();
+        window.location.replace("/login-reg.html");
+      };
+      
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");
@@ -734,17 +850,21 @@
       };
 
       // Popup Button
-      document.getElementById("open-popup2-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup2")[0].classList.add("active");
-      });
+      // document.getElementById("open-popup2-btn").addEventListener("click", function () {
+      //   document.getElementsByClassName("popup2")[0].classList.add("active");
+      // });
 
       document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
 
-      document.getElementById("open-popup3-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup3")[0].classList.add("active");
+      document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
+
+      // document.getElementById("open-popup3-btn").addEventListener("click", function () {
+      //   document.getElementsByClassName("popup3")[0].classList.add("active");
+      // });
 
       document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup3")[0].classList.remove("active");
@@ -784,10 +904,10 @@
         document.getElementsByClassName("alert4")[0].classList.remove("show");
       });
 
-      document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
-        document.getElementsByClassName("alert5")[0].classList.add("show");
-      });
-
+      // document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert5")[0].classList.add("show");
+      // });
+      
       document.getElementById("close-alert5").addEventListener("click", function () {
         document.getElementsByClassName("alert5")[0].classList.remove("show");
       });
@@ -974,10 +1094,7 @@
         }
       }
 
-      const logout = () => {
-        localStorage.clear();
-        window.location.replace("/login-reg.html");
-      };
+
     </script>
   </body>
 </html>
