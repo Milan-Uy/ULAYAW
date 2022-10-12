@@ -123,12 +123,22 @@
                 <strong>User Successfully Updated</strong>
               </div>
 
-              <!-- ALERT -->
-
               <div class="alertMessage alert5">
                 <span class="close" id="close-alert5">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
                 <strong>User Successfully Changed Role</strong>
+              </div>
+
+              <div class="alertMessage alert6">
+                <span class="close" id="close-alert6">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>User Successfully Removed</strong>
+              </div>
+
+              <div class="alertMessage alert-error">
+                <span class="close" id="close-alert-error">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Error Occured</strong>
               </div>
               
               <table id="myTable">
@@ -527,6 +537,14 @@
     </section>
 
     <!-- START OF POPUP -->
+    <div class="popup popup1 popup-short center">
+      <div class="popup-title">Change Role</div>
+      <div class="description">Are you sure you want to change this user's role?</div>
+      <div class="dismiss-btn">
+      <button id="confirm-popup1-btn" onclick="changeRole()">Yes</button>
+      <button id="dismiss-popup1-btn">No</button>
+      </div>
+   </div>
 
     <div class="popup popup2 popup-short center">
       <div class="popup-title">Remove User</div>
@@ -555,7 +573,7 @@
            </div>
            <div class="form-group">
              <label for="name">Contact Number: </label>
-             <input type="text" minlength="13" name="name" id="contact" required>
+             <input type="text" minlength="11" maxlength="11" name="name" id="contact" required>
            </div>
            <div class = "submitbtn">
              <input type="submit" id="open-alert1" value = "Confirm">
@@ -655,9 +673,9 @@
                           <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content">
-                               <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
-                               <a class = "dd-content edit-popup" href = "#"> Manager </a>
-                               <a class = "dd-content edit-popup" href = "#"> Admin </a>
+                               <a class = "${user._id} dd-content edit-popup" data-value="1" href = "#"> Marketing Specialist </a>
+                               <a class = "${user._id} dd-content edit-popup" data-value="2" href = "#"> Manager </a>
+                               <a class = "${user._id} dd-content edit-popup" data-value="3" href = "#"> Admin </a>
                             </div>
                          </div>`
           tr.appendChild(td2);
@@ -692,7 +710,10 @@
           let id = e.target.classList[0];
           sessionStorage.setItem('edit_id',id);
         }
-       
+        if(e.target.classList[1] === 'edit-popup'){
+          let id = e.target.classList[0];
+          sessionStorage.setItem('edit_id',id);
+        }
       }  
       document.body.addEventListener('click', saveId);
 
@@ -701,9 +722,9 @@
       const changePopup = document.querySelector('#myTable');
          changePopup.addEventListener('click', updatePopup);
          function updatePopup(e){
-            // if(e.target.classList.contains('edit-popup')){
-            //    document.getElementsByClassName("popup")[0].classList.add("active");
-            // }
+            if(e.target.classList.contains('edit-popup')){
+               document.getElementsByClassName("popup")[0].classList.add("active");
+            }
 
             if(e.target.classList.contains('remove-user')){
                document.getElementsByClassName("popup2")[0].classList.add("active");
@@ -746,10 +767,10 @@
             if (data.payload) {
               clearValues();
               setValues();
-              document.getElementsByClassName("alert3")[0].style.display = "block";
+              document.getElementsByClassName("alert1")[0].style.display = "block";
 
-              document.getElementById("close-alert3").addEventListener("click", function () {
-                document.getElementsByClassName("alert3")[0].style.display = "none";
+              document.getElementById("close-alert1").addEventListener("click", function () {
+                document.getElementsByClassName("alert1")[0].style.display = "none";
               });
             }
           });
@@ -758,7 +779,7 @@
 
       
       const removeUser = () => {
-        // update user
+        // remove user
         const data = {
           status: "Deleted",
         };
@@ -778,13 +799,63 @@
             if (data.payload) {
               clearValues();
               setValues();
-              document.getElementsByClassName("alert3")[0].style.display = "block";
+              if(data.payload.status === "Deleted") {
+                document.getElementsByClassName("alert6")[0].style.display = "block";
 
-              document.getElementById("close-alert3").addEventListener("click", function () {
-                document.getElementsByClassName("alert3")[0].style.display = "none";
+              document.getElementById("close-alert6").addEventListener("click", function () {
+                document.getElementsByClassName("alert6")[0].style.display = "none";
               });
+              } else {
+                document.getElementsByClassName("alert-error")[0].style.display = "block";
+
+                document.getElementById("close-alert-error").addEventListener("click", function () {
+                  document.getElementsByClassName("alert-error")[0].style.display = "none";
+                });
+              }
+              
             }
           });
+      };
+
+      const changeRole = () => {
+        // change role
+        
+          const roleval = document.getElementsByClassName("edit-popup")[0];
+        
+        
+        
+        
+        console.log(roleval.dataset.value);
+        if (roleval.dataset.value == "1"){
+          role = "Marketing Specialist"
+        }
+
+        // const data = {
+        //   role: role,
+        // };
+        // let options = {
+        //   method: "PUT",
+        //   headers: {
+        //     "Content-Type": "application/json;charset=utf-8",
+        //     Authorization: "Bearer " + localStorage.getItem("access_token"),
+        //   },
+        //   body: JSON.stringify(data),
+        // };
+
+        // fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     console.log(data);
+        //     if (data.payload) {
+        //       clearValues();
+        //       setValues();
+        //       document.getElementsByClassName("alert3")[0].style.display = "block";
+
+        //       document.getElementById("close-alert3").addEventListener("click", function () {
+        //         document.getElementsByClassName("alert3")[0].style.display = "none";
+        //       });
+        //     }
+        //   });
       };
 
       const logout = () => {
@@ -850,9 +921,13 @@
       };
 
       // Popup Button
-      // document.getElementById("open-popup2-btn").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup2")[0].classList.add("active");
-      // });
+      document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
+      document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
 
       document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
