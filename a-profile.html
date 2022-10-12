@@ -673,9 +673,9 @@
                           <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content">
-                               <a class = "${user._id} dd-content edit-popup" data-value="1" href = "#"> Marketing Specialist </a>
-                               <a class = "${user._id} dd-content edit-popup" data-value="2" href = "#"> Manager </a>
-                               <a class = "${user._id} dd-content edit-popup" data-value="3" href = "#"> Admin </a>
+                               <a class = "${user._id} dd-content edit-popup-1 popup-role" data-value="1" href = "#"> Marketing Specialist </a>
+                               <a class = "${user._id} dd-content edit-popup-2 popup-role" data-value="2" href = "#"> Manager </a>
+                               <a class = "${user._id} dd-content edit-popup-3 popup-role" data-value="3" href = "#"> Admin </a>
                             </div>
                          </div>`
           tr.appendChild(td2);
@@ -710,8 +710,19 @@
           let id = e.target.classList[0];
           sessionStorage.setItem('edit_id',id);
         }
-        if(e.target.classList[1] === 'edit-popup'){
+        if(e.target.classList[2] === 'edit-popup-1'){
           let id = e.target.classList[0];
+          sessionStorage.setItem('edit_role','Marketing Specialist')
+          sessionStorage.setItem('edit_id',id);
+        }else
+        if(e.target.classList[2] === 'edit-popup-2'){
+          let id = e.target.classList[0];
+          sessionStorage.setItem('edit_role','Manager')
+          sessionStorage.setItem('edit_id',id);
+        }else
+        if(e.target.classList[2] === 'edit-popup-3'){
+          let id = e.target.classList[0];
+          sessionStorage.setItem('edit_role','Admin')
           sessionStorage.setItem('edit_id',id);
         }
       }  
@@ -722,7 +733,7 @@
       const changePopup = document.querySelector('#myTable');
          changePopup.addEventListener('click', updatePopup);
          function updatePopup(e){
-            if(e.target.classList.contains('edit-popup')){
+            if(e.target.classList.contains('popup-role')){
                document.getElementsByClassName("popup")[0].classList.add("active");
             }
 
@@ -819,43 +830,34 @@
 
       const changeRole = () => {
         // change role
-        
-          const roleval = document.getElementsByClassName("edit-popup")[0];
-        
-        
-        
-        
-        console.log(roleval.dataset.value);
-        if (roleval.dataset.value == "1"){
-          role = "Marketing Specialist"
-        }
+        const data = {
+          role: JSON.parse(JSON.stringify(sessionStorage.getItem('edit_role'))),
+        };
+        console.log(data);
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
 
-        // const data = {
-        //   role: role,
-        // };
-        // let options = {
-        //   method: "PUT",
-        //   headers: {
-        //     "Content-Type": "application/json;charset=utf-8",
-        //     Authorization: "Bearer " + localStorage.getItem("access_token"),
-        //   },
-        //   body: JSON.stringify(data),
-        // };
+        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            sessionStorage.setItem('edit_role','')
+            if (data.payload) {
+              clearValues();
+              setValues();
+              document.getElementsByClassName("alert5")[0].style.display = "block";
 
-        // fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     console.log(data);
-        //     if (data.payload) {
-        //       clearValues();
-        //       setValues();
-        //       document.getElementsByClassName("alert3")[0].style.display = "block";
-
-        //       document.getElementById("close-alert3").addEventListener("click", function () {
-        //         document.getElementsByClassName("alert3")[0].style.display = "none";
-        //       });
-        //     }
-        //   });
+              document.getElementById("close-alert5").addEventListener("click", function () {
+                document.getElementsByClassName("alert5")[0].style.display = "none";
+              });
+            }
+          });
       };
 
       const logout = () => {
