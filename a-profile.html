@@ -576,7 +576,7 @@
              <input type="text" minlength="11" maxlength="11" name="name" id="contact" required>
            </div>
            <div class = "submitbtn">
-             <input type="submit" id="open-alert1" value = "Confirm">
+             <input type="submit" id="confirm-popup3-btn" value = "Confirm">
              <input type="button" id="dismiss-popup3-btn" value = "Cancel">
           </div>
        </form>
@@ -939,9 +939,9 @@
         document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
 
-      // document.getElementById("open-popup3-btn").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup3")[0].classList.add("active");
-      // });
+      document.getElementById("confirm-popup3-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup3")[0].classList.remove("active");
+      });
 
       document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup3")[0].classList.remove("active");
