@@ -606,6 +606,11 @@
         </div>
       </div>
     </section>
+    <section class="display-footer">
+      <div id="footer-placeholder">
+        <div id="footer-btm"></div>
+      </div>
+    </section>
     <script src="app.js"></script>
     <script>
       
@@ -623,6 +628,10 @@
         $("#nav-placeholder").load("navbar-staff.html");
       });
 
+      //Import Footer
+        $(function () {
+        $("#footer-placeholder").load("footer.html #footer-btm");
+      });
       //Tabs
       jQuery(".tab-item").hide();
       jQuery(".tab-item:first").show();
