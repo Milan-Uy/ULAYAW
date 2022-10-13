@@ -123,6 +123,15 @@
   display: inline;
   padding: 0 15px;
 }
+.navbar ul li p {
+  display: inline-block;
+  padding: 10px 0px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #483434;
+  position: relative;
+  text-decoration: none;
+}
 .navbar ul li a {
   display: inline-block;
   padding: 10px 0px;
@@ -1776,7 +1785,6 @@ hr {
   margin: 0 0.4rem;
   margin-top: auto;
   justify-content: center;
-  border-right: 1px solid #cccccc;
   margin-right: 30px;
 }
 .check-flex-item-m {
@@ -2443,6 +2451,9 @@ tbody {
 }
 
 /*Footer*/
+#footer-placeholder {
+  display: flex;
+}
 footer {
   width: 100%;
   bottom: 0;
