@@ -1204,8 +1204,8 @@
     </section>
     <section class="testimonial-section">
       <div class="testimonial-ttl">
-        <h6 class="reveal-text sub-title">RECENT REVIEWS</h6>
-        <h2 class="reveal-text main-title">What our traveler says</h2>
+        <h6 class="reveal-text sub-title">Customer Satisfaction</h6>
+        <h2 class="reveal-text main-title">What our guest says</h2>
       </div>
       <div class="testimonial-content pt-5 pb-5">
         <div class="card col-md-12 mt-2">
@@ -1213,77 +1213,19 @@
             <div class="w-100 carousel-inner mb-5" role="listbox">
               <div class="carousel-item active">
                 <div class="bg"></div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="carousel-caption">
-                      <div class="row">
-                        <div class="col-sm-3 col-4 align-items-start">
-                          <img src="icons/happy.png" alt="" class="rounded-circle img-fluid" />
-                        </div>
-                        <div class="col-sm-9 col-8">
-                          <h2>Anonymous</h2>
-                          <small
-                            >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="carousel-caption">
-                      <div class="row">
-                        <div class="col-sm-3 col-4 align-items-start">
-                          <img src="icons/neutral.png" alt="" class="rounded-circle img-fluid" />
-                        </div>
-                        <div class="col-sm-9 col-8">
-                          <h2>Micheal Smith</h2>
-                          <small
-                            >Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been
-                            experiencing since a recent vasectomy.</small
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div id="customer_satisfaction"></div>
               </div>
               <div class="carousel-item">
                 <div class="bg"></div>
-                <div class="row">
-                  <div class="col-md-6 col-12">
-                    <div class="carousel-caption">
-                      <div class="row">
-                        <div class="col-sm-3 col-4 align-items-start">
-                          <img src="icons/sad.png" alt="" class="rounded-circle img-fluid" />
-                        </div>
-                        <div class="col-sm-9 col-8">
-                          <h2>John Doe</h2>
-                          <small
-                            >Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been
-                            experiencing since a recent vasectomy.</small
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-12">
-                    <div class="carousel-caption">
-                      <div class="row">
-                        <div class="col-sm-3 col-4 align-items-start">
-                          <img src="icons/happy.png" alt="" class="rounded-circle img-fluid" />
-                        </div>
-                        <div class="col-sm-9 col-8">
-                          <h2>Helena Doe</h2>
-                          <small
-                            >Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been
-                            experiencing since a recent vasectomy.</small
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div id="customer_satisfaction_2"></div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg"></div>
+                <div id="customer_satisfaction_3"></div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg"></div>
+                <div id="customer_satisfaction_4"></div>
               </div>
             </div>
             <a class="carousel-control-prev" href="#nextSlide" role="button" data-slide="prev">
@@ -1311,7 +1253,7 @@
     <section class="display-footer">
       <div id="footer-placeholder"></div>
     </section>
-
+    <script src="app.js"></script>
     <script>
       //Import Footer
       $(function () {
@@ -1355,6 +1297,71 @@
             break;
         }
       });
+
+      // const setCS = async () => {
+      //   let users = await getCS(null, null);
+      //   console.log("users");
+      //   const list = document.getElementById("customer_satisfaction");
+      //   // let data1 = "";
+      //   users.forEach((user) => {
+      //     data1 = "";
+      //     data1.innerHTML = `<div class="col-md-6">
+      //               <div class="carousel-caption">
+      //                 <div class="row">
+      //                   <div class="col-sm-3 col-4 align-items-start">
+      //                     <img src="icons/happy.png" alt="" class="rounded-circle img-fluid" />
+      //                   </div>
+      //                   <div class="col-sm-9 col-8">
+      //                     <h2>Anonymous</h2>
+      //                     <small
+      //                       >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+      //                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      //                     </small>
+      //                   </div>
+      //                 </div>
+      //               </div>
+      //             </div>`;
+      //     list.appendChild(data1);
+      //   });
+
+      //   // const list = document.getElementById("customer_satisfaction");
+
+      //   // load all event listeners
+      //   let tr;
+      //   let th;
+      //   users.forEach((user, index) => {
+      //     tr = document.createElement("tr");
+      //     // tr.classList.add('row-'+user._id)
+      //     td1 = document.createElement("td");
+      //     td1.appendChild(document.createTextNode(user.firstName + " " + user.lastName));
+      //     tr.appendChild(td1);
+
+      //     td2 = document.createElement("td");
+      //     td2.innerHTML = `${user.role}
+      //                     <div class="dropdown">
+      //                       <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
+      //                       <div class="dropdown-content">
+      //                          <a class = "${user._id} dd-content edit-popup-1 popup-role" data-value="1" href = "#"> Marketing Specialist </a>
+      //                          <a class = "${user._id} dd-content edit-popup-2 popup-role" data-value="2" href = "#"> Manager </a>
+      //                          <a class = "${user._id} dd-content edit-popup-3 popup-role" data-value="3" href = "#"> Admin </a>
+      //                       </div>
+      //                    </div>`;
+      //     tr.appendChild(td2);
+
+      //     td3 = document.createElement("td");
+      //     td3.innerHTML = `
+      //     <div class="dropdown">
+      //                       <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
+      //                       <div class="dropdown-content ">
+      //                          <a class = "${user._id} delete-profile-a dd-content remove-user" href = "#" > Remove User </a>
+      //                          <a class = "${user._id} edit-profile-a ${user.firstName} ${user.lastName} ${user.email} ${user.contact}  dd-content edit-profile" href = "#" > Edit Profile </a>
+      //                       </div>
+      //                    </div>`;
+      //     tr.appendChild(td3);
+      //     list.appendChild(tr);
+      //   });
+      // };
+      // setCS();
 
       //Navbar Effect
       $(document).ready(function () {
@@ -1467,6 +1474,272 @@
           });
         });
       });
+
+      const getCS = () => {
+        // var happy = document.createElement("img");
+        // happy.src = "icons/happy.png";
+        // var neutral = document.createElement("img");
+        // neutral.src = "icons/neutral.png";
+        // var sad = document.createElement("img");
+        // sad.src = "icons/sad.png";
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            // Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+        fetch("https://ulayaw-backend.herokuapp.com/user/customerSatisfaction", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            const list = document.getElementById("customer_satisfaction");
+            var data1 = "";
+            var data2 = "";
+            var data3 = "";
+            var data4 = "";
+            var data5 = "";
+            if (data.payload) {
+              if (data.payload[0]) {
+                data1 += "<div class='row'>";
+                data1 += "<div class='col-md-6 col-12'>";
+                data1 += "<div class='carousel-caption'>";
+                data1 += "<div class='row'>";
+                data1 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data1 += "<img id='cs-img0' src='icons/neutral.png'  class='rounded-circle img-fluid' />";
+                data1 += "</div>";
+                data1 += "<div class='col-sm-9 col-8'>";
+                data1 += "<h2 id='cs-name0'> " + data.payload[0].firstName + " " + data.payload[0].lastName + "</h2>";
+                data1 += "<small>" + data.payload[0].feedback.description + "</small>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+              }
+              if (data.payload[1]) {
+                data1 += "<div class='col-md-6 col-12'>";
+                data1 += "<div class='carousel-caption'>";
+                data1 += "<div class='row'>";
+                data1 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data1 += "<img id='cs-img1' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data1 += "</div>";
+                data1 += "<div class='col-sm-9 col-8'>";
+                data1 += "<h2 id='cs-name1'> " + data.payload[1].firstName + " " + data.payload[1].lastName + "</h2>";
+                data1 += "<small>" + data.payload[1].feedback.description + "</small>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+              }
+              data1 += "</div>";
+              $("#customer_satisfaction").html(data1);
+              if (data.payload[0]) {
+                if (data.payload[0].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name0").innerHTML = "Anonymous";
+                }
+                if (data.payload[0].feedback.rating == 1) {
+                  document.getElementById("cs-img0").src = "icons/sad.png";
+                } else if (data.payload[0].feedback.rating == 2) {
+                  document.getElementById("cs-img0").src = "icons/neutral.png";
+                } else if (data.payload[0].feedback.rating == 3) {
+                  document.getElementById("cs-img0").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[1]) {
+                if (data.payload[1].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name1").innerHTML = "Anonymous";
+                }
+                if (data.payload[1].feedback.rating == 1) {
+                  document.getElementById("cs-img1").src = "icons/sad.png";
+                } else if (data.payload[1].feedback.rating == 2) {
+                  document.getElementById("cs-img1").src = "icons/neutral.png";
+                } else if (data.payload[1].feedback.rating == 3) {
+                  document.getElementById("cs-img1").src = "icons/happy.png";
+                }
+              }
+              // document.getElementById("customer_satisfaction").innerHTML += data1;
+              // list.innerHTML += data1;
+
+              if (data.payload[2]) {
+                data2 += "<div class='row'>";
+                data2 += "<div class='col-md-6 col-12'>";
+                data2 += "<div class='carousel-caption'>";
+                data2 += "<div class='row'>";
+                data2 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data2 += "<img id='cs-img2' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data2 += "</div>";
+                data2 += "<div class='col-sm-9 col-8'>";
+                data2 += "<h2 id='cs-name2'> " + data.payload[2].firstName + " " + data.payload[2].lastName + "</h2>";
+                data2 += "<small>" + data.payload[2].feedback.description + "</small>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+              }
+              if (data.payload[3]) {
+                data2 += "<div class='col-md-6 col-12'>";
+                data2 += "<div class='carousel-caption'>";
+                data2 += "<div class='row'>";
+                data2 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data2 += "<img id='cs-img3' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data2 += "</div>";
+                data2 += "<div class='col-sm-9 col-8'>";
+                data2 += "<h2 id='cs-name3'> " + data.payload[3].firstName + " " + data.payload[3].lastName + "</h2>";
+                data2 += "<small>" + data.payload[3].feedback.description + "</small>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+              }
+
+              data2 += "</div>";
+              $("#customer_satisfaction_2").html(data2);
+              if (data.payload[2]) {
+                if (data.payload[2].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name2").innerHTML = "Anonymous";
+                }
+                if (data.payload[2].feedback.rating == 1) {
+                  document.getElementById("cs-img2").src = "icons/sad.png";
+                } else if (data.payload[2].feedback.rating == 2) {
+                  document.getElementById("cs-img2").src = "icons/neutral.png";
+                } else if (data.payload[2].feedback.rating == 3) {
+                  document.getElementById("cs-img2").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[3]) {
+                if (data.payload[3].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name3").innerHTML = "Anonymous";
+                }
+                if (data.payload[3].feedback.rating == 1) {
+                  document.getElementById("cs-img3").src = "icons/sad.png";
+                } else if (data.payload[3].feedback.rating == 2) {
+                  document.getElementById("cs-img3").src = "icons/neutral.png";
+                } else if (data.payload[3].feedback.rating == 3) {
+                  document.getElementById("cs-img3").src = "icons/happy.png";
+                }
+              }
+
+              if (data.payload[4]) {
+                data3 += "<div class='row'>";
+                data3 += "<div class='col-md-6 col-12'>";
+                data3 += "<div class='carousel-caption'>";
+                data3 += "<div class='row'>";
+                data3 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data3 += "<img id='cs-img4' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data3 += "</div>";
+                data3 += "<div class='col-sm-9 col-8'>";
+                data3 += "<h2 id='cs-name4'> " + data.payload[4].firstName + " " + data.payload[4].lastName + "</h2>";
+                data3 += "<small>" + data.payload[4].feedback.description + "</small>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+              }
+              if (data.payload[5]) {
+                data3 += "<div class='col-md-6 col-12'>";
+                data3 += "<div class='carousel-caption'>";
+                data3 += "<div class='row'>";
+                data3 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data3 += "<img id='cs-img5' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data3 += "</div>";
+                data3 += "<div class='col-sm-9 col-8'>";
+                data3 += "<h2 id='cs-name5'> " + data.payload[5].firstName + " " + data.payload[5].lastName + "</h2>";
+                data3 += "<small>" + data.payload[5].feedback.description + "</small>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+              }
+
+              data3 += "</div>";
+              $("#customer_satisfaction_3").html(data3);
+              if (data.payload[4]) {
+                if (data.payload[4].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name4").innerHTML = "Anonymous";
+                }
+                if (data.payload[4].feedback.rating == 1) {
+                  document.getElementById("cs-img4").src = "icons/sad.png";
+                } else if (data.payload[4].feedback.rating == 2) {
+                  document.getElementById("cs-img4").src = "icons/neutral.png";
+                } else if (data.payload[4].feedback.rating == 3) {
+                  document.getElementById("cs-img4").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[5]) {
+                if (data.payload[5].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name5").innerHTML = "Anonymous";
+                }
+                if (data.payload[5].feedback.rating == 1) {
+                  document.getElementById("cs-img5").src = "icons/sad.png";
+                } else if (data.payload[5].feedback.rating == 2) {
+                  document.getElementById("cs-img5").src = "icons/neutral.png";
+                } else if (data.payload[5].feedback.rating == 3) {
+                  document.getElementById("cs-img5").src = "icons/happy.png";
+                }
+              }
+
+              if (data.payload[6]) {
+                data4 += "<div class='row'>";
+                data4 += "<div class='col-md-6 col-12'>";
+                data4 += "<div class='carousel-caption'>";
+                data4 += "<div class='row'>";
+                data4 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data4 += "<img id='cs-img6' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data4 += "</div>";
+                data4 += "<div class='col-sm-9 col-8'>";
+                data4 += "<h2 id='cs-name6'> " + data.payload[6].firstName + " " + data.payload[6].lastName + "</h2>";
+                data4 += "<small>" + data.payload[6].feedback.description + "</small>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+              }
+              if (data.payload[7]) {
+                data4 += "<div class='col-md-6 col-12'>";
+                data4 += "<div class='carousel-caption'>";
+                data4 += "<div class='row'>";
+                data4 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data4 += "<img id='cs-img7' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data4 += "</div>";
+                data4 += "<div class='col-sm-9 col-8'>";
+                data4 += "<h2 id='cs-name7'> " + data.payload[7].firstName + " " + data.payload[7].lastName + "</h2>";
+                data4 += "<small>" + data.payload[7].feedback.description + "</small>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+              }
+
+              data4 += "</div>";
+              $("#customer_satisfaction_4").html(data4);
+              if (data.payload[6]) {
+                if (data.payload[6].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name6").innerHTML = "Anonymous";
+                }
+                if (data.payload[6].feedback.rating == 1) {
+                  document.getElementById("cs-img6").src = "icons/sad.png";
+                } else if (data.payload[6].feedback.rating == 2) {
+                  document.getElementById("cs-img6").src = "icons/neutral.png";
+                } else if (data.payload[6].feedback.rating == 3) {
+                  document.getElementById("cs-img6").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[7]) {
+                if (data.payload[7].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name7").innerHTML = "Anonymous";
+                }
+                if (data.payload[7].feedback.rating == 1) {
+                  document.getElementById("cs-img7").src = "icons/sad.png";
+                } else if (data.payload[7].feedback.rating == 2) {
+                  document.getElementById("cs-img7").src = "icons/neutral.png";
+                } else if (data.payload[7].feedback.rating == 3) {
+                  document.getElementById("cs-img7").src = "icons/happy.png";
+                }
+              }
+            }
+          });
+      };
+      getCS();
 
       //Date Picker
       let startDate = new Date();
