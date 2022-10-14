@@ -759,7 +759,7 @@
         const data = {
           firstName: firstname,
           lastName: lastname,
-          changeEmail: email,
+          email: email,
           contact: contact,
         };
         console.log(data);
@@ -768,7 +768,6 @@
           method: "PUT",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
           body: JSON.stringify(data),
         };
@@ -800,7 +799,6 @@
           method: "PUT",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
           body: JSON.stringify(data),
         };
@@ -840,7 +838,6 @@
           method: "PUT",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
           body: JSON.stringify(data),
         };
