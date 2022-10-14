@@ -424,7 +424,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
+        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
           .then((response) => response.json())
           .then((data) => {
             if (data.payload) {
@@ -497,7 +497,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("http://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
+        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
           .then((response) => response.json())
           .then((data) => {
             if (data.payload) {
