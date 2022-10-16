@@ -338,7 +338,8 @@
 }
 .faqs-header h1,
 .villas-header h1,
-.moments-header h1 {
+.moments-header h1,
+.tnc-header h1 {
   margin-left: 100px;
   font-family: "Cinzel";
   font-style: normal;
@@ -5271,4 +5272,69 @@ button:focus {
   padding: 5px 20px;
   text-transform: uppercase;
   background-color: #9dbbae;
+}
+
+/* Terms & Condition */
+
+.tnc-header {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 45, 100, 0.3);
+}
+
+.tnc-header::before {
+  content: "";
+  background: url(/images/tnc-bg.jpg) no-repeat center center/cover;
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.tnc-card1 {
+  background: white;
+  box-shadow: 0 2px 20px rgba(0, 0.1, 0.1, 0.25);
+  border-radius: 20px;
+  padding: 50px;
+  margin: 0px 80px 80px 80px;
+}
+
+.tnc-text {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: #483434;
+  text-size-adjust: auto;
+}
+.tnc-head {
+  font-family: "Montserrat", sans-serif;
+  font-size: 35px;
+  color: #483434;
+  font-weight: 900;
+  text-size-adjust: auto;
+}
+
+.tnc-head1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #483434;
+  text-size-adjust: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .tnc-card1 {
+    padding: 30px;
+    margin: 20px;
+  }
+  .tnc-head {
+    font-size: 20px;
+  }
+
+  .tnc-text {
+    font-size: 13px;
+  }
 }
