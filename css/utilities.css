@@ -5297,9 +5297,6 @@ button:focus {
 }
 
 .tnc-card1 {
-  background: white;
-  box-shadow: 0 2px 20px rgba(0, 0.1, 0.1, 0.25);
-  border-radius: 20px;
   padding: 50px;
   margin: 0px 80px 80px 80px;
 }
