@@ -152,7 +152,7 @@
                 <tbody id="table_users">
                  
                 </tbody>
- </table>
+          </table>
             </div>
             <!--Add Users Tab-->
             <h4 class="tab-accordion-title" rel="tabThree">Add User</h4>
@@ -249,37 +249,37 @@
               </div>
                   <div class="app-details">
                      <h4>Basic Information</h4>
-                     <button class="editapp-btn" onclick="()" id="open-alert3">Edit</button>
+                     <button class="editapp-btn" onclick="()" id="removeReadOnly">Edit</button>
                   </div>
                   <div class="form-box">
                      <form class="update-form">
                         <div class="form-container">
                            <div class="col-3">
-                              <label class="form-label">Contact Number</label>
-                              <input  type="tel" id="update_contact" placeholder="+639121569632" minlength="11" maxlength="11" value="" readonly/>
+                              <label class="form-label hide-txt1">Contact Number</label>
+                              <input  type="tel" id="update_contact" placeholder="9121569632" minlength="11" maxlength="11" value="" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
-                             <label class="form-label">Location</label>
-                             <input id="lastname" type="text" placeholder="Abucay, Bataan, Philippines" readonly/>
+                             <label class="form-label hide-txt2">Location</label>
+                             <input id="location" type="text" placeholder="Abucay, Bataan, Philippines" readonly/>
                           </div>
                        </div>
                         <div class="form-container">
                            <div class="col-3">
-                              <label class="form-label">Email Address</label>
+                              <label class="form-label hide-txt3">Email Address</label>
                               <input  type="email" id="update_email" placeholder="huloleisurefarm@gmail.com" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                            <div class="col-3">
-                              <label class="form-label">Facebook Link</label>
+                              <label class="form-label hide-txt4">Facebook Link</label>
                               <input  type="email" id="fb_email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
                            </div>
                         </div>
                         <div class="form-container">
                           <div class="col-3">
-                             <label class="form-label">Instagram Link</label>
+                             <label class="form-label hide-txt5">Instagram Link</label>
                              <input  type="email" id="ig_email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
                           </div>
                        </div>
@@ -300,6 +300,9 @@
                           </div>
                         </div>
                      </div>
+                     <div class="flex-end-container">
+                      <button type="submit" class="editapp-btn2" id="saveProfile-btn">Save Changes</button>
+                    </div>
                      </form>
                   </div>
                </div>
@@ -340,7 +343,7 @@
                                </div>
                                <div class="editvilla-btn">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" >Save Changes</button>
                                </div>
                               </form>
                             </div>
@@ -408,7 +411,7 @@
 
                               <div class="editvilla-btn photos">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" >Save Changes</button>
                                </div>
                             </div>
                           </div>
@@ -446,7 +449,7 @@
                                </div>
                                <div class="editvilla-btn">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" >Save Changes</button>
                                </div>
                               </form>
                             </div>
@@ -514,7 +517,7 @@
 
                               <div class="editvilla-btn photos">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
+                                <button class="saveedit-btn" onclick="()" >Save Changes</button>
                                </div>
                             </div>
                           </div>
@@ -522,6 +525,7 @@
                       </div>
                     </div>
               </div>
+            </div>
             </div>
             <!--Logout Tab-->
             <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
@@ -947,10 +951,24 @@
       });
 
 
-      // Alert
-      document.getElementById("open-alert1").addEventListener("click", function () {
-        document.getElementsByClassName("alert1")[0].classList.add("show");
+      // Remove readOnly
+            document.getElementById("removeReadOnly").addEventListener("click", function () {
+        document.getElementById("update_contact").toggleAttribute("readonly");
+        document.getElementById("location").toggleAttribute("readonly");
+        document.getElementById("update_email").toggleAttribute("readonly");
+        document.getElementById("fb_email").toggleAttribute("readonly");
+        document.getElementById("ig_email").toggleAttribute("readonly");
+        // document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
+        // document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
+        // document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
+        // document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("editapp-btn2")[0].classList.toggle("showProfile-btn");
       });
+
+      // Alert
+      // document.getElementById("open-alert1").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert1")[0].classList.add("show");
+      // });
 
       document.getElementById("close-alert1").addEventListener("click", function () {
         document.getElementsByClassName("alert1")[0].classList.remove("show");
