@@ -202,11 +202,24 @@
       window.onload = spinner;
 
       const bookNow = () => {
-        const checkin = document.getElementById("checkin-date").value;
-        const checkout = document.getElementById("checkout-date").value;
+        const checkin = new Date(document.getElementById("checkin-date").value).toISOString();
+        const checkout = new Date(document.getElementById("checkout-date").value).toISOString();
         const guest = document.getElementById("spinner").value;
-        console.log(checkin);
-        console.log(guest);
+        console.log(checkin)
+        console.log(checkout)
+            let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+        console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
+          fetch(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`)
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+            });
       };
     </script>
   </body>
