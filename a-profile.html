@@ -258,32 +258,32 @@
                 <div class="form-box">
                   <form class="update-form">
                     <div class="form-container">
-                      <div class="col-3">
-                        <label class="form-label hide-txt1">Contact Number</label>
+                      <div class="col-3 hide-txt1">
+                        <label class="form-label">Contact Number</label>
                         <input type="tel" id="update_contact" placeholder="9121569632" minlength="11" maxlength="11" value="" readonly />
                       </div>
                     </div>
                     <div class="form-container">
-                      <div class="col-3">
-                        <label class="form-label hide-txt2">Location</label>
+                      <div class="col-3 hide-txt2">
+                        <label class="form-label">Location</label>
                         <input id="location" type="text" placeholder="Abucay, Bataan, Philippines" readonly />
                       </div>
                     </div>
                     <div class="form-container">
-                      <div class="col-3">
-                        <label class="form-label hide-txt3">Email Address</label>
+                      <div class="col-3 hide-txt3">
+                        <label class="form-label">Email Address</label>
                         <input type="email" id="update_email" placeholder="huloleisurefarm@gmail.com" readonly />
                       </div>
                     </div>
                     <div class="form-container">
-                      <div class="col-3">
-                        <label class="form-label hide-txt4">Facebook Link</label>
+                      <div class="col-3 hide-txt4">
+                        <label class="form-label">Facebook Link</label>
                         <input type="email" id="fb_email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly />
                       </div>
                     </div>
                     <div class="form-container">
-                      <div class="col-3">
-                        <label class="form-label hide-txt5">Instagram Link</label>
+                      <div class="col-3 hide-txt5">
+                        <label class="form-label">Instagram Link</label>
                         <input type="email" id="ig_email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly />
                       </div>
                     </div>
@@ -1092,10 +1092,11 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
         document.getElementById("update_email").toggleAttribute("readonly");
         document.getElementById("fb_email").toggleAttribute("readonly");
         document.getElementById("ig_email").toggleAttribute("readonly");
-        // document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
-        // document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
-        // document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
-        // document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("editapp-btn2")[0].classList.toggle("showProfile-btn");
       });
 

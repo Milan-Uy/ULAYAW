@@ -28,7 +28,7 @@
         NATURE
       </h1>
       <div class="check-availability">
-        <form class="checkavail-form">
+        <form action="javascript:bookNow()" class="checkavail-form">
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_upcoming</i>
             <label>Check in</label>
@@ -200,6 +200,14 @@
         if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
       }
       window.onload = spinner;
+
+      const bookNow = () => {
+        const checkin = document.getElementById("checkin-date").value;
+        const checkout = document.getElementById("checkout-date").value;
+        const guest = document.getElementById("spinner").value;
+        console.log(checkin);
+        console.log(guest);
+      };
     </script>
   </body>
 </html>

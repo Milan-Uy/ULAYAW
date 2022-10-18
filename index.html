@@ -1243,7 +1243,7 @@
           WITH HULO
         </h1>
         <div class="check-availability-index">
-          <form class="checkavail-form-index">
+          <form action="javascript:getDate()" class="checkavail-form-index">
             <div class="form-item check-flex-item">
               <i class="icon material-symbols-outlined">event_upcoming</i>
               <label>Check in</label>
@@ -1901,6 +1901,15 @@
         if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
       }
       window.onload = spinner;
+
+      const getDate = () => {
+        const checkin = document.getElementById("checkin-date").value;
+        const checkout = document.getElementById("checkout-date").value;
+        const guest = document.getElementById("spinner").value;
+        console.log(checkin);
+        console.log(guest);
+        window.location.replace("/c-booknow.html");
+      };
 
       //animate image
       document.addEventListener("DOMContentLoaded", function () {
