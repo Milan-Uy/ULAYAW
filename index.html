@@ -1266,7 +1266,7 @@
                 name="value"
                 value="1"
                 min="1"
-                max="30"
+                max="100"
                 step="1"
                 oninput="maxLengthCheck(this)"
                 maxlength="2"
@@ -1908,6 +1908,9 @@
         const guest = document.getElementById("spinner").value;
         console.log(checkin);
         console.log(guest);
+        sessionStorage.setItem("checkinDate", checkin);
+        sessionStorage.setItem("checkoutDate", checkout);
+        sessionStorage.setItem("guest", guest);
         window.location.replace("/c-booknow.html");
       };
 

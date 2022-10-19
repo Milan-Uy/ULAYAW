@@ -51,7 +51,7 @@
               name="value"
               value="1"
               min="1"
-              max="30"
+              max="100"
               step="1"
               oninput="maxLengthCheck(this)"
               maxlength="2"
@@ -76,15 +76,14 @@
 
     <!--Available Rooms-->
     <section class="available-rooms">
-      <div class="blog-card">
+      <div id="table_villas"></div>
+      <!-- <div class="blog-card">
         <div class="room-pic">
           <div class="photo" style="background-image: url(images/casa_aurelia.JPG)"></div>
         </div>
         <div class="room-desc">
           <h1>
-            Casa Aurelia<span class="room-price"
-              ><h1><span>&#8369;</span> 25,000.00</h1></span
-            >
+            Casa Aurelia<span class="room-price"><h1><span>&#8369;</span> 25,000.00</h1></span>
           </h1>
           <h2>
             <i class="material-symbols-rounded">person</i>Good for 10 guests
@@ -100,9 +99,9 @@
             </span>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="blog-card">
+      <!-- <div class="blog-card">
         <div class="room-pic">
           <div class="photo" style="background-image: url(images/casa_salud.JPG)"></div>
         </div>
@@ -126,9 +125,9 @@
             </span>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="blog-card">
+      <!-- <div class="blog-card">
         <div class="room-pic">
           <div class="photo" style="background-image: url(images/PRIMA1.JPG)"></div>
         </div>
@@ -152,7 +151,7 @@
             </span>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
     <!--Footer-->
     <section class="display-footer">
@@ -201,12 +200,23 @@
       }
       window.onload = spinner;
 
+      const getDate = () => {
+        document.getElementById("checkin-date").value = sessionStorage.getItem("checkinDate");
+        document.getElementById("checkout-date").value = sessionStorage.getItem("checkoutDate");
+        document.getElementById("spinner").value = sessionStorage.getItem("guest");
+      };
+
+      getDate();
+
       const bookNow = () => {
         const checkin = new Date(document.getElementById("checkin-date").value).toISOString();
         const checkout = new Date(document.getElementById("checkout-date").value).toISOString();
         const guest = document.getElementById("spinner").value;
         console.log(checkin);
         console.log(checkout);
+        console.log(guest);
+        const checkinval = document.getElementById("checkin-date").value;
+        const checkoutval = document.getElementById("checkout-date").value;
         let options = {
           method: "GET",
           headers: {
@@ -214,13 +224,140 @@
             Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
         };
-        console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
+        // console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
         fetch(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            // console.log(data.villas[0]);
+            // console.log(data.villas.length);
+            // data.villas.forEach((villa) => {
+
+            if (data.villas == "Casa Salud") {
+            }
+
+            if (checkinval === checkoutval) {
+              if (data.villas.length > 0) {
+                // const list = document.getElementById("table_villas");
+                var data1 = "";
+                let img;
+                let section;
+                for (i = 0; i < data.villas.length; i++) {
+                  switch (data.villas[i].name) {
+                    case "Casa Aurelia":
+                      img = "casa_aurelia";
+                      section = 1;
+                      break;
+                    case "Caminos De Primavera":
+                      img = "PRIMA1";
+                      section = 2;
+                      break;
+                    case "Casa Salud":
+                      img = "casa_salud";
+                      section = 3;
+                      break;
+                    case "Kubo ni Basyong":
+                      img = "kubo1";
+                      section = 4;
+                      break;
+                    case "Celso Hall":
+                      img = "CELSO1";
+                      section = 5;
+                      break;
+                  }
+                  data1 += "<div class='blog-card'>";
+                  data1 += "<div class='room-pic'>";
+                  data1 += "<div class='photo' style='background-image: url(images/" + img + ".JPG)'></div></div>";
+                  data1 += "<div class='room-desc'>";
+                  data1 +=
+                    "<h1>" +
+                    data.villas[i].name +
+                    "<span class='room-price'><h1><span>&#8369;</span>" +
+                    data.villas[i].dayTour.price +
+                    "</h1></span></h1>";
+                  data1 += "<h2>";
+                  data1 += "<i class='material-symbols-rounded'>person</i>Good for " + data.villas[i].dayTour.minPerson + " guests";
+                  data1 += "<span class='per-night'><h2>Day Tour</h2></span></h2>";
+                  data1 += "<div class='room-links'>";
+                  data1 += "<a href='villa.html#section" + section + "' class='read-more'>More about " + data.villas[i].name + " >>></a>";
+                  data1 += "<span class='reserve-btn'>";
+                  data1 += "<div class='book-btn bounce-in-on-hover'>";
+                  data1 += "<a class='book-btn' href='reservationdetails.html'>RESERVE</a>";
+                  data1 += "</div>";
+                  data1 += "</span>";
+                  data1 += "</div>";
+                  data1 += "</div>";
+                  data1 += "</div>";
+                }
+                $("#table_villas").html(data1);
+              } else {
+                data1 = "<div></div>";
+                $("#table_villas").html(data1);
+              }
+              // });
+            } else {
+              if (data.villas.length > 0) {
+                // const list = document.getElementById("table_villas");
+                var data1 = "";
+                let img;
+                let section;
+                for (i = 0; i < data.villas.length; i++) {
+                  switch (data.villas[i].name) {
+                    case "Casa Aurelia":
+                      img = "casa_aurelia";
+                      section = 1;
+                      break;
+                    case "Caminos De Primavera":
+                      img = "PRIMA1";
+                      section = 2;
+                      break;
+                    case "Casa Salud":
+                      img = "casa_salud";
+                      section = 3;
+                      break;
+                    case "Kubo ni Basyong":
+                      img = "kubo1";
+                      section = 4;
+                      break;
+                    case "Celso Hall":
+                      img = "CELSO1";
+                      section = 5;
+                      break;
+                  }
+                  data1 += "<div class='blog-card'>";
+                  data1 += "<div class='room-pic'>";
+                  data1 += "<div class='photo' style='background-image: url(images/" + img + ".JPG)'></div></div>";
+                  data1 += "<div class='room-desc'>";
+                  data1 +=
+                    "<h1>" +
+                    data.villas[i].name +
+                    "<span class='room-price'><h1><span>&#8369;</span>" +
+                    data.villas[i].overnight.price +
+                    "</h1></span></h1>";
+                  data1 += "<h2>";
+                  data1 += "<i class='material-symbols-rounded'>person</i>Good for " + data.villas[i].overnight.minPerson + " guests";
+                  data1 += "<span class='per-night'><h2>per night</h2></span></h2>";
+                  data1 += "<div class='room-links'>";
+                  data1 += "<a href='villa.html#section" + section + "' class='read-more'>More about " + data.villas[i].name + " >>></a>";
+                  data1 += "<span class='reserve-btn'>";
+                  data1 += "<div class='book-btn bounce-in-on-hover'>";
+                  data1 += "<a class='book-btn' href='reservationdetails.html'>RESERVE</a>";
+                  data1 += "</div>";
+                  data1 += "</span>";
+                  data1 += "</div>";
+                  data1 += "</div>";
+                  data1 += "</div>";
+                }
+                $("#table_villas").html(data1);
+              } else {
+                data1 = "<div></div>";
+                $("#table_villas").html(data1);
+              }
+              // });
+            }
           });
       };
+      bookNow();
     </script>
   </body>
 </html>
