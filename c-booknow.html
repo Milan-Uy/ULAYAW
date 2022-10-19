@@ -212,11 +212,17 @@
         const checkin = new Date(document.getElementById("checkin-date").value).toISOString();
         const checkout = new Date(document.getElementById("checkout-date").value).toISOString();
         const guest = document.getElementById("spinner").value;
+        // sessionStorage.setItem("checkinDateFormat", checkin);
+        // sessionStorage.setItem("checkoutDateFormat", checkout);
+        sessionStorage.setItem("guestAmt", guest);
         console.log(checkin);
         console.log(checkout);
         console.log(guest);
+        // console.log(sessionStorage.getItem("guestAmt"));
         const checkinval = document.getElementById("checkin-date").value;
         const checkoutval = document.getElementById("checkout-date").value;
+        sessionStorage.setItem("checkinDate1", checkinval);
+        sessionStorage.setItem("checkoutDate1", checkoutval);
         let options = {
           method: "GET",
           headers: {

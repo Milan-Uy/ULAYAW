@@ -112,9 +112,10 @@
       <div class="containerps">
         <p>Your Reservation:</p>
         <h3 style="padding-bottom: 10px">
-          Casa Aurelia <span class="price" style="color: black"><b>P25,000.00</b></span>
+          Casa Aurelia <span id="price2" class="price" style="color: black"><b>P25,000.00</b></span>
         </h3>
-        <p>DATE</p>
+        <p>Check In: <span id="checkin"></span></p>
+        <p>Check Out: <span id="checkout"></span></p>
         <p>8 ADULTS,1 NIGHT</p>
         <hr />
         <p>Add-Ons Costs</p>
@@ -180,6 +181,31 @@
       document.getElementsByClassName("popup1")[0].classList.remove("active");
     });
 
+    const getDetails = () => {
+      const checkin = new Date(sessionStorage.getItem("checkinDate1")).toISOString();
+      const checkout = new Date(sessionStorage.getItem("checkoutDateFormat")).toISOString();
+      const guest = sessionStorage.getItem("guestAmt");
+      console.log(checkin);
+      console.log(checkout);
+      console.log(guest);
+      document.getElementById("checkin").innerHTML = sessionStorage.getItem("checkinDate1");
+      document.getElementById("checkout").innerHTML = sessionStorage.getItem("checkoutDate1");
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      };
+      console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
+      fetch(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
+    };
+    getDetails();
+
     //Date Picker
 
     // endDate.setDate(endDate.getDate() + 1);
@@ -211,6 +237,7 @@
     function maxLengthCheck(object) {
       if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
     }
+
     window.onload = spinner;
   </script>
 </html>
