@@ -5006,6 +5006,10 @@ body {
 .bed {
   margin-bottom: 10px;
 }
+.policyrd {
+  margin-top: 10px;
+  text-align: center;
+}
 .rdimg {
   width: 20%;
   height: auto;
