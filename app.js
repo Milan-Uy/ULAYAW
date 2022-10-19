@@ -20,6 +20,13 @@ const changeLoginToProfile = () => {
   }
 };
 
+const nameTagStaff = async () => {
+  let user = await getUser(localStorage.getItem("user_id"));
+  console.log(user);
+  let nameTag = document.getElementById("nameTag2");
+  nameTag.innerHTML = "Welcome, " + user.firstName;
+};
+
 const getUser = (id) => {
   let options = {
     method: "GET",

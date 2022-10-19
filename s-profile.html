@@ -43,7 +43,7 @@
               <i class="material-symbols-rounded">list</i>
               <span class="label"> Manage Bookings</span>
             </li>
-            <li rel="tabFour">
+            <li rel="tabFour" id="manage-moments">
               <i class="material-symbols-rounded">recent_actors</i>
               <span class="label"> Manage Moments </span>
             </li>
@@ -606,14 +606,32 @@
         </div>
       </div>
     </section>
+    <section class="display-footer">
+      <div id="footer-placeholder">
+        <div id="footer-btm"></div>
+      </div>
+    </section>
+    <script src="app.js"></script>
     <script>
       
+      const hideManageMoments = () => {
+    if (localStorage.getItem("access_token")) {
+      if (localStorage.getItem("user_role") === "Manager") {
+        document.getElementById("manage-moments").style.display = "none";
+        }
+        }
+    };
+    hideManageMoments();
 
       //Import Navbar
       $(function () {
-        $("#nav-placeholder").load("navbar.html");
+        $("#nav-placeholder").load("navbar-staff.html");
       });
 
+      //Import Footer
+        $(function () {
+        $("#footer-placeholder").load("footer.html #footer-btm");
+      });
       //Tabs
       jQuery(".tab-item").hide();
       jQuery(".tab-item:first").show();

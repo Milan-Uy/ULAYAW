@@ -28,7 +28,7 @@
         NATURE
       </h1>
       <div class="check-availability">
-        <form class="checkavail-form">
+        <form action="javascript:bookNow()" class="checkavail-form">
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_upcoming</i>
             <label>Check in</label>
@@ -200,6 +200,27 @@
         if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
       }
       window.onload = spinner;
+
+      const bookNow = () => {
+        const checkin = new Date(document.getElementById("checkin-date").value).toISOString();
+        const checkout = new Date(document.getElementById("checkout-date").value).toISOString();
+        const guest = document.getElementById("spinner").value;
+        console.log(checkin)
+        console.log(checkout)
+            let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+        console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
+          fetch(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`)
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+            });
+      };
     </script>
   </body>
 </html>

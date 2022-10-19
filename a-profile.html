@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" />
-    <link href="https://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css"/>
+    <link href="https://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <title>Profile</title>
   </head>
@@ -123,26 +123,34 @@
                 <strong>User Successfully Updated</strong>
               </div>
 
-              <!-- ALERT -->
-
               <div class="alertMessage alert5">
                 <span class="close" id="close-alert5">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
                 <strong>User Successfully Changed Role</strong>
               </div>
-              
+
+              <div class="alertMessage alert6">
+                <span class="close" id="close-alert6">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>User Successfully Removed</strong>
+              </div>
+
+              <div class="alertMessage alert-error">
+                <span class="close" id="close-alert-error">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Error Occured</strong>
+              </div>
+
               <table id="myTable">
                 <thead>
-                   <tr class="header">
-                      <th style="width:45%;">User</th>
-                      <th style="width:45%;">Role</th>
-                      <th style= "width:10%;"> </th>
-                   </tr>
+                  <tr class="header">
+                    <th style="width: 45%">User</th>
+                    <th style="width: 45%">Role</th>
+                    <th style="width: 10%"></th>
+                  </tr>
                 </thead>
-                <tbody id="table_users">
-                 
-                </tbody>
- </table>
+                <tbody id="table_users"></tbody>
+              </table>
             </div>
             <!--Add Users Tab-->
             <h4 class="tab-accordion-title" rel="tabThree">Add User</h4>
@@ -169,7 +177,7 @@
                   <form action="javascript:addUser()" class="adduser-form">
                     <div class="form-container">
                       <div class="col-6">
-                        <label style="margin-right:3vw">First Name</label>
+                        <label style="margin-right: 3vw">First Name</label>
                         <input id="a_firstName" class="adduser-input" type="text" placeholder="Enter name" required />
                       </div>
                       <div class="col-6">
@@ -179,7 +187,7 @@
                     </div>
                     <div class="form-container">
                       <div class="col-3">
-                        <label style="margin-right:0.5vw">Contact Number</label>
+                        <label style="margin-right: 0.5vw">Contact Number</label>
                         <input
                           class="adduser-input"
                           type="tel"
@@ -194,17 +202,23 @@
                     </div>
                     <div class="form-container">
                       <div class="col-3">
-                        <label style="margin-right:1.5vw">Email Address</label>
-                        <input id="a_email" class="adduser-input " type="email" id="email" placeholder="Enter email address"  required />
+                        <label style="margin-right: 1.5vw">Email Address</label>
+                        <input id="a_email" class="adduser-input" type="email" id="email" placeholder="Enter email address" required />
                       </div>
                     </div>
                     <div class="form-container">
                       <div class="col-6">
-                        <label style="margin-right:3vw">Password</label>
-                        <input id="a_password" class="adduser-input" type="password" placeholder="Enter your password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
-                        title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
-                        required
-                        value="" />
+                        <label style="margin-right: 3vw">Password</label>
+                        <input
+                          id="a_password"
+                          class="adduser-input"
+                          type="password"
+                          placeholder="Enter your password"
+                          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                          title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
+                          required
+                          value=""
+                        />
                       </div>
                       <div class="col-6">
                         <label>Confirm Password</label>
@@ -212,132 +226,137 @@
                       </div>
                     </div>
                     <div class="form-container">
-                        <div class="col-3">
-                          <label>Role</label>
-                          <select id="a_role" class="adduser-role">
-                            <option value="Admin">Admin </option>
-                            <option value="Marketing Specialist">Marketing Specialist</option>
-                            <option value="Manager">Manager</option>
-                          </select>
-                        </div>
+                      <div class="col-3">
+                        <label>Role</label>
+                        <select id="a_role" class="adduser-role">
+                          <option value="Admin">Admin</option>
+                          <option value="Marketing Specialist">Marketing Specialist</option>
+                          <option value="Manager">Manager</option>
+                        </select>
                       </div>
                     </div>
-                    <button class="adduser-btn" >Add User</button>
+                    <button class="adduser-btn">Add User</button>
                   </form>
                 </div>
               </div>
-              <!-- Update Application Tab-->
-              <h4 class="tab-accordion-title" rel="tabFour">Update Application</h4>
-              <div id="tabFour" class="tab-item updateapp">
-                <h5>Update Application</h5>
-                <div class="update-container">
-              <!-- ALERT -->
-              <div class="alertMessage alert3">
-                <span class="close" id="close-alert3">×</span>
-                <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>Information Successfully Updated</strong>
+            </div>
+            <!-- Update Application Tab-->
+            <h4 class="tab-accordion-title" rel="tabFour">Update Application</h4>
+            <div id="tabFour" class="tab-item updateapp">
+              <h5>Update Application</h5>
+              <div class="update-container">
+                <!-- ALERT -->
+                <div class="alertMessage alert3">
+                  <span class="close" id="close-alert3">×</span>
+                  <i class="fas fa-exclamation-circle alert-icon"></i>
+                  <strong>Information Successfully Updated</strong>
+                </div>
+                <div class="app-details">
+                  <h4>Basic Information</h4>
+                  <button class="editapp-btn" onclick="()" id="removeReadOnly">Edit</button>
+                </div>
+                <div class="form-box">
+                  <form class="update-form">
+                    <div class="form-container">
+                      <div class="col-3 hide-txt1">
+                        <label class="form-label">Contact Number</label>
+                        <input type="tel" id="update_contact" placeholder="9121569632" minlength="11" maxlength="11" value="" readonly />
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3 hide-txt2">
+                        <label class="form-label">Location</label>
+                        <input id="location" type="text" placeholder="Abucay, Bataan, Philippines" readonly />
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3 hide-txt3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="update_email" placeholder="huloleisurefarm@gmail.com" readonly />
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3 hide-txt4">
+                        <label class="form-label">Facebook Link</label>
+                        <input type="email" id="fb_email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly />
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3 hide-txt5">
+                        <label class="form-label">Instagram Link</label>
+                        <input type="email" id="ig_email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly />
+                      </div>
+                    </div>
+                    <div class="form-container">
+                      <div class="col-3">
+                        <label class="form-label">Business Logo</label>
+                        <div class="container">
+                          <div class="avatar-upload">
+                            <div class="avatar-edit">
+                              <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                              <label class="imageUpload" for="imageUpload"></label>
+                            </div>
+                            <div class="avatar-preview">
+                              <div id="imagePreview"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-end-container">
+                      <button type="submit" class="editapp-btn2" id="saveProfile-btn">Save Changes</button>
+                    </div>
+                  </form>
+                </div>
               </div>
-                  <div class="app-details">
-                     <h4>Basic Information</h4>
-                     <button class="editapp-btn" onclick="()" id="open-alert3">Edit</button>
-                  </div>
-                  <div class="form-box">
-                     <form class="update-form">
-                        <div class="form-container">
-                           <div class="col-3">
-                              <label class="form-label">Contact Number</label>
-                              <input  type="tel" id="update_contact" placeholder="+639121569632" minlength="11" maxlength="11" value="" readonly/>
-                           </div>
-                        </div>
-                        <div class="form-container">
-                          <div class="col-3">
-                             <label class="form-label">Location</label>
-                             <input id="lastname" type="text" placeholder="Abucay, Bataan, Philippines" readonly/>
-                          </div>
-                       </div>
-                        <div class="form-container">
-                           <div class="col-3">
-                              <label class="form-label">Email Address</label>
-                              <input  type="email" id="update_email" placeholder="huloleisurefarm@gmail.com" readonly/>
-                           </div>
-                        </div>
-                        <div class="form-container">
-                           <div class="col-3">
-                              <label class="form-label">Facebook Link</label>
-                              <input  type="email" id="fb_email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly/>
-                           </div>
-                        </div>
-                        <div class="form-container">
-                          <div class="col-3">
-                             <label class="form-label">Instagram Link</label>
-                             <input  type="email" id="ig_email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly/>
-                          </div>
-                       </div>
-                       <div class="form-container">
-                        <div class="col-3">
-                           <label class="form-label">Business Logo</label>
-                            <div class="container">
-                              <div class="avatar-upload">
-                                  <div class="avatar-edit">
-                                      <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                                      <label class="imageUpload" for="imageUpload"></label>
-                                  </div>
-                                  <div class="avatar-preview">
-                                      <div id="imagePreview">
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                     </div>
-                     </form>
-                  </div>
-               </div>
-               <div class="villa-container">
+              <div class="villa-container">
                 <h4>Villa</h4>
                 <!-- ALERT -->
-              <div class="alertMessage alert4">
-                <span class="close" id="close-alert4">×</span>
-                <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>Villas Successfully Updated</strong>
-              </div>
+                <div class="alertMessage alert4">
+                  <span class="close" id="close-alert4">×</span>
+                  <i class="fas fa-exclamation-circle alert-icon"></i>
+                  <strong>Villas Successfully Updated</strong>
+                </div>
                 <div class="villa-card">
                   <div class="villa-pic">
                     <div class="photo" style="background-image: url(images/casa_aurelia.JPG)"></div>
                   </div>
                   <div class="villa-desc">
-                    <h1>
-                      Casa Aurelia
-                    </h1>
+                    <h1>Casa Aurelia</h1>
                     <div class="edit-accord">
                       <div class="edit-accordion js-accordion">
                         <div class="accordion__item js-accordion-item">
-                          <div class="accordion-header js-accordion-header">Edit Details</div> 
+                          <div class="accordion-header js-accordion-header">Edit Details</div>
                           <div class="accordion-body js-accordion-body">
                             <div class="accordion-body__contents">
                               <form class="edit-villadetails">
                                 <div class="edit-villadesc">
-                                    <label>Description</label>
-                                   <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
+                                  <label>Description</label>
+                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
+                                  >
                                 </div>
                                 <div class="edit-villainc">
                                   <label>Inclusions</label>
-                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
-                               </div>
-                               <div class="edit-villaprice">
-                                <label>Price</label>
-                                <input class="new-villaprice" type="text" required />
-                               </div>
-                               <div class="editvilla-btn">
-                                <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
-                               </div>
+                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
+                                  >
+                                </div>
+                                <div class="edit-villaprice">
+                                  <label>Price</label>
+                                  <input class="new-villaprice" type="text" required />
+                                </div>
+                                <div class="editvilla-btn">
+                                  <button class="canceledit-btn" onclick="()">Cancel</button>
+                                  <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                </div>
                               </form>
                             </div>
                           </div>
-                        </div><!-- end of accordion body -->
+                        </div>
+                        <!-- end of accordion body -->
                         <div class="accordion__item js-accordion-item">
-                          <div class="accordion-header js-accordion-header">Edit Pictures</div> 
+                          <div class="accordion-header js-accordion-header">Edit Pictures</div>
                           <div class="accordion-body js-accordion-body">
                             <div class="accordion-body__contents upload-accord">
                               <div class="wrapper">
@@ -398,52 +417,56 @@
 
                               <div class="editvilla-btn photos">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
-                               </div>
+                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                              </div>
                             </div>
                           </div>
-                        </div><!-- end of accordion body -->
+                        </div>
+                        <!-- end of accordion body -->
                       </div>
                     </div>
-              </div>
+                  </div>
                 </div>
                 <div class="villa-card">
                   <div class="villa-pic">
                     <div class="photo" style="background-image: url(images/casa_salud.JPG)"></div>
                   </div>
                   <div class="villa-desc">
-                    <h1>
-                      Casa Salud
-                    </h1>
+                    <h1>Casa Salud</h1>
                     <div class="edit-accord">
                       <div class="edit-accordion js-accordion">
                         <div class="accordion__item js-accordion-item">
-                          <div class="accordion-header js-accordion-header">Edit Details</div> 
+                          <div class="accordion-header js-accordion-header">Edit Details</div>
                           <div class="accordion-body js-accordion-body">
                             <div class="accordion-body__contents">
                               <form class="edit-villadetails">
                                 <div class="edit-villadesc">
-                                    <label>Description</label>
-                                   <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
+                                  <label>Description</label>
+                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
+                                  >
                                 </div>
                                 <div class="edit-villainc">
                                   <label>Inclusions</label>
-                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea>
-                               </div>
-                               <div class="edit-villaprice">
-                                <label>Price</label>
-                                <input class="new-villaprice" type="text" required />
-                               </div>
-                               <div class="editvilla-btn">
-                                <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
-                               </div>
+                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
+                                  >
+                                </div>
+                                <div class="edit-villaprice">
+                                  <label>Price</label>
+                                  <input class="new-villaprice" type="text" required />
+                                </div>
+                                <div class="editvilla-btn">
+                                  <button class="canceledit-btn" onclick="()">Cancel</button>
+                                  <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                </div>
                               </form>
                             </div>
                           </div>
-                        </div><!-- end of accordion body -->
+                        </div>
+                        <!-- end of accordion body -->
                         <div class="accordion__item js-accordion-item">
-                          <div class="accordion-header js-accordion-header">Edit Pictures</div> 
+                          <div class="accordion-header js-accordion-header">Edit Pictures</div>
                           <div class="accordion-body js-accordion-body">
                             <div class="accordion-body__contents upload-accord">
                               <div class="wrapper">
@@ -504,66 +527,75 @@
 
                               <div class="editvilla-btn photos">
                                 <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()" id="open-alert4">Save Changes</button>
-                               </div>
+                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                              </div>
                             </div>
                           </div>
-                        </div><!-- end of accordion body -->
+                        </div>
+                        <!-- end of accordion body -->
                       </div>
                     </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!--Logout Tab-->
             <h4 class="tab-accordion-title" rel="tabFive">Logout</h4>
             <div id="tabFive" class="tab-item">
               <h5>Logout</h5>
-              <p>
-              </p>
+              <p></p>
             </div>
           </div>
         </div>
       </div>
-      </div>
     </section>
 
     <!-- START OF POPUP -->
+    <div class="popup popup1 popup-short center">
+      <div class="popup-title">Change Role</div>
+      <div class="description">Are you sure you want to change this user's role?</div>
+      <div class="dismiss-btn">
+        <button id="confirm-popup1-btn" onclick="changeRole()">Yes</button>
+        <button id="dismiss-popup1-btn">No</button>
+      </div>
+    </div>
 
     <div class="popup popup2 popup-short center">
       <div class="popup-title">Remove User</div>
       <div class="description">Are you sure you want to remove the user?</div>
       <div class="dismiss-btn">
-      <button id="confirm-popup2-btn">Yes</button>
-      <button id="dismiss-popup2-btn">No</button>
+        <button id="confirm-popup2-btn" onclick="removeUser()">Yes</button>
+        <button id="dismiss-popup2-btn">No</button>
       </div>
-   </div>
-
-   <div class="popup popup3 center">
-    <div class="popup-title">User Profile</div>
-    <div class="description">
-       <form action = "">
-          <div class="form-group">
-             <label for="fname">First Name:</label>
-             <input type="text" id="fname" required>
-           </div>
-          <div class="form-group">
-             <label for="fname">Last Name:</label>
-             <input type="text" id="lname" required>
-           </div>
-           <div class="form-group">
-             <label for="name">Email:</label>
-             <input type="email" name="name" id="change_email" required>
-           </div>
-           <div class="form-group">
-             <label for="name">Contact Number: </label>
-             <input type="text" minlength="13" name="name" id="contact" required>
-           </div>
-           <div class = "submitbtn">
-             <input type="submit" id="open-alert1" value = "Confirm">
-             <input type="button" id="dismiss-popup3-btn" value = "Cancel">
-          </div>
-       </form>
     </div>
-  </div>
+
+    <div class="popup popup3 center">
+      <div class="popup-title">User Profile</div>
+      <div class="description">
+        <form action="javascript:editProfile()">
+          <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" required />
+          </div>
+          <div class="form-group">
+            <label for="fname">Last Name:</label>
+            <input type="text" id="lname" required />
+          </div>
+          <div class="form-group">
+            <label for="name">Email:</label>
+            <input type="email" name="name" id="change_email" required />
+          </div>
+          <div class="form-group">
+            <label for="name">Contact Number: </label>
+            <input type="text" minlength="11" maxlength="11" name="name" id="contact" required />
+          </div>
+          <div class="submitbtn">
+            <input type="submit" id="confirm-popup3-btn" value="Confirm" />
+            <input type="button" id="dismiss-popup3-btn" value="Cancel" />
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!--Footer-->
     <section class="display-footer">
@@ -573,16 +605,14 @@
     </section>
     <script src="app.js"></script>
     <script>
-
-      const addUser = () =>{
-        
-        const firstName = document.getElementById('a_firstName').value;
-        const lastName = document.getElementById('a_lastName').value;
-        const contact = document.getElementById('a_contact').value;
-        const email = document.getElementById('a_email').value;
-        const password = document.getElementById('a_password').value;
-        const confirmPassword = document.getElementById('a_confirmPassword').value;
-        const role = document.getElementById('a_role').value;
+      const addUser = () => {
+        const firstName = document.getElementById("a_firstName").value;
+        const lastName = document.getElementById("a_lastName").value;
+        const contact = document.getElementById("a_contact").value;
+        const email = document.getElementById("a_email").value;
+        const password = document.getElementById("a_password").value;
+        const confirmPassword = document.getElementById("a_confirmPassword").value;
+        const role = document.getElementById("a_role").value;
         let signupData = {
           email: email,
           password: password,
@@ -601,84 +631,381 @@
         };
 
         if (password != confirmPassword) {
-        document.getElementsByClassName("alert-pwnotmatch")[0].classList.add("show");
+          document.getElementsByClassName("alert-pwnotmatch")[0].classList.add("show");
 
-      document.getElementById("close-alert-pwnotmatch").addEventListener("click", function () {
-        document.getElementsByClassName("alert-pwnotmatch")[0].classList.remove("show");
-      });
+          document.getElementById("close-alert-pwnotmatch").addEventListener("click", function () {
+            document.getElementsByClassName("alert-pwnotmatch")[0].classList.remove("show");
+          });
         } else if (password === confirmPassword) {
-        fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            if (data.key === "USERCREATED") {
-              clearValues();
-              setValues();
-              document.getElementsByClassName("alert2")[0].classList.add("show");
+          fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              if (data.key === "USERCREATED") {
+                clearValues();
+                setValues();
+                document.getElementsByClassName("alert2")[0].classList.add("show");
 
-      document.getElementById("close-alert2").addEventListener("click", function () {
-        document.getElementsByClassName("alert2")[0].classList.remove("show");
-      });
-            } else if (data.key === "NOTVALIDATED") {
-              document.getElementsByClassName("alert-error")[0].classList.add("show");
+                document.getElementById("close-alert2").addEventListener("click", function () {
+                  document.getElementsByClassName("alert2")[0].classList.remove("show");
+                });
+              } else if (data.key === "NOTVALIDATED") {
+                document.getElementsByClassName("alert-error")[0].classList.add("show");
 
-              document.getElementById("close-alert-error").addEventListener("click", function () {
-                document.getElementsByClassName("alert-error")[0].classList.remove("show");
-              });
-            }
-          })
+                document.getElementById("close-alert-error").addEventListener("click", function () {
+                  document.getElementsByClassName("alert-error")[0].classList.remove("show");
+                });
+              }
+            });
         }
-      }
+      };
 
-      const clearValues = () =>{
-        const list = document.getElementById('table_users');
-        list.innerHTML = '';
-      }
-      
-      const setValues = async () =>{
+      const clearValues = () => {
+        const list = document.getElementById("table_users");
+        list.innerHTML = "";
+      };
+
+      const setValues = async () => {
         let users = await getUsers(null, null);
         console.log(users);
-        const list = document.getElementById('table_users');
+        const list = document.getElementById("table_users");
 
         // load all event listeners
         let tr;
         let th;
-        users.forEach(user=>{
-          tr = document.createElement('tr');
-          td1 = document.createElement('td');
-          td1.appendChild(document.createTextNode(user.firstName + ' ' + user.lastName));
+        users.forEach((user, index) => {
+          tr = document.createElement("tr");
+          // tr.classList.add('row-'+user._id)
+          td1 = document.createElement("td");
+          td1.appendChild(document.createTextNode(user.firstName + " " + user.lastName));
           tr.appendChild(td1);
 
-          td2 = document.createElement('td');
+          td2 = document.createElement("td");
           td2.innerHTML = `${user.role}
                           <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-cog" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content">
-                               <a class = "dd-content edit-popup" href = "#"> Marketing Specialist </a>
-                               <a class = "dd-content edit-popup" href = "#"> Manager </a>
-                               <a class = "dd-content edit-popup" href = "#"> Admin </a>
+                               <a class = "${user._id} dd-content edit-popup-1 popup-role" data-value="1" href = "#"> Marketing Specialist </a>
+                               <a class = "${user._id} dd-content edit-popup-2 popup-role" data-value="2" href = "#"> Manager </a>
+                               <a class = "${user._id} dd-content edit-popup-3 popup-role" data-value="3" href = "#"> Admin </a>
                             </div>
-                         </div>`
+                         </div>`;
           tr.appendChild(td2);
 
-          td3 = document.createElement('td');
+          td3 = document.createElement("td");
           td3.innerHTML = `
           <div class="dropdown">
                             <li><a href = "#"> <i class="fas fa-ellipsis-v" style= "color: #473a3a;"></i> </a></li>
                             <div class="dropdown-content ">
-                               <a class = "dd-content remove-user" href = "#" id="open-popup2-btn"> Remove User </a>
-                               <a class = "dd-content edit-profile" href = "#" id="open-popup3-btn"> Edit Profile </a>
+                               <a class = "${user._id} delete-profile-a dd-content remove-user" href = "#" > Remove User </a>
+                               <a class = "${user._id} edit-profile-a ${user.firstName} ${user.lastName} ${user.email} ${user.contact}  dd-content edit-profile" href = "#" > Edit Profile </a>
                             </div>
-                         </div>`
+                         </div>`;
           tr.appendChild(td3);
           list.appendChild(tr);
-        })
-       
-      }
+        });
+      };
       setValues();
+      const saveId = (e) => {
+        console.log(e);
+        if (e.target.classList[1] === "edit-profile-a") {
+          let id = e.target.classList[0];
+          console.log(id);
+          sessionStorage.setItem("edit_id", id);
+          document.getElementById("fname").value = e.target.classList[2];
+          document.getElementById("lname").value = e.target.classList[3];
+          document.getElementById("change_email").value = e.target.classList[4];
+          document.getElementById("contact").value = e.target.classList[5];
+        }
+        if (e.target.classList[1] === "delete-profile-a") {
+          let id = e.target.classList[0];
+          sessionStorage.setItem("edit_id", id);
+        }
+        if (e.target.classList[2] === "edit-popup-1") {
+          let id = e.target.classList[0];
+          sessionStorage.setItem("edit_role", "Marketing Specialist");
+          sessionStorage.setItem("edit_id", id);
+        } else if (e.target.classList[2] === "edit-popup-2") {
+          let id = e.target.classList[0];
+          sessionStorage.setItem("edit_role", "Manager");
+          sessionStorage.setItem("edit_id", id);
+        } else if (e.target.classList[2] === "edit-popup-3") {
+          let id = e.target.classList[0];
+          sessionStorage.setItem("edit_role", "Admin");
+          sessionStorage.setItem("edit_id", id);
+        }
+      };
+      document.body.addEventListener("click", saveId);
+
+      const changePopup = document.querySelector("#myTable");
+      changePopup.addEventListener("click", updatePopup);
+      function updatePopup(e) {
+        if (e.target.classList.contains("popup-role")) {
+          document.getElementsByClassName("popup")[0].classList.add("active");
+        }
+
+        if (e.target.classList.contains("remove-user")) {
+          document.getElementsByClassName("popup2")[0].classList.add("active");
+        }
+
+        if (e.target.classList.contains("edit-profile")) {
+          document.getElementsByClassName("popup3")[0].classList.add("active");
+        }
+      }
+
+      const editProfile = () => {
+        // e.preventDefault();
+        let firstname = document.getElementById("fname").value;
+        let lastname = document.getElementById("lname").value;
+        let email = document.getElementById("change_email").value;
+        let contact = document.getElementById("contact").value;
+
+        // update user
+        const data = {
+          firstName: firstname,
+          lastName: lastname,
+          email: email,
+          contact: contact,
+        };
+        console.log(data);
+        console.log("edit");
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.payload) {
+              clearValues();
+              setValues();
+              document.getElementsByClassName("alert1")[0].style.display = "block";
+
+              document.getElementById("close-alert1").addEventListener("click", function () {
+                document.getElementsByClassName("alert1")[0].style.display = "none";
+              });
+            }
+          });
+      };
+
+      const removeUser = () => {
+        // remove user
+        const data = {
+          status: "Deleted",
+        };
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.payload) {
+              clearValues();
+              setValues();
+              if (data.payload.status === "Deleted") {
+                document.getElementsByClassName("alert6")[0].style.display = "block";
+
+                document.getElementById("close-alert6").addEventListener("click", function () {
+                  document.getElementsByClassName("alert6")[0].style.display = "none";
+                });
+              } else {
+                document.getElementsByClassName("alert-error")[0].style.display = "block";
+
+                document.getElementById("close-alert-error").addEventListener("click", function () {
+                  document.getElementsByClassName("alert-error")[0].style.display = "none";
+                });
+              }
+            }
+          });
+      };
+
+      const changeRole = () => {
+        // change role
+        const data = {
+          role: JSON.parse(JSON.stringify(sessionStorage.getItem("edit_role"))),
+        };
+        console.log(data);
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            sessionStorage.setItem("edit_role", "");
+            if (data.payload) {
+              clearValues();
+              setValues();
+              document.getElementsByClassName("alert5")[0].style.display = "block";
+
+              document.getElementById("close-alert5").addEventListener("click", function () {
+                document.getElementsByClassName("alert5")[0].style.display = "none";
+              });
+            }
+          });
+      };
+
+      const logout = () => {
+        localStorage.clear();
+        window.location.replace("/login-reg.html");
+      };
+
+      //edit villa accordion
+      var accordion = (function () {
+        var $accordion = $(".js-accordion");
+        var $accordion_header = $accordion.find(".js-accordion-header");
+        var $accordion_item = $(".js-accordion-item");
+
+        // default settings
+        var settings = {
+          // animation speed
+          speed: 400,
+
+          // close all other accordion items if true
+          oneOpen: false,
+        };
+
+        return {
+          // pass configurable object literal
+          init: function ($settings) {
+            $accordion_header.on("click", function () {
+              accordion.toggle($(this));
+            });
+
+            $.extend(settings, $settings);
+
+            // ensure only one accordion is active if oneOpen is true
+            if (settings.oneOpen && $(".js-accordion-item.active").length > 1) {
+              $(".js-accordion-item.active:not(:first)").removeClass("active");
+            }
+
+            // reveal the active accordion bodies
+            $(".js-accordion-item.active").find("> .js-accordion-body").show();
+          },
+          toggle: function ($this) {
+            if (settings.oneOpen && $this[0] != $this.closest(".js-accordion").find("> .js-accordion-item.active > .js-accordion-header")[0]) {
+              $this.closest(".js-accordion").find("> .js-accordion-item").removeClass("active").find(".js-accordion-body").slideUp();
+            }
+
+            // show/hide the clicked accordion item
+            $this.closest(".js-accordion-item").toggleClass("active");
+            $this.next().stop().slideToggle(settings.speed);
+          },
+        };
+      })();
+
+      $(document).ready(function () {
+        accordion.init({ speed: 300, oneOpen: true });
+      });
+
+      //villa upload photos
+      function initImageUpload(box) {
+        let uploadField = box.querySelector(".image-upload");
+
+        uploadField.addEventListener("change", getFile);
+
+        function getFile(e) {
+          let file = e.currentTarget.files[0];
+          checkType(file);
+        }
+
+        function previewImage(file) {
+          let thumb = box.querySelector(".js--image-preview"),
+            reader = new FileReader();
+
+          reader.onload = function () {
+            thumb.style.backgroundImage = "url(" + reader.result + ")";
+          };
+          reader.readAsDataURL(file);
+          thumb.className += " js--no-default";
+        }
+
+        function checkType(file) {
+          let imageType = /image.*/;
+          if (!file.type.match(imageType)) {
+            throw "Datei ist kein Bild";
+          } else if (!file) {
+            throw "Kein Bild gewählt";
+          } else {
+            previewImage(file);
+          }
+        }
+      }
+
+      // initialize box-scope
+      var boxes = document.querySelectorAll(".box");
+
+      for (let i = 0; i < boxes.length; i++) {
+        let box = boxes[i];
+        initDropEffect(box);
+        initImageUpload(box);
+      }
+
+      /// drop-effect
+      function initDropEffect(box) {
+        let area, drop, areaWidth, areaHeight, maxDistance, dropWidth, dropHeight, x, y;
+
+        // get clickable area for drop effect
+        area = box.querySelector(".js--image-preview");
+        area.addEventListener("click", fireRipple);
+
+        function fireRipple(e) {
+          area = e.currentTarget;
+          // create drop
+          if (!drop) {
+            drop = document.createElement("span");
+            drop.className = "drop";
+            this.appendChild(drop);
+          }
+          // reset animate class
+          drop.className = "drop";
+
+          // calculate dimensions of area (longest side)
+          areaWidth = getComputedStyle(this, null).getPropertyValue("width");
+          areaHeight = getComputedStyle(this, null).getPropertyValue("height");
+          maxDistance = Math.max(parseInt(areaWidth, 10), parseInt(areaHeight, 10));
+
+          // set drop dimensions to fill area
+          drop.style.width = maxDistance + "px";
+          drop.style.height = maxDistance + "px";
+
+          // calculate dimensions of drop
+          dropWidth = getComputedStyle(this, null).getPropertyValue("width");
+          dropHeight = getComputedStyle(this, null).getPropertyValue("height");
+
+          // calculate relative coordinates of click
+          // logic: click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center
+          x = e.pageX - this.offsetLeft - parseInt(dropWidth, 10) / 2;
+          y = e.pageY - this.offsetTop - parseInt(dropHeight, 10) / 2 - 30;
+
+          // position drop and animate
+          drop.style.top = y + "px";
+          drop.style.left = x + "px";
+          drop.className += " animate";
+          e.stopPropagation();
+        }
+      }
+      //end of edit villa
+
       //Import Navbar
       $(function () {
-        $("#nav-placeholder").load("navbar.html");
+        $("#nav-placeholder").load("navbar-staff.html");
       });
 
       //Import Footer
@@ -734,27 +1061,49 @@
       };
 
       // Popup Button
-      document.getElementById("open-popup2-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup2")[0].classList.add("active");
+      document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
+      document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
 
       document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
 
-      document.getElementById("open-popup3-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup3")[0].classList.add("active");
+      document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup2")[0].classList.remove("active");
+      });
+
+      document.getElementById("confirm-popup3-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup3")[0].classList.remove("active");
       });
 
       document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup3")[0].classList.remove("active");
       });
 
+      // Remove readOnly
+      document.getElementById("removeReadOnly").addEventListener("click", function () {
+        document.getElementById("update_contact").toggleAttribute("readonly");
+        document.getElementById("location").toggleAttribute("readonly");
+        document.getElementById("update_email").toggleAttribute("readonly");
+        document.getElementById("fb_email").toggleAttribute("readonly");
+        document.getElementById("ig_email").toggleAttribute("readonly");
+        document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("editapp-btn2")[0].classList.toggle("showProfile-btn");
+      });
 
       // Alert
-      document.getElementById("open-alert1").addEventListener("click", function () {
-        document.getElementsByClassName("alert1")[0].classList.add("show");
-      });
+      // document.getElementById("open-alert1").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert1")[0].classList.add("show");
+      // });
 
       document.getElementById("close-alert1").addEventListener("click", function () {
         document.getElementsByClassName("alert1")[0].classList.remove("show");
@@ -784,200 +1133,61 @@
         document.getElementsByClassName("alert4")[0].classList.remove("show");
       });
 
-      document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
-        document.getElementsByClassName("alert5")[0].classList.add("show");
-      });
+      // document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert5")[0].classList.add("show");
+      // });
 
       document.getElementById("close-alert5").addEventListener("click", function () {
         document.getElementsByClassName("alert5")[0].classList.remove("show");
       });
 
-        //upload pic
-        function readURL(input) {
+      //upload pic
+      function readURL(input) {
         if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-                $('#imagePreview').hide();
-                $('#imagePreview').fadeIn(650);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#imageUpload").change(function() {
-        readURL(this);
-    });
-
-         /*manage users*/
-         jQuery(document).ready(function (e) {
-    function t(t) {
-        e(t).bind("click", function (t) {
-            t.preventDefault();
-            e(this).parent().fadeOut()
-        })
-    }
-    e(".dropdown-toggle").click(function () {
-        var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
-        e(".button-dropdown .dropdown-menu").hide();
-        e(".button-dropdown .dropdown-toggle").removeClass("active");
-        if (t) {
-            e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("active")
-        }
-    });
-    e(document).bind("click", function (t) {
-        var n = e(t.target);
-        if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
-    });
-    e(document).bind("click", function (t) {
-        var n = e(t.target);
-        if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
-    })
-});
-          //edit villa accordion
-          var accordion = (function(){
-          var $accordion = $('.js-accordion');
-          var $accordion_header = $accordion.find('.js-accordion-header');
-          var $accordion_item = $('.js-accordion-item');
-        
-          // default settings 
-          var settings = {
-            // animation speed
-            speed: 400,
-            
-            // close all other accordion items if true
-            oneOpen: false
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $("#imagePreview").css("background-image", "url(" + e.target.result + ")");
+            $("#imagePreview").hide();
+            $("#imagePreview").fadeIn(650);
           };
-            
-          return {
-            // pass configurable object literal
-            init: function($settings) {
-              $accordion_header.on('click', function() {
-                accordion.toggle($(this));
-              });
-              
-              $.extend(settings, $settings); 
-              
-              // ensure only one accordion is active if oneOpen is true
-              if(settings.oneOpen && $('.js-accordion-item.active').length > 1) {
-                $('.js-accordion-item.active:not(:first)').removeClass('active');
-              }
-              
-              // reveal the active accordion bodies
-              $('.js-accordion-item.active').find('> .js-accordion-body').show();
-            },
-            toggle: function($this) {
-                    
-              if(settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
-                $this.closest('.js-accordion')
-                      .find('> .js-accordion-item') 
-                      .removeClass('active')
-                      .find('.js-accordion-body')
-                      .slideUp()
-              }
-              
-              // show/hide the clicked accordion item
-              $this.closest('.js-accordion-item').toggleClass('active');
-              $this.next().stop().slideToggle(settings.speed);
-            }
-          }
-        })();
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $("#imageUpload").change(function () {
+        readURL(this);
+      });
 
-        $(document).ready(function(){
-          accordion.init({ speed: 300, oneOpen: true });
+      /*manage users*/
+      jQuery(document).ready(function (e) {
+        function t(t) {
+          e(t).bind("click", function (t) {
+            t.preventDefault();
+            e(this).parent().fadeOut();
+          });
+        }
+        e(".dropdown-toggle").click(function () {
+          var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
+          e(".button-dropdown .dropdown-menu").hide();
+          e(".button-dropdown .dropdown-toggle").removeClass("active");
+          if (t) {
+            e(this)
+              .parents(".button-dropdown")
+              .children(".dropdown-menu")
+              .toggle()
+              .parents(".button-dropdown")
+              .children(".dropdown-toggle")
+              .addClass("active");
+          }
         });
-
-        //villa upload photos
-        function initImageUpload(box) {
-        let uploadField = box.querySelector('.image-upload');
-
-        uploadField.addEventListener('change', getFile);
-
-        function getFile(e){
-          let file = e.currentTarget.files[0];
-          checkType(file);
-        }
-        
-        function previewImage(file){
-          let thumb = box.querySelector('.js--image-preview'),
-              reader = new FileReader();
-
-          reader.onload = function() {
-            thumb.style.backgroundImage = 'url(' + reader.result + ')';
-          }
-          reader.readAsDataURL(file);
-          thumb.className += ' js--no-default';
-        }
-
-        function checkType(file){
-          let imageType = /image.*/;
-          if (!file.type.match(imageType)) {
-            throw 'Datei ist kein Bild';
-          } else if (!file){
-            throw 'Kein Bild gewählt';
-          } else {
-            previewImage(file);
-          }
-        }
-      }
-
-      // initialize box-scope
-      var boxes = document.querySelectorAll('.box');
-
-      for (let i = 0; i < boxes.length; i++) {
-        let box = boxes[i];
-        initDropEffect(box);
-        initImageUpload(box);
-      }
-
-      /// drop-effect
-      function initDropEffect(box){
-        let area, drop, areaWidth, areaHeight, maxDistance, dropWidth, dropHeight, x, y;
-        
-        // get clickable area for drop effect
-        area = box.querySelector('.js--image-preview');
-        area.addEventListener('click', fireRipple);
-        
-        function fireRipple(e){
-          area = e.currentTarget
-          // create drop
-          if(!drop){
-            drop = document.createElement('span');
-            drop.className = 'drop';
-            this.appendChild(drop);
-          }
-          // reset animate class
-          drop.className = 'drop';
-          
-          // calculate dimensions of area (longest side)
-          areaWidth = getComputedStyle(this, null).getPropertyValue("width");
-          areaHeight = getComputedStyle(this, null).getPropertyValue("height");
-          maxDistance = Math.max(parseInt(areaWidth, 10), parseInt(areaHeight, 10));
-
-          // set drop dimensions to fill area
-          drop.style.width = maxDistance + 'px';
-          drop.style.height = maxDistance + 'px';
-          
-          // calculate dimensions of drop
-          dropWidth = getComputedStyle(this, null).getPropertyValue("width");
-          dropHeight = getComputedStyle(this, null).getPropertyValue("height");
-          
-          // calculate relative coordinates of click
-          // logic: click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center
-          x = e.pageX - this.offsetLeft - (parseInt(dropWidth, 10)/2);
-          y = e.pageY - this.offsetTop - (parseInt(dropHeight, 10)/2) - 30;
-          
-          // position drop and animate
-          drop.style.top = y + 'px';
-          drop.style.left = x + 'px';
-          drop.className += ' animate';
-          e.stopPropagation();
-        }
-      }
-
-      const logout = () => {
-        localStorage.clear();
-        window.location.replace("/login-reg.html");
-      };
+        e(document).bind("click", function (t) {
+          var n = e(t.target);
+          if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
+        });
+        e(document).bind("click", function (t) {
+          var n = e(t.target);
+          if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
+        });
+      });
     </script>
   </body>
 </html>
