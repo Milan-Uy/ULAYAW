@@ -4974,7 +4974,7 @@ body {
 
 .columnsContainer {
   position: relative;
-  margin: 0.5em;
+  margin: 0 auto;
   width: 50%;
 }
 
