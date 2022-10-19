@@ -4999,6 +4999,12 @@ body {
   padding: 25px;
   text-align: center;
   background-color: #f9f2e7;
+  font-family: "Montserrat";
+  border-radius: 2px;
+}
+.children,
+.bed {
+  margin-bottom: 10px;
 }
 .rdimg {
   width: 20%;
