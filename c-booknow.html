@@ -266,7 +266,7 @@
                       img = "kubo1";
                       section = 4;
                       break;
-                    case "Celso Hall":
+                    case "Celso Tagle Hall":
                       img = "CELSO1";
                       section = 5;
                       break;
@@ -288,7 +288,7 @@
                   data1 += "<a href='villa.html#section" + section + "' class='read-more'>More about " + data.villas[i].name + " >>></a>";
                   data1 += "<span class='reserve-btn'>";
                   data1 += "<div class='book-btn bounce-in-on-hover'>";
-                  data1 += "<a class='book-btn' href='reservationdetails.html'>RESERVE</a>";
+                  data1 += "<a class='" + data.villas[i]._id + " book-btn' href='#'>RESERVE</a>";
                   data1 += "</div>";
                   data1 += "</span>";
                   data1 += "</div>";
@@ -325,7 +325,7 @@
                       img = "kubo1";
                       section = 4;
                       break;
-                    case "Celso Hall":
+                    case "Celso Tagle Hall":
                       img = "CELSO1";
                       section = 5;
                       break;
@@ -347,7 +347,7 @@
                   data1 += "<a href='villa.html#section" + section + "' class='read-more'>More about " + data.villas[i].name + " >>></a>";
                   data1 += "<span class='reserve-btn'>";
                   data1 += "<div class='book-btn bounce-in-on-hover'>";
-                  data1 += "<a class='book-btn' href='reservationdetails.html'>RESERVE</a>";
+                  data1 += "<a class='" + data.villas[i]._id + " book-btn' href='#'>RESERVE</a>";
                   data1 += "</div>";
                   data1 += "</span>";
                   data1 += "</div>";
@@ -364,6 +364,17 @@
           });
       };
       bookNow();
+
+      const saveId = (e) => {
+        console.log(e);
+        if (e.target.classList[1] === "book-btn") {
+          let id = e.target.classList[0];
+          console.log(id);
+          sessionStorage.setItem("villa_id", id);
+          window.location.replace("/reservationdetails.html");
+        }
+      };
+      document.body.addEventListener("click", saveId);
     </script>
   </body>
 </html>
