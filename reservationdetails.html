@@ -21,7 +21,7 @@
       <div id="nav-placeholder"></div>
     </section>
     <h1 class="headtextrd">Reservation Details</h1>
-    <div class="check-availability-index">
+    <!-- <div class="check-availability-index">
       <form action="javascript:getDate()" class="checkavail-form-index">
         <div class="form-item check-flex-item">
           <i class="icon material-symbols-outlined">event_upcoming</i>
@@ -61,30 +61,30 @@
           </div>
         </div>
       </form>
-    </div>
+    </div> -->
 
     <div class="columnsContainer">
       <div class="leftColumn">
         <div class="card1">
           <img class="rdimg" src="images/AUR2.png" />
-          <p class="villatxt">Casa Aurelia</p>
+          <p class="villatxt">Villa Name</p>
           <p class="rdcontent">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
             minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
-          <p class="pricetxt">P25,000</p>
+          <p class="pricetxt">Price</p>
         </div>
       </div>
 
       <div class="rightColumn">
         <div class="card2">
-          <label>Adults</label>
+          <label>Guests</label>
           <input
             class="adults"
             type="number"
             placeholder="1"
             pattern="[0-9]*"
-            id="spinner"
+            id="guestNo"
             name="value"
             value="1"
             min="1"
@@ -94,7 +94,7 @@
             maxlength="2"
             required
           />
-
+          <!-- 
           <label>Children</label>
           <input
             class="children"
@@ -110,7 +110,7 @@
             oninput="maxLengthCheck(this)"
             maxlength="2"
             required
-          />
+          /> -->
           <hr />
           <p>Add ons:</p>
           <label>Breakfast</label>
@@ -119,7 +119,7 @@
             type="number"
             placeholder="0"
             pattern="[0-9]*"
-            id="spinner"
+            id="breakfast"
             name="value"
             value="0"
             min="0"
@@ -135,7 +135,7 @@
             type="number"
             placeholder="0"
             pattern="[0-9]*"
-            id="spinner"
+            id="bed"
             name="value"
             value="0"
             min="0"
@@ -145,7 +145,7 @@
             maxlength="2"
             required
           />
-          <input class="confirm-btn" type="button" value="Confirm" />
+          <input class="confirm-btn" type="button" onclick="getVillaId()" value="Confirm" />
         </div>
       </div>
     </div>
@@ -155,8 +155,8 @@
         <h3 style="padding-bottom: 10px">
           Casa Aurelia <span id="price2" class="price" style="color: black"><b>P25,000.00</b></span>
         </h3>
-        <p>Check In: <span id="checkin"></span></p>
-        <p>Check Out: <span id="checkout"></span></p>
+        <p>Check In: <span id="checkin"></span>, <span id="timein"> </span></p>
+        <p>Check Out: <span id="checkout"></span>, <span id="timeout"> </span></p>
         <p>8 ADULTS,1 NIGHT</p>
         <hr />
         <p>Add-Ons Costs</p>
@@ -222,9 +222,10 @@
       document.getElementsByClassName("popup1")[0].classList.remove("active");
     });
 
+    const checkin = new Date(sessionStorage.getItem("checkinDate1")).toISOString();
+    const checkout = new Date(sessionStorage.getItem("checkoutDate1")).toISOString();
+
     const getDetails = () => {
-      const checkin = new Date(sessionStorage.getItem("checkinDate1")).toISOString();
-      const checkout = new Date(sessionStorage.getItem("checkoutDateFormat")).toISOString();
       const guest = sessionStorage.getItem("guestAmt");
       console.log(checkin);
       console.log(checkout);
@@ -238,7 +239,7 @@
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },
       };
-      console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
+      // console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
       fetch(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`)
         .then((response) => response.json())
         .then((data) => {
@@ -247,38 +248,73 @@
     };
     getDetails();
 
+    const getVillaId = () => {
+      const id = sessionStorage.getItem("villa_id");
+
+      const guestNo = document.getElementById("guestNo").value;
+      const breakfast = document.getElementById("breakfast").value;
+      const bed = document.getElementById("bed").value;
+
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      };
+
+      fetch(`https://ulayaw-backend.herokuapp.com/villa/getOne/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          console.log(data.payload.name);
+          document.getElementsByClassName("villatxt")[0].innerText = data.payload.name;
+          document.getElementsByClassName("rdcontent")[0].innerText = data.payload.description;
+          if (checkin === checkout) {
+            document.getElementsByClassName("pricetxt")[0].innerText = data.payload.dayTour.price;
+            document.getElementById("timein").innerText = data.payload.dayTour.checkInTime;
+            document.getElementById("timeout").innerText = data.payload.dayTour.checkOutTime;
+          } else {
+            document.getElementsByClassName("pricetxt")[0].innerText = data.payload.overnight.price;
+            document.getElementById("timein").innerText = data.payload.overnight.checkInTime;
+            document.getElementById("timeout").innerText = data.payload.overnight.checkOutTime;
+          }
+        });
+    };
+    getVillaId();
+
     //Date Picker
 
     // endDate.setDate(endDate.getDate() + 1);
 
-    const picker = new Litepicker({
-      element: document.getElementById("checkin-date"),
-      elementEnd: document.getElementById("checkout-date"),
-      numberOfMonths: 2,
-      numberOfColumns: 2,
-      singleMode: false,
-      numberOfMonths: 2,
-      allowRepick: true,
-      minDays: 1, // Sets the min amount of days to 1
-      maxDays: 730, // Sets the min amount of days to 1
-      format: "D MMM, YYYY", // Format date
-      minDate: startDate, //It will not allow to select past days
-    });
-    //Input Number
-    function spinner() {
-      // Spinner
-      $("#spinner").spinner();
+    // const picker = new Litepicker({
+    //   element: document.getElementById("checkin-date"),
+    //   elementEnd: document.getElementById("checkout-date"),
+    //   numberOfMonths: 2,
+    //   numberOfColumns: 2,
+    //   singleMode: false,
+    //   numberOfMonths: 2,
+    //   allowRepick: true,
+    //   minDays: 1, // Sets the min amount of days to 1
+    //   maxDays: 730, // Sets the min amount of days to 1
+    //   format: "D MMM, YYYY", // Format date
+    //   minDate: startDate, //It will not allow to select past days
+    // });
+    // //Input Number
+    // function spinner() {
+    //   // Spinner
+    //   $("#spinner").spinner();
 
-      //Input only numbers
-      $("#spinner").keyup(function () {
-        this.value = this.value.replace(/[^0-9]/g, "");
-      });
-    }
+    //   //Input only numbers
+    //   $("#spinner").keyup(function () {
+    //     this.value = this.value.replace(/[^0-9]/g, "");
+    //   });
+    // }
     //Input max number
     function maxLengthCheck(object) {
       if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
     }
 
-    window.onload = spinner;
+    // window.onload = spinner;
   </script>
 </html>
