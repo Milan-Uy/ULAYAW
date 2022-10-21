@@ -1621,6 +1621,18 @@ hr {
     margin-bottom: 20px;
   }
 }
+@media (max-width: 600px) {
+  .containerps {
+    font-size: 12px;
+  }
+  .payment-btn {
+    width: 70%;
+    font-size: 6px;
+  }
+  .gcashicon {
+    width: 70%;
+  }
+}
 
 /*Book Now*/
 .book-header {
