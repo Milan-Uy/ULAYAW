@@ -73,31 +73,32 @@
             minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <p><strong>Note:</strong></p>
-          <p>Min. Guests: <span id="minGuest"></span></p>
+          <!-- <p>Min. Guests: <span id="minGuest"></span></p> -->
           <p>Max. Guests: <span id="maxGuest"></span></p>
           <p class="pricetxt">Price</p>
         </div>
       </div>
 
       <div class="rightColumn">
-        <div class="card2">
-          <label>Guests</label>
-          <input
-            class="adults"
-            type="number"
-            placeholder="1"
-            pattern="[0-9]*"
-            id="guestNo"
-            name="value"
-            value="1"
-            min="1"
-            max="30"
-            step="1"
-            oninput="maxLengthCheck(this)"
-            maxlength="3"
-            required
-          />
-          <!-- 
+        <form action="javascript:getVillaId()">
+          <div class="card2">
+            <label>Guests</label>
+            <input
+              class="adults"
+              type="number"
+              placeholder="1"
+              pattern="[0-9]*"
+              id="guestNo"
+              name="value"
+              value="1"
+              min="1"
+              max="30"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="3"
+              required
+            />
+            <!-- 
           <label>Children</label>
           <input
             class="children"
@@ -114,74 +115,75 @@
             maxlength="2"
             required
           /> -->
-          <hr id="hrline" />
-          <p id="addonstxt">Add ons:</p>
-          <label id="bfasttxt">Breakfast</label>
-          <input
-            class="bfast"
-            type="number"
-            placeholder="0"
-            pattern="[0-9]*"
-            id="breakfast"
-            name="value"
-            value="0"
-            min="0"
-            max="30"
-            step="1"
-            oninput="maxLengthCheck(this)"
-            maxlength="2"
-            required
-          />
-          <label id="bedtxt">Bed</label>
-          <input
-            class="bed"
-            type="number"
-            placeholder="0"
-            pattern="[0-9]*"
-            id="bed"
-            name="value"
-            value="0"
-            min="0"
-            max="30"
-            step="1"
-            oninput="maxLengthCheck(this)"
-            maxlength="2"
-            required
-          />
-          <label id="bedroomtxt" class="bedroom">Extra Bedroom</label>
-          <input
-            class="bedroom"
-            type="number"
-            placeholder="0"
-            pattern="[0-9]*"
-            id="bedroom"
-            name="value"
-            value="0"
-            min="0"
-            max="1"
-            step="1"
-            oninput="maxLengthCheck(this)"
-            maxlength="1"
-            required
-          />
-          <label id="tabletxt" class="table">Table Set Up</label>
-          <input
-            class="table"
-            type="number"
-            placeholder="0"
-            pattern="[0-9]*"
-            id="table"
-            name="value"
-            value="0"
-            min="0"
-            max="1"
-            step="1"
-            oninput="maxLengthCheck(this)"
-            maxlength="1"
-            required
-          />
-          <input class="confirm-btn" type="button" onclick="getVillaId()" value="Confirm" />
-        </div>
+            <hr id="hrline" />
+            <p id="addonstxt">Add ons:</p>
+            <label id="bfasttxt">Breakfast</label>
+            <input
+              class="bfast"
+              type="number"
+              placeholder="0"
+              pattern="[0-9]*"
+              id="breakfast"
+              name="value"
+              value="0"
+              min="0"
+              max="30"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="2"
+              required
+            />
+            <label id="bedtxt">Bed</label>
+            <input
+              class="bed"
+              type="number"
+              placeholder="0"
+              pattern="[0-9]*"
+              id="bed"
+              name="value"
+              value="0"
+              min="0"
+              max="30"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="2"
+              required
+            />
+            <label id="bedroomtxt" class="bedroom">Extra Bedroom</label>
+            <input
+              class="bedroom"
+              type="number"
+              placeholder="0"
+              pattern="[0-9]*"
+              id="bedroom"
+              name="value"
+              value="0"
+              min="0"
+              max="1"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="1"
+              required
+            />
+            <label id="tabletxt" class="table">Table Set Up</label>
+            <input
+              class="table"
+              type="number"
+              placeholder="0"
+              pattern="[0-9]*"
+              id="table"
+              name="value"
+              value="0"
+              min="0"
+              max="1"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="1"
+              required
+            />
+            <input class="confirm-btn" type="button" value="Confirm" />
+          </div>
+        </form>
       </div>
     </div>
     <div class="col-50">
@@ -412,7 +414,7 @@
             document.getElementById("price2").innerText = data.payload.dayTour.price;
             document.getElementById("timein").innerText = data.payload.dayTour.checkInTime;
             document.getElementById("timeout").innerText = data.payload.dayTour.checkOutTime;
-            document.getElementById("minGuest").innerText = data.payload.dayTour.minPerson;
+            // document.getElementById("minGuest").innerText = data.payload.dayTour.minPerson;
             document.getElementById("maxGuest").innerText = data.payload.dayTour.maxPerson;
             var villaPrice = data.payload.dayTour.price;
             var total = villaPrice + breakfastval + bedval + bedroomval + tableval;
@@ -445,7 +447,7 @@
             document.getElementById("timein").innerText = data.payload.overnight.checkInTime;
             document.getElementById("timeout").innerText = data.payload.overnight.checkOutTime;
             document.getElementById("duration").innerText = duration;
-            document.getElementById("minGuest").innerText = data.payload.overnight.minPerson;
+            // document.getElementById("minGuest").innerText = data.payload.overnight.minPerson;
             document.getElementById("maxGuest").innerText = data.payload.overnight.maxPerson;
             var villaPrice = data.payload.overnight.price;
             var total = villaPrice + breakfastval + bedval;
@@ -454,6 +456,11 @@
         });
     };
     getVillaId();
+
+    // disable typing in number input
+    $("[type='number']").keypress(function (evt) {
+      evt.preventDefault();
+    });
 
     //Date Picker
 
