@@ -5002,10 +5002,36 @@ body {
   font-family: "Montserrat";
   border-radius: 2px;
 }
+
+.adults {
+  margin-bottom: 15px;
+}
+
 .children,
 .bed {
   margin-bottom: 10px;
 }
+
+.bedroom {
+  display: none;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.table {
+  display: none;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#hidebedroom {
+  display: none;
+}
+
+#hidetable {
+  display: none;
+}
+
 .policyrd {
   margin-top: 10px;
   text-align: center;

@@ -72,6 +72,9 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
             minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
+          <p><strong>Note:</strong></p>
+          <p>Min. Guests: <span id="minGuest"></span></p>
+          <p>Max. Guests: <span id="maxGuest"></span></p>
           <p class="pricetxt">Price</p>
         </div>
       </div>
@@ -91,7 +94,7 @@
             max="30"
             step="1"
             oninput="maxLengthCheck(this)"
-            maxlength="2"
+            maxlength="3"
             required
           />
           <!-- 
@@ -111,9 +114,9 @@
             maxlength="2"
             required
           /> -->
-          <hr />
-          <p>Add ons:</p>
-          <label>Breakfast</label>
+          <hr id="hrline" />
+          <p id="addonstxt">Add ons:</p>
+          <label id="bfasttxt">Breakfast</label>
           <input
             class="bfast"
             type="number"
@@ -129,7 +132,7 @@
             maxlength="2"
             required
           />
-          <label>Bed</label>
+          <label id="bedtxt">Bed</label>
           <input
             class="bed"
             type="number"
@@ -145,6 +148,38 @@
             maxlength="2"
             required
           />
+          <label id="bedroomtxt" class="bedroom">Extra Bedroom</label>
+          <input
+            class="bedroom"
+            type="number"
+            placeholder="0"
+            pattern="[0-9]*"
+            id="bedroom"
+            name="value"
+            value="0"
+            min="0"
+            max="1"
+            step="1"
+            oninput="maxLengthCheck(this)"
+            maxlength="1"
+            required
+          />
+          <label id="tabletxt" class="table">Table Set Up</label>
+          <input
+            class="table"
+            type="number"
+            placeholder="0"
+            pattern="[0-9]*"
+            id="table"
+            name="value"
+            value="0"
+            min="0"
+            max="1"
+            step="1"
+            oninput="maxLengthCheck(this)"
+            maxlength="1"
+            required
+          />
           <input class="confirm-btn" type="button" onclick="getVillaId()" value="Confirm" />
         </div>
       </div>
@@ -153,21 +188,29 @@
       <div class="containerps">
         <p>Your Reservation:</p>
         <h3 style="padding-bottom: 10px">
-          Casa Aurelia <span id="price2" class="price" style="color: black"><b>P25,000.00</b></span>
+          <span id="villatxt2">Villa Name</span><span id="price2" class="price" style="color: black"><b>Villa Price</b></span>
         </h3>
         <p>Check In: <span id="checkin"></span>, <span id="timein"> </span></p>
         <p>Check Out: <span id="checkout"></span>, <span id="timeout"> </span></p>
-        <p>8 ADULTS,1 NIGHT</p>
+        <p><span id="guestDisplay"></span> Guest/s</p>
+        <p id="hideday"><span id="duration"></span> Night/s</p>
+
         <hr />
         <p>Add-Ons Costs</p>
-        <p>Add-on1 <span class="price">P150.00</span></p>
-        <p>Add-on2<span class="price">P200.00</span></p>
+        <p id="hidebfast">Breakfast x <span id="bfastPrice" class="price">Breakfast Price</span><span id="bfastNo"></span></p>
+        <p id="hidebed">Bed x <span id="bedPrice" class="price">Bed Price</span><span id="bedNo"></span></p>
+        <p id="hidebedroom">Bedroom x <span id="bedroomPrice" class="price">Bedroom Price</span><span id="bedroomNo"></span></p>
+        <p id="hidetable">Table Set Up x <span id="tablePrice" class="price">Table Set Up Price</span><span id="tableNo"></span></p>
         <hr />
         <h3>
-          Total <span class="price" style="color: black"><b>P25,350.00</b></span>
+          Total <span id="total" class="price" style="color: black"><b>P25,350.00</b></span>
         </h3>
         <p class="policyrd">
-          By clicking the confirm reservation, you are agreeing to the <a href="#" id="open-popup-btn-1">Booking Policy</a> of the Hulo Leisure farm
+          By clicking the confirm reservation, you are agreeing to the
+          <a href="#" id="open-popup-btn-1"
+            ><strong><u>Booking Policy</u></strong></a
+          >
+          of the Hulo Leisure farm
         </p>
         <input class="cr-btn" type="button" value="Confirm Reservation" />
       </div>
@@ -225,6 +268,12 @@
     const checkin = new Date(sessionStorage.getItem("checkinDate1")).toISOString();
     const checkout = new Date(sessionStorage.getItem("checkoutDate1")).toISOString();
 
+    var checkin1 = new Date(sessionStorage.getItem("checkinDate1"));
+    var checkout1 = new Date(sessionStorage.getItem("checkoutDate1"));
+    var timediff = checkout1.getTime() - checkin1.getTime();
+    var duration = Math.round(timediff / (1000 * 3600 * 24));
+    console.log(duration);
+
     const getDetails = () => {
       const guest = sessionStorage.getItem("guestAmt");
       console.log(checkin);
@@ -232,6 +281,10 @@
       console.log(guest);
       document.getElementById("checkin").innerHTML = sessionStorage.getItem("checkinDate1");
       document.getElementById("checkout").innerHTML = sessionStorage.getItem("checkoutDate1");
+
+      document.getElementById("guestNo").value = sessionStorage.getItem("guestAmt");
+      document.getElementById("guestDisplay").innerText = sessionStorage.getItem("guestAmt");
+
       let options = {
         method: "GET",
         headers: {
@@ -254,6 +307,21 @@
       const guestNo = document.getElementById("guestNo").value;
       const breakfast = document.getElementById("breakfast").value;
       const bed = document.getElementById("bed").value;
+      const bedroom = document.getElementById("bedroom").value;
+      const table = document.getElementById("table").value;
+
+      var breakfastval = 200 * breakfast;
+      var bedval = 300 * bed;
+      var bedroomval;
+      var tableval = 500 * table;
+
+      document.getElementById("bfastPrice").innerText = breakfastval;
+      document.getElementById("bedPrice").innerText = bedval;
+
+      document.getElementById("bfastNo").innerText = breakfast;
+      document.getElementById("bedNo").innerText = bed;
+      document.getElementById("bedroomNo").innerText = bedroom;
+      document.getElementById("tableNo").innerText = table;
 
       let options = {
         method: "GET",
@@ -267,17 +335,113 @@
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          console.log(data.payload.name);
+          // console.log(data.payload.name);
           document.getElementsByClassName("villatxt")[0].innerText = data.payload.name;
+          document.getElementById("villatxt2").innerText = data.payload.name;
           document.getElementsByClassName("rdcontent")[0].innerText = data.payload.description;
+          document.getElementById("guestDisplay").innerText = guestNo;
+
           if (checkin === checkout) {
+            switch (data.payload.name) {
+              case "Casa Aurelia":
+                document.getElementById("guestNo").setAttribute("max", 30);
+                document.getElementById("bed").setAttribute("max", 10);
+                document.getElementsByClassName("bedroom")[0].style.display = "block";
+                document.getElementById("bedroom").style.display = "block";
+                document.getElementById("hidebedroom").style.display = "block";
+                bedroomval = 2000 * bedroom;
+                document.getElementById("bedroomPrice").innerText = bedroomval;
+                break;
+              case "Caminos De Primavera":
+                document.getElementById("guestNo").setAttribute("max", 15);
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementsByClassName("bedroom")[0].style.display = "block";
+                document.getElementById("bedroom").style.display = "block";
+                document.getElementById("hidebedroom").style.display = "block";
+                bedroomval = 2000 * bedroom;
+                document.getElementById("bedroomPrice").innerText = bedroomval;
+                break;
+              case "Casa Salud":
+                document.getElementById("guestNo").setAttribute("max", 30);
+                document.getElementById("bed").setAttribute("max", 2);
+                document.getElementsByClassName("bedroom")[0].style.display = "block";
+                document.getElementById("bedroom").style.display = "block";
+                document.getElementById("hidebedroom").style.display = "block";
+                bedroomval = 1500 * bedroom;
+                document.getElementById("bedroomPrice").innerText = bedroomval;
+                break;
+              case "Kubo ni Basyong":
+                document.getElementById("guestNo").setAttribute("max", 4);
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                document.getElementsByClassName("table")[0].style.display = "block";
+                document.getElementById("table").style.display = "block";
+                document.getElementById("hidetable").style.display = "block";
+                document.getElementById("tablePrice").innerText = tableval;
+                breakfastval = 0;
+                bedval = 0;
+                bedroomval = 0;
+                break;
+              case "Celso Tagle Hall":
+                document.getElementById("guestNo").setAttribute("max", 100);
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                breakfastval = 0;
+                bedval = 0;
+                bedroomval = 0;
+                break;
+            }
+            document.getElementById("addonstxt").style.display = "none";
+            document.getElementById("bed").style.display = "none";
+            document.getElementById("hidebfast").style.display = "none";
+            document.getElementById("hidebed").style.display = "none";
+            document.getElementById("breakfast").style.display = "none";
+            document.getElementById("bfasttxt").style.display = "none";
+            document.getElementById("bedtxt").style.display = "none";
+            document.getElementById("hrline").style.display = "none";
+            document.getElementById("hideday").style.display = "none";
             document.getElementsByClassName("pricetxt")[0].innerText = data.payload.dayTour.price;
+            document.getElementById("price2").innerText = data.payload.dayTour.price;
             document.getElementById("timein").innerText = data.payload.dayTour.checkInTime;
             document.getElementById("timeout").innerText = data.payload.dayTour.checkOutTime;
+            document.getElementById("minGuest").innerText = data.payload.dayTour.minPerson;
+            document.getElementById("maxGuest").innerText = data.payload.dayTour.maxPerson;
+            var villaPrice = data.payload.dayTour.price;
+            var total = villaPrice + breakfastval + bedval + bedroomval + tableval;
+            document.getElementById("total").innerText = total;
           } else {
+            switch (data.payload.name) {
+              case "Casa Aurelia":
+                document.getElementById("guestNo").setAttribute("max", 20);
+                document.getElementById("bed").setAttribute("max", 10);
+                break;
+              case "Caminos De Primavera":
+                document.getElementById("guestNo").setAttribute("max", 6);
+                document.getElementById("bed").setAttribute("disabled", "");
+                break;
+              case "Casa Salud":
+                document.getElementById("guestNo").setAttribute("max", 7);
+                document.getElementById("bed").setAttribute("max", 2);
+                break;
+              case "Kubo ni Basyong":
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                break;
+              case "Celso Tagle Hall":
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                break;
+            }
             document.getElementsByClassName("pricetxt")[0].innerText = data.payload.overnight.price;
+            document.getElementById("price2").innerText = data.payload.overnight.price;
             document.getElementById("timein").innerText = data.payload.overnight.checkInTime;
             document.getElementById("timeout").innerText = data.payload.overnight.checkOutTime;
+            document.getElementById("duration").innerText = duration;
+            document.getElementById("minGuest").innerText = data.payload.overnight.minPerson;
+            document.getElementById("maxGuest").innerText = data.payload.overnight.maxPerson;
+            var villaPrice = data.payload.overnight.price;
+            var total = villaPrice + breakfastval + bedval;
+            document.getElementById("total").innerText = total;
           }
         });
     };
