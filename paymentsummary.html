@@ -26,15 +26,15 @@
   <div class="col-25">
     <div class="containerps">
       <p>Your Reservation:</p>
-      <h3 style="padding-bottom: 10px;">Casa Aurelia <span class="price" style="color:black"><b>P25,000.00</b></span></h3>
+      <h3 style="padding-bottom: 10px;">Villa Name <span class="price" style="color:black"><b>P25,000.00</b></span></h3>
       <p>DATE </p>
       <p>8 ADULTS,1 NIGHT </p>
       <hr>
       <p>Add-Ons Costs</p>
-      <p>Add-on1 <span class="price">P150.00</span></p>
-      <p>Add-on2<span class="price">P200.00</span></p>
+      <p>Add-on1 <span class="price">Add-on Price</span></p>
+      <p>Add-on2<span class="price">Add-on Price</span></p>
      <hr>
-      <h3>Total <span class="price" style="color:black"><b>P25,350.00</b></span></h3>
+      <h3>Total <span class="price" style="color:black"><b>P</b></span></h3>
     </div>
   </div>
 
@@ -53,11 +53,19 @@
 
 </div>
 </section>
+<!--Footer-->
+<section class="display-footer">
+  <div id="footer-placeholder"></div>
+</section>
 <script>
   //Import Navbar
   $(function(){
         $("#nav-placeholder").load("navbar.html");
      });
+     //Import Footer
+    $(function () {
+      $("#footer-placeholder").load("footer.html");
+    });
 </script>
 
 </body>
