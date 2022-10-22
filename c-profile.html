@@ -163,11 +163,11 @@
                     </tr>
                   </thead>
                   <tbody id="table_status">
+                    <!-- <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
-                    <td class="tdbs">testing</td>
-                    <td><button type="button" class="btncancel" id="open-popup2-btn">CANCEL</button></td>
+                    <td><button type="button" class="btncancel" id="open-popup2-btn">CANCEL</button></td> -->
                     <!--Proceed with payment btn
                            <td class="btnprcd"><button type="button" style="background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;">Proceed to Payment</button></td>-->
                   </tbody>
@@ -555,6 +555,41 @@
           });
         }
       };
+
+      const bookingStatus = () => {
+        let id = localStorage.getItem("user_id");
+        console.log(id);
+
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            console.log(data.payload.length);
+            console.log(data.payload[0]._id);
+            if (data.payload.length > 0) {
+              var data = "";
+              // for (i = 0; i < data.payload.length; i++) {
+              data += "<tr>";
+              data += "<td class='tdbs'>" + data.payload[0]._id + "</td>";
+              data += "<td class='tdbs'>testing</td>";
+              data += "<td class='tdbs'>testing</td>";
+              data += "<td class='tdbs'>testing</td>";
+              data += "<td><button type='button' class='btncancel' id='open-popup2-btn'>CANCEL</button></td>";
+              data += "</tr>";
+              // }
+              $("#table_status").html(data);
+            }
+          });
+      };
+      bookingStatus();
 
       document.getElementById("saveProfile-btn2").addEventListener("click", function () {
         document.getElementById("password").toggleAttribute("readonly");

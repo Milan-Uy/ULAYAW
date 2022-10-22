@@ -80,25 +80,25 @@
       </div>
 
       <div class="rightColumn">
-        <form action="javascript:getVillaId()">
-          <div class="card2">
-            <label>Guests</label>
-            <input
-              class="adults"
-              type="number"
-              placeholder="1"
-              pattern="[0-9]*"
-              id="guestNo"
-              name="value"
-              value="1"
-              min="1"
-              max="30"
-              step="1"
-              oninput="maxLengthCheck(this)"
-              maxlength="3"
-              required
-            />
-            <!-- 
+        <!-- <form action="javascript:getVillaId()"> -->
+        <div class="card2">
+          <label>Guests</label>
+          <input
+            class="adults"
+            type="number"
+            placeholder="1"
+            pattern="[0-9]*"
+            id="guestNo"
+            name="value"
+            value="1"
+            min="1"
+            max="30"
+            step="1"
+            oninput="maxLengthCheck(this)"
+            maxlength="3"
+            required
+          />
+          <!-- 
           <label>Children</label>
           <input
             class="children"
@@ -115,75 +115,75 @@
             maxlength="2"
             required
           /> -->
-            <hr id="hrline" />
-            <p id="addonstxt">Add ons:</p>
-            <label id="bfasttxt">Breakfast</label>
-            <input
-              class="bfast"
-              type="number"
-              placeholder="0"
-              pattern="[0-9]*"
-              id="breakfast"
-              name="value"
-              value="0"
-              min="0"
-              max="30"
-              step="1"
-              oninput="maxLengthCheck(this)"
-              maxlength="2"
-              required
-            />
-            <label id="bedtxt">Bed</label>
-            <input
-              class="bed"
-              type="number"
-              placeholder="0"
-              pattern="[0-9]*"
-              id="bed"
-              name="value"
-              value="0"
-              min="0"
-              max="30"
-              step="1"
-              oninput="maxLengthCheck(this)"
-              maxlength="2"
-              required
-            />
-            <label id="bedroomtxt" class="bedroom">Extra Bedroom</label>
-            <input
-              class="bedroom"
-              type="number"
-              placeholder="0"
-              pattern="[0-9]*"
-              id="bedroom"
-              name="value"
-              value="0"
-              min="0"
-              max="1"
-              step="1"
-              oninput="maxLengthCheck(this)"
-              maxlength="1"
-              required
-            />
-            <label id="tabletxt" class="table">Table Set Up</label>
-            <input
-              class="table"
-              type="number"
-              placeholder="0"
-              pattern="[0-9]*"
-              id="table"
-              name="value"
-              value="0"
-              min="0"
-              max="1"
-              step="1"
-              oninput="maxLengthCheck(this)"
-              maxlength="1"
-              required
-            />
-            <input class="confirm-btn" type="button" value="Confirm" />
-          </div>
-        </form>
+          <hr id="hrline" />
+          <p id="addonstxt">Add ons:</p>
+          <label id="bfasttxt">Breakfast</label>
+          <input
+            class="bfast"
+            type="number"
+            placeholder="0"
+            pattern="[0-9]*"
+            id="breakfast"
+            name="value"
+            value="0"
+            min="0"
+            max="30"
+            step="1"
+            oninput="maxLengthCheck(this)"
+            maxlength="2"
+            required
+          />
+          <label id="bedtxt">Bed</label>
+          <input
+            class="bed"
+            type="number"
+            placeholder="0"
+            pattern="[0-9]*"
+            id="bed"
+            name="value"
+            value="0"
+            min="0"
+            max="30"
+            step="1"
+            oninput="maxLengthCheck(this)"
+            maxlength="2"
+            required
+          />
+          <label id="bedroomtxt" class="bedroom">Extra Bedroom</label>
+          <input
+            class="bedroom"
+            type="number"
+            placeholder="0"
+            pattern="[0-9]*"
+            id="bedroom"
+            name="value"
+            value="0"
+            min="0"
+            max="1"
+            step="1"
+            oninput="maxLengthCheck(this)"
+            maxlength="1"
+            required
+          />
+          <label id="tabletxt" class="table">Table Set Up</label>
+          <input
+            class="table"
+            type="number"
+            placeholder="0"
+            pattern="[0-9]*"
+            id="table"
+            name="value"
+            value="0"
+            min="0"
+            max="1"
+            step="1"
+            oninput="maxLengthCheck(this)"
+            maxlength="1"
+            required
+          />
+          <input class="confirm-btn" type="button" onclick="getVillaId()" value="Confirm" />
+        </div>
+        <!-- </form> -->
       </div>
     </div>
     <div class="col-50">
@@ -214,7 +214,7 @@
           >
           of the Hulo Leisure farm
         </p>
-        <input class="cr-btn" type="button" value="Confirm Reservation" />
+        <input class="cr-btn" type="button" onclick="addBooking()" value="Confirm Reservation" />
       </div>
     </div>
 
@@ -247,6 +247,30 @@
       </div>
       <div class="dismiss-btn">
         <button id="dismiss-popup-btn-1">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup2 popup-short center">
+      <div class="popup-title">Booking</div>
+      <div class="description" id="popupdesc">Message</div>
+      <div class="dismiss-btn">
+        <button id="confirm-popup2-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup3 popup-short center">
+      <div class="popup-title">Booking</div>
+      <div class="description">Please login to continue booking.</div>
+      <div class="dismiss-btn">
+        <button id="confirm-popup3-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup4 popup-short center">
+      <div class="popup-title">Booking</div>
+      <div class="description">You have already booked this villa.</div>
+      <div class="dismiss-btn">
+        <button id="confirm-popup4-btn">Close</button>
       </div>
     </div>
     <!-- END OF POPUP -->
@@ -311,9 +335,10 @@
     };
     getDetails();
 
-    const getVillaId = () => {
-      const id = sessionStorage.getItem("villa_id");
+    // get villaId
+    const id = sessionStorage.getItem("villa_id");
 
+    const getVillaId = () => {
       const guestNo = document.getElementById("guestNo").value;
       const breakfast = document.getElementById("breakfast").value;
       const bed = document.getElementById("bed").value;
@@ -324,7 +349,6 @@
       var bedval = 300 * bed;
       var bedroomval;
       var tableval = 500 * table;
-
       document.getElementById("bfastPrice").innerText = breakfastval;
       document.getElementById("bedPrice").innerText = bedval;
 
@@ -341,7 +365,7 @@
         },
       };
 
-      fetch(`https://ulayaw-backend.herokuapp.com/villa/getOne/${id}`)
+      fetch(`https://ulayaw-backend.herokuapp.com/villa/getOne/${id}`, options)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -418,6 +442,7 @@
             document.getElementById("maxGuest").innerText = data.payload.dayTour.maxPerson;
             var villaPrice = data.payload.dayTour.price;
             var total = villaPrice + breakfastval + bedval + bedroomval + tableval;
+            sessionStorage.setItem("totalPrice", total);
             document.getElementById("total").innerText = total;
           } else {
             switch (data.payload.name) {
@@ -451,11 +476,97 @@
             document.getElementById("maxGuest").innerText = data.payload.overnight.maxPerson;
             var villaPrice = data.payload.overnight.price;
             var total = villaPrice + breakfastval + bedval;
+            sessionStorage.setItem("totalPrice", total);
             document.getElementById("total").innerText = total;
           }
         });
     };
     getVillaId();
+
+    const addBooking = () => {
+      if (localStorage.getItem("access_token")) {
+        const breakfast = document.getElementById("breakfast").value;
+        const bed = document.getElementById("bed").value;
+        const bedroom = document.getElementById("bedroom").value;
+        const table = document.getElementById("table").value;
+
+        var breakfastval = 200 * breakfast;
+        var bedval = 300 * bed;
+        var bedroomval;
+        var tableval = 500 * table;
+
+        let bookingType;
+        let totalPrice = sessionStorage.getItem("totalPrice", total);
+        console.log(totalPrice);
+        if (checkin === checkout) {
+          bookingType = "dayTour";
+        } else {
+          bookingType = "overnight";
+        }
+
+        let bookingData = {
+          villaId: id,
+          startDate: checkin,
+          endDate: checkout,
+          bookingType: bookingType,
+          price: totalPrice,
+          isPaid: false,
+          addOns: [
+            { addOnName: "Extra Bed", qty: bed, price: bedval },
+            { addOnName: "Extra Breakfast", qty: breakfast, price: breakfastval },
+          ],
+        };
+
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(bookingData),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/booking/add", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.message == "Booking created!") {
+              document.getElementById("popupdesc").innerHTML = data.message;
+
+              document.getElementsByClassName("popup2")[0].classList.add("active");
+
+              document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup2")[0].classList.remove("active");
+              });
+            } else {
+              document.getElementById("popupdesc").innerHTML = data.message;
+
+              document.getElementsByClassName("popup2")[0].classList.add("active");
+
+              document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup2")[0].classList.remove("active");
+              });
+            }
+
+            // if (data.bookingId === data.bookingId) {
+            //   document.getElementsByClassName("popup4")[0].classList.add("active");
+
+            //   document.getElementById("confirm-popup4-btn").addEventListener("click", function () {
+            //     document.getElementsByClassName("popup4")[0].classList.remove("active");
+            //   });
+            // } else {
+
+            // }
+          });
+        // popup when trying to book while not logged in
+      } else {
+        document.getElementsByClassName("popup3")[0].classList.add("active");
+
+        document.getElementById("confirm-popup3-btn").addEventListener("click", function () {
+          document.getElementsByClassName("popup3")[0].classList.remove("active");
+        });
+      }
+    };
 
     // disable typing in number input
     $("[type='number']").keypress(function (evt) {

@@ -317,16 +317,25 @@
                         <th class="thbs">Action</th>
                       </tr>
                     </thead>
-                    <tbody id="table_status">
-                      <td class="tdbs">testing</td>
+                    <tbody id="table_pending">
+                      <!-- <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs1">
-                        <button type="button" id="open-popup1-btn" class="material-symbols-outlined cancel">cancel</button>
+                        <button type="button" class="material-symbols-outlined cancel">cancel</button>
                         <button type="button" class="material-symbols-outlined check">check_circle</button>
-                      </td>
+                      </td> -->
                     </tbody>
-                    <tbody id="table_status">
+                    <!-- <tbody id="table_status">
+                      <td class="tdbs">testing1</td>
+                      <td class="tdbs">testing1</td>
+                      <td class="tdbs">testing1</td>
+                      <td class="tdbs1">
+                        <button type="button" class="material-symbols-outlined cancel">cancel</button
+                        ><button type="button" class="material-symbols-outlined check">check_circle</button>
+                      </td>
+                    </tbody> -->
+                    <!-- <tbody id="table_status">
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
@@ -361,19 +370,10 @@
                         <button type="button" class="material-symbols-outlined cancel">cancel</button
                         ><button type="button" class="material-symbols-outlined check">check_circle</button>
                       </td>
-                    </tbody>
-                    <tbody id="table_status">
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs1">
-                        <button type="button" class="material-symbols-outlined cancel">cancel</button
-                        ><button type="button" class="material-symbols-outlined check">check_circle</button>
-                      </td>
-                    </tbody>
+                    </tbody> -->
                   </table>
                 </dd>
-                <dt>Upcoming Reservations</dt>
+                <!-- <dt>Upcoming Reservations</dt>
                 <dd>
                   <table class="ststbl" style="margin-top: 10px">
                     <thead>
@@ -384,7 +384,7 @@
                         <th class="thbs">Action</th>
                       </tr>
                     </thead>
-                    <tbody id="table_status">
+                    <tbody id="table_upcoming">
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
@@ -421,9 +421,9 @@
                       <td class="tdbs1"><button type="button" class="btncancel">DONE</button></td>
                     </tbody>
                   </table>
-                </dd>
+                </dd> -->
 
-                <dt>Completed Reservations</dt>
+                <dt>Reservations List</dt>
                 <dd>
                   <table class="ststbl" style="margin-top: 10px">
                     <thead>
@@ -434,13 +434,13 @@
                         <th class="thbs">Status</th>
                       </tr>
                     </thead>
-                    <tbody id="table_status">
+                    <tbody id="table_completed">
+                      <!-- <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs1">CANCELED</td>
+                      <td class="tdbs1">CANCELED</td> -->
                     </tbody>
-                    <tbody id="table_status">
+                    <!-- <tbody id="table_status">
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
@@ -469,7 +469,7 @@
                       <td class="tdbs">testing</td>
                       <td class="tdbs">testing</td>
                       <td class="tdbs1">DONE</td>
-                    </tbody>
+                    </tbody> -->
                   </table>
                 </dd>
               </dl>
@@ -1037,6 +1037,65 @@
         document.getElementById("user").style.display = "none";
         document.getElementById("list").style.display = "block";
       }
+
+      // const getUserId = async () => {
+      //   let user = await getUser(localStorage.getItem("user_id"));
+      //   console.log(user._id);
+      // }
+      // getUserId();
+
+      const manageBookings = () => {
+        let id = localStorage.getItem("user_id");
+        console.log(id);
+        
+        let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`, options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+        });
+
+
+        var pending = "";
+        var upcoming = "";
+        var completed = "";
+        
+        pending += "<tr>";
+        pending += "<td class='tdbs'>testing</td>";
+        pending += "<td class='tdbs'>testing</td>";
+        pending += "<td class='tdbs'>testing</td>";
+        pending += "<td class='tdbs1'>";
+        pending += "<button type='button' id='open-popup1-btn' class='material-symbols-outlined cancel'>cancel</button>";
+        pending += "<button type='button' class='material-symbols-outlined check'>check_circle</button>";
+        pending += "</td>";
+        pending += "</tr>";
+        $("#table_pending").html(pending);
+        
+        // upcoming += "<tr>";
+        // upcoming += "<td class='tdbs'>testing</td>";
+        // upcoming += "<td class='tdbs'>testing</td>";
+        // upcoming += "<td class='tdbs'>testing</td>";
+        // upcoming += "<td class='tdbs1'><button type='button' class='btncancel'>DONE</button></td>";
+        // upcoming += "</tr>";
+        // $("#table_upcoming").html(upcoming);
+
+        completed += "<tr>";
+        completed += "<td class='tdbs'>testing</td>";
+        completed += "<td class='tdbs'>testing</td>";
+        completed += "<td class='tdbs'>testing</td>";
+        completed += "<td class='tdbs1'>CANCELED</td>";
+        completed += "</tr>";
+        $("#table_completed").html(completed);
+      }
+      manageBookings();
 
       //pick date
       //Date Picker
