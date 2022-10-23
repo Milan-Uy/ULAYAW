@@ -575,17 +575,17 @@
             console.log(data.payload.length);
             console.log(data.payload[0]._id);
             if (data.payload.length > 0) {
-              var data = "";
+              var data1 = "";
               // for (i = 0; i < data.payload.length; i++) {
-              data += "<tr>";
-              data += "<td class='tdbs'>" + data.payload[0]._id + "</td>";
-              data += "<td class='tdbs'>testing</td>";
-              data += "<td class='tdbs'>testing</td>";
-              data += "<td class='tdbs'>testing</td>";
-              data += "<td><button type='button' class='btncancel' id='open-popup2-btn'>CANCEL</button></td>";
-              data += "</tr>";
+              data1 += "<tr>";
+              data1 += "<td class='tdbs'>" + data.payload[0]._id + "</td>";
+              data1 += "<td class='tdbs'>testing</td>";
+              data1 += "<td class='tdbs'>testing</td>";
+              data1 += "<td class='tdbs'>testing</td>";
+              data1 += "<td><button type='button' class='btncancel' id='open-popup2-btn'>CANCEL</button></td>";
+              data1 += "</tr>";
               // }
-              $("#table_status").html(data);
+              $("#table_status").html(data1);
             }
           });
       };
