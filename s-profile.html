@@ -1060,25 +1060,36 @@
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          console.log(data.payload[0].bookingType);
+          // console.log(data.payload[0].bookingType);
+          var pending = "";
+        // var upcoming = "";
+        var completed = "";
+        if (data.payload.length > 0) {
+          for (i = 0; i < data.payload.length; i++) {
+            if (data.payload[i].status === "Active") {
+              pending += "<tr>";
+              pending += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
+              pending += "<td class='tdbs'>" + data.payload[i].startDate + " to " + data.payload[i].endDate + "</td>";
+              pending += "<td class='tdbs'>" + data.payload[i].dateBooked + "</td>";
+              pending += "<td class='tdbs1'>";
+              pending += "<button type='button' class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
+              pending += "<button type='button' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
+              pending += "</td>";
+              pending += "</tr>";
+            } else {
+              completed += "<tr>";
+              completed += "<td class='tdbs'>testing</td>";
+              completed += "<td class='tdbs'>testing</td>";
+              completed += "<td class='tdbs'>testing</td>";
+              completed += "<td class='tdbs1'>CANCELED</td>";
+              completed += "</tr>";
+            }
+          }
+        $("#table_pending").html(pending);
+        $("#table_completed").html(completed);
+        }
         });
 
-
-        var pending = "";
-        var upcoming = "";
-        var completed = "";
-        
-        pending += "<tr>";
-        pending += "<td class='tdbs'>testing</td>";
-        pending += "<td class='tdbs'>testing</td>";
-        pending += "<td class='tdbs'>testing</td>";
-        pending += "<td class='tdbs1'>";
-        pending += "<button type='button' id='open-popup1-btn' class='material-symbols-outlined cancel'>cancel</button>";
-        pending += "<button type='button' class='material-symbols-outlined check'>check_circle</button>";
-        pending += "</td>";
-        pending += "</tr>";
-        $("#table_pending").html(pending);
-        
         // upcoming += "<tr>";
         // upcoming += "<td class='tdbs'>testing</td>";
         // upcoming += "<td class='tdbs'>testing</td>";
@@ -1087,15 +1098,24 @@
         // upcoming += "</tr>";
         // $("#table_upcoming").html(upcoming);
 
-        completed += "<tr>";
-        completed += "<td class='tdbs'>testing</td>";
-        completed += "<td class='tdbs'>testing</td>";
-        completed += "<td class='tdbs'>testing</td>";
-        completed += "<td class='tdbs1'>CANCELED</td>";
-        completed += "</tr>";
-        $("#table_completed").html(completed);
       }
       manageBookings();
+
+      const saveBookingId = (e) => {
+        // console.log(e);
+        if (e.target.classList[1] === "cancel") {
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          sessionStorage.setItem("booking_id", bookingId);
+        }
+        if (e.target.classList[1] === "check") {
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          sessionStorage.setItem("booking_id", bookingId);
+        }
+
+      };
+      document.body.addEventListener("click", saveBookingId);
 
       //pick date
       //Date Picker

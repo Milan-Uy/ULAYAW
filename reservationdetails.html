@@ -214,7 +214,7 @@
           >
           of the Hulo Leisure farm
         </p>
-        <input class="cr-btn" type="button" onclick="addBooking()" value="Confirm Reservation" />
+        <input class="cr-btn" id="confirmReservation" type="button" onclick="addBooking()" value="Confirm Reservation" />
       </div>
     </div>
 
@@ -538,6 +538,8 @@
               document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
                 document.getElementsByClassName("popup2")[0].classList.remove("active");
               });
+              //disable button when booking is created to prevent duplicate
+              document.getElementById("confirmReservation").disabled = true;
             } else {
               document.getElementById("popupdesc").innerHTML = data.message;
 

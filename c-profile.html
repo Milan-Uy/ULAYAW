@@ -572,19 +572,20 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            console.log(data.payload.length);
-            console.log(data.payload[0]._id);
+            // console.log(data.payload.length);
             if (data.payload.length > 0) {
               var data1 = "";
-              // for (i = 0; i < data.payload.length; i++) {
-              data1 += "<tr>";
-              data1 += "<td class='tdbs'>" + data.payload[0]._id + "</td>";
-              data1 += "<td class='tdbs'>testing</td>";
-              data1 += "<td class='tdbs'>testing</td>";
-              data1 += "<td class='tdbs'>testing</td>";
-              data1 += "<td><button type='button' class='btncancel' id='open-popup2-btn'>CANCEL</button></td>";
-              data1 += "</tr>";
-              // }
+              for (i = 0; i < data.payload.length; i++) {
+                data1 += "<tr>";
+                data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
+                data1 += "<td class='tdbs'>" + data.payload[i].startDate + " to " + data.payload[i].endDate + "</td>";
+                data1 += "<td class='tdbs'>" + data.payload[i].dateBooked + "</td>";
+                data1 += "<td class='tdbs'>" + data.payload[i].status + "</td>";
+                data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
+                data1 +=
+                  "<td class='btnprcd'><button type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
+                data1 += "</tr>";
+              }
               $("#table_status").html(data1);
             }
           });
@@ -610,9 +611,9 @@
         document.getElementsByClassName("popup1")[0].classList.remove("active");
       });
 
-      document.getElementById("open-popup2-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup2")[0].classList.add("active");
-      });
+      // document.getElementById("open-popup2-btn").addEventListener("click", function () {
+      //   document.getElementsByClassName("popup2")[0].classList.add("active");
+      // });
 
       document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
@@ -621,6 +622,16 @@
       document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
+
+      const saveBookingId = (e) => {
+        // console.log(e);
+        if (e.target.classList[1] === "btncancel") {
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          sessionStorage.setItem("booking_id", bookingId);
+        }
+      };
+      document.body.addEventListener("click", saveBookingId);
 
       /** emoji feedback js **/
 
