@@ -1521,7 +1521,7 @@ input:checked + .slider:before {
 /*PAYMENTSUMMARY*/
 .paymentsummary {
   font-family: "Montserrat";
-  font-size: 19px;
+  font-size: 15px;
   margin-bottom: 10px;
   margin-top: 3%;
 }
@@ -1557,12 +1557,16 @@ input:checked + .slider:before {
 .containerps {
   background-color: #f9f2e7;
   padding: 25px 40px 25px 40px;
-  border: 1px solid lightgrey;
+  border: none;
   border-radius: 8px;
   margin: 0 auto;
-  width: 70%;
+  width: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.containerps.lc {
+  margin-bottom: 10%;
+}
 label {
   /* margin-bottom: 10px; */
   display: block;
@@ -1573,15 +1577,17 @@ span.price {
   color: grey;
 }
 
-.refno {
-  text-align: right;
-  margin-right: 250px;
+.containerps,
+.containerps b {
+  color: #6b4f4f;
 }
+
 .gcashicon {
   padding: 5px;
   width: 200px;
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .payment-btn {
   background-color: #6b4f4f;
@@ -1604,14 +1610,32 @@ span.price {
 .headtextps {
   text-align: center;
   margin: 0 auto;
-  padding-bottom: 15px;
-  font-family: "Cinzel";
+  padding-bottom: 20px;
+  font-family: "Montserrat";
   color: #6b4f4f;
 }
 hr {
   border: 0.5px solid lightgrey;
   margin-bottom: 18px;
 }
+
+.refno {
+  display: inline-block;
+  text-align: left;
+  margin-left: 28%;
+  font-weight: bolder !important;
+  color: #6b4f4f;
+  margin-top: 50px;
+}
+
+.refnum {
+  display: inline-block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: normal !important;
+  color: #6b4f4f;
+}
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
   .rowps {
@@ -1621,19 +1645,30 @@ hr {
     margin-bottom: 20px;
   }
 }
-@media (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .containerps {
+    width: 95%;
+    padding: 15px;
     font-size: 12px;
   }
   .payment-btn {
     width: 70%;
-    font-size: 6px;
+    font-size: 10px;
   }
   .gcashicon {
-    width: 70%;
+    width: 50%;
+  }
+
+  .refno {
+    margin-left: 10%;
+  }
+
+  .headtextps {
+    font-size: 18px;
+    margin-top: 10%;
+    padding-bottom: 5px;
   }
 }
-
 /*Book Now*/
 .book-header {
   position: relative;
