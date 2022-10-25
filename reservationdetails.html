@@ -384,6 +384,7 @@
                 document.getElementById("bedroom").style.display = "block";
                 document.getElementById("hidebedroom").style.display = "block";
                 bedroomval = 2000 * bedroom;
+                sessionStorage.setItem("bedroomvalue", bedroomval);
                 document.getElementById("bedroomPrice").innerText = bedroomval;
                 break;
               case "Caminos De Primavera":
@@ -393,6 +394,7 @@
                 document.getElementById("bedroom").style.display = "block";
                 document.getElementById("hidebedroom").style.display = "block";
                 bedroomval = 2000 * bedroom;
+                sessionStorage.setItem("bedroomvalue", bedroomval);
                 document.getElementById("bedroomPrice").innerText = bedroomval;
                 break;
               case "Casa Salud":
@@ -402,6 +404,7 @@
                 document.getElementById("bedroom").style.display = "block";
                 document.getElementById("hidebedroom").style.display = "block";
                 bedroomval = 1500 * bedroom;
+                sessionStorage.setItem("bedroomvalue", bedroomval);
                 document.getElementById("bedroomPrice").innerText = bedroomval;
                 break;
               case "Kubo ni Basyong":
@@ -495,6 +498,8 @@
         var bedroomval;
         var tableval = 500 * table;
 
+        var bedroomvalue = sessionStorage.getItem("bedroomvalue");
+
         let bookingType;
         let totalPrice = sessionStorage.getItem("totalPrice", total);
         console.log(totalPrice);
@@ -514,6 +519,8 @@
           addOns: [
             { addOnName: "Extra Bed", qty: bed, price: bedval },
             { addOnName: "Extra Breakfast", qty: breakfast, price: breakfastval },
+            { addOnName: "Extra Bedroom", qty: bedroom, price: bedroomvalue },
+            { addOnName: "Table Set Up", qty: table, price: tableval },
           ],
         };
 
