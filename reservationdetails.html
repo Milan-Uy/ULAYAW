@@ -66,16 +66,20 @@
     <div class="columnsContainer">
       <div class="leftColumn">
         <div class="card1">
-          <img class="rdimg" src="images/AUR2.png" />
-          <p class="villatxt">Villa Name</p>
-          <p class="rdcontent">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-          <p><strong>Note:</strong></p>
-          <!-- <p>Min. Guests: <span id="minGuest"></span></p> -->
-          <p>Max. Guests: <span id="maxGuest"></span></p>
-          <p class="pricetxt">Price</p>
+          <div class="rdimg-cont">
+            <img class="rdimg" src="images/AUR2.png" />
+          </div>
+          <div class="rddesc-cont">
+            <h6 class="villatxt">Villa Name</h6>
+            <p class="rdcontent">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p class="rd-note"><strong>Note:</strong></p>
+            <!-- <p>Min. Guests: <span id="minGuest"></span></p> -->
+            <p class="rd-note">Max. Guests: <span id="maxGuest"></span></p>
+            <p class="pricetxt">Price</p>
+          </div>
         </div>
       </div>
 
@@ -186,8 +190,8 @@
         <!-- </form> -->
       </div>
     </div>
-    <div class="col-50">
-      <div class="containerps">
+    <div class="reserve-cont">
+      <div class="res-container">
         <p>Your Reservation:</p>
         <h3 style="padding-bottom: 10px">
           <span id="villatxt2">Villa Name</span><span id="price2" class="price" style="color: black"><b>Villa Price</b></span>
@@ -205,14 +209,14 @@
         <p id="hidetable">Table Set Up x <span id="tablePrice" class="price">Table Set Up Price</span><span id="tableNo"></span></p>
         <hr />
         <h3>
-          Total <span id="total" class="price" style="color: black"><b>P25,350.00</b></span>
+          Total <span id="total" class="price" style="color: red"><b>P25,350.00</b></span>
         </h3>
         <p class="policyrd">
           By clicking the confirm reservation, you are agreeing to the
           <a href="#" id="open-popup-btn-1"
             ><strong><u>Booking Policy</u></strong></a
           >
-          of the Hulo Leisure farm
+          of the Hulo Leisure Farm.
         </p>
         <input class="cr-btn" id="confirmReservation" type="button" onclick="addBooking()" value="Confirm Reservation" />
       </div>

@@ -4983,13 +4983,14 @@ tr {
 /*Reservation Details*/
 
 .headtextrd {
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
   padding-top: 40px;
   padding-bottom: 15px;
   font-family: "Cinzel";
   font-style: normal;
   color: #6b4f4f;
+  padding: 80px 0px 30px 150px;
 }
 
 .villatxt {
@@ -5007,22 +5008,12 @@ tr {
 }
 
 /* Create two equal columns that floats next to each other */
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
 .columnsContainer {
   position: relative;
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .leftColumn,
@@ -5032,14 +5023,85 @@ body {
 
 .leftColumn {
   margin-bottom: 0.5em;
+  width: 60%;
 }
-
+.rightColumn {
+  height: 100%;
+}
 /* Style the counter cards */
 .card1 {
+  display: flex;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
   text-align: center;
   background-color: #f9f2e7;
+  border-radius: 2px;
+}
+.rddesc-cont {
+  padding: 18px;
+  font-family: "Montserrat";
+}
+.rddesc-cont h6 {
+  font-size: 38px;
+  margin: 10px;
+  text-align: left;
+  font-style: normal;
+}
+.rddesc-cont p {
+  font-size: 12px;
+  margin: 20px 40px 20px 20px;
+  color: var(--heading-color);
+  font-style: italic;
+  text-align: left;
+}
+.rdimg-cont {
+  min-width: 334px;
+  width: 100%;
+}
+.rdimg {
+  width: 100%;
+  max-height: 780px;
+  max-width: 780px;
+  height: 100%;
+  border-radius: 2px;
+}
+.rddesc-cont .pricetxt {
+  text-align: right;
+  font-style: normal;
+  font-size: 24px;
+  font-family: "Montserrat";
+  font-weight: 700;
+}
+.rd-note {
+  text-align: left;
+}
+@media screen and (max-width: 815px) {
+  .columnsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card1 {
+    flex-direction: column;
+  }
+  .rightColumn {
+    width: 60%;
+  }
+  .headtextrd {
+    text-align: left;
+    padding: 80px 0px 20px 40px;
+  }
+}
+@media screen and (max-width: 634px) {
+  .leftColumn {
+    width: 90%;
+    margin-bottom: 0px !important;
+    padding-bottom: 0em !important;
+  }
+  .rightColumn {
+    width: 90%;
+  }
+  .res-container {
+    width: 82% !important;
+  }
 }
 .card2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -5048,8 +5110,13 @@ body {
   background-color: #f9f2e7;
   font-family: "Montserrat";
   border-radius: 2px;
+  min-height: 338px;
 }
-
+.card2 label {
+  color: var(--heading-color);
+  font-weight: 500;
+  font-size: 14px;
+}
 .adults {
   margin-bottom: 15px;
 }
@@ -5070,7 +5137,22 @@ body {
   margin: auto;
   margin-bottom: 10px;
 }
-
+.res-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #f9f2e7;
+  padding: 25px;
+  border-radius: 2px;
+  border-radius: 8px;
+  margin: 0 auto 50px;
+  width: 80%;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: var(--heading-color);
+}
+.res-container .price {
+  font-weight: 700;
+  font-size: 18px;
+}
 #hidebedroom {
   display: none;
 }
@@ -5080,13 +5162,10 @@ body {
 }
 
 .policyrd {
-  margin-top: 10px;
-  text-align: center;
+  margin-top: 35px;
+  text-align: left;
 }
-.rdimg {
-  width: 20%;
-  height: auto;
-}
+
 .confirm-btn {
   background-color: #6b4f4f;
   color: white;
@@ -5101,6 +5180,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Montserrat";
+  margin-top: 50px;
 }
 .confirm-btn:hover {
   background-color: #483434;
@@ -5110,7 +5190,7 @@ body {
   background-color: #6b4f4f;
   color: white;
   padding: 12px;
-  margin: 0 auto;
+  margin: 60px auto 10px auto;
   border: none;
   width: 250px;
   border-radius: 8px;
