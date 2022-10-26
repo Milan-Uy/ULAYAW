@@ -5102,6 +5102,9 @@ tr {
   .res-container {
     width: 82% !important;
   }
+  .rdimg-cont {
+    min-width: unset !important;
+  }
 }
 .card2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
