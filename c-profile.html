@@ -159,6 +159,7 @@
                       <th class="thbs">Reserved Date</th>
                       <th class="thbs">Reservation Created</th>
                       <th class="thbs">Status</th>
+                      <th class="thbs">Paid</th>
                       <th class="thbs">Action</th>
                     </tr>
                   </thead>
@@ -557,8 +558,8 @@
       };
 
       const bookingStatus = () => {
-        let id = localStorage.getItem("user_id");
-        console.log(id);
+        // let id = localStorage.getItem("user_id");
+        // console.log(id);
 
         let options = {
           method: "GET",
@@ -578,12 +579,16 @@
               for (i = 0; i < data.payload.length; i++) {
                 data1 += "<tr>";
                 data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
-                data1 += "<td class='tdbs'>" + data.payload[i].startDate + " to " + data.payload[i].endDate + "</td>";
-                data1 += "<td class='tdbs'>" + data.payload[i].dateBooked + "</td>";
+                data1 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
+                data1 += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
                 data1 += "<td class='tdbs'>" + data.payload[i].status + "</td>";
-                data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
-                data1 +=
-                  "<td class='btnprcd'><button type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
+                data1 += "<td class='tdbs ispaid'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
+                if (data.payload[i].status === "Accepted") {
+                  data1 +=
+                    "<td class='btnprcd'><button type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
+                } else {
+                  data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
+                }
                 data1 += "</tr>";
               }
               $("#table_status").html(data1);

@@ -61,3 +61,38 @@ const getUsers = (searchKey) => {
       });
   });
 };
+
+const getGuests = (searchKey) => {
+  let options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: "Bearer " + localStorage.getItem("access_token"),
+    },
+  };
+  const searchKey$ = searchKey ? `&searchKey=${searchKey}` : "";
+  return new Promise((resolve, reject) => {
+    fetch(`https://ulayaw-backend.herokuapp.com/user/getGuests?${searchKey$}`, options)
+      .then((response) => response.json())
+      .then((data) => {
+        resolve(data.payload);
+      });
+  });
+};
+
+const convertDate = (inputDate) => {
+  let arrayMonths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"];
+  let newDate = new Date(inputDate);
+  let month = newDate.getMonth();
+  let day = newDate.getDate();
+  let year = newDate.getFullYear();
+  return arrayMonths[month] + "," + day + " " + year;
+};
+
+const convertPaymentStatus = (isPaid) => {
+  if (isPaid) {
+    return "Paid";
+  } else {
+    return "Not paid";
+  }
+};
