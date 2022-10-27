@@ -558,8 +558,8 @@
       };
 
       const bookingStatus = () => {
-        // let id = localStorage.getItem("user_id");
-        // console.log(id);
+        let id = localStorage.getItem("user_id");
+        console.log(id);
 
         let options = {
           method: "GET",
@@ -585,7 +585,9 @@
                 data1 += "<td class='tdbs ispaid'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
                 if (data.payload[i].status === "Accepted") {
                   data1 +=
-                    "<td class='btnprcd'><button type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
+                    "<td><button class='" +
+                    data.payload[i]._id +
+                    " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
                 } else {
                   data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
                 }
@@ -596,6 +598,22 @@
           });
       };
       bookingStatus();
+
+      const saveBookingId = (e) => {
+        // console.log(e);
+        if (e.target.classList[1] === "btncancel") {
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          sessionStorage.setItem("booking_id", bookingId);
+        }
+        if (e.target.classList[1] === "btnprcd") {
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          sessionStorage.setItem("booking_id", bookingId);
+          window.location.replace("/paymentsummary.html");
+        }
+      };
+      document.body.addEventListener("click", saveBookingId);
 
       document.getElementById("saveProfile-btn2").addEventListener("click", function () {
         document.getElementById("password").toggleAttribute("readonly");
@@ -627,16 +645,6 @@
       document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
-
-      const saveBookingId = (e) => {
-        // console.log(e);
-        if (e.target.classList[1] === "btncancel") {
-          let bookingId = e.target.classList[0];
-          console.log(bookingId);
-          sessionStorage.setItem("booking_id", bookingId);
-        }
-      };
-      document.body.addEventListener("click", saveBookingId);
 
       /** emoji feedback js **/
 
