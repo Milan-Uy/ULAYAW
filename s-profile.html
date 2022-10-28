@@ -883,8 +883,6 @@
         $("#table_users").html(data1);
         }
 
-        
-
         let options = {
         method: "GET",
         headers: {
@@ -962,7 +960,7 @@
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
                 pending += "<td class='tdbs1'>";
-                pending += "<button type='button' class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
+                pending += "<button type='button' onclick='rejectBooking()' class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
                 pending += "<button type='button' onclick='acceptBooking()' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
                 pending += "</td>";
                 pending += "</tr>";
@@ -1010,6 +1008,27 @@
       const acceptBooking = () => {
         const data = {
           status: "Accepted",
+        };
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/booking/update/" + sessionStorage.getItem("booking_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            
+          });
+      }
+
+      const rejectBooking = () => {
+        const data = {
+          status: "Rejected",
         };
         let options = {
           method: "PUT",

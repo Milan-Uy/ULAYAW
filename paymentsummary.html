@@ -31,7 +31,7 @@
   <div class="col-25">
     <div class="containerps">
       <p>Your Reservation:</p>
-      <h3 style="padding-bottom: 10px;">Casa Aurelia<span class="price" style="color:black"><b>P25,000.00</b></span></h3>
+      <h3 style="padding-bottom: 10px;"><span id="villaName">Casa Aurelia</span><span class="price" style="color:black"><b>P25,000.00</b></span></h3>
       <p>10/10/2022 - 10/11/2022 </p>
       <p>8 ADULTS, 1 NIGHT </p>
       <hr>
@@ -71,6 +71,30 @@
     $(function () {
       $("#footer-placeholder").load("footer.html");
     });
+
+    const displayBooking = () => {
+      let id = sessionStorage.getItem("booking_id");
+      console.log(id);
+
+      
+
+      let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/booking/getOne/${id}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            // document.getElementById("villaName").innerText = ;
+          });
+    }
+    displayBooking();
+
 </script>
 
 </body>
