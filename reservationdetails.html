@@ -491,6 +491,8 @@
     getVillaId();
 
     const addBooking = () => {
+      const guestNumber = document.getElementById("guestDisplay").innerHTML;
+
       if (localStorage.getItem("access_token")) {
         const breakfast = document.getElementById("breakfast").value;
         const bed = document.getElementById("bed").value;
@@ -519,6 +521,8 @@
           endDate: checkout,
           bookingType: bookingType,
           price: totalPrice,
+          noOfGuests: guestNumber,
+          totalAmount: totalPrice,
           isPaid: false,
           addOns: [
             { addOnName: "Extra Bed", qty: bed, price: bedval },
@@ -560,16 +564,6 @@
                 document.getElementsByClassName("popup2")[0].classList.remove("active");
               });
             }
-
-            // if (data.bookingId === data.bookingId) {
-            //   document.getElementsByClassName("popup4")[0].classList.add("active");
-
-            //   document.getElementById("confirm-popup4-btn").addEventListener("click", function () {
-            //     document.getElementsByClassName("popup4")[0].classList.remove("active");
-            //   });
-            // } else {
-
-            // }
           });
         // popup when trying to book while not logged in
       } else {
