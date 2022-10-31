@@ -209,8 +209,18 @@
       getDate();
 
       const bookNow = () => {
-        const checkin = new Date(document.getElementById("checkin-date").value).toISOString();
-        const checkout = new Date(document.getElementById("checkout-date").value).toISOString();
+        let checkinDate = document.getElementById("checkin-date").value;
+        if (!checkinDate) {
+          checkinDate = new Date();
+        }
+
+        let checkoutDate = document.getElementById("checkout-date").value;
+        if (!checkoutDate) {
+          checkoutDate = new Date();
+        }
+        const checkin = new Date(checkinDate).toISOString();
+        console.log(checkin);
+        const checkout = new Date(checkoutDate).toISOString();
         const guest = document.getElementById("spinner").value;
         // sessionStorage.setItem("checkinDateFormat", checkin);
         // sessionStorage.setItem("checkoutDateFormat", checkout);
@@ -307,6 +317,7 @@
                 var data1 = "";
                 let img;
                 let section;
+                data.villas = data.villas.filter((obj) => obj.overnight.price !== 0);
                 for (i = 0; i < data.villas.length; i++) {
                   switch (data.villas[i].name) {
                     case "Casa Aurelia":
@@ -367,6 +378,7 @@
 
       const saveId = (e) => {
         // console.log(e);
+        console.log("test");
         if (e.target.classList[1] === "book-btn") {
           let id = e.target.classList[0];
           console.log(id);
