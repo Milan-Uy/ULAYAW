@@ -510,10 +510,12 @@
         let totalPrice = sessionStorage.getItem("totalPrice", total);
         console.log(totalPrice);
         if (checkin === checkout) {
-          bookingType = "dayTour";
+          bookingType = "daytour";
         } else {
           bookingType = "overnight";
         }
+
+        console.log(bookingType);
 
         let bookingData = {
           villaId: id,
