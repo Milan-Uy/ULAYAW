@@ -23,7 +23,7 @@
 <section class="paymentsummary">  
 <h2 class="headtextps">PAYMENT SUMMARY</h2>
 <div class="refnodiv">
-<h4 class="refno"> Reference No.: </h4> <h4 class="refnum"> CASA-938922 </h4>
+<h4 class="refno"> Reference No. : </h4> <h4 id="refnum" class="refnum"> 123 </h4>
 </div>
 <div class="rowps">
   
@@ -31,22 +31,24 @@
   <div class="col-25">
     <div class="containerps">
       <p>Your Reservation:</p>
-      <h3 style="padding-bottom: 10px;"><span id="villaName">Casa Aurelia</span><span class="price" style="color:black"><b>P25,000.00</b></span></h3>
-      <p>10/10/2022 - 10/11/2022 </p>
-      <p>8 ADULTS, 1 NIGHT </p>
+      <h3 style="padding-bottom: 10px;"><span id="villaName">Villa Name</span><span class="price" style="color:black"><span id="villaPrice"><b>Villa Price</b></span></span></h3>
+      <p><span id="startDate">Start Date</span> - <span id="endDate">End Date</span> </p>
+      <p><span id="guestAmt">Guest Amount</span> Guest/s</p>
       <hr>
       <p>Add-Ons Costs</p>
-      <p>1 Extra Breakfast <span class="price">P100.00</span></p>
-      <p>1 Extra Bed<span class="price">P250.00</span></p>
+      <p><span id="addOnAmt1"></span> <span id="addOnName1"></span><span id="addOnPrice1" class="price"></span></p>
+      <p><span id="addOnAmt2"></span> <span id="addOnName2"></span><span id="addOnPrice2" class="price"></span></p>
+      <p><span id="addOnAmt3"></span> <span id="addOnName3"></span><span id="addOnPrice3" class="price"></span></p>
+      <p><span id="addOnAmt4"></span> <span id="addOnName4"></span><span id="addOnPrice4" class="price"></span></p>
      <hr>
-      <h3>Total <span class="price" style="color:black"><b>P350.00</b></span></h3>
+      <h3>Total <span class="price" style="color:black"><span id="totPrice"><b>Total Price</b></span></span></h3>
     </div>
   </div>
 
   <div class="col-50">
     <div class="containerps lc">
       <h3 style="padding-bottom: 10px;">Payment Options: </h3>
-      <span class="price">P12,675</span><label for="dpayment"> <input type="radio" value="Downpayment" name='pay_method' id='dpayment' /> Down Payment</label><span class="price">P25,350</span>
+      <span id="dpay" class="price">P12,675</span><label for="dpayment"> <input type="radio" value="Downpayment" name='pay_method' id='dpayment' /> Down Payment</label><span class="price" id="fpay">P25,350</span>
       <label for="fpayment"> <input type="radio" value="Full Payment" name='pay_method' id='fpayment' /> Full Payment</label>
         <hr>
         <img class="gcashicon" src="images/gcashicon.png" alt="gcashicon">
@@ -62,6 +64,7 @@
 <section class="display-footer">
   <div id="footer-placeholder"></div>
 </section>
+<script src="app.js"></script>
 <script>
   //Import Navbar
   $(function(){
@@ -90,7 +93,41 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            // document.getElementById("villaName").innerText = ;
+
+            document.getElementById("refnum").innerText =  data.payload.booking._id;
+            document.getElementById("villaName").innerText =  data.payload.booking.villaId.name;
+            if (data.payload.booking.startDate === data.payload.booking.endDate){
+              document.getElementById("villaPrice").innerText =  data.payload.booking.villaId.dayTour.price;
+            } else {
+              document.getElementById("villaPrice").innerText =  data.payload.booking.villaId.overnight.price;
+            }
+            document.getElementById("guestAmt").innerText = data.payload.booking.noOfGuests;
+            document.getElementById("startDate").innerText = convertDate(data.payload.booking.startDate);
+            document.getElementById("endDate").innerText = convertDate(data.payload.booking.endDate);
+            if(data.payload.booking.addOns[0].qty > 0) {
+              document.getElementById("addOnAmt1").innerText = data.payload.booking.addOns[0].qty;
+              document.getElementById("addOnName1").innerText = data.payload.booking.addOns[0].addOnName;
+              document.getElementById("addOnPrice1").innerText = data.payload.booking.addOns[0].price;
+            }
+            if(data.payload.booking.addOns[1].qty > 0) {
+              document.getElementById("addOnAmt2").innerText = data.payload.booking.addOns[1].qty;
+              document.getElementById("addOnName2").innerText = data.payload.booking.addOns[1].addOnName;
+              document.getElementById("addOnPrice2").innerText = data.payload.booking.addOns[1].price;
+            }
+            if(data.payload.booking.addOns[2].qty > 0) {
+              document.getElementById("addOnAmt3").innerText = data.payload.booking.addOns[2].qty;
+              document.getElementById("addOnName3").innerText = data.payload.booking.addOns[2].addOnName;
+              document.getElementById("addOnPrice3").innerText = data.payload.booking.addOns[2].price;
+            }
+            if(data.payload.booking.addOns[3].qty > 0) {
+              document.getElementById("addOnAmt4").innerText = data.payload.booking.addOns[3].qty;
+              document.getElementById("addOnName4").innerText = data.payload.booking.addOns[3].addOnName;
+              document.getElementById("addOnPrice4").innerText = data.payload.booking.addOns[3].price;
+            }
+            
+            document.getElementById("totPrice").innerText = data.payload.booking.totalAmount;
+            document.getElementById("dpay").innerText = data.payload.booking.totalAmount/2;
+            document.getElementById("fpay").innerText = data.payload.booking.totalAmount;
           });
     }
     displayBooking();
