@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -40,8 +41,12 @@
               <span class="label">View Guest List</span>
             </li>
             <li rel="tabThree">
+              <i class="material-symbols-rounded">pending_actions</i>
+              <span class="label"> Pending Reservations </span>
+            </li>
+            <li rel="tabSix">
               <i class="material-symbols-rounded">list</i>
-              <span class="label"> Manage Bookings</span>
+              <span class="label"> Reservation List </span>
             </li>
             <li rel="tabFour" id="manage-moments">
               <i class="material-symbols-rounded">recent_actors</i>
@@ -237,11 +242,10 @@
                 </div>
               </div>
             </div>
-            <!-- Manage Bookings Tab-->
+            <!-- Pending Reservation Tab-->
             <h4 class="tab-accordion-title" rel="tabThree">Manage Bookings</h4>
             <div id="tabThree" class="tab-item">
-              <dl class="responsive-tabs">
-                <dt>Pending Reservations</dt>
+              <h5>Pending Reservations</h5>
                 <dd>
                   <table class="ststbl" style="margin-top: 10px">
                     <thead>
@@ -290,40 +294,9 @@
                       <td class="tdbs">testing</td>
                       <td class="tdbs1"><button type="button" class="btncancel">DONE</button></td>
                     </tbody> -->
-
-                <dt>Reservations List</dt>
-                <dd>
-                  <table class="ststbl" style="margin-top: 10px">
-                    <thead>
-                      <tr>
-                        <th class="thbs">Ref. No.</th>
-                        <th class="thbs">Reserved Date</th>
-                        <th class="thbs">Reservation Created</th>
-                        <th class="thbs">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table_completed">
-                      <!-- <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs1">CANCELED</td> -->
-                    </tbody>
-                    <!-- <tbody id="table_status">
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs1">DONE</td>
-                    </tbody>
-                    <tbody id="table_status">
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs">testing</td>
-                      <td class="tdbs1">CANCELED</td>
-                    </tbody> -->
-                  </table>
-                </dd>
               </dl>
             </div>
+
 
             <!-- START OF POPUP -->
 
@@ -335,6 +308,55 @@
                 <button id="dismiss-popup1-btn">No</button>
               </div>
             </div>
+
+
+           <!-- Reservation List Tab-->
+           <h4 class="tab-accordion-title" rel="tabSix">Manage Bookings</h4>
+             <div id="tabSix" class="tab-item">
+              <h5>Reservation List</h5>
+                <dd>
+                   <table class="ststbl" style="margin-top: 10px">
+                      <thead>
+                        <tr>
+                          <th class="thbs">Ref. No.</th>
+                          <th class="thbs">Reserved Date</th>
+                          <th class="thbs">Reservation Created</th>
+                          <th class="thbs">Status</th>
+                        </tr>
+                      </thead>
+                     <tbody id="table_completed">
+                        <!-- <td class="tdbs">testing</td>
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs1">CANCELED</td> -->
+                      </tbody>
+                      <!-- <tbody id="table_status">
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs1">DONE</td>
+                        </tbody>
+                      <tbody id="table_status">
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs">testing</td>
+                        <td class="tdbs1">CANCELED</td>
+                      </tbody> -->
+                      </table>
+                    </dd>
+                  </dl>
+                </div>
+            
+               <!-- START OF POPUP -->
+            
+                <div class="popup popup1 center">
+                  <div class="popup-title">Remove User</div>
+                  <div class="description">Are you sure you want to cancel the reservation?</div>
+                  <div class="dismiss-btn">
+                     <button id="confirm-popup1-btn">Yes</button>
+                     <button id="dismiss-popup1-btn">No</button>
+                  </div>
+                </div>
 
             <!-- Manage Moments Tab-->
             <h4 class="tab-accordion-title" rel="tabFour">Manage Moments</h4>
