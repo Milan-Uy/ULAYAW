@@ -3769,7 +3769,7 @@ i.material-icons {
   max-width: 860px;
   width: 100%;
   margin: 40px;
-  height: 529px;
+  height: 589px;
   overflow: hidden;
   background: #f9f2e7;
 }
@@ -4190,13 +4190,18 @@ i.material-icons {
 @media screen and (max-width: 650px) {
   #calendar {
     margin: 40px 0px;
-    height: 530px;
+    height: 585px;
   }
   .day {
-    width: 48px;
+    width: 54px;
   }
   .arrow {
     margin-left: -2px;
+  }
+}
+@media screen and (max-width: 361px) {
+  .day {
+    width: 38px;
   }
 }
 
