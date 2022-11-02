@@ -806,11 +806,16 @@ p {
   margin-left: 80px;
   vertical-align: middle;
 }
-.label {
+.tab-label {
   display: inline-block;
   vertical-align: middle;
   margin-left: 20px;
   font-size: 16px;
+}
+.sidebar-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 14px;
 }
 .sidebar .tabs li {
   margin: 0;
@@ -881,6 +886,9 @@ p {
   .tabs .material-symbols-rounded {
     font-size: 30px;
     margin-left: 20px;
+  }
+  .tab-label {
+    font-size: 0px;
   }
   .label {
     font-size: 0px;
@@ -2358,7 +2366,7 @@ transform: scale(1) rotate(1deg);
   color: #f9f2e7;
   border-right: 1px solid white;
 }
-tbody {
+.ststbl tbody {
   background-color: #f9f2e7;
 }
 
@@ -2780,7 +2788,7 @@ footer .bottom a:hover {
   border-radius: 6rem;
   border: 1px solid #a0a0a0;
   padding: 0.6rem 2rem 0.6rem 1rem;
-  width: 15rem;
+  width: 20rem;
   margin-top: 20px;
 }
 
@@ -3781,8 +3789,8 @@ i.material-icons {
   letter-spacing: 1px;
   color: #f9f2e7;
 }
-.left,
-.right {
+.cal-left,
+.cal-right {
   position: absolute;
   width: 0px;
   height: 0px;
@@ -3791,43 +3799,43 @@ i.material-icons {
   margin-top: -7.5px;
   cursor: pointer;
 }
-.left {
+.cal-left {
   border-width: 7.5px 10px 7.5px 0;
   border-color: transparent #f9f2e7 transparent transparent;
   left: 20px;
 }
-.right {
+.cal-right {
   border-width: 7.5px 0 7.5px 10px;
   border-color: transparent transparent transparent #f9f2e7;
   right: 20px;
 }
-.month {
+.cal-month {
   /*overflow: hidden;*/
   opacity: 0;
 }
-.month.new {
+.cal-month.new {
   -webkit-animation: fadeIn 1s ease-out;
   opacity: 1;
 }
-.month.in.next {
+.cal-month.in.next {
   -webkit-animation: moveFromTopFadeMonth 0.4s ease-out;
   -moz-animation: moveFromTopFadeMonth 0.4s ease-out;
   animation: moveFromTopFadeMonth 0.4s ease-out;
   opacity: 1;
 }
-.month.out.next {
+.cal-month.out.next {
   -webkit-animation: moveToTopFadeMonth 0.4s ease-in;
   -moz-animation: moveToTopFadeMonth 0.4s ease-in;
   animation: moveToTopFadeMonth 0.4s ease-in;
   opacity: 1;
 }
-.month.in.prev {
+.cal-month.in.prev {
   -webkit-animation: moveFromBottomFadeMonth 0.4s ease-out;
   -moz-animation: moveFromBottomFadeMonth 0.4s ease-out;
   animation: moveFromBottomFadeMonth 0.4s ease-out;
   opacity: 1;
 }
-.month.out.prev {
+.cal-month.out.prev {
   -webkit-animation: moveToBottomFadeMonth 0.4s ease-in;
   -moz-animation: moveToBottomFadeMonth 0.4s ease-in;
   animation: moveToBottomFadeMonth 0.4s ease-in;
@@ -4377,7 +4385,7 @@ i.material-icons {
   max-width: 580px !important;
 }
 
-tr {
+.booking-receipt tr {
   background-color: #f0f0f0;
 }
 
@@ -5404,4 +5412,40 @@ button:focus {
   .tnc-header h1 {
     font-size: 40px;
   }
+}
+
+/*Date Range Bootstrap*/
+.ranges li {
+  color: var(--heading-color);
+}
+.ranges li:hover {
+  background-color: var(--heading-color);
+  border: 1px solid var(--heading-color);
+  color: var(--mainbg-color);
+}
+.ranges li.active {
+  background-color: var(--heading-color);
+  border: 1px solid var(--heading-color);
+  color: var(--mainbg-color);
+}
+.btn {
+  background-color: var(--heading-color);
+}
+.btn:hover {
+  background-color: #4d3939;
+}
+.btn-success:hover {
+  background-color: #4d3939;
+}
+.btn-success:active {
+  background-color: #4d3939;
+}
+.btn-success {
+  background-color: #4d3939;
+}
+.cancelBtn {
+  background-color: #a8a7a7;
+}
+.cancelBtn:hover {
+  color: #ffff;
 }

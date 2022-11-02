@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
@@ -17,6 +18,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
     <title>Profile</title>
   </head>
@@ -27,45 +33,45 @@
     </section>
     <!--Profile-->
     <section class="sidebar-tabs">
-      <div class="sidebar container">
+      <div class="sidebar s-container">
         <!--Sidebar-->
         <div class="tabs-wrapper">
           <ul class="tabs">
             <!--List of Tabs-->
             <li class="tab-active" rel="tabОne">
               <i class="material-symbols-rounded">dashboard</i>
-              <span class="label">Dashboard</span>
+              <span class="tab-label">Dashboard</span>
             </li>
             <li rel="tabTwo">
               <i class="material-symbols-rounded">groups</i>
-              <span class="label">View Guest List</span>
+              <span class="tab-label">View Guest List</span>
             </li>
             <li rel="tabThree">
               <i class="material-symbols-rounded">pending_actions</i>
-              <span class="label"> Pending Reservations </span>
+              <span class="tab-label"> Pending Reservations </span>
             </li>
             <li rel="tabSix">
               <i class="material-symbols-rounded">list</i>
-              <span class="label"> Reservation List </span>
+              <span class="tab-label"> Reservation List </span>
             </li>
             <li rel="tabFour" id="manage-moments">
               <i class="material-symbols-rounded">recent_actors</i>
-              <span class="label"> Manage Moments </span>
+              <span class="tab-label"> Manage Moments </span>
             </li>
             <li rel="tabFive">
               <i class="material-symbols-rounded">summarize</i>
-              <span class="label">View Sales Report</span>
+              <span class="tab-label">View Sales Report</span>
             </li>
             <li rel="tabFive" onclick="logout()">
               <i class="material-symbols-rounded">logout</i>
-              <span class="label">Logout</span>
+              <span class="tab-label">Logout</span>
             </li>
           </ul>
           <div class="tabs-container">
             <!-- Dashboard Tab-->
             <h4 class="tab-accordion-active tab-accordion-title" rel="tabОne">Dashboard</h4>
             <div id="tabОne" class="tab-item">
-              <h5>Dashboard</h5>
+              <h5 >Dashboard</h5>
               <div class="staff-dboard">
                 <div class="dashboard-main">
                   <div class="dboard-part">
@@ -296,7 +302,7 @@
                     </tbody> -->
               </dl>
 
-              <div class="pagination p1">
+              <div class="tab-pagination p1">
                 <ul>
                   <a href="#" class="pgntn-arrow" ><li><</li></a>
                   <a class="is-active" href="#"><li>1</li></a>
@@ -359,7 +365,7 @@
                     </dd>
                   </dl>
 
-                  <div class="pagination p1">
+                  <div class="tab-pagination p1">
                     <ul>
                       <a href="#" class="pgntn-arrow"><li><</li></a>
                       <a class="is-active" href="#"><li>1</li></a>
@@ -409,7 +415,7 @@
                   <button class="manageMoments-btn" id="open-alert1">ADD TO MOMENTS</button>
                   <button class="manageMoments-btn">REJECT</button>
 
-                  <div class="pagination p1">
+                  <div class="tab-pagination p1">
                     <ul>
                       <a href="#" class="pgntn-arrow"><li><</li></a>
                       <a class="is-active" href="#"><li>1</li></a>
@@ -434,6 +440,7 @@
               <div class="sales-option">
                 <form class="pick-date">
                   <h6>Select date range:</h6>
+                  <!--
                   <div class="date-input">
                     <div class="pick-start">
                       <label>From</label>
@@ -443,6 +450,10 @@
                       <label>To</label>
                       <input id="end-date" class="range-date" placeholder="select a date" />
                     </div>
+                  </div>
+                  -->
+                  <div id="reportrange" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; font-size: 11px;">
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp; <span></span> <b class="caret"></b>
                   </div>
                 </form>
                 <div class="pdf-download">
@@ -589,12 +600,12 @@
 
             this.title = createElement("h1");
 
-            var right = createElement("div", "right");
+            var right = createElement("div", " cal-right");
             right.addEventListener("click", function () {
               self.nextMonth();
             });
 
-            var left = createElement("div", "left");
+            var left = createElement("div", "cal-left");
             left.addEventListener("click", function () {
               self.prevMonth();
             });
@@ -618,25 +629,25 @@
 
           if (this.month) {
             this.oldMonth = this.month;
-            this.oldMonth.className = "month out " + (self.next ? "next" : "prev");
+            this.oldMonth.className = "cal-month out " + (self.next ? "next" : "prev");
             this.oldMonth.addEventListener("webkitAnimationEnd", function () {
               self.oldMonth.parentNode.removeChild(self.oldMonth);
-              self.month = createElement("div", "month");
+              self.month = createElement("div", "cal-month");
               self.backFill();
               self.currentMonth();
               self.fowardFill();
               self.el.appendChild(self.month);
               window.setTimeout(function () {
-                self.month.className = "month in " + (self.next ? "next" : "prev");
+                self.month.className = "cal-month in " + (self.next ? "next" : "prev");
               }, 16);
             });
           } else {
-            this.month = createElement("div", "month");
+            this.month = createElement("div", "cal-month");
             this.el.appendChild(this.month);
             this.backFill();
             this.currentMonth();
             this.fowardFill();
-            this.month.className = "month new";
+            this.month.className = "cal-month new";
           }
         };
 
@@ -1124,23 +1135,34 @@
         window.location.replace("/login-reg.html");
       };
 
-      //pick date
-      //Date Picker
-      let startDate = new Date();
-      let endDate = new Date();
-      // endDate.setDate(endDate.getDate() + 1);
+      //Sales -report date picker
+      $(function () {
+        var start = moment().subtract(29, "days");
+        var end = moment();
 
-      const picker = new Litepicker({
-        element: document.getElementById("start-date"),
-        elementEnd: document.getElementById("end-date"),
-        numberOfMonths: 2,
-        numberOfColumns: 2,
-        singleMode: false,
-        numberOfMonths: 2,
-        allowRepick: true,
-        minDays: 1, // Sets the min amount of days to 1
-        maxDays: 730, // Sets the min amount of days to 1
-        format: "D MMM, YYYY", // Format date
+        function cb(start, end) {
+          $("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
+        }
+
+        $("#reportrange").daterangepicker(
+          {
+            startDate: start,
+            endDate: end,
+            ranges: {
+              Today: [moment(), moment()],
+              Yesterday: [moment().subtract(1, "days"), moment().subtract(1, "days")],
+              "Last 7 Days": [moment().subtract(6, "days"), moment()],
+              "Last 30 Days": [moment().subtract(29, "days"), moment()],
+              "This Month": [moment().startOf("month"), moment().endOf("month")],
+              "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")],
+              "This Year": [moment().startOf("year"), moment().endOf("year")],
+              "Last Year": [moment().subtract(1, "year").startOf("year"), moment().subtract(1, "year").endOf("year")],
+            },
+          },
+          cb
+        );
+
+        cb(start, end);
       });
 
       // Alert

@@ -82,7 +82,7 @@
   padding-left: 100px;
   background: rgba(45, 20, 0, 0.5);
   font-weight: 800;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 75px;
 }
 
@@ -569,12 +569,12 @@
 
 /* Reservation */
 
-.pagination,
+.tab-pagination,
 .pagination1 {
   padding: 30px 0;
 }
 
-.pagination ul {
+.tab-pagination ul {
   margin: 0px 15px 0px 0px;
   display: flex;
   justify-content: center;
@@ -583,14 +583,14 @@
   list-style-type: none;
 }
 
-.pagination a {
+.tab-pagination a {
   display: inline-block;
   padding: 10px 18px;
   color: #222;
   background-color: #f0f0f0;
 }
 
-.pagination a:hover {
+.tab-pagination a:hover {
   cursor: pointer;
   transform: scale(1.1);
   background-color: #d3d3d3;
