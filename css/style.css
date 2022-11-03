@@ -613,3 +613,129 @@
 .pgntn-arrow {
   background-color: #b8b8b8 !important;
 }
+
+/* Result Successful */
+
+.result-card {
+  box-shadow: 0 15px 16.8px rgba(0, 0, 0, 0.031), 0 100px 134px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  border-radius: 15px;
+  padding: 50px;
+}
+.result-top {
+  padding-bottom: 25px;
+  min-width: 250px;
+  text-align: center;
+  border-bottom: dashed #dfe4f3 2px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-left: 0.18em dashed #fff;
+  position: relative;
+}
+.result-top:before {
+  background-color: #fafcff;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  bottom: 0;
+  right: -10px;
+  margin-bottom: -10px;
+}
+svg,
+.result-h3 {
+  color: #9dbbae;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.error-h3 {
+  color: #a74528;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+svg {
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+}
+.result-span {
+  color: #909090;
+  font-size: 14px;
+}
+.result-bottom {
+  text-align: center;
+  margin-top: 30px;
+}
+.result-key-value {
+  display: flex;
+  justify-content: space-between;
+}
+.result-key-value span:first-child {
+  font-weight: 0;
+}
+.result-a {
+  padding: 8px 20px;
+  background-color: #9dbbae;
+  text-decoration: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 20px;
+  display: block;
+}
+
+.error-a {
+  padding: 8px 20px;
+  background-color: #a74528;
+  text-decoration: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 20px;
+  display: block;
+}
+.result-outer-container {
+  background-color: #c8c8c8;
+  position: absolute;
+  display: table;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+.result-inner-container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.result-centered-content {
+  display: inline-block;
+  text-align: left;
+  background: #fff;
+  margin-top: 10px;
+}
+
+.result-ref {
+  display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+  .result-card {
+    padding: 20px;
+  }
+  .result-h3 {
+    font-size: 20px;
+  }
+  .result-span {
+    color: #909090;
+    font-size: 12px;
+  }
+  .error-h3 {
+    font-size: 20px;
+  }
+}
