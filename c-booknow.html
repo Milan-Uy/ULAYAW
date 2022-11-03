@@ -240,7 +240,7 @@
             Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
         };
-        // console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
+        console.log(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
         fetch(`https://ulayaw-backend.herokuapp.com/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`)
           .then((response) => response.json())
           .then((data) => {
