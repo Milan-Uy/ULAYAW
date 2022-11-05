@@ -319,11 +319,11 @@
 
             <!-- START OF POPUP -->
 
-            <div class="popup popup1 center">
+            <div class="popup popup1 popup-short center">
               <div class="popup-title">Remove User</div>
               <div class="description">Are you sure you want to cancel the reservation?</div>
               <div class="dismiss-btn">
-                <button id="confirm-popup1-btn">Yes</button>
+                <button id="confirm-popup1-btn" onclick="rejectBooking()">Yes</button>
                 <button id="dismiss-popup1-btn">No</button>
               </div>
             </div>
@@ -999,9 +999,9 @@
                 data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>"
                 data2 += "<td class='tdbs1'>"
                 data2 += "<select name='booking-status' id='booking-status' class='booking-status'>"
-                data2 += "<option value='Unpaid'>Unpaid</option>"
-                data2 += "<option value='Fully Paid'>Fully Paid</option>"
-                data2 += "<option value='Partially Paid'>Partially Paid</option>"
+
+                data2 += "<option class='' value='Partially Paid'>Partially Paid</option>"
+                data2 += "<option class='' value='Fully Paid'>Fully Paid</option>"
                 data2 += "</select>"
                 data2 += "</td>"
               }
@@ -1011,6 +1011,32 @@
         }
       };
       document.body.addEventListener("click", getProfile);
+
+
+      const partialPay = () => {
+        
+
+        // const data = {
+        //   status: "Partially Paid",
+        // };
+        // let options = {
+        //   method: "PUT",
+        //   headers: {
+        //     "Content-Type": "application/json;charset=utf-8",
+        //     Authorization: "Bearer " + localStorage.getItem("access_token"),
+        //   },
+        //   body: JSON.stringify(data),
+        // };
+
+        // fetch("https://ulayaw-backend.herokuapp.com/booking/update/" + sessionStorage.getItem("booking_id"), options)
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     console.log(data);
+            
+        //   });
+          // location.reload();
+      }
+
 
       const manageBookings = () => {
         let id = localStorage.getItem("user_id");
@@ -1041,7 +1067,7 @@
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
                 pending += "<td class='tdbs1'>";
-                pending += "<button type='button' onclick='rejectBooking()' class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
+                pending += "<button type='button'  class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
                 pending += "<button type='button' onclick='acceptBooking()' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
                 pending += "</td>";
                 pending += "</tr>";
@@ -1076,6 +1102,7 @@
           let bookingId = e.target.classList[0];
           console.log(bookingId);
           sessionStorage.setItem("booking_id", bookingId);
+          document.getElementsByClassName("popup1")[0].classList.add("active");
         }
         if (e.target.classList[1] === "check") {
           let bookingId = e.target.classList[0];
@@ -1177,13 +1204,13 @@
 
       // Popup Button
 
-      // document.getElementById("open-popup1-btn").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup1")[0].classList.add("active");
-      // });
+      document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.add("active");
+      });
 
-      // document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup1")[0].classList.remove("active");
-      // });
+      document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
 
       
     </script>
