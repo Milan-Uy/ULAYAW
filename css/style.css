@@ -644,7 +644,7 @@
   right: -10px;
   margin-bottom: -10px;
 }
-svg,
+.result-top svg,
 .result-h3 {
   color: #9dbbae;
   margin-top: 10px;
@@ -658,7 +658,7 @@ svg,
   margin-bottom: 10px;
   font-size: 30px;
 }
-svg {
+.result-to svg {
   margin: 0 auto;
   width: 60px;
   height: 60px;
