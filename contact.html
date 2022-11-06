@@ -264,22 +264,22 @@
     <script>
       const sendEmail = () =>{
         const data = {
-          name: document.querySelector('#name'),
-          email: document.querySelector('#email'),
-          subject: document.querySelector('#subject'),
-          message: document.querySelector('#message'),
-          receiver: 'millanouy@gmail.com',
+          name: document.querySelector('#name').value,
+          email: document.querySelector('#email').value,
+          subject: document.querySelector('#subject').value,
+          message: document.querySelector('#message').value,
+          receiver: 'uymillano@gmail.com',
           receiverName: 'Milan Uy'
         }
         let options = {
       
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json;charset=utf-8",
           },
-          body: data
+          body: JSON.stringify(data)
         };
-        fetch("http://localhost:8080/admin/email", options,  { mode: 'no-cors'})
+        fetch("http://localhost:8080/admin/email", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
