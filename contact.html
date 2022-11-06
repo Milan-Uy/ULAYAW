@@ -221,23 +221,23 @@
                   <strong>Message Sent Successfully!</strong>
                 </div>
                 <div class="input-box">
-                  <input type="text" required />
+                  <input type="text" required id="name"/>
                   <label>Enter your name</label>
                 </div>
                 <div class="input-box">
-                  <input type="text" required />
+                  <input type="text" required id="email"/>
                   <label>Enter your email</label>
                 </div>
                 <div class="input-box">
-                  <input type="text" required />
+                  <input type="text" required id="subject"/>
                   <label>Enter your subject</label>
                 </div>
                 <div class="input-box1">
-                  <input type="text" required />
+                  <input type="text" required  id="message"/>
                   <label>Enter your message</label>
                 </div>
                 <div class="input-box">
-                  <input type="submit" id="open-alert" value="Send Message" />
+                  <input type="button" id="open-alert" onclick="sendEmail()" value="Send Message" />
                 </div>
               </form>
             </div>
@@ -262,6 +262,29 @@
       <div id="footer-placeholder"></div>
     </section>
     <script>
+      const sendEmail = () =>{
+        const data = {
+          name: document.querySelector('#name'),
+          email: document.querySelector('#email'),
+          subject: document.querySelector('#subject'),
+          message: document.querySelector('#message'),
+          receiver: 'millanouy@gmail.com',
+          receiverName: 'Milan Uy'
+        }
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: data,
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/admin/email", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      }
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");

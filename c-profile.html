@@ -227,7 +227,7 @@
                         </div>
                       </div>
                       <div class="mpost-btn bounce-in-on-hover">
-                        <button class="post-btn" onclick="" id="open-alert">POST</button>
+                        <button class="post-btn" onclick="uploadMoment()" id="open-alert">POST</button>
                       </div>
                     </div>
                     <!-- </form> -->
@@ -314,6 +314,29 @@
     <script src="app.js"></script>
 
     <script>
+
+      const uploadMoment = () =>{
+        const file = document.querySelector('#input-file');
+        console.log(file.files[0])
+        const description = document.querySelector('#moment-txt');
+        console.log(description.value)
+        let fd = new FormData();
+        fd.append('file',file.files[0]);
+        fd.append('description',description.value);
+        let options = {
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fd,
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/moment/upload", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      }
       const setValues = async () => {
         let user = await getUser(localStorage.getItem("user_id"));
         console.log(user);
