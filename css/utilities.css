@@ -2392,7 +2392,7 @@ footer {
   width: 100%;
   bottom: 0;
   left: 0;
-  background: #473a3a;
+  background: #6b4f4f;
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
@@ -2512,7 +2512,7 @@ footer .bottom a {
   font-size: 12px;
   border-top: 1px solid var(--mainbg-color);
   align-items: center;
-  background: #473a3a;
+  background: #6b4f4f;
   font-family: "Montserrat", sans-serif;
 }
 
