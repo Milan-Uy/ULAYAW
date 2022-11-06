@@ -24,10 +24,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:900" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Merienda:wght@700&family=Salsa&display=swap" rel="stylesheet" />
     <title>Home Page</title>
   </head>
   <style>
-    @import url("http://fonts.cdnfonts.com/css/newaves");
+    @import url("https://fonts.cdnfonts.com/css/lokananta");
     body {
       line-height: 1.2;
     }
@@ -386,17 +387,15 @@
     }
     .hero-title h1 {
       text-align: center;
-      font-weight: 500;
-      letter-spacing: 2px;
-      font: 900 120px/1 "Source Sans Pro", Arial, sans-serif;
-      text-transform: uppercase;
-      color: #fff;
+      font-weight: 700;
+      font: 900 120px/1 "Merienda One", cursive;
+      color: #fafaf5;
       text-align: center;
-      font-size: 70px;
+      font-size: 80px;
+      line-height: 1.4;
       top: 35%;
       width: 100%;
       text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%), 0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
-        0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%), 0 7px 0 hsl(174, 5%, 61%), 0 8px 0 hsl(174, 5%, 60%), 0 0 5px rgba(0, 0, 0, 0.05),
         0 1px 3px rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2),
         0 20px 20px rgba(0, 0, 0, 0.3);
     }
@@ -576,7 +575,7 @@
     .welcome-description {
       font-family: "Raleway", sans-serif;
       margin: auto;
-      padding: 20px 80px 20px 80px;
+      padding: 20px 0px 20px 80px;
       text-align: justify;
       color: var(--txt-field-color);
     }
@@ -639,11 +638,11 @@
       }
     }
     .main-title {
-      font-size: 48px;
-      font-weight: 500;
+      font-size: 45px;
+      font-weight: 700;
       max-width: 620px;
       height: 200px;
-      font-family: "Source Sans Pro", Arial, sans-serif;
+      font-family: "Merienda One", cursive;
       line-height: 1.4;
       color: var(--heading-color);
     }
@@ -787,12 +786,13 @@
     .testimonial-section {
       background: url(icons/quote.png);
       background-repeat: no-repeat;
+      background-position: left;
       background-size: 290px 280px;
       background-color: #6b4f4f;
       height: 100%;
       width: 100%;
       display: flex;
-      padding: 20px;
+      padding: 180px 20px 20px 20px;
       width: 100%;
     }
     .testimonial-section .main-title {
@@ -818,6 +818,7 @@
     @media (max-width: 901px) {
       .testimonial-section {
         display: block;
+        background-position: left;
       }
       .testimonial-ttl {
         width: 100%;
@@ -973,25 +974,27 @@
       }
     }
     .index-end {
-      background: url(images/end-bg.JPG);
-      display: flex;
+      background: url(images/index-parallax.jpg);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
       flex-direction: row;
-      height: 280px;
+      height: 340px;
       width: 100%;
-      object-fit: contain;
       margin: auto;
     }
     .seefaqs {
-      padding: 80px 100px;
+      padding: 80px 100px 50px 100px;
       display: grid;
       width: 60%;
     }
     .seefaqs .main-title {
-      color: #fff;
+      color: var(--heading-color);
       height: 60px;
     }
     .seefaqs .sub-title {
-      color: #fff;
+      color: var(--heading-color);
       font-size: 16px;
       letter-spacing: 2px;
       font-family: "Raleway", sans-serif;
@@ -1007,6 +1010,9 @@
       align-items: center;
       display: flex;
       margin: auto;
+    }
+    .seefaqs-btn:hover {
+      background: #14444b;
     }
     .seefaqs-btn-a {
       color: #fff;
@@ -1037,6 +1043,11 @@
       }
     }
     .add-features {
+      background: url(images/tropical-gray.png);
+      background-repeat: no-repeat;
+      background-size: 520px 680px;
+      background-blend-mode: luminosity;
+      background-position: right;
       height: 100%;
       width: 100%;
       background-color: var(--mainbg-color);
@@ -1057,7 +1068,7 @@
     }
     .feat-desc h2 {
       font-size: 80px;
-      font-family: "Newaves", sans-serif;
+      font-family: "Merienda One", cursive;
     }
     .feat-desc p {
       width: 480px;
@@ -1199,6 +1210,11 @@
         height: 50px;
       }
     }
+    .whitestrk {
+      margin-top: 0px !important;
+      margin-bottom: -145px !important;
+      max-height: 220px !important;
+    }
   </style>
 
   <body>
@@ -1238,8 +1254,8 @@
       </div>
       <div class="hero-title">
         <h1>
-          ENJOY YOUR MOMENT <br />
-          WITH HULO
+          Enjoy your moment <br />
+          with Hulo
         </h1>
         <div class="check-availability-index">
           <form action="javascript:getDate()" class="checkavail-form-index">
@@ -1325,47 +1341,7 @@
         </div>
       </div>
     </section>
-    <div class="index-stroke-rotate">
-      <img src="images/index-copy-stroke.png" />
-    </div>
-    <section class="cabin-section">
-      <div class="cabin-title">
-        <h6 class="fadeup sub-title">ABSOLUTE COMFORT</h6>
-        <h2 class="fadeup main-title">What our villa offers</h2>
-      </div>
-      <div class="content-feature">
-        <div class="wrapper-feature">
-          <div class="box-feature feature-image">
-            <img src="images/slider/bed.JPG" alt="" />
-            <h2>Comfy and Cozy</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam.
-            </p>
-          </div>
-        </div>
-        <div class="wrapper-feature">
-          <div class="box-feature feature-image">
-            <img src="images/slider/kitchen.JPG" alt="" />
-            <h2>Fully Equipped</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            </p>
-          </div>
-        </div>
-        <div class="wrapper-feature">
-          <div class="box-feature feature-image">
-            <img src="images/slider/bath.JPG" alt="" />
-            <h2>Relaxing Stay</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="add-features">
-      <div class="feat-title">
-        <h2 class="fadeup main-title">Perfect for unforgettable memories</h2>
-      </div>
       <div class="feat-container">
         <div class="feat-desc cont-right">
           <h2 class="fadeup">Unwind</h2>
@@ -1412,9 +1388,49 @@
         </div>
       </div>
     </section>
+    <div class="index-stroke-rotate">
+      <img src="images/index-copy-stroke.png" />
+    </div>
+    <section class="cabin-section">
+      <div class="cabin-title">
+        <h6 class="fadeup sub-title">ABSOLUTE COMFORT</h6>
+        <h2 class="fadeup main-title">What our villa offers</h2>
+      </div>
+      <div class="content-feature">
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="images/slider/bed.JPG" alt="" />
+            <h2>Comfy and Cozy</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam.
+            </p>
+          </div>
+        </div>
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="images/slider/kitchen.JPG" alt="" />
+            <h2>Fully Equipped</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            </p>
+          </div>
+        </div>
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="images/slider/bath.JPG" alt="" />
+            <h2>Relaxing Stay</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="index-stroke whitestrk">
+      <img src="images/index-white-stroke.png" />
+    </div>
     <section class="testimonial-section">
       <div class="testimonial-ttl">
-        <h6 class="fadeup sub-title">Customer Satisfaction</h6>
+        <h6 class="fadeup sub-title">CUSTOMER SATISFACTION</h6>
         <h2 class="fadeup main-title">What our guest says</h2>
       </div>
       <div class="testimonial-content pt-5 pb-5">
