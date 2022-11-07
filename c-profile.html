@@ -182,12 +182,12 @@
               <h5>Upload a Moment</h5>
 
               <div class="moment-form">
-                <form action="#" class="moment-details">
+                <form action="javascript:uploadMoment()" class="moment-details">
                   <!-- ALERT -->
-                  <div class="alertMessage alert">
-                    <span class="close" id="close-alert">×</span>
+                  <div class="alertMessage alert1">
+                    <span class="close" id="close-alert1">×</span>
                     <i class="fas fa-exclamation-circle alert-icon"></i>
-                    <strong>Moment Successfully Uploaded!</strong>
+                    <strong><span id="alertdesc"></span></strong>
                   </div>
                   <div class="alertMessage alertError">
                     <span class="close" id="close-alert">×</span>
@@ -227,7 +227,7 @@
                         </div>
                       </div>
                       <div class="mpost-btn bounce-in-on-hover">
-                        <button class="post-btn" onclick="uploadMoment()" id="open-alert">POST</button>
+                        <button class="post-btn" id="open-alert" onclick="checkboxValidation()">POST</button>
                       </div>
                     </div>
                     <!-- </form> -->
@@ -286,22 +286,35 @@
     </section>
 
     <!-- START OF POPUP -->
-    <div class="popup popup1 offset_left">
+    <div class="popup popup1 center">
       <div class="description">
         <h2 style="text-align: center"><b>MOMENTS POLICY</b></h2>
         <br />
+        A guest will only be allowed to upload up to 1 moment per booking.
+        <br />
+        Only image less than 2mb can be uploaded.
+        <br />
+        Only image file types are allowed (ex: jpg and png).
       </div>
       <div class="dismiss-btn">
         <button id="dismiss-popup1-btn">Close</button>
       </div>
     </div>
 
-    <div class="popup popup2 offset_left popup-short">
+    <div class="popup popup2 center popup-short">
       <div class="popup-title">Cancel Reservation</div>
       <div class="description">Are you sure you want to cancel the reservation?</div>
       <div class="dismiss-btn">
-        <button id="confirm-popup2-btn">Yes</button>
+        <button id="confirm-popup2-btn" onclick="cancelBooking()">Yes</button>
         <button id="dismiss-popup2-btn">No</button>
+      </div>
+    </div>
+
+    <div class="popup popup3 center popup-short">
+      <div class="popup-title">Upload Moment</div>
+      <div class="description">Please agree to the Moment Policy!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup3-btn">Close</button>
       </div>
     </div>
 
@@ -314,19 +327,25 @@
     <script src="app.js"></script>
 
     <script>
+      const checkboxValidation = () => {
+        if (document.getElementById("checkbox").checked) {
+        } else {
+          document.getElementsByClassName("popup3")[0].classList.add("active");
+        }
+      };
 
-      const uploadMoment = () =>{
-        const file = document.querySelector('#input-file');
-        console.log(file.files[0])
-        const description = document.querySelector('#moment-txt');
-        console.log(description.value)
+      const uploadMoment = () => {
+        const file = document.querySelector("#input-file");
+        console.log(file.files[0]);
+        const description = document.querySelector("#moment-txt");
+        console.log(description.value);
         let fd = new FormData();
-        fd.append('file',file.files[0]);
-        fd.append('description',description.value);
+        fd.append("file", file.files[0]);
+        fd.append("description", description.value);
         let options = {
           method: "POST",
           headers: {
-            "Authorization": "Bearer " + localStorage.getItem("access_token"),
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
           body: fd,
         };
@@ -335,8 +354,11 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            document.getElementById("alertdesc").innerText = data.message;
+            document.getElementsByClassName("alert1")[0].style.display = "block";
           });
-      }
+      };
+
       const setValues = async () => {
         let user = await getUser(localStorage.getItem("user_id"));
         console.log(user);
@@ -408,12 +430,12 @@
       });
 
       // Alert
-      document.getElementById("open-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].style.display = "block";
-      });
+      // document.getElementById("open-alert").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert")[0].style.display = "block";
+      // });
 
-      document.getElementById("close-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].style.display = "none";
+      document.getElementById("close-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].style.display = "none";
       });
 
       const sendCustomerS = () => {
@@ -600,23 +622,23 @@
             if (data.payload.length > 0) {
               var data1 = "";
               for (i = 0; i < data.payload.length; i++) {
-                if (data.payload[i].status == "Pending" || data.payload[i].status == "Accepted") {
-                  data1 += "<tr>";
-                  data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
-                  data1 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
-                  data1 += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
-                  data1 += "<td class='tdbs'>" + data.payload[i].status + "</td>";
-                  data1 += "<td class='tdbs ispaid'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
-                  if (data.payload[i].status === "Accepted") {
-                    data1 +=
-                      "<td><button class='" +
-                      data.payload[i]._id +
-                      " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
-                  } else {
-                    data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel' onclick='cancelBooking()'>CANCEL</button></td>";
-                  }
-                  data1 += "</tr>";
+                // if (data.payload[i].status == "Pending" || data.payload[i].status == "Accepted") {
+                data1 += "<tr>";
+                data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
+                data1 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
+                data1 += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
+                data1 += "<td class='tdbs'>" + data.payload[i].status + "</td>";
+                data1 += "<td class='tdbs ispaid'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
+                if (data.payload[i].status === "Accepted") {
+                  data1 +=
+                    "<td><button class='" +
+                    data.payload[i]._id +
+                    " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
+                } else {
+                  data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
                 }
+                data1 += "</tr>";
+                // }
               }
               $("#table_status").html(data1);
             }
@@ -630,6 +652,7 @@
           let bookingId = e.target.classList[0];
           console.log(bookingId);
           sessionStorage.setItem("booking_id", bookingId);
+          document.getElementsByClassName("popup2")[0].classList.add("active");
         }
         if (e.target.classList[1] === "btnprcd") {
           let bookingId = e.target.classList[0];
@@ -690,6 +713,10 @@
 
       document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup2")[0].classList.remove("active");
+      });
+
+      document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup3")[0].classList.remove("active");
       });
 
       /** emoji feedback js **/

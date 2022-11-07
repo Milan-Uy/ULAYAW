@@ -28,22 +28,7 @@
     </div>
     <section class="bodymoments">
       <div class="containermoments">
-        <div class="mmnt-card">
-          <div class="card-moments">
-            <img
-              src="https://s.aolcdn.com/images/dims?client=fh7w6q744eiognjk&signature=d59d0cf6af1d779a3dca451e0ba259c33bbc6115&image_uri=https%3A%2F%2Fs.aolcdn.com%2Fos%2Fab%2F_cms%2F2019%2F08%2F30142658%2F2020-jeep-wrangler-16.jpg&thumbnail=750%2C422&quality=80"
-              alt=""
-            />
-          </div>
-          <div class="mmnt-card-body">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur tenetur distinctio neque?</p>
-            <div class="user">
-              <div class="user-info">
-                <h5>USER NAME</h5>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="display_moments"></div>
         <div class="mmnt-card">
           <div class="card-moments">
             <img
@@ -140,6 +125,44 @@
       $(function () {
         $("#footer-placeholder").load("footer.html");
       });
+
+      const displayMoments = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/moment/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.payload.length > 0) {
+              var data1 = "";
+              for (i = 0; i < data.payload.length; i++) {
+                if (data.payload[i].status === "Accepted") {
+                  data1 += "<div class='mmnt-card'>";
+                  data1 += "<div class='card-moments'>";
+                  data1 += "<img src='" + data.payload[i].imageUrl + "'/>";
+                  data1 += "</div>";
+                  data1 += "<div class='mmnt-card-body'>";
+                  data1 += "<p>" + data.payload[i].description + "</p>";
+                  data1 += "<div class='user'>";
+                  data1 += "<div class='user-info'>";
+                  data1 += "<h5>" + data.payload[i]._id + "</h5>";
+                  data1 += "</div>";
+                  data1 += "</div>";
+                  data1 += "</div>";
+                  data1 += "</div>";
+                }
+              }
+              $("#display_moments").html(data1);
+            }
+          });
+      };
+      displayMoments();
     </script>
   </body>
 </html>

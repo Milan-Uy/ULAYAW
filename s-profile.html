@@ -315,6 +315,31 @@
                 </ul>
               </div>
 
+              <!-- <table id="pager" class="wp-list-table widefat striped posts">
+                <thead>
+                    <tr>
+                        <th>Column #1</th>
+                        <th>Column #2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Info #1</th>
+                        <th>Info #2</th>
+                    </tr>
+                    <tr>
+                        <th>Info #1</th>
+                        <th>Info #2</th>
+                    </tr>
+                    <tr>
+                        <th>Info #1</th>
+                        <th>Info #2</th>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div id="pageNavPosition" class="pager-nav"></div> -->
+
             </div>
 
             <!-- START OF POPUP -->
@@ -403,7 +428,15 @@
                     <i class="fas fa-exclamation-circle alert-icon"></i>
                     <strong>Successfully Added to Moments!</strong>
                   </div>
-                  <p class="mmts-name"> Hannah Paula Villados </p>
+
+                  <div class="alertMessage alertreject">
+                    <span class="close" id="close-alertreject">×</span>
+                    <i class="fas fa-exclamation-circle alert-icon"></i>
+                    <strong>Successfully Removed Moment!</strong>
+                  </div>
+
+                  <div id="update_moments">
+                  <!-- <p class="mmts-name"> Hannah Paula Villados </p>
                   <p class="mmts-date"> January 10, 2022 </p>
                 <div class="mmts-caption">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quos dolorum mollitia magnam tempore nulla aliquam delectus molestias
@@ -413,22 +446,11 @@
                 <img src="/images/manageMoments-img.png" alt="" />
                 <div class="manageMoments-btn-container">
                   <button class="manageMoments-btn" id="open-alert1">ADD TO MOMENTS</button>
-                  <button class="manageMoments-btn">REJECT</button>
+                  <button class="manageMoments-btn">REJECT</button> -->
 
-                  <div class="tab-pagination p1">
-                    <ul>
-                      <a href="#" class="pgntn-arrow"><li><</li></a>
-                      <a class="is-active" href="#"><li>1</li></a>
-                      <a href="#"><li>2</li></a>
-                      <a href="#"><li>3</li></a>
-                      <a href="#"><li>4</li></a>
-                      <a href="#"><li>5</li></a>
-                      <a href="#"><li>6</li></a>
-                      <a href="#" class="pgntn-arrow"><li>></li></a>
-                    </ul>
-                  </div>
+                  
                 </div>
-
+                </div>
                 </div>
 
               </div>
@@ -515,6 +537,7 @@
       </div>
     </section>
     <script src="app.js"></script>
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CESDK2J7&placement=getbutterflycom" id="_carbonads_js"></script>
     <script>
       
       const hideManageMoments = () => {
@@ -947,6 +970,11 @@
       // }
       // getUserId();
 
+      const clearPending = () => {
+        const pending = document.getElementById("table_pending");
+        pending.innerHTML = "";
+      }
+
       const displayUsers = async () => {
         let users = await getGuests(null, null);
         console.log(users);
@@ -1130,9 +1158,10 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            
+            clearPending();
+            manageBookings();
           });
-          location.reload();
+          
       }
 
       const rejectBooking = () => {
@@ -1152,11 +1181,224 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            
+            clearPending();
+            manageBookings();
           });
-          location.reload();
+          
       }
 
+      const clearMoments = () => {
+        const moments = document.getElementById("update_moments");
+        moments.innerHTML = "";
+      };
+
+      const updateMoments = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/moment/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+        if (data.payload.length > 0) {
+        var data1 = "";
+        for (i = 0; i < data.payload.length; i++) {
+          if (data.payload[i].status === "New") {
+        data1 += "<p class='mmts-name'> Hannah Paula Villados </p>";
+        data1 += "<p class='mmts-date'>" + convertDate(data.payload[i].dateUpdated) + "</p>";
+        data1 += "<div class='mmts-caption'>" + data.payload[i].description + "</div>";
+        data1 += "<img src='" + data.payload[i].imageUrl + "'/>";
+        data1 += "<div class='manageMoments-btn-container'>";
+        data1 += "<button class='accept-moment manageMoments-btn " + data.payload[i]._id + "' onclick=''>ADD TO MOMENTS</button>";
+        data1 += "<button class='reject-moment manageMoments-btn " + data.payload[i]._id + "' onclick=''>REJECT</button>";
+        }
+        }
+        $("#update_moments").html(data1);
+        }
+      });
+      }
+      updateMoments();
+
+      const saveMomentId = (e) => {
+        // console.log(e);
+        if (e.target.classList[0] === "accept-moment") {
+          let momentId = e.target.classList[2];
+          console.log(momentId);
+          // sessionStorage.setItem("moment_id", momentId);
+          const data = {
+          status: "Accepted",
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/moment/update/${momentId}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            clearMoments();
+            updateMoments();
+            document.getElementsByClassName("alert1")[0].classList.add("show");
+          });
+        }
+
+        if (e.target.classList[0] === "reject-moment") {
+          let momentId = e.target.classList[2];
+          console.log(momentId);
+          // sessionStorage.setItem("moment_id", momentId);
+          const data = {
+          status: "Rejected",
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/moment/update/${momentId}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            clearMoments();
+            updateMoments();
+            document.getElementsByClassName("alertreject")[0].classList.add("show");
+          });
+        }
+      }
+      document.body.addEventListener("click", saveMomentId);
+
+      // const acceptMoment = () => {
+      //   let momentId1 = sessionStorage.getItem("moment_id")
+      //   console.log(momentId1);
+
+      // }
+
+      // const rejectMoment = () => {
+      //   let momentId1 = sessionStorage.getItem("moment_id")
+      //   console.log(momentId1);
+
+      // }
+
+
+
+      // PAGINATION
+//       function Pager(tableName, itemsPerPage) {
+//     'use strict';
+
+//     this.tableName = tableName;
+//     this.itemsPerPage = itemsPerPage;
+//     this.currentPage = 1;
+//     this.pages = 0;
+//     this.inited = false;
+
+//     this.showRecords = function (from, to) {
+//         let rows = document.getElementById(tableName).rows;
+
+//         // i starts from 1 to skip table header row
+//         for (let i = 1; i < rows.length; i++) {
+//             if (i < from || i > to) {
+//                 rows[i].style.display = 'none';
+//             } else {
+//                 rows[i].style.display = '';
+//             }
+//         }
+//     };
+
+//     this.showPage = function (pageNumber) {
+//         if (!this.inited) {
+//             // Not initialized
+//             return;
+//         }
+
+//         let oldPageAnchor = document.getElementById('pg' + this.currentPage);
+//         oldPageAnchor.className = 'pg-normal';
+
+//         this.currentPage = pageNumber;
+//         let newPageAnchor = document.getElementById('pg' + this.currentPage);
+//         newPageAnchor.className = 'pg-selected';
+
+//         let from = (pageNumber - 1) * itemsPerPage + 1;
+//         let to = from + itemsPerPage - 1;
+//         this.showRecords(from, to);
+
+//         let pgNext = document.querySelector('.pg-next'),
+//             pgPrev = document.querySelector('.pg-prev');
+
+//         if (this.currentPage == this.pages) {
+//             pgNext.style.display = 'none';
+//         } else {
+//             pgNext.style.display = '';
+//         }
+
+//         if (this.currentPage === 1) {
+//             pgPrev.style.display = 'none';
+//         } else {
+//             pgPrev.style.display = '';
+//         }
+//     };
+
+//     this.prev = function () {
+//         if (this.currentPage > 1) {
+//             this.showPage(this.currentPage - 1);
+//         }
+//     };
+
+//     this.next = function () {
+//         if (this.currentPage < this.pages) {
+//             this.showPage(this.currentPage + 1);
+//         }
+//     };
+
+//     this.init = function () {
+//         let rows = document.getElementById(tableName).rows;
+//         let records = (rows.length - 1);
+
+//         this.pages = Math.ceil(records / itemsPerPage);
+//         this.inited = true;
+//     };
+
+//     this.showPageNav = function (pagerName, positionId) {
+//         if (!this.inited) {
+//             // Not initialized
+//             return;
+//         }
+
+//         let element = document.getElementById(positionId),
+//             pagerHtml = '<span onclick="' + pagerName + '.prev();" class="pg-normal pg-prev">&#171;</span>';
+
+//         for (let page = 1; page <= this.pages; page++) {
+//             pagerHtml += '<span id="pg' + page + '" class="pg-normal pg-next" onclick="' + pagerName + '.showPage(' + page + ');">' + page + '</span>';
+//         }
+
+//         pagerHtml += '<span onclick="' + pagerName + '.next();" class="pg-normal">&#187;</span>';
+
+//         element.innerHTML = pagerHtml;
+//     };
+// }
+
+
+
+//
+let pager = new Pager('pager', 2);
+
+pager.init();
+pager.showPageNav('pager', 'pageNavPosition');
+pager.showPage(1);
 
       const logout = () => {
         localStorage.clear();
@@ -1194,12 +1436,16 @@
       });
 
       // Alert
-        document.getElementById("open-alert1").addEventListener("click", function () {
-        document.getElementsByClassName("alert1")[0].classList.add("show");
-      });
+      //   document.getElementById("open-alert1").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert1")[0].classList.add("show");
+      // });
 
       document.getElementById("close-alert1").addEventListener("click", function () {
         document.getElementsByClassName("alert1")[0].classList.remove("show");
+      });
+
+      document.getElementById("close-alertreject").addEventListener("click", function () {
+        document.getElementsByClassName("alertreject")[0].classList.remove("show");
       });
 
       // Popup Button

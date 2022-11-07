@@ -212,32 +212,37 @@
               <div class="image-box">
                 <img src="images/leaves1.png" alt="" />
               </div>
-              <form action="#">
+              <form action="javascript:sendEmail()">
                 <div class="topic">Send us a message!</div>
                 <!-- ALERT -->
-                <div class="alertMessage alert">
-                  <span class="close" id="close-alert">×</span>
+                <div class="alertMessage alert1">
+                  <span class="close" id="close-alert1">×</span>
                   <i class="fas fa-exclamation-circle alert-icon"></i>
                   <strong>Message Sent Successfully!</strong>
                 </div>
+                <div class="alertMessage alert2">
+                  <span class="close" id="close-alert2">×</span>
+                  <i class="fas fa-exclamation-circle alert-icon"></i>
+                  <strong>Message Not Sent!</strong>
+                </div>
                 <div class="input-box">
-                  <input type="text" required id="name"/>
+                  <input type="text" required id="name" required />
                   <label>Enter your name</label>
                 </div>
                 <div class="input-box">
-                  <input type="text" required id="email"/>
+                  <input type="text" required id="email" required />
                   <label>Enter your email</label>
                 </div>
                 <div class="input-box">
-                  <input type="text" required id="subject"/>
+                  <input type="text" required id="subject" required />
                   <label>Enter your subject</label>
                 </div>
                 <div class="input-box1">
-                  <input type="text" required  id="message"/>
+                  <input type="text" required id="message" required />
                   <label>Enter your message</label>
                 </div>
                 <div class="input-box">
-                  <input type="button" id="open-alert" onclick="sendEmail()" value="Send Message" />
+                  <input type="button" id="open-alert" value="Send Message" />
                 </div>
               </form>
             </div>
@@ -262,29 +267,33 @@
       <div id="footer-placeholder"></div>
     </section>
     <script>
-      const sendEmail = () =>{
+      const sendEmail = () => {
         const data = {
-          name: document.querySelector('#name').value,
-          email: document.querySelector('#email').value,
-          subject: document.querySelector('#subject').value,
-          message: document.querySelector('#message').value,
-          receiver: 'uymillano@gmail.com',
-          receiverName: 'Milan Uy'
-        }
+          name: document.querySelector("#name").value,
+          email: document.querySelector("#email").value,
+          subject: document.querySelector("#subject").value,
+          message: document.querySelector("#message").value,
+          receiver: "uymillano@gmail.com",
+          receiverName: "Milan Uy",
+        };
         let options = {
-      
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
         };
-        fetch("http://localhost:8080/admin/email", options)
+        fetch("https://ulayaw-backend.herokuapp.com/admin/email", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            if (data.key === "SUCCESS") {
+              document.getElementsByClassName("alert1")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert2")[0].style.display = "block";
+            }
           });
-      }
+      };
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");
@@ -296,12 +305,16 @@
       });
 
       // Alert
-      document.getElementById("open-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].style.display = "block";
+      // document.getElementById("open-alert").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert")[0].style.display = "block";
+      // });
+
+      document.getElementById("close-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].style.display = "none";
       });
 
-      document.getElementById("close-alert").addEventListener("click", function () {
-        document.getElementsByClassName("alert")[0].style.display = "none";
+      document.getElementById("close-alert2").addEventListener("click", function () {
+        document.getElementsByClassName("alert2")[0].style.display = "none";
       });
     </script>
   </body>
