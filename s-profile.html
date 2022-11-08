@@ -344,9 +344,13 @@
 
             <!-- START OF POPUP -->
 
-            <div class="popup popup1 popup-short center">
-              <div class="popup-title">Remove User</div>
-              <div class="description">Are you sure you want to cancel the reservation?</div>
+            <div class="popup popup1 popup-medium2 center">
+              <div class="popup-title">Cancel Reservation</div>
+              <div class="description">Are you sure you want to cancel the reservation?
+                <br>
+                Remarks:
+              </div>
+              <input type="text" id="remarks"  cols="45" rows="3"/>
               <div class="dismiss-btn">
                 <button id="confirm-popup1-btn" onclick="rejectBooking()">Yes</button>
                 <button id="dismiss-popup1-btn">No</button>
@@ -407,14 +411,14 @@
             
                <!-- START OF POPUP -->
             
-                <div class="popup popup1 center">
+                <!-- <div class="popup popup1 center">
                   <div class="popup-title">Remove User</div>
                   <div class="description">Are you sure you want to cancel the reservation?</div>
                   <div class="dismiss-btn">
                      <button id="confirm-popup1-btn">Yes</button>
                      <button id="dismiss-popup1-btn">No</button>
                   </div>
-                </div>
+                </div> -->
 
             <!-- Manage Moments Tab-->
             <h4 class="tab-accordion-title" rel="tabFour">Manage Moments</h4>
@@ -1095,7 +1099,7 @@
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
                 pending += "<td class='tdbs1'>";
                 pending += "<button type='button'  class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
-                pending += "<button type='button' onclick='acceptBooking()' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
+                pending += "<button type='button' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
                 pending += "</td>";
                 pending += "</tr>";
               } else {
@@ -1135,6 +1139,7 @@
           let bookingId = e.target.classList[0];
           console.log(bookingId);
           sessionStorage.setItem("booking_id", bookingId);
+          acceptBooking();
         }
 
       };
@@ -1157,8 +1162,8 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            clearPending();
-            manageBookings();
+            // clearPending();
+            // manageBookings();
           });
           
       }
@@ -1180,8 +1185,8 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            clearPending();
-            manageBookings();
+            // clearPending();
+            // manageBookings();
           });
           
       }
@@ -1293,7 +1298,44 @@
 
       // }
 
+        // POPUPS
+        document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
 
+      document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popup1")[0].classList.remove("active");
+      });
+
+//Sales -report date picker
+$(function () {
+        var start = moment().subtract(29, "days");
+        var end = moment();
+
+        function cb(start, end) {
+          $("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
+        }
+
+        $("#reportrange").daterangepicker(
+          {
+            startDate: start,
+            endDate: end,
+            ranges: {
+              Today: [moment(), moment()],
+              Yesterday: [moment().subtract(1, "days"), moment().subtract(1, "days")],
+              "Last 7 Days": [moment().subtract(6, "days"), moment()],
+              "Last 30 Days": [moment().subtract(29, "days"), moment()],
+              "This Month": [moment().startOf("month"), moment().endOf("month")],
+              "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")],
+              "This Year": [moment().startOf("year"), moment().endOf("year")],
+              "Last Year": [moment().subtract(1, "year").startOf("year"), moment().subtract(1, "year").endOf("year")],
+            },
+          },
+          cb
+        );
+
+        cb(start, end);
+      });
 
       // PAGINATION
 //       function Pager(tableName, itemsPerPage) {
@@ -1393,46 +1435,18 @@
 
 
 //
-let pager = new Pager('pager', 2);
+// let pager = new Pager('pager', 2);
 
-pager.init();
-pager.showPageNav('pager', 'pageNavPosition');
-pager.showPage(1);
+// pager.init();
+// pager.showPageNav('pager', 'pageNavPosition');
+// pager.showPage(1);
 
       const logout = () => {
         localStorage.clear();
         window.location.replace("/login-reg.html");
       };
 
-      //Sales -report date picker
-      $(function () {
-        var start = moment().subtract(29, "days");
-        var end = moment();
-
-        function cb(start, end) {
-          $("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
-        }
-
-        $("#reportrange").daterangepicker(
-          {
-            startDate: start,
-            endDate: end,
-            ranges: {
-              Today: [moment(), moment()],
-              Yesterday: [moment().subtract(1, "days"), moment().subtract(1, "days")],
-              "Last 7 Days": [moment().subtract(6, "days"), moment()],
-              "Last 30 Days": [moment().subtract(29, "days"), moment()],
-              "This Month": [moment().startOf("month"), moment().endOf("month")],
-              "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")],
-              "This Year": [moment().startOf("year"), moment().endOf("year")],
-              "Last Year": [moment().subtract(1, "year").startOf("year"), moment().subtract(1, "year").endOf("year")],
-            },
-          },
-          cb
-        );
-
-        cb(start, end);
-      });
+      
 
       // Alert
       //   document.getElementById("open-alert1").addEventListener("click", function () {
@@ -1449,13 +1463,11 @@ pager.showPage(1);
 
       // Popup Button
 
-      document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.add("active");
-      });
+      // document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
+      //   document.getElementsByClassName("popup1")[0].classList.add("active");
+      // });
 
-      document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.remove("active");
-      });
+      
 
       
     </script>

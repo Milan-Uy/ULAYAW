@@ -613,7 +613,7 @@
             Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
         };
-
+        console.log(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`);
         fetch(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`, options)
           .then((response) => response.json())
           .then((data) => {
