@@ -657,7 +657,7 @@
   right: -10px;
   margin-bottom: -10px;
 }
-.result-top svg,
+
 .result-h3 {
   color: #9dbbae;
   margin-top: 10px;
@@ -671,11 +671,7 @@
   margin-bottom: 10px;
   font-size: 30px;
 }
-.result-to svg {
-  margin: 0 auto;
-  width: 60px;
-  height: 60px;
-}
+
 .result-span {
   color: #909090;
   font-size: 14px;

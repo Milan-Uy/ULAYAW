@@ -4,6 +4,12 @@
     * {
       font-family: "Montserrat", sans-serif;
     }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 60;
+      color: #9dbbae;
+      font-size: 50px !important;
+    }
   </style>
   <head>
     <meta charset="UTF-8" />
@@ -11,19 +17,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>Transaction completed!</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <div class="result-outer-container">
       <div class="result-inner-container">
         <div class="result-card result-centered-content">
           <div class="result-top">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            <span class="material-symbols-outlined"> check_circle </span>
             <h3 class="result-h3">Payment successful!</h3>
             <span class="result-span">
               <p class="result-ref">Reference Number:</p>
