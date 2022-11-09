@@ -159,7 +159,7 @@
             <h4 class="tab-accordion-title" rel="tabTwo">Manage Users</h4>
             <div id="tabTwo" class="tab-item">
               <h5>Guest List</h5>
-              <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
+              <input type="text" id="myInput" onkeyup="searchUser()" placeholder="Search Users.." class="search-mu" />
               <div class="guest-list" id="list">
                 <table id="myTable">
                   <thead>
@@ -221,7 +221,8 @@
                       <tr>
                         <th class="thbs">Ref. No.</th>
                         <th class="thbs">Reserved Date</th>
-                        <th class="thbs">Status</th>
+                        <th class="thbs">Payment Type</th>
+                        <th class="thbs">Action</th>
                       </tr>
                     </thead>
                     <tbody id="table_status">
@@ -270,6 +271,7 @@
                         <th class="thbs">Ref. No.</th>
                         <th class="thbs">Reserved Date</th>
                         <th class="thbs">Reservation Created</th>
+                        <th class="thbs">Payment Type</th>
                         <th class="thbs">Action</th>
                       </tr>
                     </thead>
@@ -1008,6 +1010,28 @@
       }
       displayUsers();
 
+
+      const searchUser = async () => {
+        let insearch = document.getElementById("myInput").value;
+        console.log(insearch);
+
+        // let users = await getGuests(null, null);
+        // console.log(users);
+        // if (users.length > 0) {
+        // var data1 = "";
+        // for (i = 0; i < users.length; i++) {
+        // data1 += "<tr>"
+        // data1 +=  "<td>" + users[i].firstName +" " + users[i].lastName + "</td>"
+        // data1 +=  "<td>" + users[i].email +"</td>"
+        // data1 +=  "<td><button class='view-btn "+users[i].firstName+" "+users[i].lastName+" "+users[i].email+" "+users[i].contact+" "+users[i]._id+"' onclick='showUser()'>View</button></td>"
+        // data1 +=  "</tr>"
+        // }
+        // $("#table_users").html(data1);
+        // }
+
+      }
+      searchUser();
+
       const getProfile = (e) => {
         // console.log(e);
         if (e.target.classList[0] === "view-btn") {
@@ -1037,15 +1061,20 @@
              
               for (i = 0; i < data.payload.length; i++) {
                 data2 += "<tr>"
-                data2 += "<td class='tdbs'>" + data.payload[i]._id + "</td>"
-                data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>"
-                data2 += "<td class='tdbs1'>"
-                data2 += "<select name='booking-status' id='booking-status' class='booking-status'>"
-
-                data2 += "<option class='' value='Partially Paid'>Partially Paid</option>"
-                data2 += "<option class='' value='Fully Paid'>Fully Paid</option>"
-                data2 += "</select>"
-                data2 += "</td>"
+                data2 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
+                data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
+                data2 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
+                if (data.payload[i].paymentType === "Pending") {
+                  data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnpaytype'>Change to Full</button></td>";
+                } else if (data.payload[i].paymentType === "Full") {
+                  data2 += "<td class='tdbs1'></td>";
+                }
+                data2 += "</tr>"
+                // data2 += "<select name='booking-status' id='booking-status' class='booking-status'>"
+                // data2 += "<option class='' value='Partially Paid'>Partially Paid</option>"
+                // data2 += "<option class='' value='Fully Paid'>Fully Paid</option>"
+                // data2 += "</select>"
+                // data2 += "</td>"
               }
               $("#table_status").html(data2);
             }
@@ -1108,6 +1137,7 @@
                 pending += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
+                pending += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
                 pending += "<td class='tdbs1'>";
                 pending += "<button type='button'  class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
                 pending += "<button type='button' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
