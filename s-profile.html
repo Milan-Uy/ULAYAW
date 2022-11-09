@@ -252,6 +252,17 @@
             <h4 class="tab-accordion-title" rel="tabThree">Manage Bookings</h4>
             <div id="tabThree" class="tab-item">
               <h5>Pending Reservations</h5>
+              <!-- Alerts -->
+              <div class="alertMessage alert-acceptb">
+                <span class="close" id="close-alert-acceptb">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Successfully Accepted Booking!</strong>
+              </div>
+              <div class="alertMessage alert-rejectb">
+                <span class="close" id="close-alert-rejectb">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Successfully Rejected Booking!</strong>
+              </div>
                 <dd>
                   <table class="ststbl" style="margin-top: 10px">
                     <thead>
@@ -478,7 +489,7 @@
                   </div>
                   -->
                   <div id="reportrange" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; font-size: 11px;">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp; <span></span> <b class="caret"></b>
+                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp; <span id="daterange"></span> <b class="caret"></b>
                   </div>
                 </form>
                 <div class="pdf-download">
@@ -1162,8 +1173,9 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            // clearPending();
-            // manageBookings();
+            document.getElementsByClassName("alert-acceptb")[0].classList.add("show");
+            clearPending();
+            manageBookings();
           });
           
       }
@@ -1188,8 +1200,9 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            // clearPending();
-            // manageBookings();
+            document.getElementsByClassName("alert-rejectb")[0].classList.add("show");
+            clearPending();
+            manageBookings();
           });
           
       }
@@ -1341,6 +1354,27 @@ $(function () {
         cb(start, end);
       });
 
+      const salesReport = () => {
+        console.log(document.getElementById("daterange").innerText);
+      }
+      salesReport();
+
+      // Alert
+      document.getElementById("close-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.remove("show");
+      });
+
+      document.getElementById("close-alertreject").addEventListener("click", function () {
+        document.getElementsByClassName("alertreject")[0].classList.remove("show");
+      });
+
+      document.getElementById("close-alert-acceptb").addEventListener("click", function () {
+        document.getElementsByClassName("alert-acceptb")[0].classList.remove("show");
+      });
+      document.getElementById("close-alert-rejectb").addEventListener("click", function () {
+        document.getElementsByClassName("alert-rejectb")[0].classList.remove("show");
+      });
+
       // PAGINATION
 //       function Pager(tableName, itemsPerPage) {
 //     'use strict';
@@ -1449,30 +1483,6 @@ $(function () {
         localStorage.clear();
         window.location.replace("/login-reg.html");
       };
-
-      
-
-      // Alert
-      //   document.getElementById("open-alert1").addEventListener("click", function () {
-      //   document.getElementsByClassName("alert1")[0].classList.add("show");
-      // });
-
-      document.getElementById("close-alert1").addEventListener("click", function () {
-        document.getElementsByClassName("alert1")[0].classList.remove("show");
-      });
-
-      document.getElementById("close-alertreject").addEventListener("click", function () {
-        document.getElementsByClassName("alertreject")[0].classList.remove("show");
-      });
-
-      // Popup Button
-
-      // document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup1")[0].classList.add("active");
-      // });
-
-      
-
       
     </script>
   </body>

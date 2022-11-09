@@ -142,6 +142,7 @@
             if (data.payload.length > 0) {
               var data1 = "";
               for (i = 0; i < data.payload.length; i++) {
+                console.log(data.payload[i].userId.firstName);
                 if (data.payload[i].status === "Accepted") {
                   data1 += "<div class='mmnt-card'>";
                   data1 += "<div class='card-moments'>";

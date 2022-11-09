@@ -160,17 +160,22 @@
               <div class="alertMessage alert2">
                 <span class="close" id="close-alert2">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>User Successfully Added</strong>
+                <strong>User Successfully Added!</strong>
               </div>
               <div class="alertMessage alert-pwnotmatch">
                 <span class="close" id="close-alert-pwnotmatch">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>Password does not match</strong>
+                <strong>Password does not match!</strong>
               </div>
-              <div class="alertMessage alert-error">
-                <span class="close" id="close-alert-error">×</span>
+              <div class="alertMessage alert-error2">
+                <span class="close" id="close-alert-error2">×</span>
                 <i class="fas fa-exclamation-circle alert-icon"></i>
-                <strong>Error Occured</strong>
+                <strong>Error Occured!</strong>
+              </div>
+              <div class="alertMessage alert-error-email">
+                <span class="close" id="close-alert-error-email">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Email Already Exists!</strong>
               </div>
               <div class="adduser-container">
                 <div class="form-box">
@@ -650,11 +655,19 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
                   document.getElementsByClassName("alert2")[0].classList.remove("show");
                 });
               } else if (data.key === "NOTVALIDATED") {
-                document.getElementsByClassName("alert-error")[0].classList.add("show");
+                if (data.payload.errors[0].msg === "E-mail address already exists!") {
+                  document.getElementsByClassName("alert-error-email")[0].classList.add("show");
 
-                document.getElementById("close-alert-error").addEventListener("click", function () {
-                  document.getElementsByClassName("alert-error")[0].classList.remove("show");
-                });
+                  document.getElementById("close-alert-error-email").addEventListener("click", function () {
+                    document.getElementsByClassName("alert-error-email")[0].classList.remove("show");
+                  });
+                } else {
+                  document.getElementsByClassName("alert-error2")[0].classList.add("show");
+
+                  document.getElementById("close-alert-error2").addEventListener("click", function () {
+                    document.getElementsByClassName("alert-error2")[0].classList.remove("show");
+                  });
+                }
               }
             });
         }
@@ -1117,9 +1130,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
         document.getElementsByClassName("alert2")[0].classList.remove("show");
       });
 
-      document.getElementById("open-alert3").addEventListener("click", function () {
-        document.getElementsByClassName("alert3")[0].classList.add("show");
-      });
+      // document.getElementById("open-alert3").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert3")[0].classList.add("show");
+      // });
 
       document.getElementById("close-alert3").addEventListener("click", function () {
         document.getElementsByClassName("alert3")[0].classList.remove("show");

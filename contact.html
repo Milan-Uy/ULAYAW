@@ -212,7 +212,7 @@
               <div class="image-box">
                 <img src="images/leaves1.png" alt="" />
               </div>
-              <form action="javascript:sendEmail()">
+              <form action="javascript:sendEmail();" id="contactForm">
                 <div class="topic">Send us a message!</div>
                 <!-- ALERT -->
                 <div class="alertMessage alert1">
@@ -226,23 +226,23 @@
                   <strong>Message Not Sent!</strong>
                 </div>
                 <div class="input-box">
-                  <input type="text" required id="name" required />
+                  <input type="text" id="name" required />
                   <label>Enter your name</label>
                 </div>
                 <div class="input-box">
-                  <input type="text" required id="email" required />
+                  <input type="email" id="email" required />
                   <label>Enter your email</label>
                 </div>
                 <div class="input-box">
-                  <input type="text" required id="subject" required />
+                  <input type="text" id="subject" required />
                   <label>Enter your subject</label>
                 </div>
                 <div class="input-box1">
-                  <input type="text" required id="message" required />
+                  <input type="text" id="message" required />
                   <label>Enter your message</label>
                 </div>
                 <div class="input-box">
-                  <input type="button" id="open-alert" value="Send Message" />
+                  <input type="submit" id="open-alert" value="Send Message" />
                 </div>
               </form>
             </div>
@@ -292,8 +292,10 @@
             } else {
               document.getElementsByClassName("alert2")[0].style.display = "block";
             }
+            document.getElementById("contactForm").reset();
           });
       };
+
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar.html");

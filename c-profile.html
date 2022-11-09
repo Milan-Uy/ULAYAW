@@ -364,6 +364,8 @@
             console.log(data);
             document.getElementById("alertdesc").innerText = data.message;
             document.getElementsByClassName("alert1")[0].style.display = "block";
+            // clear input
+            document.getElementById("moment-txt").value = "";
           });
       };
 
@@ -483,6 +485,7 @@
             if (data.payload) {
               setValues();
               document.getElementsByClassName("alert2")[0].style.display = "block";
+              document.getElementById("fb_text").value = "";
             }
           });
       };
@@ -630,7 +633,6 @@
             if (data.payload.length > 0) {
               var data1 = "";
               for (i = 0; i < data.payload.length; i++) {
-                console.log(data.payload[i].remarks);
                 // if (data.payload[i].status == "Pending" || data.payload[i].status == "Accepted") {
                 data1 += "<tr>";
                 data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
@@ -677,7 +679,7 @@
           // let bookingId = e.target.classList[0];
           // console.log(bookingId);
           // sessionStorage.setItem("booking_id", bookingId);
-          console.log(e.target.classList[2]);
+          // console.log(e.target.classList[2]);
           document.getElementById("remarksdesc").innerHTML = document.getElementById("hide-input").value;
           // document.getElementById("remarksdesc").innerHTML = e.target.classList[2];
           document.getElementsByClassName("popupremarks")[0].classList.add("active");
