@@ -320,6 +320,10 @@
   }
 }
 
+#hide-input {
+  display: none;
+}
+
 /* START OF POPUP */
 .center {
   position: absolute;
@@ -378,6 +382,11 @@
 
 .popup-content-left {
   text-align: left;
+}
+
+.popup-remarks {
+  width: 100%;
+  max-width: 350px;
 }
 
 .popup.active {

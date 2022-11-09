@@ -350,7 +350,7 @@
                 <br>
                 Remarks:
               </div>
-              <input type="text" id="remarks"  cols="45" rows="3"/>
+              <input class="popup-remarks" type="text" id="remarks"  cols="45" rows="3"/>
               <div class="dismiss-btn">
                 <button id="confirm-popup1-btn" onclick="rejectBooking()">Yes</button>
                 <button id="dismiss-popup1-btn">No</button>
@@ -1169,8 +1169,11 @@
       }
 
       const rejectBooking = () => {
+        let sremarks = document.getElementById("remarks").value;
+
         const data = {
           status: "Rejected",
+          remarks: sremarks,
         };
         let options = {
           method: "PUT",

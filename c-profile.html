@@ -310,6 +310,14 @@
       </div>
     </div>
 
+    <div class="popup popupremarks center popup-short">
+      <div class="popup-title">Remarks</div>
+      <div class="description"><span id="remarksdesc"></span></div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popupremarks-btn">Close</button>
+      </div>
+    </div>
+
     <div class="popup popup3 center popup-short">
       <div class="popup-title">Upload Moment</div>
       <div class="description">Please agree to the Moment Policy!</div>
@@ -622,6 +630,7 @@
             if (data.payload.length > 0) {
               var data1 = "";
               for (i = 0; i < data.payload.length; i++) {
+                console.log(data.payload[i].remarks);
                 // if (data.payload[i].status == "Pending" || data.payload[i].status == "Accepted") {
                 data1 += "<tr>";
                 data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
@@ -634,7 +643,11 @@
                     "<td><button class='" +
                     data.payload[i]._id +
                     " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
-                } else {
+                } else if (data.payload[i].status === "Rejected") {
+                  data1 +=
+                    "<td><button type='button' class='" + data.payload[i]._id + " btnremarks " + data.payload[i].remarks + "'>Remarks</button></td>";
+                  data1 += "<td><input type='text' id='hide-input' value='" + data.payload[i].remarks + "' disabled></td>";
+                } else if (data.payload[i].status === "Pending") {
                   data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
                 }
                 data1 += "</tr>";
@@ -659,6 +672,15 @@
           console.log(bookingId);
           sessionStorage.setItem("booking_id", bookingId);
           window.location.replace("/paymentsummary.html");
+        }
+        if (e.target.classList[1] === "btnremarks") {
+          // let bookingId = e.target.classList[0];
+          // console.log(bookingId);
+          // sessionStorage.setItem("booking_id", bookingId);
+          console.log(e.target.classList[2]);
+          document.getElementById("remarksdesc").innerHTML = document.getElementById("hide-input").value;
+          // document.getElementById("remarksdesc").innerHTML = e.target.classList[2];
+          document.getElementsByClassName("popupremarks")[0].classList.add("active");
         }
       };
       document.body.addEventListener("click", saveBookingId);
@@ -717,6 +739,10 @@
 
       document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup3")[0].classList.remove("active");
+      });
+
+      document.getElementById("dismiss-popupremarks-btn").addEventListener("click", function () {
+        document.getElementsByClassName("popupremarks")[0].classList.remove("active");
       });
 
       /** emoji feedback js **/
