@@ -18,11 +18,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
     <title>Profile</title>
   </head>
@@ -478,7 +473,6 @@
               <div class="sales-option">
                 <form class="pick-date">
                   <h6>Select date range:</h6>
-                  <!--
                   <div class="date-input">
                     <div class="pick-start">
                       <label>From</label>
@@ -488,11 +482,9 @@
                       <label>To</label>
                       <input id="end-date" class="range-date" placeholder="select a date" />
                     </div>
+                    <button class="apply-btn" onclick="">Apply</button>
                   </div>
-                  -->
-                  <div id="reportrange" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; font-size: 11px;">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp; <span id="daterange"></span> <b class="caret"></b>
-                  </div>
+                  
                 </form>
                 <div class="pdf-download">
                   <button type="submit" class="download-pdf">
@@ -1355,33 +1347,23 @@
       });
 
 //Sales -report date picker
-$(function () {
-        var start = moment().subtract(29, "days");
-        var end = moment();
+      //pick date
+      //Date Picker
+      let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
 
-        function cb(start, end) {
-          $("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
-        }
-
-        $("#reportrange").daterangepicker(
-          {
-            startDate: start,
-            endDate: end,
-            ranges: {
-              Today: [moment(), moment()],
-              Yesterday: [moment().subtract(1, "days"), moment().subtract(1, "days")],
-              "Last 7 Days": [moment().subtract(6, "days"), moment()],
-              "Last 30 Days": [moment().subtract(29, "days"), moment()],
-              "This Month": [moment().startOf("month"), moment().endOf("month")],
-              "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")],
-              "This Year": [moment().startOf("year"), moment().endOf("year")],
-              "Last Year": [moment().subtract(1, "year").startOf("year"), moment().subtract(1, "year").endOf("year")],
-            },
-          },
-          cb
-        );
-
-        cb(start, end);
+      const picker = new Litepicker({
+        element: document.getElementById("start-date"),
+        elementEnd: document.getElementById("end-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
       });
 
       const salesReport = () => {

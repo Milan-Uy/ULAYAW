@@ -4569,6 +4569,22 @@ i.material-icons {
 .amount-sales {
   color: #ad0808;
 }
+.apply-btn {
+  cursor: pointer;
+  padding: 8px 35px;
+  color: #fff;
+  background-color: #6b4f4f;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  margin-top: 18px;
+}
+
+.apply-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
+  background-color: #473a3a;
+}
 
 /*View Guest List*/
 .guest-header,
