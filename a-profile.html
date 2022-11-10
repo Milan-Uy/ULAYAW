@@ -179,7 +179,7 @@
               </div>
               <div class="adduser-container">
                 <div class="form-box">
-                  <form action="javascript:addUser()" class="adduser-form">
+                  <form action="javascript:addUser()" class="adduser-form" id="addNU-Form">
                     <div class="form-container">
                       <div class="col-6">
                         <label style="margin-right: 3vw">First Name</label>
@@ -669,6 +669,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
                   });
                 }
               }
+              document.getElementById("addNU-Form").reset();
             });
         }
       };
