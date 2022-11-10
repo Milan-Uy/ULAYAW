@@ -586,10 +586,10 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
             <label for="fname">Last Name:</label>
             <input type="text" id="lname" required />
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="name">Email:</label>
             <input type="email" name="name" id="change_email" required />
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="name">Contact Number: </label>
             <input type="text" minlength="11" maxlength="11" name="name" id="contact" required />
@@ -727,7 +727,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
           sessionStorage.setItem("edit_id", id);
           document.getElementById("fname").value = e.target.classList[2];
           document.getElementById("lname").value = e.target.classList[3];
-          document.getElementById("change_email").value = e.target.classList[4];
+          // document.getElementById("change_email").value = e.target.classList[4];
           document.getElementById("contact").value = e.target.classList[5];
         }
         if (e.target.classList[1] === "delete-profile-a") {
@@ -770,14 +770,14 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
         // e.preventDefault();
         let firstname = document.getElementById("fname").value;
         let lastname = document.getElementById("lname").value;
-        let email = document.getElementById("change_email").value;
+        // let email = document.getElementById("change_email").value;
         let contact = document.getElementById("contact").value;
 
         // update user
         const data = {
           firstName: firstname,
           lastName: lastname,
-          email: email,
+          // email: email,
           contact: contact,
         };
         console.log(data);

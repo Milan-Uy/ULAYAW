@@ -216,7 +216,7 @@
                       <tr>
                         <th class="thbs">Ref. No.</th>
                         <th class="thbs">Reserved Date</th>
-                        <th class="thbs">Payment Type</th>
+                        <th class="thbs">Payment Status</th>
                         <th class="thbs">Action</th>
                       </tr>
                     </thead>
@@ -471,7 +471,7 @@
             <div id="tabFive" class="tab-item">
               <h5>Sales Report</h5>
               <div class="sales-option">
-                <form class="pick-date">
+                <form action="javascript:salesReport()" class="pick-date">
                   <h6>Select date range:</h6>
                   <div class="date-input">
                     <div class="pick-start">
@@ -482,7 +482,7 @@
                       <label>To</label>
                       <input id="end-date" class="range-date" placeholder="select a date" />
                     </div>
-                    <button class="apply-btn" onclick="">Apply</button>
+                    <button class="apply-btn">Apply</button>
                   </div>
                   
                 </form>
@@ -503,22 +503,22 @@
                       <th class="thbs">Amount</th>
                     </tr>
                   </thead>
-                  <tbody id="table_status">
+                  <tbody id="table_report">
+                    <!-- <td class="tdbs">testing</td>
+                    <td class="tdbs">testing</td>
+                    <td class="tdbs">testing</td>
+                    <td class="tdbs">testing</td>
+                    <td class="tdbs1">testing</td> -->
+                  </tbody>
+                  <!-- <tbody id="table_status">
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
                     <td class="tdbs">testing</td>
                     <td class="tdbs1">testing</td>
-                  </tbody>
-                  <tbody id="table_status">
-                    <td class="tdbs">testing</td>
-                    <td class="tdbs">testing</td>
-                    <td class="tdbs">testing</td>
-                    <td class="tdbs">testing</td>
-                    <td class="tdbs1">testing</td>
-                  </tbody>
+                  </tbody> -->
                   
-                  <tfoot class="tblfooter">
+                  <tfoot class="tblfooter" id="table_total">
                     <tr>
                       <td colspan="1">GRAND TOTAL:</td>
                       <td colspan="3"></td>
@@ -1004,8 +1004,8 @@
 
 
       const searchUser = async () => {
-        let insearch = document.getElementById("myInput").value;
-        console.log(insearch);
+        // let insearch = document.getElementById("myInput").value;
+        // console.log(insearch);
 
         // let users = await getGuests(null, null);
         // console.log(users);
@@ -1055,10 +1055,10 @@
                 data2 += "<tr>"
                 data2 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
                 data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
-                data2 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
-                if (data.payload[i].paymentType === "Pending") {
-                  data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnpaytype'>Change to Full</button></td>";
-                } else if (data.payload[i].paymentType === "Full") {
+                data2 += "<td class='tdbs'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
+                if (data.payload[i].isPaid === false) {
+                  data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnpaytype'>Mark as Fully Paid</button></td>";
+                } else if (data.payload[i].isPaid === true) {
                   data2 += "<td class='tdbs1'></td>";
                 }
                 data2 += "</tr>"
@@ -1251,7 +1251,7 @@
         var data1 = "";
         for (i = 0; i < data.payload.length; i++) {
           if (data.payload[i].status === "New") {
-        data1 += "<p class='mmts-name'> Hannah Paula Villados </p>";
+        data1 += "<p class='mmts-name'>" + data.payload[i].userId.firstName + " " + data.payload[i].userId.lastName + "</p>";
         data1 += "<p class='mmts-date'>" + convertDate(data.payload[i].dateUpdated) + "</p>";
         data1 += "<div class='mmts-caption'>" + data.payload[i].description + "</div>";
         data1 += "<img src='" + data.payload[i].imageUrl + "'/>";
@@ -1367,9 +1367,47 @@
       });
 
       const salesReport = () => {
-        console.log(document.getElementById("daterange").innerText);
+
+        const startDate = new Date(document.getElementById("start-date").value).toISOString();
+        const endDate = new Date(document.getElementById("end-date").value).toISOString();
+
+        let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+        };
+
+        console.log(`https://ulayaw-backend.herokuapp.com/booking/get?startDate=${startDate}&endDate=${endDate}`);
+        fetch(`https://ulayaw-backend.herokuapp.com/booking/get?startDate=${startDate}&endDate=${endDate}`, options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          
+          if (data.payload.length > 0) {
+            var data1 = "";
+            var data2 = "";
+            for (i = 0; i < data.payload.length; i++) {
+              data1 += "<tr>";
+              data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
+              data1 += "<td class='tdbs'>" + data.payload[i].userId.firstName + " " + data.payload[i].userId.lastName + "</td>";
+              data1 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
+              data1 += "<td class='tdbs'>testing</td>";
+              data1 += "<td class='tdbs1'>" + data.payload[i].totalAmount + "</td>";
+              data1 += "</tr>";
+          }
+            // data2 += "<tr>";
+            // data2 += "<td colspan='1'>GRAND TOTAL:</td>";
+            // data2 += "<td colspan='3'></td>";
+            // data2 += "<td class='amount-sales' colspan='4'><strong>&#8369; 200.00</strong></td>";
+            // data2 += "</tr>";
+          $("#table_report").html(data1);
+          // $("#table_total").html(data2);
+          }
+        });
       }
-      salesReport();
+      
 
       // Alert
       document.getElementById("close-alert1").addEventListener("click", function () {
