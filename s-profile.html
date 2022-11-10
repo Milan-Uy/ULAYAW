@@ -18,11 +18,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
     <title>Profile</title>
   </head>
@@ -159,7 +154,7 @@
             <h4 class="tab-accordion-title" rel="tabTwo">Manage Users</h4>
             <div id="tabTwo" class="tab-item">
               <h5>Guest List</h5>
-              <input type="text" id="myInput" onkeyup="view_user()" placeholder="Search Users.." class="search-mu" />
+              <input type="text" id="myInput" onkeyup="searchUser()" placeholder="Search Users.." class="search-mu" />
               <div class="guest-list" id="list">
                 <table id="myTable">
                   <thead>
@@ -221,7 +216,8 @@
                       <tr>
                         <th class="thbs">Ref. No.</th>
                         <th class="thbs">Reserved Date</th>
-                        <th class="thbs">Status</th>
+                        <th class="thbs">Payment Type</th>
+                        <th class="thbs">Action</th>
                       </tr>
                     </thead>
                     <tbody id="table_status">
@@ -252,6 +248,17 @@
             <h4 class="tab-accordion-title" rel="tabThree">Manage Bookings</h4>
             <div id="tabThree" class="tab-item">
               <h5>Pending Reservations</h5>
+              <!-- Alerts -->
+              <div class="alertMessage alert-acceptb">
+                <span class="close" id="close-alert-acceptb">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Successfully Accepted Booking!</strong>
+              </div>
+              <div class="alertMessage alert-rejectb">
+                <span class="close" id="close-alert-rejectb">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Successfully Rejected Booking!</strong>
+              </div>
                 <dd>
                   <table class="ststbl" style="margin-top: 10px">
                     <thead>
@@ -259,6 +266,7 @@
                         <th class="thbs">Ref. No.</th>
                         <th class="thbs">Reserved Date</th>
                         <th class="thbs">Reservation Created</th>
+                        <th class="thbs">Payment Type</th>
                         <th class="thbs">Action</th>
                       </tr>
                     </thead>
@@ -465,7 +473,6 @@
               <div class="sales-option">
                 <form class="pick-date">
                   <h6>Select date range:</h6>
-                  <!--
                   <div class="date-input">
                     <div class="pick-start">
                       <label>From</label>
@@ -475,11 +482,9 @@
                       <label>To</label>
                       <input id="end-date" class="range-date" placeholder="select a date" />
                     </div>
+                    <button class="apply-btn" onclick="">Apply</button>
                   </div>
-                  -->
-                  <div id="reportrange" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; font-size: 11px;">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp; <span></span> <b class="caret"></b>
-                  </div>
+                  
                 </form>
                 <div class="pdf-download">
                   <button type="submit" class="download-pdf">
@@ -997,6 +1002,28 @@
       }
       displayUsers();
 
+
+      const searchUser = async () => {
+        let insearch = document.getElementById("myInput").value;
+        console.log(insearch);
+
+        // let users = await getGuests(null, null);
+        // console.log(users);
+        // if (users.length > 0) {
+        // var data1 = "";
+        // for (i = 0; i < users.length; i++) {
+        // data1 += "<tr>"
+        // data1 +=  "<td>" + users[i].firstName +" " + users[i].lastName + "</td>"
+        // data1 +=  "<td>" + users[i].email +"</td>"
+        // data1 +=  "<td><button class='view-btn "+users[i].firstName+" "+users[i].lastName+" "+users[i].email+" "+users[i].contact+" "+users[i]._id+"' onclick='showUser()'>View</button></td>"
+        // data1 +=  "</tr>"
+        // }
+        // $("#table_users").html(data1);
+        // }
+
+      }
+      searchUser();
+
       const getProfile = (e) => {
         // console.log(e);
         if (e.target.classList[0] === "view-btn") {
@@ -1026,15 +1053,20 @@
              
               for (i = 0; i < data.payload.length; i++) {
                 data2 += "<tr>"
-                data2 += "<td class='tdbs'>" + data.payload[i]._id + "</td>"
-                data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>"
-                data2 += "<td class='tdbs1'>"
-                data2 += "<select name='booking-status' id='booking-status' class='booking-status'>"
-
-                data2 += "<option class='' value='Partially Paid'>Partially Paid</option>"
-                data2 += "<option class='' value='Fully Paid'>Fully Paid</option>"
-                data2 += "</select>"
-                data2 += "</td>"
+                data2 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
+                data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
+                data2 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
+                if (data.payload[i].paymentType === "Pending") {
+                  data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnpaytype'>Change to Full</button></td>";
+                } else if (data.payload[i].paymentType === "Full") {
+                  data2 += "<td class='tdbs1'></td>";
+                }
+                data2 += "</tr>"
+                // data2 += "<select name='booking-status' id='booking-status' class='booking-status'>"
+                // data2 += "<option class='' value='Partially Paid'>Partially Paid</option>"
+                // data2 += "<option class='' value='Fully Paid'>Fully Paid</option>"
+                // data2 += "</select>"
+                // data2 += "</td>"
               }
               $("#table_status").html(data2);
             }
@@ -1097,6 +1129,7 @@
                 pending += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
                 pending += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
+                pending += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
                 pending += "<td class='tdbs1'>";
                 pending += "<button type='button'  class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
                 pending += "<button type='button' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
@@ -1162,8 +1195,9 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            // clearPending();
-            // manageBookings();
+            document.getElementsByClassName("alert-acceptb")[0].classList.add("show");
+            clearPending();
+            manageBookings();
           });
           
       }
@@ -1188,8 +1222,9 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            // clearPending();
-            // manageBookings();
+            document.getElementsByClassName("alert-rejectb")[0].classList.add("show");
+            clearPending();
+            manageBookings();
           });
           
       }
@@ -1223,6 +1258,7 @@
         data1 += "<div class='manageMoments-btn-container'>";
         data1 += "<button class='accept-moment manageMoments-btn " + data.payload[i]._id + "' onclick=''>ADD TO MOMENTS</button>";
         data1 += "<button class='reject-moment manageMoments-btn " + data.payload[i]._id + "' onclick=''>REJECT</button>";
+        data1 += "</div>";
         }
         }
         $("#update_moments").html(data1);
@@ -1311,33 +1347,44 @@
       });
 
 //Sales -report date picker
-$(function () {
-        var start = moment().subtract(29, "days");
-        var end = moment();
+      //pick date
+      //Date Picker
+      let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
 
-        function cb(start, end) {
-          $("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
-        }
+      const picker = new Litepicker({
+        element: document.getElementById("start-date"),
+        elementEnd: document.getElementById("end-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
+      });
 
-        $("#reportrange").daterangepicker(
-          {
-            startDate: start,
-            endDate: end,
-            ranges: {
-              Today: [moment(), moment()],
-              Yesterday: [moment().subtract(1, "days"), moment().subtract(1, "days")],
-              "Last 7 Days": [moment().subtract(6, "days"), moment()],
-              "Last 30 Days": [moment().subtract(29, "days"), moment()],
-              "This Month": [moment().startOf("month"), moment().endOf("month")],
-              "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")],
-              "This Year": [moment().startOf("year"), moment().endOf("year")],
-              "Last Year": [moment().subtract(1, "year").startOf("year"), moment().subtract(1, "year").endOf("year")],
-            },
-          },
-          cb
-        );
+      const salesReport = () => {
+        console.log(document.getElementById("daterange").innerText);
+      }
+      salesReport();
 
-        cb(start, end);
+      // Alert
+      document.getElementById("close-alert1").addEventListener("click", function () {
+        document.getElementsByClassName("alert1")[0].classList.remove("show");
+      });
+
+      document.getElementById("close-alertreject").addEventListener("click", function () {
+        document.getElementsByClassName("alertreject")[0].classList.remove("show");
+      });
+
+      document.getElementById("close-alert-acceptb").addEventListener("click", function () {
+        document.getElementsByClassName("alert-acceptb")[0].classList.remove("show");
+      });
+      document.getElementById("close-alert-rejectb").addEventListener("click", function () {
+        document.getElementsByClassName("alert-rejectb")[0].classList.remove("show");
       });
 
       // PAGINATION
@@ -1448,30 +1495,6 @@ $(function () {
         localStorage.clear();
         window.location.replace("/login-reg.html");
       };
-
-      
-
-      // Alert
-      //   document.getElementById("open-alert1").addEventListener("click", function () {
-      //   document.getElementsByClassName("alert1")[0].classList.add("show");
-      // });
-
-      document.getElementById("close-alert1").addEventListener("click", function () {
-        document.getElementsByClassName("alert1")[0].classList.remove("show");
-      });
-
-      document.getElementById("close-alertreject").addEventListener("click", function () {
-        document.getElementsByClassName("alertreject")[0].classList.remove("show");
-      });
-
-      // Popup Button
-
-      // document.getElementById("confirm-popup1-btn").addEventListener("click", function () {
-      //   document.getElementsByClassName("popup1")[0].classList.add("active");
-      // });
-
-      
-
       
     </script>
   </body>

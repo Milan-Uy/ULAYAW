@@ -287,13 +287,14 @@
   display: inline;
   cursor: pointer;
   width: 100%;
-  max-width: 150px;
-  padding: 12px 10px;
+  max-width: 160px;
+  padding: 10px 5px;
   margin: 20px 10px 0px 10px;
   color: #f9f2e7;
   background-color: #6b4f4f;
   border: none;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .manageMoments-btn:hover {
