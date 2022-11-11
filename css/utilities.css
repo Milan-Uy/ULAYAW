@@ -505,10 +505,15 @@
   margin-top: -100px;
   padding-bottom: 100px;
 }
+.display-moments {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px 0 0 -10px;
+  width: 100%;
+  justify-content: center;
+}
 .containermoments {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  width: 940px;
+  width: 1400px;
   margin: auto;
   margin-top: 150px;
 }
@@ -517,7 +522,12 @@
   border-radius: 5px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
+  flex-wrap: wrap;
+  display: inline-block;
+  margin: 10px 0 20px 10px;
+  flex-grow: 1;
 }
 .card-moments img {
   width: 100%;
@@ -2329,7 +2339,19 @@ transform: scale(1) rotate(1deg);
     margin-left: 12px;
   }
 }
-
+.no-available {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  background-color: var(--mainbg-color);
+  margin: auto;
+  margin-top: -100px;
+  padding-bottom: 100px;
+}
+.no-results h2 {
+  color: var(--heading-color);
+}
 /* Booking Status*/
 
 .bookingstbl {
