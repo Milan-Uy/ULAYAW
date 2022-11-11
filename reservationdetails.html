@@ -283,7 +283,7 @@
       <div id="footer-placeholder"></div>
     </section>
   </body>
-
+  <script src="app.js"></script>
   <script>
     //Import Navbar
     $(function () {
@@ -305,6 +305,7 @@
 
     const checkin = new Date(sessionStorage.getItem("checkinDate1")).toISOString();
     const checkout = new Date(sessionStorage.getItem("checkoutDate1")).toISOString();
+    console.log(checkin);
 
     var checkin1 = new Date(sessionStorage.getItem("checkinDate1"));
     var checkout1 = new Date(sessionStorage.getItem("checkoutDate1"));
@@ -317,8 +318,8 @@
       console.log(checkin);
       console.log(checkout);
       console.log(guest);
-      document.getElementById("checkin").innerHTML = sessionStorage.getItem("checkinDate1");
-      document.getElementById("checkout").innerHTML = sessionStorage.getItem("checkoutDate1");
+      document.getElementById("checkin").innerHTML = convertDate(sessionStorage.getItem("checkinDate1"));
+      document.getElementById("checkout").innerHTML = convertDate(sessionStorage.getItem("checkoutDate1"));
 
       document.getElementById("guestNo").value = sessionStorage.getItem("guestAmt");
       document.getElementById("guestDisplay").innerText = sessionStorage.getItem("guestAmt");

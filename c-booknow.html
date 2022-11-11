@@ -157,6 +157,7 @@
     <section class="display-footer">
       <div id="footer-placeholder"></div>
     </section>
+    <script src="app.js"></script>
     <script>
       //Import Navbar
       $(function () {
@@ -212,11 +213,15 @@
         let checkinDate = document.getElementById("checkin-date").value;
         if (!checkinDate) {
           checkinDate = new Date();
+          // sessionStorage.setItem("checkinDate2", checkinDate);
+          document.getElementById("checkin-date").value = convertDate(checkinDate);
         }
 
         let checkoutDate = document.getElementById("checkout-date").value;
         if (!checkoutDate) {
           checkoutDate = new Date();
+          // sessionStorage.setItem("checkoutDate2", checkoutDate);
+          document.getElementById("checkout-date").value = convertDate(checkoutDate);
         }
         const checkin = new Date(checkinDate).toISOString();
         console.log(checkin);
@@ -378,7 +383,6 @@
 
       const saveId = (e) => {
         // console.log(e);
-        console.log("test");
         if (e.target.classList[1] === "book-btn") {
           let id = e.target.classList[0];
           console.log(id);
