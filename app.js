@@ -86,7 +86,7 @@ const convertDate = (inputDate) => {
   let month = newDate.getMonth();
   let day = newDate.getDate();
   let year = newDate.getFullYear();
-  return arrayMonths[month] + "," + day + " " + year;
+  return arrayMonths[month] + " " + day + ", " + year;
 };
 
 const convertPaymentStatus = (isPaid) => {

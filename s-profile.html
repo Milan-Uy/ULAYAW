@@ -1075,6 +1075,17 @@
       };
       document.body.addEventListener("click", getProfile);
 
+      
+      const saveBookingId2 = (e) => {
+        // console.log(e);
+        if (e.target.classList[1] === "btnpaytype") {
+          // let bookingId = e.target.classList[0];
+          // console.log(bookingId);
+          // sessionStorage.setItem("booking_id", bookingId);
+          // partialPay();
+        }
+      };
+      document.body.addEventListener("click", saveBookingId2);
 
       const partialPay = () => {
         
@@ -1095,11 +1106,15 @@
         //   .then((response) => response.json())
         //   .then((data) => {
         //     console.log(data);
-            
+        // const ptype = document.getElementById("table_status");
+        // ptype.innerHTML = "";
+        // getProfile();
         //   });
-          // location.reload();
+          
       }
 
+
+      
 
       const manageBookings = () => {
         let id = localStorage.getItem("user_id");
