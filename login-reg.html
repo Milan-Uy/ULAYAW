@@ -118,7 +118,7 @@
               <div class="log-checkbox-text">
                 <div class="log-checkbox-content">
                   <input class="logcheck" type="checkbox" id="termCon" required />
-                  <label for="termCon" class="text">I agree to the <a href="#" id="open-popup-btn-1">Terms and Conditions</a></label>
+                  <label for="termCon" class="text">I agree to the <a href="tnc.html" target="_blank">Terms and Conditions</a></label>
                 </div>
               </div>
 
@@ -204,13 +204,13 @@
       });
 
       // Popup Button
-      document.getElementById("open-popup-btn-1").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.add("active");
-      });
+      //document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+      //  document.getElementsByClassName("popup1")[0].classList.add("active");
+      //});
 
-      document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
-        document.getElementsByClassName("popup1")[0].classList.remove("active");
-      });
+      //document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+      // document.getElementsByClassName("popup1")[0].classList.remove("active");
+      //});
 
       const loginUser = () => {
         const loginBtn = document.getElementById("loginBtn");
