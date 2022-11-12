@@ -36,9 +36,9 @@
           <form action="#">
             <input type="submit" name="" value="BOOK NOW" />
             <div class="media-icons">
-              <a href="https://www.facebook.com/huloleisurefarm"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/huloleisurefarm/"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.instagram.com/huloleisurefarm/"><i class="fas fa-envelope"></i></a>
+              <a id="fb_link" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a id="ig_link" href="#"><i class="fab fa-instagram"></i></a>
+              <!-- <a id="" href="#"><i class="fas fa-envelope"></i></a> -->
             </div>
           </form>
         </div>
@@ -47,5 +47,24 @@
         <p>Copyright © 2022 ULAYAW. All Rights Reserved.</p>
       </div>
     </footer>
+    <script>
+      const displayInfo2 = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("fb_link").href = data.payload.fbLink;
+            document.getElementById("ig_link").href = data.payload.instaLink;
+          });
+      };
+      displayInfo2();
+    </script>
   </body>
 </html>

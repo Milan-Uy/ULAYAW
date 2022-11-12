@@ -258,7 +258,7 @@
                 </div>
                 <div class="app-details">
                   <h4>Basic Information</h4>
-                  <button class="editapp-btn" onclick="()" id="removeReadOnly">Edit</button>
+                  <button class="editapp-btn" onclick="" id="removeReadOnly">Edit</button>
                 </div>
                 <div class="form-box">
                   <form class="update-form">
@@ -283,13 +283,13 @@
                     <div class="form-container">
                       <div class="col-3 hide-txt4">
                         <label class="form-label">Facebook Link</label>
-                        <input type="email" id="fb_email" placeholder="https://www.facebook.com/huloleisurefarm/" readonly />
+                        <input type="text" id="fb_link" placeholder="https://www.facebook.com/huloleisurefarm/" readonly />
                       </div>
                     </div>
                     <div class="form-container">
                       <div class="col-3 hide-txt5">
                         <label class="form-label">Instagram Link</label>
-                        <input type="email" id="ig_email" placeholder="https://www.instagram.com/huloleisurefarm/" readonly />
+                        <input type="text" id="ig_link" placeholder="https://www.instagram.com/huloleisurefarm/" readonly />
                       </div>
                     </div>
                     <div class="form-container">
@@ -309,7 +309,7 @@
                       </div>
                     </div>
                     <div class="flex-end-container">
-                      <button type="submit" class="editapp-btn2" id="saveProfile-btn">Save Changes</button>
+                      <button type="button" class="editapp-btn2" onclick="updateInfo()" id="saveProfile-btn">Save Changes</button>
                     </div>
                   </form>
                 </div>
@@ -730,7 +730,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
       };
       setValues();
       const saveId = (e) => {
-        console.log(e);
+        // console.log(e);
         if (e.target.classList[1] === "edit-profile-a") {
           let id = e.target.classList[0];
           console.log(id);
@@ -883,6 +883,44 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
             }
           });
       };
+
+      const updateInfo = () => {
+        const contact = document.getElementById("update_contact").value;
+        const loc = document.getElementById("location").value;
+        const email = document.getElementById("update_email").value;
+        const fb = document.getElementById("fb_link").value;
+        const ig = document.getElementById("ig_link").value;
+        const file = document.querySelector("#imageUpload");
+        console.log(file.files[0]);
+        let fd1 = new FormData();
+        fd1.append("file", file.files[0]);
+        console.log(contact);
+
+        const data = {
+          contact: contact,
+          location: loc,
+          email: email,
+          fbLink: fb,
+          instaLink: ig,
+          // businessLogo: fd1,
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/application/update", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      };
+
+      const updateVilla = () => {};
 
       const logout = () => {
         localStorage.clear();
@@ -1113,8 +1151,8 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
         document.getElementById("update_contact").toggleAttribute("readonly");
         document.getElementById("location").toggleAttribute("readonly");
         document.getElementById("update_email").toggleAttribute("readonly");
-        document.getElementById("fb_email").toggleAttribute("readonly");
-        document.getElementById("ig_email").toggleAttribute("readonly");
+        document.getElementById("fb_link").toggleAttribute("readonly");
+        document.getElementById("ig_link").toggleAttribute("readonly");
         document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
@@ -1148,9 +1186,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
         document.getElementsByClassName("alert3")[0].classList.remove("show");
       });
 
-      document.getElementById("open-alert4").addEventListener("click", function () {
-        document.getElementsByClassName("alert4")[0].classList.add("show");
-      });
+      // document.getElementById("open-alert4").addEventListener("click", function () {
+      //   document.getElementsByClassName("alert4")[0].classList.add("show");
+      // });
 
       document.getElementById("close-alert4").addEventListener("click", function () {
         document.getElementsByClassName("alert4")[0].classList.remove("show");

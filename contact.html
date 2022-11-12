@@ -189,19 +189,22 @@
           <div class="card">
             <p class="card-content">
               <span class="material-icons md-48"> call </span> <br />
-              0934-455-4534
+              <span id="contact"></span></span>
+              <!-- 0934-455-4534 -->
             </p>
           </div>
           <div class="card">
             <p class="card-content">
               <span class="material-icons md-48"> location_on </span><br />
-              Hulo Agri & Leisure Farm, Hacienda Rd, Abucay, 2114 Bataan
+              <span id="loc"></span>
+              <!-- Hulo Agri & Leisure Farm, Hacienda Rd, Abucay, 2114 Bataan -->
             </p>
           </div>
           <div class="card">
             <p class="card-content">
               <span class="material-icons md-48"> mail </span> <br />
-              huloleisurefarm@gmail.com
+              <span id="email"></span></span>
+              <!-- huloleisurefarm@gmail.com -->
             </p>
           </div>
         </div>
@@ -267,6 +270,25 @@
       <div id="footer-placeholder"></div>
     </section>
     <script>
+      const displayInfo = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("contact").innerText = data.payload.contact;
+            document.getElementById("loc").innerText = data.payload.location;
+            document.getElementById("email").innerText = data.payload.email;
+          });
+      };
+      displayInfo();
+
       const sendEmail = () => {
         const data = {
           name: document.querySelector("#name").value,
