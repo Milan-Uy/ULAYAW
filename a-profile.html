@@ -335,25 +335,29 @@
                           <div class="accordion-body js-accordion-body">
                             <div class="accordion-body__contents">
                               <form class="edit-villadetails">
+                                <div class="edit-villaprice">
+                                  <label>Overnight Max. Guest</label>
+                                  <input id="aurelia-overnight-max" class="new-villaprice" type="number" />
+                                </div>
                                 <div class="edit-villadesc">
-                                  <label>Description</label>
-                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
-                                  >
+                                  <label>Overnight Inclusions</label>
+                                  <textarea
+                                    id="aurelia-overnight-inclusions"
+                                    name="moment-txt"
+                                    placeholder="Write the description here..."
+                                  ></textarea>
                                 </div>
                                 <div class="edit-villainc">
-                                  <label>Inclusions</label>
-                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
-                                  >
+                                  <label>Overnight Amenities</label>
+                                  <textarea id="aurelia-overnight-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
                                 </div>
                                 <div class="edit-villaprice">
-                                  <label>Price</label>
-                                  <input class="new-villaprice" type="text" required />
+                                  <label>Overnight Price</label>
+                                  <input id="aurelia-overnight-price" type="text" />
                                 </div>
                                 <div class="editvilla-btn">
-                                  <button class="canceledit-btn" onclick="()">Cancel</button>
-                                  <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                  <button type="button" class="canceledit-btn" onclick="">Cancel</button>
+                                  <button type="button" class="saveedit-btn" onclick="updateVilla()">Save Changes</button>
                                 </div>
                               </form>
                             </div>
@@ -919,8 +923,75 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
             console.log(data);
           });
       };
+      let allVilla;
+      const displayVilla = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+        fetch("https://ulayaw-backend.herokuapp.com/villa/getAll", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            allVilla = data.payload;
+            // set villa values
+            if (data) {
+              document.getElementById("aurelia-overnight-amenities").value = allVilla[0].overnight.ammenities;
+              document.getElementById("aurelia-overnight-inclusions").value = allVilla[0].overnight.inclusions;
+              document.getElementById("aurelia-overnight-max").value = allVilla[0].overnight.maxPerson;
+              document.getElementById("aurelia-overnight-price").value = allVilla[0].overnight.price;
+            }
+          });
+      };
+      displayVilla();
+      const updateVilla = () => {
+        let casa_aurelia = allVilla[0];
+        // let caminos = allVilla[1];
+        // amenities
+        const aurelia_overnight_amenities = document.getElementById("aurelia-overnight-amenities").value;
+        const arr_aurelia_overnight_amenities = aurelia_overnight_amenities.split(",");
+        // inclusions
+        const aurelia_overnight_inclusions = document.getElementById("aurelia-overnight-inclusions").value;
+        const arr_aurelia_overnight_inclusions = aurelia_overnight_inclusions.split(",");
+        //  max guests
+        const aurelia_overnight_max = document.getElementById("aurelia-overnight-max").value;
+        const aurelia_overnight_price = document.getElementById("aurelia-overnight-price").value;
 
-      const updateVilla = () => {};
+        casa_aurelia = {
+          // ...casa_aurelia,
+          // dayTour:{
+          //   ...casa_aurelia.dayTour,
+          //   ammenities: arr_aurelia_dayTour_amenities,
+          //   inclusions: arr_aurelia_dayTour_inclusions,
+          //   maxPerson: aurelia_dayTour_max,
+          //   price: aurelia_dayTour_price,
+          // },
+          overnight: {
+            ...casa_aurelia.overnight,
+            ammenities: arr_aurelia_overnight_amenities,
+            inclusions: arr_aurelia_overnight_inclusions,
+            maxPerson: aurelia_overnight_max,
+            price: aurelia_overnight_price,
+          },
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(casa_aurelia),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631deb1f747ed43d91ad8aee", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      };
 
       const logout = () => {
         localStorage.clear();

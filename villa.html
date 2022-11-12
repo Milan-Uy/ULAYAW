@@ -152,16 +152,27 @@
                     <div id="v-tab-panel-1" class="v-tab-panel">
                       <ul>
                         <li style="margin-bottom: 10px">
-                          <span class="v-tag1">Good for 10 guests</span>
+                          <span class="v-tag1">Good for <span id="aurelia-overnight-guest"></span> guests</span>
                         </li>
                         <li style="margin-bottom: 10px">
                           <span class="v-tag">Inclusions</span>
                         </li>
-                        <li>
-                          <i class="fas fa-arrow-alt-circle-right"></i>
-                          Exclusive use of Pool with 15 min Jacuzzi
+                        <div id="aurelia-overnight-inclusions">
+                          <!-- <li>
+                            <i class="fas fa-arrow-alt-circle-right"></i>
+                            Exclusive use of Pool with 15 min Jacuzzi
+                          </li> -->
+                        </div>
+                        <li style="margin-bottom: 10px">
+                          <span class="v-tag">Amenities</span>
                         </li>
-                        <li>
+                        <div id="aurelia-overnight-amenities">
+                          <!-- <li>
+                            <i class="fas fa-arrow-alt-circle-right"></i>
+                            Exclusive use of Pool with 15 min Jacuzzi
+                          </li> -->
+                        </div>
+                        <!-- <li>
                           <i class="fas fa-arrow-alt-circle-right"></i>
                           Entire Villa
                         </li>
@@ -202,20 +213,20 @@
                         <li>
                           <i class="fas fa-arrow-alt-circle-right"></i>
                           Dishwashing Set
-                        </li>
+                        </li> -->
                       </ul>
                     </div>
                     <div id="v-tab-panel-2" class="v-tab-panel">
                       <ul>
                         <li style="margin-bottom: 10px">
-                          <span class="v-tag1">Good for 15-30 guests</span>
+                          <span class="v-tag1">Good for <span id="aurelia-daytour-guest"></span> guests</span>
                         </li>
                         <li style="margin-bottom: 10px">
                           <span class="v-tag">Inclusions</span>
                         </li>
                         <li>
                           <i class="fas fa-arrow-alt-circle-right"></i>
-                          Exclusive use of Pool with 15 min Jacuzzi
+                          <!-- Exclusive use of Pool with 15 min Jacuzzi --><span id="aurelia-daytour-inclusions"></span>
                         </li>
                         <li>
                           <i class="fas fa-arrow-alt-circle-right"></i>
@@ -866,5 +877,43 @@
     $(function () {
       $("#footer-placeholder").load("footer.html");
     });
+
+    const displayVilla = () => {
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+      };
+
+      fetch("https://ulayaw-backend.herokuapp.com/villa/getAll", options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          document.getElementById("aurelia-overnight-guest").innerText = data.payload[0].overnight.minPerson;
+          document.getElementById("aurelia-daytour-guest").innerText = data.payload[0].dayTour.minPerson;
+          // document.getElementById("aurelia-overnight-inclusions").innerText = data.payload[0].overnight.inclusions;
+          document.getElementById("aurelia-daytour-inclusions").innerText = data.payload[0].dayTour.inclusions;
+
+          if (data.payload[0].overnight.inclusions.length > 0) {
+            console.log(data.payload[0].overnight.inclusions.length);
+            var data1 = "";
+            for (i = 0; i < data.payload[0].overnight.inclusions.length; i++) {
+              data1 += "<li><i class='fas fa-arrow-alt-circle-right'></i>" + data.payload[0].overnight.inclusions[i] + "</li>";
+            }
+            $("#aurelia-overnight-inclusions").html(data1);
+          }
+
+          // if (data.payload[0].overnight.amenities.length > 0) {
+          //   console.log(data.payload[0].overnight.amenities.length);
+          //   var data1 = "";
+          //   for (i = 0; i < data.payload[0].overnight.amenities.length; i++) {
+          //     data1 += "<li><i class='fas fa-arrow-alt-circle-right'></i>" + data.payload[0].overnight.amenities[i] + "</li>";
+          //   }
+          //   $("#aurelia-overnight-amenities").html(data1);
+          // }
+        });
+    };
+    displayVilla();
   </script>
 </html>
