@@ -335,6 +335,7 @@
                           <div class="accordion-body js-accordion-body">
                             <div class="accordion-body__contents">
                               <form class="edit-villadetails">
+                                <!-- aurelia overnight -->
                                 <div class="edit-villaprice">
                                   <label>Overnight Max. Guest</label>
                                   <input id="aurelia-overnight-max" class="new-villaprice" type="number" />
@@ -355,9 +356,26 @@
                                   <label>Overnight Price</label>
                                   <input id="aurelia-overnight-price" type="text" />
                                 </div>
+                                <!-- aurelia dayTour -->
+                                <div class="edit-villaprice">
+                                  <label>DayTour Max. Guest</label>
+                                  <input id="aurelia-dayTour-max" class="new-villaprice" type="number" />
+                                </div>
+                                <div class="edit-villadesc">
+                                  <label>DayTour Inclusions</label>
+                                  <textarea id="aurelia-dayTour-inclusions" name="moment-txt" placeholder="Write the description here..."></textarea>
+                                </div>
+                                <div class="edit-villainc">
+                                  <label>DayTour Amenities</label>
+                                  <textarea id="aurelia-dayTour-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
+                                </div>
+                                <div class="edit-villaprice">
+                                  <label>DayTour Price</label>
+                                  <input id="aurelia-dayTour-price" type="text" />
+                                </div>
                                 <div class="editvilla-btn">
                                   <button type="button" class="canceledit-btn" onclick="">Cancel</button>
-                                  <button type="button" class="saveedit-btn" onclick="updateVilla()">Save Changes</button>
+                                  <button type="button" class="saveedit-btn" onclick="updateAurelia()">Save Changes</button>
                                 </div>
                               </form>
                             </div>
@@ -425,8 +443,140 @@
                               </div>
 
                               <div class="editvilla-btn photos">
-                                <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                <button class="canceledit-btn" onclick="">Cancel</button>
+                                <button class="saveedit-btn" onclick="">Save Changes</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end of accordion body -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="villa-card">
+                  <div class="villa-pic">
+                    <div class="photo" style="background-image: url(images/PRIMA1.JPG)"></div>
+                  </div>
+                  <div class="villa-desc">
+                    <h1>Caminos De Primavera</h1>
+                    <div class="edit-accord">
+                      <div class="edit-accordion js-accordion">
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Details</div>
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                              <form class="edit-villadetails">
+                                <!-- caminos overnight -->
+                                <div class="edit-villaprice">
+                                  <label>Overnight Max. Guest</label>
+                                  <input id="caminos-overnight-max" class="new-villaprice" type="number" />
+                                </div>
+                                <div class="edit-villadesc">
+                                  <label>Overnight Inclusions</label>
+                                  <textarea
+                                    id="caminos-overnight-inclusions"
+                                    name="moment-txt"
+                                    placeholder="Write the description here..."
+                                  ></textarea>
+                                </div>
+                                <div class="edit-villainc">
+                                  <label>Overnight Amenities</label>
+                                  <textarea id="caminos-overnight-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
+                                </div>
+                                <div class="edit-villaprice">
+                                  <label>Overnight Price</label>
+                                  <input id="caminos-overnight-price" type="text" />
+                                </div>
+                                <!-- caminos dayTour -->
+                                <div class="edit-villaprice">
+                                  <label>DayTour Max. Guest</label>
+                                  <input id="caminos-dayTour-max" class="new-villaprice" type="number" />
+                                </div>
+                                <div class="edit-villadesc">
+                                  <label>DayTour Inclusions</label>
+                                  <textarea id="caminos-dayTour-inclusions" name="moment-txt" placeholder="Write the description here..."></textarea>
+                                </div>
+                                <div class="edit-villainc">
+                                  <label>DayTour Amenities</label>
+                                  <textarea id="caminos-dayTour-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
+                                </div>
+                                <div class="edit-villaprice">
+                                  <label>DayTour Price</label>
+                                  <input id="caminos-dayTour-price" type="text" />
+                                </div>
+                                <div class="editvilla-btn">
+                                  <button type="button" class="canceledit-btn" onclick="">Cancel</button>
+                                  <button type="button" class="saveedit-btn" onclick="updateCaminos()">Save Changes</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end of accordion body -->
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Pictures</div>
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents upload-accord">
+                              <div class="wrapper">
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="editvilla-btn photos">
+                                <button class="canceledit-btn" onclick="">Cancel</button>
+                                <button class="saveedit-btn" onclick="">Save Changes</button>
                               </div>
                             </div>
                           </div>
@@ -449,25 +599,43 @@
                           <div class="accordion-body js-accordion-body">
                             <div class="accordion-body__contents">
                               <form class="edit-villadetails">
+                                <!-- salud overnight -->
+                                <div class="edit-villaprice">
+                                  <label>Overnight Max. Guest</label>
+                                  <input id="salud-overnight-max" class="new-villaprice" type="number" />
+                                </div>
                                 <div class="edit-villadesc">
-                                  <label>Description</label>
-                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the description here...">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
-                                  >
+                                  <label>Overnight Inclusions</label>
+                                  <textarea id="salud-overnight-inclusions" name="moment-txt" placeholder="Write the description here..."></textarea>
                                 </div>
                                 <div class="edit-villainc">
-                                  <label>Inclusions</label>
-                                  <textarea id="moment-txt" name="moment-txt" placeholder="Write the inclusions here...">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi placeat distinctio dolor, amet magnam voluptatibus eos ex vero, sunt veritatis esse. Nostrum voluptatum et repudiandae vel sed, explicabo in?</textarea
-                                  >
+                                  <label>Overnight Amenities</label>
+                                  <textarea id="salud-overnight-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
                                 </div>
                                 <div class="edit-villaprice">
-                                  <label>Price</label>
-                                  <input class="new-villaprice" type="text" required />
+                                  <label>Overnight Price</label>
+                                  <input id="salud-overnight-price" type="text" />
+                                </div>
+                                <!-- salud dayTour -->
+                                <div class="edit-villaprice">
+                                  <label>DayTour Max. Guest</label>
+                                  <input id="salud-dayTour-max" class="new-villaprice" type="number" />
+                                </div>
+                                <div class="edit-villadesc">
+                                  <label>DayTour Inclusions</label>
+                                  <textarea id="salud-dayTour-inclusions" name="moment-txt" placeholder="Write the description here..."></textarea>
+                                </div>
+                                <div class="edit-villainc">
+                                  <label>DayTour Amenities</label>
+                                  <textarea id="salud-dayTour-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
+                                </div>
+                                <div class="edit-villaprice">
+                                  <label>DayTour Price</label>
+                                  <input id="salud-dayTour-price" type="text" />
                                 </div>
                                 <div class="editvilla-btn">
-                                  <button class="canceledit-btn" onclick="()">Cancel</button>
-                                  <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                  <button type="button" class="canceledit-btn" onclick="">Cancel</button>
+                                  <button type="button" class="saveedit-btn" onclick="updateSalud()">Save Changes</button>
                                 </div>
                               </form>
                             </div>
@@ -535,8 +703,230 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
                               </div>
 
                               <div class="editvilla-btn photos">
-                                <button class="canceledit-btn" onclick="()">Cancel</button>
-                                <button class="saveedit-btn" onclick="()">Save Changes</button>
+                                <button class="canceledit-btn" onclick="">Cancel</button>
+                                <button class="saveedit-btn" onclick="">Save Changes</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end of accordion body -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="villa-card">
+                  <div class="villa-pic">
+                    <div class="photo" style="background-image: url(images/KUBO1.JPG)"></div>
+                  </div>
+                  <div class="villa-desc">
+                    <h1>Kubo ni Basyong</h1>
+                    <div class="edit-accord">
+                      <div class="edit-accordion js-accordion">
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Details</div>
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                              <form class="edit-villadetails">
+                                <!-- kubo dayTour -->
+                                <div class="edit-villaprice">
+                                  <label>DayTour Max. Guest</label>
+                                  <input id="kubo-dayTour-max" class="new-villaprice" type="number" />
+                                </div>
+                                <div class="edit-villadesc">
+                                  <label>DayTour Inclusions</label>
+                                  <textarea id="kubo-dayTour-inclusions" name="moment-txt" placeholder="Write the description here..."></textarea>
+                                </div>
+                                <div class="edit-villainc">
+                                  <label>DayTour Amenities</label>
+                                  <textarea id="kubo-dayTour-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
+                                </div>
+                                <div class="edit-villaprice">
+                                  <label>DayTour Price</label>
+                                  <input id="kubo-dayTour-price" type="text" />
+                                </div>
+                                <div class="editvilla-btn">
+                                  <button type="button" class="canceledit-btn" onclick="">Cancel</button>
+                                  <button type="button" class="saveedit-btn" onclick="updateKubo()">Save Changes</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end of accordion body -->
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Pictures</div>
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents upload-accord">
+                              <div class="wrapper">
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="editvilla-btn photos">
+                                <button class="canceledit-btn" onclick="">Cancel</button>
+                                <button class="saveedit-btn" onclick="">Save Changes</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end of accordion body -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="villa-card">
+                  <div class="villa-pic">
+                    <div class="photo" style="background-image: url(images/casa_salud.JPG)"></div>
+                  </div>
+                  <div class="villa-desc">
+                    <h1>Celso Tagle Hall</h1>
+                    <div class="edit-accord">
+                      <div class="edit-accordion js-accordion">
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Details</div>
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents">
+                              <form class="edit-villadetails">
+                                <!-- hall dayTour -->
+                                <div class="edit-villaprice">
+                                  <label>DayTour Max. Guest</label>
+                                  <input id="hall-dayTour-max" class="new-villaprice" type="number" />
+                                </div>
+                                <div class="edit-villadesc">
+                                  <label>DayTour Inclusions</label>
+                                  <textarea id="hall-dayTour-inclusions" name="moment-txt" placeholder="Write the description here..."></textarea>
+                                </div>
+                                <!-- <div class="edit-villainc">
+                                  <label>DayTour Amenities</label>
+                                  <textarea id="hall-dayTour-amenities" name="moment-txt" placeholder="Write the inclusions here..."></textarea>
+                                </div> -->
+                                <div class="edit-villaprice">
+                                  <label>DayTour Price</label>
+                                  <input id="hall-dayTour-price" type="text" />
+                                </div>
+                                <div class="editvilla-btn">
+                                  <button type="button" class="canceledit-btn" onclick="">Cancel</button>
+                                  <button type="button" class="saveedit-btn" onclick="updateHall()">Save Changes</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end of accordion body -->
+                        <div class="accordion__item js-accordion-item">
+                          <div class="accordion-header js-accordion-header">Edit Pictures</div>
+                          <div class="accordion-body js-accordion-body">
+                            <div class="accordion-body__contents upload-accord">
+                              <div class="wrapper">
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="box">
+                                  <div class="js--image-preview"></div>
+                                  <div class="upload-options">
+                                    <label>
+                                      <input type="file" class="image-upload" accept="image/*" />
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="editvilla-btn photos">
+                                <button class="canceledit-btn" onclick="">Cancel</button>
+                                <button class="saveedit-btn" onclick="">Save Changes</button>
                               </div>
                             </div>
                           </div>
@@ -888,6 +1278,32 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
           });
       };
 
+      let allInformation;
+      const displayInformation = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+        fetch("https://ulayaw-backend.herokuapp.com/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            // allInformation = data.payload;
+            // set information values
+            // if (data) {
+            // document.getElementById("update_contact").value = allInformation.contact;
+            document.getElementById("update_contact").value = data.payload.contact;
+            document.getElementById("location").value = data.payload.location;
+            document.getElementById("update_email").value = data.payload.email;
+            document.getElementById("fb_link").value = data.payload.fbLink;
+            document.getElementById("ig_link").value = data.payload.instaLink;
+            // }
+          });
+      };
+      displayInformation();
+
       const updateInfo = () => {
         const contact = document.getElementById("update_contact").value;
         const loc = document.getElementById("location").value;
@@ -923,6 +1339,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
             console.log(data);
           });
       };
+
       let allVilla;
       const displayVilla = () => {
         let options = {
@@ -938,36 +1355,90 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
             allVilla = data.payload;
             // set villa values
             if (data) {
+              // aurelia overnight
               document.getElementById("aurelia-overnight-amenities").value = allVilla[0].overnight.ammenities;
               document.getElementById("aurelia-overnight-inclusions").value = allVilla[0].overnight.inclusions;
               document.getElementById("aurelia-overnight-max").value = allVilla[0].overnight.maxPerson;
               document.getElementById("aurelia-overnight-price").value = allVilla[0].overnight.price;
+
+              //aurelia daytour
+              document.getElementById("aurelia-dayTour-amenities").value = allVilla[0].dayTour.ammenities;
+              document.getElementById("aurelia-dayTour-inclusions").value = allVilla[0].dayTour.inclusions;
+              document.getElementById("aurelia-dayTour-max").value = allVilla[0].dayTour.maxPerson;
+              document.getElementById("aurelia-dayTour-price").value = allVilla[0].dayTour.price;
+
+              // caminos overnight
+              document.getElementById("caminos-overnight-amenities").value = allVilla[1].overnight.ammenities;
+              document.getElementById("caminos-overnight-inclusions").value = allVilla[1].overnight.inclusions;
+              document.getElementById("caminos-overnight-max").value = allVilla[1].overnight.maxPerson;
+              document.getElementById("caminos-overnight-price").value = allVilla[1].overnight.price;
+
+              //caminos daytour
+              document.getElementById("caminos-dayTour-amenities").value = allVilla[1].dayTour.ammenities;
+              document.getElementById("caminos-dayTour-inclusions").value = allVilla[1].dayTour.inclusions;
+              document.getElementById("caminos-dayTour-max").value = allVilla[1].dayTour.maxPerson;
+              document.getElementById("caminos-dayTour-price").value = allVilla[1].dayTour.price;
+
+              // salud overnight
+              document.getElementById("salud-overnight-amenities").value = allVilla[2].overnight.ammenities;
+              document.getElementById("salud-overnight-inclusions").value = allVilla[2].overnight.inclusions;
+              document.getElementById("salud-overnight-max").value = allVilla[2].overnight.maxPerson;
+              document.getElementById("salud-overnight-price").value = allVilla[2].overnight.price;
+
+              //salud daytour
+              document.getElementById("salud-dayTour-amenities").value = allVilla[2].dayTour.ammenities;
+              document.getElementById("salud-dayTour-inclusions").value = allVilla[2].dayTour.inclusions;
+              document.getElementById("salud-dayTour-max").value = allVilla[2].dayTour.maxPerson;
+              document.getElementById("salud-dayTour-price").value = allVilla[2].dayTour.price;
+
+              //kubo daytour
+              document.getElementById("kubo-dayTour-amenities").value = allVilla[3].dayTour.ammenities;
+              document.getElementById("kubo-dayTour-inclusions").value = allVilla[3].dayTour.inclusions;
+              document.getElementById("kubo-dayTour-max").value = allVilla[3].dayTour.maxPerson;
+              document.getElementById("kubo-dayTour-price").value = allVilla[3].dayTour.price;
+
+              //hall daytour
+              // document.getElementById("hall-dayTour-amenities").value = allVilla[4].dayTour.ammenities;
+              document.getElementById("hall-dayTour-inclusions").value = allVilla[4].dayTour.inclusions;
+              document.getElementById("hall-dayTour-max").value = allVilla[4].dayTour.maxPerson;
+              document.getElementById("hall-dayTour-price").value = allVilla[4].dayTour.price;
             }
           });
       };
       displayVilla();
-      const updateVilla = () => {
+
+      const updateAurelia = () => {
         let casa_aurelia = allVilla[0];
         // let caminos = allVilla[1];
-        // amenities
+        // aurelia amenities
         const aurelia_overnight_amenities = document.getElementById("aurelia-overnight-amenities").value;
         const arr_aurelia_overnight_amenities = aurelia_overnight_amenities.split(",");
-        // inclusions
+        // aurelia inclusions
         const aurelia_overnight_inclusions = document.getElementById("aurelia-overnight-inclusions").value;
         const arr_aurelia_overnight_inclusions = aurelia_overnight_inclusions.split(",");
-        //  max guests
+        // aurelia max guests
         const aurelia_overnight_max = document.getElementById("aurelia-overnight-max").value;
         const aurelia_overnight_price = document.getElementById("aurelia-overnight-price").value;
 
+        // aurelia amenities
+        const aurelia_dayTour_amenities = document.getElementById("aurelia-dayTour-amenities").value;
+        const arr_aurelia_dayTour_amenities = aurelia_dayTour_amenities.split(",");
+        // aurelia inclusions
+        const aurelia_dayTour_inclusions = document.getElementById("aurelia-dayTour-inclusions").value;
+        const arr_aurelia_dayTour_inclusions = aurelia_dayTour_inclusions.split(",");
+        // aurelia max guests
+        const aurelia_dayTour_max = document.getElementById("aurelia-dayTour-max").value;
+        const aurelia_dayTour_price = document.getElementById("aurelia-dayTour-price").value;
+
         casa_aurelia = {
           // ...casa_aurelia,
-          // dayTour:{
-          //   ...casa_aurelia.dayTour,
-          //   ammenities: arr_aurelia_dayTour_amenities,
-          //   inclusions: arr_aurelia_dayTour_inclusions,
-          //   maxPerson: aurelia_dayTour_max,
-          //   price: aurelia_dayTour_price,
-          // },
+          dayTour: {
+            ...casa_aurelia.dayTour,
+            ammenities: arr_aurelia_dayTour_amenities,
+            inclusions: arr_aurelia_dayTour_inclusions,
+            maxPerson: aurelia_dayTour_max,
+            price: aurelia_dayTour_price,
+          },
           overnight: {
             ...casa_aurelia.overnight,
             ammenities: arr_aurelia_overnight_amenities,
@@ -987,6 +1458,194 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi place
         };
 
         fetch("https://ulayaw-backend.herokuapp.com/villa/update/631deb1f747ed43d91ad8aee", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      };
+
+      const updateCaminos = () => {
+        let caminos = allVilla[1];
+        // caminos amenities
+        const caminos_overnight_amenities = document.getElementById("caminos-overnight-amenities").value;
+        const arr_caminos_overnight_amenities = caminos_overnight_amenities.split(",");
+        // caminos inclusions
+        const caminos_overnight_inclusions = document.getElementById("caminos-overnight-inclusions").value;
+        const arr_caminos_overnight_inclusions = caminos_overnight_inclusions.split(",");
+        // caminos max guests
+        const caminos_overnight_max = document.getElementById("caminos-overnight-max").value;
+        const caminos_overnight_price = document.getElementById("caminos-overnight-price").value;
+
+        // caminos amenities
+        const caminos_dayTour_amenities = document.getElementById("caminos-dayTour-amenities").value;
+        const arr_caminos_dayTour_amenities = caminos_dayTour_amenities.split(",");
+        // caminos inclusions
+        const caminos_dayTour_inclusions = document.getElementById("caminos-dayTour-inclusions").value;
+        const arr_caminos_dayTour_inclusions = caminos_dayTour_inclusions.split(",");
+        // caminos max guests
+        const caminos_dayTour_max = document.getElementById("caminos-dayTour-max").value;
+        const caminos_dayTour_price = document.getElementById("caminos-dayTour-price").value;
+
+        caminos = {
+          dayTour: {
+            ...caminos.dayTour,
+            ammenities: arr_caminos_dayTour_amenities,
+            inclusions: arr_caminos_dayTour_inclusions,
+            maxPerson: caminos_dayTour_max,
+            price: caminos_dayTour_price,
+          },
+          overnight: {
+            ...caminos.overnight,
+            ammenities: arr_caminos_overnight_amenities,
+            inclusions: arr_caminos_overnight_inclusions,
+            maxPerson: caminos_overnight_max,
+            price: caminos_overnight_price,
+          },
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(caminos),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631deb5d747ed43d91ad8af2", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      };
+
+      const updateSalud = () => {
+        let casa_salud = allVilla[2];
+        // salud amenities
+        const salud_overnight_amenities = document.getElementById("salud-overnight-amenities").value;
+        const arr_salud_overnight_amenities = salud_overnight_amenities.split(",");
+        // salud inclusions
+        const salud_overnight_inclusions = document.getElementById("salud-overnight-inclusions").value;
+        const arr_salud_overnight_inclusions = salud_overnight_inclusions.split(",");
+        // salud max guests
+        const salud_overnight_max = document.getElementById("salud-overnight-max").value;
+        const salud_overnight_price = document.getElementById("salud-overnight-price").value;
+
+        // salud amenities
+        const salud_dayTour_amenities = document.getElementById("salud-dayTour-amenities").value;
+        const arr_salud_dayTour_amenities = salud_dayTour_amenities.split(",");
+        // salud inclusions
+        const salud_dayTour_inclusions = document.getElementById("salud-dayTour-inclusions").value;
+        const arr_salud_dayTour_inclusions = salud_dayTour_inclusions.split(",");
+        // salud max guests
+        const salud_dayTour_max = document.getElementById("salud-dayTour-max").value;
+        const salud_dayTour_price = document.getElementById("salud-dayTour-price").value;
+
+        casa_salud = {
+          dayTour: {
+            ...casa_salud.dayTour,
+            ammenities: arr_salud_dayTour_amenities,
+            inclusions: arr_salud_dayTour_inclusions,
+            maxPerson: salud_dayTour_max,
+            price: salud_dayTour_price,
+          },
+          overnight: {
+            ...casa_salud.overnight,
+            ammenities: arr_salud_overnight_amenities,
+            inclusions: arr_salud_overnight_inclusions,
+            maxPerson: salud_overnight_max,
+            price: salud_overnight_price,
+          },
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(casa_salud),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631deb89747ed43d91ad8af6", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      };
+
+      const updateKubo = () => {
+        let kubo = allVilla[3];
+
+        // kubo amenities
+        const kubo_dayTour_amenities = document.getElementById("kubo-dayTour-amenities").value;
+        const arr_kubo_dayTour_amenities = kubo_dayTour_amenities.split(",");
+        // kubo inclusions
+        const kubo_dayTour_inclusions = document.getElementById("kubo-dayTour-inclusions").value;
+        const arr_kubo_dayTour_inclusions = kubo_dayTour_inclusions.split(",");
+        // kubo max guests
+        const kubo_dayTour_max = document.getElementById("kubo-dayTour-max").value;
+        const kubo_dayTour_price = document.getElementById("kubo-dayTour-price").value;
+
+        kubo = {
+          dayTour: {
+            ...kubo.dayTour,
+            ammenities: arr_kubo_dayTour_amenities,
+            inclusions: arr_kubo_dayTour_inclusions,
+            maxPerson: kubo_dayTour_max,
+            price: kubo_dayTour_price,
+          },
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(kubo),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631dec57747ed43d91ad8afa", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      };
+
+      const updateHall = () => {
+        let hall = allVilla[4];
+
+        // hall amenities
+        // const hall_dayTour_amenities = document.getElementById("hall-dayTour-amenities").value;
+        // const arr_hall_dayTour_amenities = hall_dayTour_amenities.split(",");
+        // hall inclusions
+        const hall_dayTour_inclusions = document.getElementById("hall-dayTour-inclusions").value;
+        const arr_hall_dayTour_inclusions = hall_dayTour_inclusions.split(",");
+        // hall max guests
+        const hall_dayTour_max = document.getElementById("hall-dayTour-max").value;
+        const hall_dayTour_price = document.getElementById("hall-dayTour-price").value;
+
+        hall = {
+          dayTour: {
+            ...hall.dayTour,
+            // ammenities: arr_hall_dayTour_amenities,
+            inclusions: arr_hall_dayTour_inclusions,
+            maxPerson: hall_dayTour_max,
+            price: hall_dayTour_price,
+          },
+        };
+
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(hall),
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631dec86747ed43d91ad8afe", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
