@@ -1691,8 +1691,8 @@ hr {
 .book-header {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  background: url(/images/faqs-bg.jpg) no-repeat;
+  min-height: 30vh;
+  background: url(/images/book-bg.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1701,13 +1701,16 @@ hr {
   z-index: 1;
 }
 .book-header h1 {
-  margin-top: -350px;
+  margin-top: -220px;
   position: absolute;
-  text-align: center;
+  text-align: left;
   font-weight: 500;
-  font-family: "Abril Fatface";
+  font: 900 120px/1 "Merienda One", cursive;
   font-size: 58px;
-  color: #f9f2e7;
+  color: #fafaf5;
+  text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%), 0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
+    0 1px 3px rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.3);
   text-shadow: 2px 3px 3px #363636;
 }
 .checkavail-form {
@@ -1716,9 +1719,15 @@ hr {
   background-color: #f9f2e7;
   border-radius: 10px;
   padding: 25px 80px 25px 80px;
-  margin-top: 250px;
+  margin-top: 150px;
+  margin-bottom: -50px;
   justify-content: center;
   font-family: "Raleway";
+  z-index: 2;
+  box-shadow: rgba(62, 87, 112, 0.2) 0px 8px 24px;
+}
+.booknow {
+  z-index: -1 !important;
 }
 .form-item {
   display: flex;
