@@ -57,6 +57,10 @@
               <i class="material-symbols-rounded">summarize</i>
               <span class="tab-label">View Sales Report</span>
             </li>
+            <li rel="tabSeven">
+              <i class="material-symbols-rounded">manage_accounts</i>
+              <span class="tab-label">Change Password</span>
+            </li>
             <li rel="tabFive" onclick="logout()">
               <i class="material-symbols-rounded">logout</i>
               <span class="tab-label">Logout</span>
@@ -528,6 +532,46 @@
                 </table>
               </div>
             </div>
+
+          <!-- Change Password -->
+           <h4 class="tab-accordion-title" rel="tabSeven">Change Password</h4>
+           <div id="tabSeven" class="tab-item">
+            <h5>Change Password</h5>
+            <div class="edit-container">
+              <div class="user-details">
+                <button class="editprofile-btn" id="removeReadOnly2">Change</button>
+              </div>
+              <form action="javascript:changePassword();" class="edit-form">
+                <div class="form-container flex-column">
+                  <div class="col-6 hide-txt5 hide-text-bg">
+                    <label>Current Password</label>
+                    <input type="password" id="password" placeholder="Password" readonly />
+                  </div>
+                  <div class="col-6 hide-txt6 hide-text-bg">
+                    <label>New Password</label>
+                    <input
+                      type="password"
+                      id="newPassword"
+                      placeholder="New Password"
+                      readonly
+                      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                      title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
+                      value=""
+                    />
+                  </div>
+                  <div class="col-6 hide-txt7 hide-text-bg">
+                    <label>Re-Enter Password</label>
+                    <input type="password" id="rePassword" placeholder="Password" readonly />
+                  </div>
+                </div>
+                <div class="flex-end-container">
+                  <button type="submit" class="saveProfile-btn saveProfile-btn2" id="saveProfile-btn2">Save Changes</button>
+                </div>
+              </form>
+            </div>
+              </div>
+          
+
             <!--Logout Tab-->
             <h4 class="tab-accordion-title" rel="tabSix">Logout</h4>
             <div id="tabSix" class="tab-item">
@@ -1564,6 +1608,18 @@
         window.location.replace("/login-reg.html");
       };
       
+      // Remove readOnly
+
+      document.getElementById("removeReadOnly2").addEventListener("click", function () {
+        document.getElementById("password").toggleAttribute("readonly");
+        document.getElementById("rePassword").toggleAttribute("readonly");
+        document.getElementById("newPassword").toggleAttribute("readonly");
+        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
+      });
+
     </script>
   </body>
 </html>
