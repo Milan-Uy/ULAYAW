@@ -48,8 +48,10 @@
   <div class="col-50">
     <div class="containerps lc">
       <h3 style="padding-bottom: 10px;">Payment Options: </h3>
-      <span id="dpay" class="price">P12,675</span><label for="dpayment"> <input type="radio" value="Partial" name='pay_method' id='dpayment' /> Down Payment</label><span class="price" id="fpay">P25,350</span>
-      <label for="fpayment"> <input type="radio" value="Full" name='pay_method' id='fpayment' /> Full Payment</label>
+      <span class="price" id="fpay">Price</span>
+      <label for="fpayment"> <input type="radio" value="Full" name='pay_method' id='fpayment' checked/> Full Payment</label>
+      <span id="dpay" class="price">Price</span>
+      <label for="dpayment"> <input type="radio" value="Partial" name='pay_method' id='dpayment' /> Down Payment</label>
         <hr>
         <img class="gcashicon" src="images/gcashicon.png" alt="gcashicon">
         <input onclick="pay()" class="payment-btn" type="button" value="Proceed with Gcash Payment">

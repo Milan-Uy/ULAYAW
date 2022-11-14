@@ -522,7 +522,7 @@
                     <tr>
                       <td colspan="1">GRAND TOTAL:</td>
                       <td colspan="3"></td>
-                      <td class="amount-sales" colspan="4"><strong>&#8369; 200.00</strong></td>
+                      <td class="amount-sales" colspan="4"><strong id="grandTotal">&#8369; 200.00</strong></td>
                     </tr>
                   </tfoot>
                 </table>
@@ -1061,9 +1061,10 @@
                 if (data.payload[i].paymentType === "Partial" && data.payload[i].isPaid === true) {
             
                   data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnpaytype'>Mark as Fully Paid</button></td>";
-                } else if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
-                  data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Receipt</button></td>";
-                } 
+                }
+                // else if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
+                //   data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Receipt</button></td>";
+                // } 
                 else {
                   data2 += "<td class='tdbs1'></td>";
                 }
@@ -1089,13 +1090,6 @@
           console.log(bookingId);
           sessionStorage.setItem("booking_id", bookingId);
           fullPay();
-        }
-
-        if (e.target.classList[1] === "btnreceipt") {
-          let bookingId = e.target.classList[0];
-          console.log(bookingId);
-          sessionStorage.setItem("booking_id", bookingId);
-          window.location.replace("/c-receipt.html");
         }
       };
       document.body.addEventListener("click", saveBookingId2);
@@ -1145,7 +1139,10 @@
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          console.log(data.payload[0]._id);
+          data.payload = data.payload.sort((a,b)=>{
+            return new Date(b.dateBooked) - new Date(a.dateBooked)
+          })
+          console.log(data.payload);
         
           if (data.payload.length > 0) {
             var pending = "";
@@ -1413,18 +1410,23 @@
         .then((data) => {
           console.log(data);
           
+          let sumTotal = 0;
           if (data.payload.length > 0) {
             var data1 = "";
             var data2 = "";
             for (i = 0; i < data.payload.length; i++) {
+              // get sum
+              sumTotal += data.payload[i].totalAmount;
+              console.log(data.payload[i].totalAmount)
               data1 += "<tr>";
               data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
               data1 += "<td class='tdbs'>" + data.payload[i].userId.firstName + " " + data.payload[i].userId.lastName + "</td>";
               data1 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
               data1 += "<td class='tdbs'>testing</td>";
-              data1 += "<td class='tdbs1'>" + data.payload[i].totalAmount + "</td>";
+              data1 += "<td class='tdbs1'>" + comma(data.payload[i].totalAmount) + ".00</td>";
               data1 += "</tr>";
           }
+            document.getElementById('grandTotal').innerHTML = `&#8369; ${comma(sumTotal)}.00`
             // data2 += "<tr>";
             // data2 += "<td colspan='1'>GRAND TOTAL:</td>";
             // data2 += "<td colspan='3'></td>";

@@ -505,7 +505,7 @@
         let totalPrice = sessionStorage.getItem("totalPrice", total);
         console.log(totalPrice);
         if (checkin === checkout) {
-          bookingType = "daytour";
+          bookingType = "dayTour";
         } else {
           bookingType = "overnight";
         }
@@ -552,6 +552,8 @@
               });
               //disable button when booking is created to prevent duplicate
               document.getElementById("confirmReservation").disabled = true;
+
+              window.location.replace("/c-profile.html");
             } else {
               document.getElementById("popupdesc").innerHTML = data.message;
 

@@ -96,3 +96,7 @@ const convertPaymentStatus = (isPaid) => {
     return "Not Fully Paid";
   }
 };
+
+function comma(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

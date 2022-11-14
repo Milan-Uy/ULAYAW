@@ -31,21 +31,43 @@
             <h3 class="result-h3">Payment successful!</h3>
             <span class="result-span">
               <p class="result-ref">Reference Number:</p>
-              <p class="result-ref">09303920309</p></span
+              <p id="refno" class="result-ref">ref no.</p></span
             >
           </div>
           <div class="result-bottom">
-            <div class="result-key-value">
+            <!-- <div class="result-key-value">
               <span class="result-span">Amount Paid</span>
               <span class="result-span">
                 <p class="result-ref">₱</p>
-                <p class="result-ref">25,000.00</p>
+                <p id="amtPaid" class="result-ref">0.00</p>
               </span>
-            </div>
+            </div> -->
             <a class="result-a" href="c-profile.html"> Back to profile</a>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      const PaySuccess = () => {
+        let bookingIdSuccess1 = sessionStorage.getItem("bookingIdSuccess");
+
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/booking/getOne/${bookingIdSuccess1}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("refno").innerText = data.payload.booking._id;
+            // document.getElementById("amtPaid").innerText = data.payload.booking._id;
+          });
+      };
+      PaySuccess();
+    </script>
   </body>
 </html>
