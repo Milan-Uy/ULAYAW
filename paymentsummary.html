@@ -118,6 +118,9 @@
           .then((data) => {
             console.log(data);
 
+            let bookingIdS = data.payload.booking._id;
+            sessionStorage.setItem("bookingIdSuccess", bookingIdS);
+
             document.getElementById("refnum").innerText =  data.payload.booking._id;
             document.getElementById("villaName").innerText =  data.payload.booking.villaId.name;
             if (data.payload.booking.startDate === data.payload.booking.endDate){
