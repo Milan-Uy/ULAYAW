@@ -2407,7 +2407,8 @@ transform: scale(1) rotate(1deg);
 
 .btncancel,
 .btnremarks,
-.btnpaytype {
+.btnpaytype,
+.btnreceipt {
   background-color: #6b4f4f;
   color: #f9f2e7;
   border-radius: 5px;
@@ -2419,7 +2420,8 @@ transform: scale(1) rotate(1deg);
 
 .btncancel:hover,
 .btnremarks:hover,
-.btnpaytype {
+.btnpaytype,
+.btnreceipt {
   background-color: #473a3a;
 }
 

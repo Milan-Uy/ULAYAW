@@ -651,10 +651,14 @@
                 data1 += "<td class='tdbs'>" + data.payload[i].status + "</td>";
                 data1 += "<td class='tdbs ispaid'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
                 if (data.payload[i].status === "Accepted") {
-                  data1 +=
-                    "<td><button class='" +
-                    data.payload[i]._id +
-                    " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
+                  if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
+                    data1 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Receipt</button></td>";
+                  } else {
+                    data1 +=
+                      "<td><button class='" +
+                      data.payload[i]._id +
+                      " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
+                  }
                 } else if (data.payload[i].status === "Rejected") {
                   data1 +=
                     "<td><button type='button' class='" + data.payload[i]._id + " btnremarks " + data.payload[i].remarks + "'>Remarks</button></td>";
@@ -693,6 +697,12 @@
           document.getElementById("remarksdesc").innerHTML = document.getElementById("hide-input").value;
           // document.getElementById("remarksdesc").innerHTML = e.target.classList[2];
           document.getElementsByClassName("popupremarks")[0].classList.add("active");
+        }
+        if (e.target.classList[1] === "btnreceipt") {
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          // sessionStorage.setItem("booking_id", bookingId);
+          window.location.replace("/c-receipt.html");
         }
       };
       document.body.addEventListener("click", saveBookingId);

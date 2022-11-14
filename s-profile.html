@@ -1055,10 +1055,16 @@
                 data2 += "<tr>"
                 data2 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
                 data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
-                data2 += "<td class='tdbs'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
-                if (data.payload[i].isPaid === false) {
+                data2 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
+                console.log(data.payload[i].paymentType)
+                console.log(data.payload[i].isPaid)
+                if (data.payload[i].paymentType === "Partial" && data.payload[i].isPaid === true) {
+            
                   data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnpaytype'>Mark as Fully Paid</button></td>";
-                } else if (data.payload[i].isPaid === true) {
+                } else if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
+                  data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Receipt</button></td>";
+                } 
+                else {
                   data2 += "<td class='tdbs1'></td>";
                 }
                 data2 += "</tr>"
@@ -1079,37 +1085,44 @@
       const saveBookingId2 = (e) => {
         // console.log(e);
         if (e.target.classList[1] === "btnpaytype") {
-          // let bookingId = e.target.classList[0];
-          // console.log(bookingId);
-          // sessionStorage.setItem("booking_id", bookingId);
-          // partialPay();
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          sessionStorage.setItem("booking_id", bookingId);
+          fullPay();
+        }
+
+        if (e.target.classList[1] === "btnreceipt") {
+          let bookingId = e.target.classList[0];
+          console.log(bookingId);
+          sessionStorage.setItem("booking_id", bookingId);
+          window.location.replace("/c-receipt.html");
         }
       };
       document.body.addEventListener("click", saveBookingId2);
 
-      const partialPay = () => {
+      const fullPay = () => {
         
 
-        // const data = {
-        //   status: "Partially Paid",
-        // };
-        // let options = {
-        //   method: "PUT",
-        //   headers: {
-        //     "Content-Type": "application/json;charset=utf-8",
-        //     Authorization: "Bearer " + localStorage.getItem("access_token"),
-        //   },
-        //   body: JSON.stringify(data),
-        // };
+        const data = {
+          paymentType: "Full",
+        };
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
 
-        // fetch("https://ulayaw-backend.herokuapp.com/booking/update/" + sessionStorage.getItem("booking_id"), options)
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     console.log(data);
-        // const ptype = document.getElementById("table_status");
-        // ptype.innerHTML = "";
-        // getProfile();
-        //   });
+        fetch("https://ulayaw-backend.herokuapp.com/booking/update/" + sessionStorage.getItem("booking_id"), options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+        const ptype = document.getElementById("table_status");
+        ptype.innerHTML = "";
+        getProfile();
+          });
           
       }
 
