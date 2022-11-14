@@ -549,11 +549,12 @@
 
               document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
                 document.getElementsByClassName("popup2")[0].classList.remove("active");
+                if (localStorage.getItem("access_token")) {
+                  window.location.replace("/c-profile.html");
+                }
               });
               //disable button when booking is created to prevent duplicate
               document.getElementById("confirmReservation").disabled = true;
-
-              window.location.replace("/c-profile.html");
             } else {
               document.getElementById("popupdesc").innerHTML = data.message;
 
