@@ -3344,7 +3344,6 @@ transform: scale(1) rotate(1deg);
   .edit-villaprice input {
     max-width: 170px;
     width: 100%;
-    margin-left: -25px;
   }
 }
 @media (max-width: 640px) {
@@ -3445,17 +3444,19 @@ transform: scale(1) rotate(1deg);
 .edit-villadesc,
 .edit-villainc,
 .edit-villaprice {
-  display: flex;
-  margin: 5px 10px;
+  display: block;
+  margin: 15px 10px;
 }
 .edit-villadetails label {
-  margin-right: 10px;
-  width: 120px;
+  margin-right: 20px;
+  width: 100%;
 }
 .edit-villaprice input {
   border-radius: 2px;
   border: 1px solid var(--heading-color);
   color: var(--txt-field-color);
+  max-width: 430px;
+  width: 100%;
 }
 .edit-villadetails textarea {
   resize: none;
@@ -3467,6 +3468,7 @@ transform: scale(1) rotate(1deg);
   color: var(--txt-field-color);
   float: right;
   font-family: "Montserrat";
+  margin-bottom: 15px;
 }
 .editvilla-btn {
   text-align: right;
