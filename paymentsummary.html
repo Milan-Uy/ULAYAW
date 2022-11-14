@@ -48,11 +48,11 @@
   <div class="col-50">
     <div class="containerps lc">
       <h3 style="padding-bottom: 10px;">Payment Options: </h3>
-      <span id="dpay" class="price">P12,675</span><label for="dpayment"> <input type="radio" value="Downpayment" name='pay_method' id='dpayment' /> Down Payment</label><span class="price" id="fpay">P25,350</span>
-      <label for="fpayment"> <input type="radio" value="Full Payment" name='pay_method' id='fpayment' /> Full Payment</label>
+      <span id="dpay" class="price">P12,675</span><label for="dpayment"> <input type="radio" value="Partial" name='pay_method' id='dpayment' /> Down Payment</label><span class="price" id="fpay">P25,350</span>
+      <label for="fpayment"> <input type="radio" value="Full" name='pay_method' id='fpayment' /> Full Payment</label>
         <hr>
         <img class="gcashicon" src="images/gcashicon.png" alt="gcashicon">
-        <input class="payment-btn" type="button" value="Proceed with Gcash Payment">
+        <input onclick="pay()" class="payment-btn" type="button" value="Proceed with Gcash Payment">
        
     </div>
   </div>
@@ -66,6 +66,28 @@
 </section>
 <script src="app.js"></script>
 <script>
+  const pay = () =>{
+    let paymentType = document.getElementById('fpayment').checked ? 'Full' : 'Partial';
+    let data = {
+      paymentType: paymentType
+    }
+    let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data)
+        };
+        let id = sessionStorage.getItem('booking_id')
+        fetch(`https://ulayaw-backend.herokuapp.com/booking/pay/${id}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            // navigate
+            window.open(data.data.attributes.redirect.checkout_url,'_parent');
+          })
+  }
   //Import Navbar
   $(function(){
         $("#nav-placeholder").load("navbar.html");
