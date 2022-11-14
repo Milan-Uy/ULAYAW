@@ -4490,6 +4490,7 @@ i.material-icons {
 }
 
 .rec-btn {
+  margin-right: 5px;
   cursor: pointer;
   padding: 5px 20px;
   color: white;

@@ -51,27 +51,27 @@
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Reference Number:</td>
-                    <td class="r-textf">CASA-3484398</td>
+                    <td class="r-textf" id="refNo">CASA-3484398</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Last Name:</td>
-                    <td class="r-textf">Villados</td>
+                    <td class="r-textf" id="lastName">Villados</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Name:</td>
-                    <td class="r-textf">Hannah Paula</td>
+                    <td class="r-textf" id="firstName">Hannah Paula</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Email Address:</td>
-                    <td class="r-textf">villadoshannah@gmail.com</td>
+                    <td class="r-textf" id="email">villadoshannah@gmail.com</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Contact Number:</td>
-                    <td class="r-textf">0956-298-2384</td>
+                    <td class="r-textf" id="contact">0956-298-2384</td>
                   </tr>
                 </table>
 
@@ -84,27 +84,27 @@
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Room:</td>
-                    <td class="r-textf">Casa Aurelia</td>
+                    <td class="r-textf" id="casaName">Casa Aurelia</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Date:</td>
-                    <td class="r-textf">08/08/22 - 08/20/22</td>
+                    <td class="r-textf" id="dateRange">08/08/22 - 08/20/22</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Guests:</td>
-                    <td class="r-textf">8 adults</td>
+                    <td class="r-textf" id="casaGuest">8 adults</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Time:</td>
-                    <td class="r-textf">1 Night</td>
+                    <td class="r-textf" id="days">1 Night</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Add ons:</td>
-                    <td class="r-textf">1 Extra Bed, 1 Extra Breakfast</td>
+                    <td class="r-textf" id="addOns">1 Extra Bed, 1 Extra Breakfast</td>
                   </tr>
                 </table>
 
@@ -116,7 +116,7 @@
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-pricetxt">Room Price</td>
-                    <td class="r-pricetxt" align="right">PHP 25,000.00</td>
+                    <td class="r-pricetxt" align="right" id="roomPrice">PHP 25,000.00</td>
                   </tr>
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-pricetxt">
@@ -158,8 +158,11 @@
 
                 <table class="qrtd-table">
                   <tr>
-                    <td class="qr-todo" style="width: 50%">Click the button below to generate your qr code. Bring this QR code to check-in. <br><br> <button id="generateQR" class="rec-btn" onclick="generateQR()">GENERATE QR</button></td></td>
-                    <td class="qr-todo" style="width: 50%">Click DOWNLOAD to save the QR code and/or Receipt on your device. <br><br> <button onclick="window.print()" class="rec-btn">DOWNLOAD</button></td>
+                    <td class="qr-todo" style="width: 50%">Save and scan this QR Code below to quickly navigate to your receipt. <br><br>
+                    <img id="qrCode">
+                    </td>
+                    <td class="qr-todo" style="width: 50%">Click DOWNLOAD to save the QR code and/or Receipt on your device. <br><br> <a  class="rec-btn" download id="qrRef">DOWNLOAD</a>
+                    <a onclick="window.print()" class="rec-btn">PRINT</a></td>
                   </tr>
                 </table>
 
@@ -194,6 +197,48 @@
         // qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
         document.getElementsByClassName("qr-code")[0].classList.add("active");
       };
+
+      const getBooking = () =>{
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+        console.log(id);
+
+        
+      let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/booking/getOne/${id}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            const booking = data.payload.booking;
+            if(data.payload){
+              document.getElementById('refNo').innerHTML = `CASA-${booking._id}`;
+              document.getElementById('lastName').innerHTML = `${booking.userId.lastName}`;
+              document.getElementById('firstName').innerHTML = `${booking.userId.firstName}`;
+              document.getElementById('email').innerHTML = `${booking.userId.email}`;
+              document.getElementById('contact').innerHTML = `${booking.userId.contact}`;
+              document.getElementById('casaName').innerHTML = `${booking.villaId.name}`;
+              document.getElementById('casaGuest').innerHTML = `${booking.noOfGuests} adults`;
+              document.getElementById('roomPrice').innerHTML = `PHP ${comma(booking.villaId[booking.bookingType].price)}.00`;
+              document.getElementById('qrCode').src = booking.qrCode;
+              document.getElementById('qrRef').href = booking.qrCode;
+            }
+          })
+      }
+      getBooking();
+
+
+
+      function comma(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
     </script>
   </body>
 </html>

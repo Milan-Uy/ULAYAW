@@ -702,7 +702,7 @@
           let bookingId = e.target.classList[0];
           console.log(bookingId);
           // sessionStorage.setItem("booking_id", bookingId);
-          window.location.replace("/c-receipt.html");
+          window.location.replace(`/c-receipt.html?id=${bookingId}`);
         }
       };
       document.body.addEventListener("click", saveBookingId);
