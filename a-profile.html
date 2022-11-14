@@ -60,19 +60,19 @@
                   <button>
                     <li class="grid-item">
                       <i class="material-symbols-rounded"> groups </i>
-                      <h3>98 users</h3>
+                      <h3><span id="total-guest"></span> Guests</h3>
                     </li>
                   </button>
                   <button>
                     <li class="grid-item">
                       <i class="material-symbols-rounded"> forum </i>
-                      <h3>71 feedbacks</h3>
+                      <h3><span id="total-cs"></span> Feedbacks</h3>
                     </li>
                   </button>
                   <button>
                     <li class="grid-item">
                       <i class="material-symbols-rounded"> perm_media </i>
-                      <h3>90 moments</h3>
+                      <h3><span id="total-moment"></span> Moments</h3>
                     </li>
                   </button>
                 </ul>
@@ -1013,6 +1013,47 @@
     </section>
     <script src="app.js"></script>
     <script>
+      const displayUserAmt = async () => {
+        let users = await getGuests(null, null);
+        document.getElementById("total-guest").innerText = users.length;
+      };
+      displayUserAmt();
+
+      const displayCS = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            // Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+        fetch("https://ulayaw-backend.herokuapp.com/user/customerSatisfaction", options)
+          .then((response) => response.json())
+          .then((data) => {
+            // console.log(data);
+            document.getElementById("total-cs").innerText = data.payload.length;
+          });
+      };
+      displayCS();
+
+      const displayMoment = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/moment/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            // console.log(data);
+            document.getElementById("total-moment").innerText = data.payload.length;
+          });
+      };
+      displayMoment();
+
       const addUser = () => {
         const firstName = document.getElementById("a_firstName").value;
         const lastName = document.getElementById("a_lastName").value;
