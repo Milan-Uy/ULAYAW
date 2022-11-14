@@ -1914,7 +1914,7 @@ hr {
 .available-rooms {
   background-color: var(--mainbg-color);
   margin-top: -100px;
-  padding-top: 100px;
+  padding-top: 150px;
   padding-bottom: 100px;
 }
 .blog-card {
@@ -3455,8 +3455,9 @@ transform: scale(1) rotate(1deg);
   border-radius: 2px;
   border: 1px solid var(--heading-color);
   color: var(--txt-field-color);
-  max-width: 430px;
+  max-width: 180px;
   width: 100%;
+  text-align: right;
 }
 .edit-villadetails textarea {
   resize: none;
@@ -3486,14 +3487,19 @@ transform: scale(1) rotate(1deg);
   border-radius: 5px;
 }
 .canceledit-btn {
-  border: 1px solid #10393f;
+  border: 1px solid #d6d6d6;
   color: var(--txt-field-color);
   border-radius: 5px;
 }
 .editvilla-btn .canceledit-btn:hover,
 .editvilla-btn .saveedit-btn:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 2px rgba(34, 34, 34, 0.2) inset;
+}
+.saveedit-btn:hover {
+  background: #10393f;
+}
+.canceledit-btn:hover {
+  background: #bdbdbd;
 }
 .upload-accord {
   font-family: "Raleway", sans-serif;
