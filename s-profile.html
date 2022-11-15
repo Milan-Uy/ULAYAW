@@ -1682,6 +1682,7 @@
             var data1 = "";
             var data2 = "";
             for (i = 0; i < data.payload.length; i++) {
+              // if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
               // get sum
               sumTotal += data.payload[i].totalAmount;
               console.log(data.payload[i].totalAmount)
@@ -1693,6 +1694,7 @@
               data1 += "<td class='tdbs'>testing</td>";
               data1 += "<td class='tdbs1'>" + comma(data.payload[i].totalAmount) + ".00</td>";
               data1 += "</tr>";
+              // }
           }
             document.getElementById('grandTotal').innerHTML = `&#8369; ${comma(sumTotal)}.00`
             // data2 += "<tr>";
