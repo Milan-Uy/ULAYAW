@@ -1428,23 +1428,23 @@
               `);
                 }
           });
-          $(".tablemanager").tablemanager({
-            firstSort: [
-              [3, 0],
-              [2, 0],
-              [1, "asc"],
-            ],
-            disable: ["last"],
-            appendFilterby: true,
-            debug: true,
-            vocabulary: {
-              voc_filter_by: "Filter By",
-              voc_type_here_filter: "Filter...",
-              voc_show_rows: "Rows per Page",
-            },
-            pagination: true,
-            showrows: [5, 10, 20, 50, 100],
-          });
+          // $(".tablemanager").tablemanager({
+          //   firstSort: [
+          //     [3, 0],
+          //     [2, 0],
+          //     [1, "asc"],
+          //   ],
+          //   disable: ["last"],
+          //   appendFilterby: true,
+          //   debug: true,
+          //   vocabulary: {
+          //     voc_filter_by: "Filter By",
+          //     voc_type_here_filter: "Filter...",
+          //     voc_show_rows: "Rows per Page",
+          //   },
+          //   pagination: true,
+          //   showrows: [5, 10, 20, 50, 100],
+          // });
         });
       }
       manageBookings();
@@ -1469,13 +1469,13 @@
           console.log(data.payload);
 
           data.payload.forEach((user) => {
-            if(user.status === "Accepted") {
+            if(user.status === "Accepted" || user.status === "Rejected") {
             $("#table_completed").append(`
               <tr>;
                  <td class='tdbs'>${user._id}</td>
                  <td class='tdbs'>${convertDate(user.startDate)} to ${convertDate(user.endDate)}</td>
                  <td class='tdbs'>${convertDate(user.dateBooked)}</td>
-                 <td class='tdbs'>${user.paymentType}</td>
+                 <td class='tdbs'>${user.status}</td>
                  </tr>
               `);
                 }
