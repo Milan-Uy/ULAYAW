@@ -4590,12 +4590,12 @@ i.material-icons {
   cursor: pointer;
 }
 .download-pdf {
-  background: url("/icons/pdf.png") no-repeat right;
+  background: url("/icons/print.png") no-repeat right;
   background-size: 40px;
   width: 45px;
   height: 48px;
   border: none;
-  margin-top: 32px;
+  margin-top: 36px;
 }
 .download-pdf:hover {
   width: 45px;
