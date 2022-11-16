@@ -634,12 +634,15 @@
             Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
         };
-        console.log(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`);
+        // console.log(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`);
         fetch(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`, options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
             // console.log(data.payload.length);
+            data.payload = data.payload.sort((a, b) => {
+              return new Date(b.dateBooked) - new Date(a.dateBooked);
+            });
             if (data.payload.length > 0) {
               var data1 = "";
               for (i = 0; i < data.payload.length; i++) {
@@ -651,7 +654,7 @@
                 data1 += "<td class='tdbs'>" + data.payload[i].status + "</td>";
                 data1 += "<td class='tdbs ispaid'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
                 if (data.payload[i].status === "Accepted") {
-                  if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
+                  if (data.payload[i].isPaid === true) {
                     data1 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Receipt</button></td>";
                   } else {
                     data1 +=

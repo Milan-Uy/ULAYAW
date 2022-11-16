@@ -32,7 +32,7 @@
               <td class="receipt-content">
                 <div>
                   <p class="receipt-texts">Hello</p>
-                  <p class="receipt-texts">Hannah Paula,</p>
+                  <p class="receipt-texts" id="guestName">Guest Name</p>
                 </div>
 
                 <p class="receipt-texts">
@@ -56,22 +56,22 @@
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Last Name:</td>
-                    <td class="r-textf" id="lastName">Villados</td>
+                    <td class="r-textf" id="lastName">fname</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
-                    <td class="r-textf tfleft">Name:</td>
-                    <td class="r-textf" id="firstName">Hannah Paula</td>
+                    <td class="r-textf tfleft">First Name:</td>
+                    <td class="r-textf" id="firstName">lname</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Email Address:</td>
-                    <td class="r-textf" id="email">villadoshannah@gmail.com</td>
+                    <td class="r-textf" id="email">email@gmail.com</td>
                   </tr>
 
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-textf tfleft">Contact Number:</td>
-                    <td class="r-textf" id="contact">0956-298-2384</td>
+                    <td class="r-textf" id="contact">0000-000-000</td>
                   </tr>
                 </table>
 
@@ -240,11 +240,13 @@
             const booking = data.payload.booking;
             if(data.payload){
               document.getElementById('refNo').innerHTML = `CASA-${booking._id}`;
+              document.getElementById('guestName').innerHTML = `${booking.userId.firstName} ${booking.userId.lastName}`;
               document.getElementById('lastName').innerHTML = `${booking.userId.lastName}`;
               document.getElementById('firstName').innerHTML = `${booking.userId.firstName}`;
               document.getElementById('email').innerHTML = `${booking.userId.email}`;
               document.getElementById('contact').innerHTML = `${booking.userId.contact}`;
               document.getElementById('casaName').innerHTML = `${booking.villaId.name}`;
+              document.getElementById('dateRange').innerHTML = `${convertDate(booking.startDate)} - ${convertDate(booking.endDate)}`;
               document.getElementById('casaGuest').innerHTML = `${booking.noOfGuests} guest/s`;
               document.getElementById('roomPrice').innerHTML = `PHP ${comma(booking.villaId[booking.bookingType].price)}.00`;
               document.getElementById('totalAmt').innerHTML = `PHP ${comma(booking.totalAmount)}.00`;

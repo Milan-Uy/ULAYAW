@@ -1234,7 +1234,7 @@
       const displayUsers = async () => {
         let users = await getGuests(null, null);
         console.log(users);
-        console.log(users.length);
+        // console.log(users.length);
         if (users.length > 0) {
         var data1 = "";
         for (i = 0; i < users.length; i++) {
@@ -1257,37 +1257,6 @@
 
         const pending = document.getElementById("table_users");
         pending.innerHTML = "";
-
-        // let users = await getGuests(null, null);
-        // console.log(users);
-        // if (users.length > 0) {
-        // var data1 = "";
-        // for (i = 0; i < users.length; i++) {
-        // data1 += "<tr>"
-        // data1 +=  "<td class='box'>" + users[i].firstName +" " + users[i].lastName + "</td>"
-        // data1 +=  "<td>" + users[i].email +"</td>"
-        // data1 +=  "<td><button class='view-btn "+users[i].firstName+" "+users[i].lastName+" "+users[i].email+" "+users[i].contact+" "+users[i]._id+"' onclick='showUser()'>View</button></td>"
-        // data1 +=  "</tr>"
-        // }
-        // $("#table_users").html(data1);
-        // }
-
-        // let cards = document.querySelectorAll('.box1')
-    
-        
-        //     let search_query = document.getElementById("myInput").value;
-    
-        //   //Use innerText if all contents are visible
-        //   //Use textContent for including hidden elements
-        //   for (var i = 0; i < cards.length; i++) {
-        //       if(cards[i].textContent.toLowerCase()
-        //               .includes(search_query.toLowerCase())) {
-        //           cards[i].classList.remove("is-hidden");
-        //       } 
-        //       else {
-        //           cards[i].classList.add("is-hidden");
-        //       }
-        //       }
 
         let options = {
         method: "GET",
@@ -1340,6 +1309,9 @@
           .then((data) => {
             console.log(data);
             // console.log(data.payload[0]._id);
+            data.payload = data.payload.sort((a,b)=>{
+            return new Date(b.dateBooked) - new Date(a.dateBooked)
+          })
             var data2 = "";
               $("#table_status").html(data2);
             if (data.payload.length > 0) {
@@ -1379,16 +1351,15 @@
       const saveBookingId2 = (e) => {
         // console.log(e);
         if (e.target.classList[1] === "btnpaytype") {
-          let bookingId = e.target.classList[0];
-          console.log(bookingId);
-          sessionStorage.setItem("booking_id", bookingId);
+          let bookingId2 = e.target.classList[0];
+          console.log(bookingId2);
+          sessionStorage.setItem("booking_id2", bookingId2);
           fullPay();
         }
       };
       document.body.addEventListener("click", saveBookingId2);
 
       const fullPay = () => {
-        
 
         const data = {
           paymentType: "Full",
@@ -1402,7 +1373,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/booking/update/" + sessionStorage.getItem("booking_id"), options)
+        fetch("https://ulayaw-backend.herokuapp.com/booking/update/" + sessionStorage.getItem("booking_id2"), options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1708,7 +1679,7 @@
             var data1 = "";
             var data2 = "";
             for (i = 0; i < data.payload.length; i++) {
-              // if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
+              if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
               // get sum
               sumTotal += data.payload[i].totalAmount;
               console.log(data.payload[i].totalAmount)
@@ -1716,11 +1687,10 @@
               data1 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
               data1 += "<td class='tdbs'>" + data.payload[i].userId.firstName + " " + data.payload[i].userId.lastName + "</td>";
               data1 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
-              // data1 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
-              data1 += "<td class='tdbs'>testing</td>";
+              data1 += "<td class='tdbs'>" + convertDate(data.payload[i].datePaid) + "</td>";
               data1 += "<td class='tdbs1'>" + comma(data.payload[i].totalAmount) + ".00</td>";
               data1 += "</tr>";
-              // }
+              }
           }
             document.getElementById('grandTotal').innerHTML = `&#8369; ${comma(sumTotal)}.00`
             // data2 += "<tr>";
