@@ -800,7 +800,7 @@
   cursor: pointer;
 }
 
-.tablemanager th.sorterHeader:after {
+/* .tablemanager th.sorterHeader:after {
   content: " \f0dc";
   font-family: "FontAwesome";
 }
@@ -813,7 +813,7 @@
 .tablemanager th.soringAsc:after {
   content: "\f0de";
   font-family: "FontAwesome";
-}
+} */
 
 .tablemanager th.disableSort {
 }
