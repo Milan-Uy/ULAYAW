@@ -5520,3 +5520,50 @@ button:focus {
 .cancelBtn:hover {
   color: #ffff;
 }
+
+/*Pagination*/
+.for_numrows label,
+.for_filter_by label {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+#numrows,
+#filter_by,
+#filter_input {
+  text-align: right;
+  padding: 5px !important;
+  width: 120px;
+  border-radius: 5px;
+  border-radius: solid 1px #c6c2c2;
+}
+#filter_by,
+#filter_input {
+  text-align: left;
+}
+.pagesControllers {
+  margin-top: 30px;
+}
+.pagecontroller {
+  color: var(--txt-field-color);
+  background-color: transparent;
+  border: solid 1px #c6c2c2;
+  border-radius: 5px;
+  padding: 7px 4px;
+  width: 50px;
+  margin: 0px 2px;
+}
+.pagecontroller:hover {
+  background-color: #392a2a;
+  border-radius: 5px;
+  color: #fff;
+  padding: 7px 4px;
+}
+.currentPage {
+  background-color: var(--heading-color);
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 7px 4px;
+}
