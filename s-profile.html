@@ -48,9 +48,19 @@
   </head>
   <body>
     <!--Navbar-->
-    <section class="display-navbar">
-      <div id="nav-placeholder"></div>
-    </section>
+    <header class="nav-header">
+      <div class="navbar-container">
+        <div class="navbar-img">
+          <img src="images/hulo-brwn.png" alt="Hulo Logo" />
+        </div>
+        <div class="navbar">
+          <ul>
+            <li id="nameTag2"><p>Welcome, Unknown User</p></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!--End of Navbar-->
     <!--Profile-->
     <section class="sidebar-tabs">
       <div class="sidebar s-container">
@@ -620,6 +630,8 @@
     </section>
     <script src="app.js"></script>
     <script>
+      //navbar
+      nameTagStaff();
       
       const hideManageMoments = () => {
     if (localStorage.getItem("access_token")) {
