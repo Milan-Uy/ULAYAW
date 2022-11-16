@@ -161,6 +161,7 @@
                 <h5>Guest List</h5>
               <input type="text" id="myInput"  placeholder="Search Users.." class="search-mu" />
               <button onclick="searchUser()" class="apply-btn">Search</button>
+              <button onclick="displayUsers()" class="apply-btn">Clear</button>
                 <table id="myTable">
                   <thead>
                     <tr class="header">
@@ -1251,11 +1252,11 @@
 
 
       const searchUser = async () => {
-        // let insearch = document.getElementById("myInput").value;
-        // console.log(insearch);
+        let insearch = document.getElementById("myInput").value;
+        console.log(insearch);
 
-        // const pending = document.getElementById("table_users");
-        // pending.innerHTML = "";
+        const pending = document.getElementById("table_users");
+        pending.innerHTML = "";
 
         // let users = await getGuests(null, null);
         // console.log(users);
@@ -1287,6 +1288,31 @@
         //           cards[i].classList.add("is-hidden");
         //       }
         //       }
+
+        let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+        };
+
+        fetch(`https://ulayaw-backend.herokuapp.com/user/getGuests?searchKey=${insearch}`, options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data.payload.length > 0) {
+            var data1 = "";
+            for (i = 0; i < data.payload.length; i++) {
+              data1 += "<tr>"
+              data1 +=  "<td>" + data.payload[i].firstName +" " + data.payload[i].lastName + "</td>"
+              data1 +=  "<td>" + data.payload[i].email +"</td>"
+              data1 +=  "<td><button class='view-btn "+data.payload[i].firstName+" "+data.payload[i].lastName+" "+data.payload[i].email+" "+data.payload[i].contact+" "+data.payload[i]._id+"' onclick='showUser()'>View</button></td>"
+              data1 +=  "</tr>"
+            }
+            $("#table_users").html(data1);
+          }
+        });        
 
       }
       
