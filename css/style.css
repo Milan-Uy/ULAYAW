@@ -794,3 +794,41 @@
   font-weight: bold;
   border-bottom: 3px solid #1b5b65;
 }
+
+/* table manager pagination */
+.tablemanager th.sorterHeader {
+  cursor: pointer;
+}
+
+/* .tablemanager th.sorterHeader:after {
+  content: " \f0dc";
+  font-family: "FontAwesome";
+}
+
+.tablemanager th.sortingDesc:after {
+  content: "\f0dd";
+  font-family: "FontAwesome";
+}
+
+.tablemanager th.soringAsc:after {
+  content: "\f0de";
+  font-family: "FontAwesome";
+} */
+
+.tablemanager th.disableSort {
+}
+
+#for_numrows {
+  padding: 10px;
+  float: left;
+}
+
+#for_filter_by {
+  padding: 10px;
+  float: right;
+}
+
+#pagesControllers {
+  display: block;
+  text-align: center;
+}

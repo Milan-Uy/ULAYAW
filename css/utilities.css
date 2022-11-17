@@ -339,7 +339,8 @@
 .faqs-header h1,
 .villas-header h1,
 .moments-header h1,
-.tnc-header h1 {
+.tnc-header h1,
+.cs-header h1 {
   margin-left: 100px;
   font-family: "Cinzel";
   font-style: normal;
@@ -2377,6 +2378,7 @@ transform: scale(1) rotate(1deg);
   margin-top: 40px;
   overflow-x: auto;
   border-collapse: collapse;
+  font-size: 13px;
 }
 
 .ststbl {
@@ -2829,8 +2831,13 @@ footer .bottom a:hover {
   border-radius: 6rem;
   border: 1px solid #a0a0a0;
   padding: 0.6rem 2rem 0.6rem 1rem;
-  width: 20rem;
+  width: 25rem;
   margin-top: 20px;
+  vertical-align: bottom;
+}
+
+.search-sec {
+  text-align: ;
 }
 
 .search-mu:focus {
@@ -4590,12 +4597,12 @@ i.material-icons {
   cursor: pointer;
 }
 .download-pdf {
-  background: url("/icons/pdf.png") no-repeat right;
+  background: url("/icons/print.png") no-repeat right;
   background-size: 40px;
   width: 45px;
   height: 48px;
   border: none;
-  margin-top: 32px;
+  margin-top: 36px;
 }
 .download-pdf:hover {
   width: 45px;
@@ -4630,6 +4637,31 @@ i.material-icons {
   cursor: pointer;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1) inset;
   background-color: #473a3a;
+}
+
+.apply-btn1 {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  margin-top: 0px;
+  background-color: transparent;
+}
+
+.musearch {
+  margin-left: -90px;
+}
+
+.muclear {
+  margin-left: -11px;
+}
+
+.muicon {
+  color: #333;
+}
+.apply-btn1:hover {
+  cursor: pointer;
 }
 
 /*View Guest List*/
@@ -5519,4 +5551,134 @@ button:focus {
 }
 .cancelBtn:hover {
   color: #ffff;
+}
+
+/*Pagination*/
+.for_numrows label,
+.for_filter_by label {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+#numrows,
+#filter_by,
+#filter_input {
+  text-align: right;
+  padding: 5px !important;
+  width: 120px;
+  border-radius: 5px;
+  border-radius: solid 1px #c6c2c2;
+  cursor: pointer;
+}
+#filter_by,
+#filter_input {
+  text-align: left;
+}
+.pagesControllers {
+  margin-top: 30px;
+}
+.pagecontroller {
+  color: var(--txt-field-color);
+  background-color: transparent;
+  border: solid 1px #c6c2c2;
+  border-radius: 5px;
+  padding: 7px 4px;
+  width: 50px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+.pagecontroller:hover {
+  background-color: #392a2a;
+  border-radius: 5px;
+  color: #fff;
+  padding: 7px 4px;
+}
+.currentPage {
+  background-color: var(--heading-color);
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 7px 4px;
+}
+
+/*Customer Satisfaction Page*/
+.cs-header {
+  display: flex;
+  align-items: center;
+  min-height: 50vh;
+}
+.cs-header::before {
+  content: "";
+  background: url(/images/momentheader.png) no-repeat center center/cover;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  z-index: -1;
+}
+.bodycs {
+  background-color: #fffbf5;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -100px;
+  padding-bottom: 100px;
+}
+.display-cs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px 0 0 -10px;
+  width: 100%;
+  justify-content: center;
+}
+.container-cs {
+  width: 1400px;
+  margin: auto;
+  margin-top: 80px;
+}
+.cs-card {
+  border-radius: 15px;
+  max-width: 300px;
+  background-color: #fff;
+  width: 100%;
+  flex-wrap: wrap;
+  display: inline-block;
+  margin: 10px 0 20px 10px;
+  flex-grow: 1;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+.cs-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px;
+}
+.cs-card-body p {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(70, 68, 68);
+}
+.cs-user {
+  display: flex;
+  margin-top: auto;
+  justify-content: space-between;
+  align-items: end;
+}
+.user-info {
+  width: 220px;
+}
+.user-info h5 {
+  margin: 0;
+}
+.user-img {
+  float: right;
+}
+.user-img img {
+  width: 40px;
+  height: 40px;
+}
+.user-info small {
+  color: #888785;
 }

@@ -8,6 +8,16 @@
     
     h5 {
       font-size: 22px !important;
+      margin-left: -120px;
+      margin-top: 40px;
+    }
+    .sales-result{
+      margin-left: -120px;
+      margin-top: -100px;
+    }
+
+    .tdbs, .tdbs1{
+      font-size: 10px !important;
     }
 
   }
@@ -18,10 +28,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" /> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="tableManager.js"></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -29,14 +42,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
 
     <title>Profile</title>
+   
   </head>
   <body>
     <!--Navbar-->
-    <section class="display-navbar">
-      <div id="nav-placeholder"></div>
-    </section>
+    <header class="nav-header">
+      <div class="navbar-container">
+        <div class="navbar-img">
+          <img src="images/hulo-brwn.png" alt="Hulo Logo" />
+        </div>
+        <div class="navbar">
+          <ul>
+            <li id="nameTag2"><p>Welcome, Unknown User</p></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!--End of Navbar-->
     <!--Profile-->
     <section class="sidebar-tabs">
       <div class="sidebar s-container">
@@ -170,9 +195,15 @@
             <div id="tabTwo" class="tab-item">
               <div class="guest-list" id="list">
                 <h5>Guest List</h5>
+                <div class="search-sec">
               <input type="text" id="myInput"  placeholder="Search Users.." class="search-mu" />
-              <button onclick="searchUser()" class="apply-btn">Search</button>
-              <button onclick="displayUsers()" class="apply-btn">Clear</button>
+              <button onclick="searchUser()" class="apply-btn1 musearch"><span class="material-symbols-outlined muicon">
+                search
+                </span></button>
+              <button onclick="displayUsers()" class="apply-btn1 muclear"><span class="material-symbols-outlined muicon">
+                backspace
+                </span></button>
+              </div>
                 <table id="myTable">
                   <thead>
                     <tr class="header">
@@ -326,7 +357,7 @@
                       <td class="tdbs1"><button type="button" class="btncancel">DONE</button></td>
                     </tbody> -->
               </dl>
-
+<!-- 
               <div class="tab-pagination p1">
                 <ul>
                   <a href="#" class="pgntn-arrow" ><li><</li></a>
@@ -338,7 +369,7 @@
                   <a href="#"><li>6</li></a>
                   <a href="#" class="pgntn-arrow"><li>></li></a>
                 </ul>
-              </div>
+              </div> -->
 
               <!-- <table id="pager" class="wp-list-table widefat striped posts">
                 <thead>
@@ -388,13 +419,14 @@
              <div id="tabSix" class="tab-item">
               <h5>Reservation List</h5>
                 <dd>
-                   <table class="ststbl" style="margin-top: 10px">
+                   <table class="tablemanager ststbl" style="margin-top: 10px">
                       <thead>
                         <tr>
                           <th class="thbs">Ref. No.</th>
                           <th class="thbs">Reserved Date</th>
                           <th class="thbs">Reservation Created</th>
                           <th class="thbs">Status</th>
+                          <!-- <th class="disableFilterBy disableSort thbs">Status</th> -->
                         </tr>
                       </thead>
                      <tbody id="table_completed">
@@ -418,20 +450,6 @@
                       </table>
                     </dd>
                   </dl>
-
-                  <div class="tab-pagination p1">
-                    <ul>
-                      <a href="#" class="pgntn-arrow"><li><</li></a>
-                      <a class="is-active" href="#"><li>1</li></a>
-                      <a href="#"><li>2</li></a>
-                      <a href="#"><li>3</li></a>
-                      <a href="#"><li>4</li></a>
-                      <a href="#"><li>5</li></a>
-                      <a href="#"><li>6</li></a>
-                      <a href="#" class="pgntn-arrow"><li>></li></a>
-                    </ul>
-                  </div>
-
                 </div>
             
                <!-- START OF POPUP -->
@@ -618,8 +636,9 @@
       </div>
     </section>
     <script src="app.js"></script>
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CESDK2J7&placement=getbutterflycom" id="_carbonads_js"></script>
     <script>
+      //navbar
+      nameTagStaff();
       
       const hideManageMoments = () => {
     if (localStorage.getItem("access_token")) {
@@ -631,9 +650,9 @@
     hideManageMoments();
 
       //Import Navbar
-      $(function () {
-        $("#nav-placeholder").load("navbar-staff.html");
-      });
+      // $(function () {
+      //   $("#nav-placeholder").load("navbar-staff.html");
+      // });
 
       //Import Footer
         $(function () {
@@ -1332,15 +1351,12 @@
                 data2 += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
                 data2 += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
                 data2 += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
-                console.log(data.payload[i].paymentType)
-                console.log(data.payload[i].isPaid)
+                
                 if (data.payload[i].paymentType === "Partial" && data.payload[i].isPaid === true) {
             
                   data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnpaytype'>Mark as Fully Paid</button></td>";
                 }
-                // else if (data.payload[i].paymentType === "Full" && data.payload[i].isPaid === true) {
-                //   data2 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Receipt</button></td>";
-                // } 
+
                 else {
                   data2 += "<td class='tdbs1'></td>";
                 }
@@ -1399,66 +1415,111 @@
       
 
       const manageBookings = () => {
-        let id = localStorage.getItem("user_id");
-        console.log(id);
-        
         let options = {
         method: "GET",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },
-        };
+      };
 
-        fetch("https://ulayaw-backend.herokuapp.com/booking/get?", options)
+      fetch("https://ulayaw-backend.herokuapp.com/booking/get?", options)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          data.payload = data.payload.sort((a,b)=>{
-            return new Date(b.dateBooked) - new Date(a.dateBooked)
-          })
+          // data.payload = data.payload.sort((a, b) => {
+          //   return new Date(b.dateBooked) - new Date(a.dateBooked);
+          // });
           console.log(data.payload);
-        
-          if (data.payload.length > 0) {
-            var pending = "";
-            // var upcoming = "";
-            var completed = "";
-            for (i = 0; i < data.payload.length; i++) {
-              if (data.payload[i].status === "Pending") {
-                pending += "<tr>";
-                pending += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
-                pending += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
-                pending += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
-                pending += "<td class='tdbs'>" + data.payload[i].paymentType + "</td>";
-                pending += "<td class='tdbs1'>";
-                pending += "<button type='button'  class='" + data.payload[i]._id + " cancel material-symbols-outlined'>cancel</button>";
-                pending += "<button type='button' class='" + data.payload[i]._id + " check material-symbols-outlined'>check_circle</button>";
-                pending += "</td>";
-                pending += "</tr>";
-              } else {
-                completed += "<tr>";
-                completed += "<td class='tdbs'>" + data.payload[i]._id + "</td>";
-                completed += "<td class='tdbs'>" + convertDate(data.payload[i].startDate) + " to " + convertDate(data.payload[i].endDate) + "</td>";
-                completed += "<td class='tdbs'>" + convertDate(data.payload[i].dateBooked) + "</td>";
-                completed += "<td class='tdbs1'>" + data.payload[i].status + "</td>";
-                completed += "</tr>";
-              }
-            }
-          $("#table_pending").html(pending);
-          $("#table_completed").html(completed);
-          }
+
+          data.payload.forEach((user) => {
+            if(user.status === "Pending") {
+            $("#table_pending").append(`
+              <tr>;
+                 <td class='tdbs'>${user._id}</td>
+                 <td class='tdbs'>${convertDate(user.startDate)} to ${convertDate(user.endDate)}</td>
+                 <td class='tdbs'>${convertDate(user.dateBooked)}</td>
+                 <td class='tdbs'>${user.paymentType}</td>
+                 <td class='tdbs1'>
+                 <button type='button'  class='${user._id} cancel material-symbols-outlined'>cancel</button>
+                 <button type='button' class='${user._id} check material-symbols-outlined'>check_circle</button>
+                 </td>
+                 </tr>
+              `);
+                }
+          });
+          // $(".tablemanager").tablemanager({
+          //   firstSort: [
+          //     [3, 0],
+          //     [2, 0],
+          //     [1, "asc"],
+          //   ],
+          //   disable: ["last"],
+          //   appendFilterby: true,
+          //   debug: true,
+          //   vocabulary: {
+          //     voc_filter_by: "Filter By",
+          //     voc_type_here_filter: "Filter...",
+          //     voc_show_rows: "Rows per Page",
+          //   },
+          //   pagination: true,
+          //   showrows: [5, 10, 20, 50, 100],
+          // });
         });
-
-        // upcoming += "<tr>";
-        // upcoming += "<td class='tdbs'>testing</td>";
-        // upcoming += "<td class='tdbs'>testing</td>";
-        // upcoming += "<td class='tdbs'>testing</td>";
-        // upcoming += "<td class='tdbs1'><button type='button' class='btncancel'>DONE</button></td>";
-        // upcoming += "</tr>";
-        // $("#table_upcoming").html(upcoming);
-
       }
       manageBookings();
+
+
+      const reservationList = () => {
+        let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      };
+
+      fetch("https://ulayaw-backend.herokuapp.com/booking/get?", options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // data.payload = data.payload.sort((a, b) => {
+          //   return new Date(b.dateBooked) - new Date(a.dateBooked);
+          // });
+          console.log(data.payload);
+
+          data.payload.forEach((user) => {
+            if(user.status === "Accepted" || user.status === "Rejected") {
+            $("#table_completed").append(`
+              <tr>;
+                 <td class='tdbs'>${user._id}</td>
+                 <td class='tdbs'>${convertDate(user.startDate)} to ${convertDate(user.endDate)}</td>
+                 <td class='tdbs'>${convertDate(user.dateBooked)}</td>
+                 <td class='tdbs'>${user.status}</td>
+                 </tr>
+              `);
+                }
+          });
+          $(".tablemanager").tablemanager({
+            firstSort: [
+              [3, 0],
+              [2, 0],
+              [1, "asc"],
+            ],
+            disable: ["last"],
+            appendFilterby: true,
+            debug: true,
+            vocabulary: {
+              voc_filter_by: "Filter By",
+              voc_type_here_filter: "Filter...",
+              voc_show_rows: "Rows per Page",
+            },
+            pagination: true,
+            showrows: [5, 10, 20, 50, 100],
+          });
+        });
+      }
+      reservationList();
 
       const saveBookingId = (e) => {
         // console.log(e);
@@ -1779,109 +1840,6 @@
         document.getElementsByClassName("alert-rejectb")[0].classList.remove("show");
       });
 
-      // PAGINATION
-//       function Pager(tableName, itemsPerPage) {
-//     'use strict';
-
-//     this.tableName = tableName;
-//     this.itemsPerPage = itemsPerPage;
-//     this.currentPage = 1;
-//     this.pages = 0;
-//     this.inited = false;
-
-//     this.showRecords = function (from, to) {
-//         let rows = document.getElementById(tableName).rows;
-
-//         // i starts from 1 to skip table header row
-//         for (let i = 1; i < rows.length; i++) {
-//             if (i < from || i > to) {
-//                 rows[i].style.display = 'none';
-//             } else {
-//                 rows[i].style.display = '';
-//             }
-//         }
-//     };
-
-//     this.showPage = function (pageNumber) {
-//         if (!this.inited) {
-//             // Not initialized
-//             return;
-//         }
-
-//         let oldPageAnchor = document.getElementById('pg' + this.currentPage);
-//         oldPageAnchor.className = 'pg-normal';
-
-//         this.currentPage = pageNumber;
-//         let newPageAnchor = document.getElementById('pg' + this.currentPage);
-//         newPageAnchor.className = 'pg-selected';
-
-//         let from = (pageNumber - 1) * itemsPerPage + 1;
-//         let to = from + itemsPerPage - 1;
-//         this.showRecords(from, to);
-
-//         let pgNext = document.querySelector('.pg-next'),
-//             pgPrev = document.querySelector('.pg-prev');
-
-//         if (this.currentPage == this.pages) {
-//             pgNext.style.display = 'none';
-//         } else {
-//             pgNext.style.display = '';
-//         }
-
-//         if (this.currentPage === 1) {
-//             pgPrev.style.display = 'none';
-//         } else {
-//             pgPrev.style.display = '';
-//         }
-//     };
-
-//     this.prev = function () {
-//         if (this.currentPage > 1) {
-//             this.showPage(this.currentPage - 1);
-//         }
-//     };
-
-//     this.next = function () {
-//         if (this.currentPage < this.pages) {
-//             this.showPage(this.currentPage + 1);
-//         }
-//     };
-
-//     this.init = function () {
-//         let rows = document.getElementById(tableName).rows;
-//         let records = (rows.length - 1);
-
-//         this.pages = Math.ceil(records / itemsPerPage);
-//         this.inited = true;
-//     };
-
-//     this.showPageNav = function (pagerName, positionId) {
-//         if (!this.inited) {
-//             // Not initialized
-//             return;
-//         }
-
-//         let element = document.getElementById(positionId),
-//             pagerHtml = '<span onclick="' + pagerName + '.prev();" class="pg-normal pg-prev">&#171;</span>';
-
-//         for (let page = 1; page <= this.pages; page++) {
-//             pagerHtml += '<span id="pg' + page + '" class="pg-normal pg-next" onclick="' + pagerName + '.showPage(' + page + ');">' + page + '</span>';
-//         }
-
-//         pagerHtml += '<span onclick="' + pagerName + '.next();" class="pg-normal">&#187;</span>';
-
-//         element.innerHTML = pagerHtml;
-//     };
-// }
-
-
-
-//
-// let pager = new Pager('pager', 2);
-
-// pager.init();
-// pager.showPageNav('pager', 'pageNavPosition');
-// pager.showPage(1);
 
       const logout = () => {
         localStorage.clear();
