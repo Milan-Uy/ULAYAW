@@ -655,7 +655,8 @@
                 data1 += "<td class='tdbs ispaid'>" + convertPaymentStatus(data.payload[i].isPaid) + "</td>";
                 if (data.payload[i].status === "Accepted") {
                   if (data.payload[i].isPaid === true) {
-                    data1 += "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Receipt</button></td>";
+                    data1 +=
+                      "<td class='tdbs1'><button type='button' class='" + data.payload[i]._id + " btnreceipt'>View Proof of payment</button></td>";
                   } else {
                     data1 +=
                       "<td><button class='" +

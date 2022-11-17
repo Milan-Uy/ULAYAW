@@ -13,6 +13,9 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="tableManager.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" />
     <title>Customer Satisfaction</title>
   </head>
   <body>
@@ -29,6 +32,7 @@
     <section class="bodycs">
       <div class="container-cs">
         <div class="display-cs" id="display_cs">
+          <div id="cs-body"></div>
           <div class="cs-card">
             <div class="cs-card-body">
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur tenetur distinctio neque?</p>
@@ -101,6 +105,7 @@
     <section class="display-footer">
       <div id="footer-placeholder"></div>
     </section>
+    <script src="app.js"></script>
     <script>
       //Import Navbar
       $(function () {
@@ -111,6 +116,54 @@
       $(function () {
         $("#footer-placeholder").load("footer.html");
       });
+
+      const allCS = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            // Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+        fetch("https://ulayaw-backend.herokuapp.com/user/customerSatisfaction", options)
+          .then((response) => response.json())
+          .then((data) => {
+            let icon;
+            console.log(data);
+            data.payload.forEach((cs) => {
+              switch (cs.feedback.rating) {
+                case 1:
+                  icon = "sad";
+                  break;
+                case 2:
+                  icon = "neutral";
+                  break;
+                case 3:
+                  icon = "happy";
+                  break;
+              }
+
+              $("#cs-body").append(`
+
+            <div class="cs-card">
+            <div class="cs-card-body">
+              <p>${cs.feedback.description}</p>
+              <div class="cs-user">
+                <div class="user-info">
+                  <h5>${cs.firstName} ${cs.lastName}</h5>
+                </div>
+                <div class="user-img">
+                  <img id="cs-img0" src="icons/${icon}.png" class="rounded-circle img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+              `);
+            });
+          });
+      };
+      allCS();
     </script>
   </body>
 </html>
