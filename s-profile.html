@@ -9,7 +9,7 @@
     h5 {
       font-size: 22px !important;
       margin-left: -120px;
-      margin-top: -60px;
+      margin-top: 40px;
     }
     .sales-result{
       margin-left: -120px;
@@ -43,6 +43,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
+
     <title>Profile</title>
    
   </head>
@@ -194,9 +195,15 @@
             <div id="tabTwo" class="tab-item">
               <div class="guest-list" id="list">
                 <h5>Guest List</h5>
+                <div class="search-sec">
               <input type="text" id="myInput"  placeholder="Search Users.." class="search-mu" />
-              <button onclick="searchUser()" class="apply-btn">Search</button>
-              <button onclick="displayUsers()" class="apply-btn">Clear</button>
+              <button onclick="searchUser()" class="apply-btn1 musearch"><span class="material-symbols-outlined muicon">
+                search
+                </span></button>
+              <button onclick="displayUsers()" class="apply-btn1 muclear"><span class="material-symbols-outlined muicon">
+                backspace
+                </span></button>
+              </div>
                 <table id="myTable">
                   <thead>
                     <tr class="header">
