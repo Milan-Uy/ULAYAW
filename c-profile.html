@@ -169,7 +169,7 @@
                       <th class="thbs">Reserved Date</th>
                       <th class="thbs">Reservation Created</th>
                       <th class="thbs">Status</th>
-                      <th class="thbs">Paid</th>
+                      <th class="thbs">Payment Status</th>
                       <th class="thbs">Action</th>
                     </tr>
                   </thead>
@@ -669,6 +669,8 @@
                   data1 += "<td><input type='text' id='hide-input' value='" + data.payload[i].remarks + "' disabled></td>";
                 } else if (data.payload[i].status === "Pending") {
                   data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
+                } else {
+                  data1 += "<td class='tdbs'></td>";
                 }
                 data1 += "</tr>";
                 // }
