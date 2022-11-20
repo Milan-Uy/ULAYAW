@@ -19,7 +19,8 @@
         <div class="footer-left footer-box">
           <div class="upper">
             <div class="logo-footer">
-              <img src="images/hulo-white.png" alt="Hulo Logo" />
+              <!-- <img src="images/hulo-white.png" alt="Hulo Logo" /> -->
+              <img id="footer-logo" alt="Hulo Logo" />
             </div>
           </div>
         </div>
@@ -62,6 +63,7 @@
             console.log(data);
             document.getElementById("fb_link").href = data.payload.fbLink;
             document.getElementById("ig_link").href = data.payload.instaLink;
+            document.getElementById("footer-logo").src = data.payload.businessLogo;
           });
       };
       displayInfo2();

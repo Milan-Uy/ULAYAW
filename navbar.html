@@ -19,7 +19,8 @@
     <header class="nav-header">
       <div class="navbar-container">
         <div class="navbar-img">
-          <img src="images/hulo-brwn.png" alt="Hulo Logo" />
+          <!-- <img src="images/hulo-brwn.png" alt="Hulo Logo" /> -->
+          <img id="nav-logo" alt="Hulo Logo" />
         </div>
         <div class="toggle">
           <a href="javascript:void(0);" class="ham-burger">
@@ -109,6 +110,23 @@
           $(".navbar").toggleClass("open");
         });
       });
+
+      const displayLogoNav = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("nav-logo").src = data.payload.businessLogo;
+          });
+      };
+      displayLogoNav();
     </script>
   </body>
 </html>

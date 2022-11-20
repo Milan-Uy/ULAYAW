@@ -1264,10 +1264,7 @@
             console.log(data);
             document.getElementsByClassName("alert3")[0].style.display = "block";
             let option2 = {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json;charset=utf-8",
-              },
+              method: "POST",
               body: fd,
             };
 
@@ -2245,19 +2242,19 @@
       // });
 
       document.getElementById("close-alert1").addEventListener("click", function () {
-        document.getElementsByClassName("alert1")[0].classList.remove("show");
+        document.getElementsByClassName("alert1")[0].style.display = "none";
       });
 
       document.getElementById("close-alert2").addEventListener("click", function () {
-        document.getElementsByClassName("alert2")[0].classList.remove("show");
+        document.getElementsByClassName("alert2")[0].style.display = "none";
       });
 
       document.getElementById("close-alert3").addEventListener("click", function () {
-        document.getElementsByClassName("alert3")[0].classList.remove("show");
+        document.getElementsByClassName("alert3")[0].style.display = "none";
       });
 
       document.getElementById("close-alert4").addEventListener("click", function () {
-        document.getElementsByClassName("alert4")[0].classList.remove("show");
+        document.getElementsByClassName("alert4")[0].style.display = "none";
       });
 
       // document.getElementById("confirm-popup2-btn").addEventListener("click", function () {
@@ -2265,15 +2262,15 @@
       // });
 
       document.getElementById("close-alert5").addEventListener("click", function () {
-        document.getElementsByClassName("alert5")[0].classList.remove("show");
+        document.getElementsByClassName("alert5")[0].style.display = "none";
       });
 
       document.getElementById("close-alert-img").addEventListener("click", function () {
-        document.getElementsByClassName("alert-img")[0].classList.remove("show");
+        document.getElementsByClassName("alert-img")[0].style.display = "none";
       });
 
       document.getElementById("close-alert-img-error").addEventListener("click", function () {
-        document.getElementsByClassName("alert-img-error")[0].classList.remove("show");
+        document.getElementsByClassName("alert-img-error")[0].style.display = "none";
       });
 
       //upload pic
