@@ -1616,7 +1616,23 @@
         const aureliaImg2 = document.querySelector("#aurelia-img2");
         console.log(aureliaImg2.files[0]);
         let fdaureliaImg2 = new FormData();
-        fdaureliaImg2.append("aureliaImg2", aureliaImg2.files[0]);
+        fdaureliaImg2.append("file", aureliaImg2.files[0]);
+        fdaureliaImg2.append("type", 'image2');
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdaureliaImg2,
+        };
+
+        fetch("http://localhost:8080/villa/updateImage/631deb1f747ed43d91ad8aee", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            
+          });
       };
 
       const aureliaImg3 = () => {
