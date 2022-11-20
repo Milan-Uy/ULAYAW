@@ -1228,8 +1228,8 @@
         const ig = document.getElementById("ig_link").value;
         const file = document.querySelector("#imageUpload");
         console.log(file.files[0]);
-        let fd1 = new FormData();
-        fd1.append("file", file.files[0]);
+        let fd = new FormData();
+        fd.append("file", file.files[0]);
         console.log(contact);
 
         const data = {
@@ -1238,7 +1238,6 @@
           email: email,
           fbLink: fb,
           instaLink: ig,
-          // businessLogo: fd1,
         };
 
         let options = {
@@ -1254,6 +1253,20 @@
           .then((data) => {
             console.log(data);
             document.getElementsByClassName("alert3")[0].style.display = "block";
+          });
+
+          let option2 = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: fd,
+        };
+
+        fetch("https://ulayaw-backend.herokuapp.com/application/updateLogo", option2)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
           });
       };
 
@@ -1319,6 +1332,8 @@
               document.getElementById("hall-dayTour-inclusions").value = allVilla[4].dayTour.inclusions;
               document.getElementById("hall-dayTour-max").value = allVilla[4].dayTour.maxPerson;
               document.getElementById("hall-dayTour-price").value = allVilla[4].dayTour.price;
+
+
             }
           });
       };
@@ -1575,10 +1590,25 @@
       };
 
       const aureliaImg1 = () => {
-        const aureliaImg1 = document.querySelector("#aurelia-img1");
-        console.log(aureliaImg1.files[0]);
-        let fdaureliaImg1 = new FormData();
-        fdaureliaImg1.append("aureliaImg1", aureliaImg1.files[0]);
+        const image1 = document.querySelector("#aurelia-img1");
+        console.log(image1.files[0]);
+        let fd = new FormData();
+        fd.append("file", image1.files[0]);
+        fd.append("type", 'image1');
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fd,
+        };
+
+        fetch("http://localhost:8080/villa/updateImage/631deb1f747ed43d91ad8aee", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            
+          });
       };
 
       const aureliaImg2 = () => {

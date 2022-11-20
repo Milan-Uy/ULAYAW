@@ -368,7 +368,7 @@
           body: fd,
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/moment/upload", options)
+        fetch("http://localhost:8080/moment/upload", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
