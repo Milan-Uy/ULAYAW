@@ -233,7 +233,7 @@
           body: JSON.stringify(loginData),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/auth/login", options)
+        fetch("https://ulayaw-app.azurewebsites.net/auth/login", options)
           .then((response) => response.json())
           .then((data) => {
             document.getElementById("loginBtn").disabled = false;
@@ -290,7 +290,7 @@
             document.getElementsByClassName("popup4")[0].classList.remove("active");
           });
         } else if (password === confirmPassword) {
-          fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
+          fetch("https://ulayaw-app.azurewebsites.net/auth/signup", options)
             .then((response) => response.json())
             .then((data) => {
               console.log(data);

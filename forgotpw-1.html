@@ -83,7 +83,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/auth/forgotPassword", options)
+        fetch("https://ulayaw-app.azurewebsites.net/auth/forgotPassword", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);

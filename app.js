@@ -36,7 +36,7 @@ const getUser = (id) => {
     },
   };
   return new Promise((resolve, reject) => {
-    fetch("https://ulayaw-backend.herokuapp.com/user/getOne/" + id, options)
+    fetch("https://ulayaw-app.azurewebsites.net/user/getOne/" + id, options)
       .then((response) => response.json())
       .then((data) => {
         resolve(data.payload);
@@ -54,7 +54,7 @@ const getUsers = (searchKey) => {
   };
   const searchKey$ = searchKey ? `&searchKey=${searchKey}` : "";
   return new Promise((resolve, reject) => {
-    fetch(`https://ulayaw-backend.herokuapp.com/user/getNonGuests?${searchKey$}`, options)
+    fetch(`https://ulayaw-app.azurewebsites.net/user/getNonGuests?${searchKey$}`, options)
       .then((response) => response.json())
       .then((data) => {
         resolve(data.payload);
@@ -72,7 +72,7 @@ const getGuests = (searchKey) => {
   };
   const searchKey$ = searchKey ? `&searchKey=${searchKey}` : "";
   return new Promise((resolve, reject) => {
-    fetch(`https://ulayaw-backend.herokuapp.com/user/getGuests?${searchKey$}`, options)
+    fetch(`https://ulayaw-app.azurewebsites.net/user/getGuests?${searchKey$}`, options)
       .then((response) => response.json())
       .then((data) => {
         resolve(data.payload);

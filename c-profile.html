@@ -368,7 +368,7 @@
           body: fd,
         };
 
-        fetch("http://localhost:8080/moment/upload", options)
+        fetch("https://ulayaw-app.azurewebsites.net/moment/upload", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -489,7 +489,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
+        fetch("https://ulayaw-app.azurewebsites.net/user/updateOne/" + localStorage.getItem("user_id"), options)
           .then((response) => response.json())
           .then((data) => {
             if (data.payload) {
@@ -562,7 +562,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + localStorage.getItem("user_id"), options)
+        fetch("https://ulayaw-app.azurewebsites.net/user/updateOne/" + localStorage.getItem("user_id"), options)
           .then((response) => response.json())
           .then((data) => {
             if (data.payload) {
@@ -594,7 +594,7 @@
         };
 
         if (newPass === rePass) {
-          fetch("https://ulayaw-backend.herokuapp.com/auth/changePassword", options)
+          fetch("https://ulayaw-app.azurewebsites.net/auth/changePassword", options)
             .then((response) => response.json())
             .then((data) => {
               console.log(data);
@@ -634,8 +634,8 @@
             Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
         };
-        // console.log(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`);
-        fetch(`https://ulayaw-backend.herokuapp.com/booking/get?userId=${id}`, options)
+        // console.log(`https://ulayaw-app.azurewebsites.net/booking/get?userId=${id}`);
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/get?userId=${id}`, options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -726,7 +726,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/booking/update/" + sessionStorage.getItem("booking_id"), options)
+        fetch("https://ulayaw-app.azurewebsites.net/booking/update/" + sessionStorage.getItem("booking_id"), options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);

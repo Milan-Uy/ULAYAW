@@ -233,7 +233,7 @@
           },
         };
 
-        fetch(`https://ulayaw-backend.herokuapp.com/booking/getOne/${id}`, options)
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/getOne/${id}`, options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);

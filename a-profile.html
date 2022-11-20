@@ -320,7 +320,17 @@
                 <div class="alertMessage alert4">
                   <span class="close" id="close-alert4">×</span>
                   <i class="fas fa-exclamation-circle alert-icon"></i>
-                  <strong>Villas Successfully Updated</strong>
+                  <strong>Villa Information Successfully Updated</strong>
+                </div>
+                <div class="alertMessage alert-img">
+                  <span class="close" id="close-alert-img">×</span>
+                  <i class="fas fa-exclamation-circle alert-icon"></i>
+                  <strong>Villa Image Successfully Updated</strong>
+                </div>
+                <div class="alertMessage alert-img-error">
+                  <span class="close" id="close-alert-img-error">×</span>
+                  <i class="fas fa-exclamation-circle alert-icon"></i>
+                  <strong>Villa Image Upload Failed</strong>
                 </div>
                 <div class="villa-card">
                   <div class="villa-pic">
@@ -409,7 +419,7 @@
                                   <div class="js--image-preview"></div>
                                   <div class="upload-options">
                                     <label>
-                                      <input id="aurelia-img2" type="file" class="image-upload" accept="image/*" />
+                                      <input id="aurelia-img3" type="file" class="image-upload" accept="image/*" />
                                     </label>
                                   </div>
                                 </div>
@@ -902,7 +912,7 @@
             // Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
         };
-        fetch("https://ulayaw-backend.herokuapp.com/user/customerSatisfaction", options)
+        fetch("https://ulayaw-app.azurewebsites.net/user/customerSatisfaction", options)
           .then((response) => response.json())
           .then((data) => {
             // console.log(data);
@@ -920,7 +930,7 @@
           },
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/moment/get", options)
+        fetch("https://ulayaw-app.azurewebsites.net/moment/get", options)
           .then((response) => response.json())
           .then((data) => {
             // console.log(data);
@@ -961,7 +971,7 @@
             document.getElementsByClassName("alert-pwnotmatch")[0].classList.remove("show");
           });
         } else if (password === confirmPassword) {
-          fetch("https://ulayaw-backend.herokuapp.com/auth/signup", options)
+          fetch("https://ulayaw-app.azurewebsites.net/auth/signup", options)
             .then((response) => response.json())
             .then((data) => {
               console.log(data);
@@ -1110,7 +1120,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+        fetch("https://ulayaw-app.azurewebsites.net/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1139,7 +1149,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+        fetch("https://ulayaw-app.azurewebsites.net/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1177,7 +1187,7 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
+        fetch("https://ulayaw-app.azurewebsites.net/user/updateOne/" + sessionStorage.getItem("edit_id"), options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1202,7 +1212,7 @@
             "Content-Type": "application/json;charset=utf-8",
           },
         };
-        fetch("https://ulayaw-backend.herokuapp.com/application/get", options)
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1248,27 +1258,25 @@
           body: JSON.stringify(data),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/application/update", options)
+        fetch("https://ulayaw-app.azurewebsites.net/application/update", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
             document.getElementsByClassName("alert3")[0].style.display = "block";
             let option2 = {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "application/json;charset=utf-8",
-                },
-                body: fd,
-              };
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json;charset=utf-8",
+              },
+              body: fd,
+            };
 
-              fetch("https://ulayaw-backend.herokuapp.com/application/updateLogo", option2)
-                .then((response) => response.json())
-                .then((data) => {
-                  console.log(data);
-                });
+            fetch("https://ulayaw-app.azurewebsites.net/application/updateLogo", option2)
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+              });
           });
-
-       
       };
 
       let allVilla;
@@ -1279,7 +1287,7 @@
             "Content-Type": "application/json;charset=utf-8",
           },
         };
-        fetch("https://ulayaw-backend.herokuapp.com/villa/getAll", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/getAll", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1333,8 +1341,6 @@
               document.getElementById("hall-dayTour-inclusions").value = allVilla[4].dayTour.inclusions;
               document.getElementById("hall-dayTour-max").value = allVilla[4].dayTour.maxPerson;
               document.getElementById("hall-dayTour-price").value = allVilla[4].dayTour.price;
-
-
             }
           });
       };
@@ -1390,7 +1396,7 @@
           body: JSON.stringify(casa_aurelia),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631deb1f747ed43d91ad8aee", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/update/631deb1f747ed43d91ad8aee", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1446,7 +1452,7 @@
           body: JSON.stringify(caminos),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631deb5d747ed43d91ad8af2", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/update/631deb5d747ed43d91ad8af2", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1502,7 +1508,7 @@
           body: JSON.stringify(casa_salud),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631deb89747ed43d91ad8af6", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/update/631deb89747ed43d91ad8af6", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1542,7 +1548,7 @@
           body: JSON.stringify(kubo),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631dec57747ed43d91ad8afa", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/update/631dec57747ed43d91ad8afa", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1582,7 +1588,7 @@
           body: JSON.stringify(hall),
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/villa/update/631dec86747ed43d91ad8afe", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/update/631dec86747ed43d91ad8afe", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -1595,7 +1601,7 @@
         console.log(image1.files[0]);
         let fd = new FormData();
         fd.append("file", image1.files[0]);
-        fd.append("type", 'image1');
+        fd.append("type", "image1");
         let options = {
           method: "POST",
           headers: {
@@ -1604,11 +1610,15 @@
           body: fd,
         };
 
-        fetch("http://localhost:8080/villa/updateImage/631deb1f747ed43d91ad8aee", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb1f747ed43d91ad8aee", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
           });
       };
 
@@ -1617,7 +1627,7 @@
         console.log(aureliaImg2.files[0]);
         let fdaureliaImg2 = new FormData();
         fdaureliaImg2.append("file", aureliaImg2.files[0]);
-        fdaureliaImg2.append("type", 'image2');
+        fdaureliaImg2.append("type", "image2");
 
         let options = {
           method: "POST",
@@ -1627,11 +1637,15 @@
           body: fdaureliaImg2,
         };
 
-        fetch("http://localhost:8080/villa/updateImage/631deb1f747ed43d91ad8aee", options)
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb1f747ed43d91ad8aee", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
           });
       };
 
@@ -1639,91 +1653,351 @@
         const aureliaImg3 = document.querySelector("#aurelia-img3");
         console.log(aureliaImg3.files[0]);
         let fdaureliaImg3 = new FormData();
-        fdaureliaImg3.append("aureliaImg3", aureliaImg3.files[0]);
+        fdaureliaImg3.append("file", aureliaImg3.files[0]);
+        fdaureliaImg3.append("type", "image3");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdaureliaImg3,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb1f747ed43d91ad8aee", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const caminosImg1 = () => {
         const caminosImg1 = document.querySelector("#caminos-img1");
         console.log(caminosImg1.files[0]);
         let fdcaminosImg1 = new FormData();
-        fdcaminosImg1.append("caminosImg1", caminosImg1.files[0]);
+        fdcaminosImg1.append("file", caminosImg1.files[0]);
+        fdcaminosImg1.append("type", "image1");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdcaminosImg1,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb5d747ed43d91ad8af2", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const caminosImg2 = () => {
         const caminosImg2 = document.querySelector("#caminos-img2");
         console.log(caminosImg2.files[0]);
         let fdcaminosImg2 = new FormData();
-        fdcaminosImg2.append("caminosImg2", caminosImg2.files[0]);
+        fdcaminosImg2.append("file", caminosImg2.files[0]);
+        fdcaminosImg2.append("type", "image2");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdcaminosImg2,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb5d747ed43d91ad8af2", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const caminosImg3 = () => {
         const caminosImg3 = document.querySelector("#caminos-img3");
         console.log(caminosImg3.files[0]);
         let fdcaminosImg3 = new FormData();
-        fdcaminosImg3.append("caminosImg3", caminosImg3.files[0]);
+        fdcaminosImg3.append("file", caminosImg3.files[0]);
+        fdcaminosImg3.append("type", "image3");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdcaminosImg3,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb5d747ed43d91ad8af2", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const saludImg1 = () => {
         const saludImg1 = document.querySelector("#salud-img1");
         console.log(saludImg1.files[0]);
         let fdsaludImg1 = new FormData();
-        fdsaludImg1.append("saludImg1", saludImg1.files[0]);
+        fdsaludImg1.append("file", saludImg1.files[0]);
+        fdsaludImg1.append("type", "image1");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdsaludImg1,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb89747ed43d91ad8af6", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const saludImg2 = () => {
         const saludImg2 = document.querySelector("#salud-img2");
         console.log(saludImg2.files[0]);
         let fdsaludImg2 = new FormData();
-        fdsaludImg2.append("saludImg2", saludImg2.files[0]);
+        fdsaludImg2.append("file", saludImg2.files[0]);
+        fdsaludImg2.append("type", "image2");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdsaludImg2,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb89747ed43d91ad8af6", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const saludImg3 = () => {
         const saludImg3 = document.querySelector("#salud-img3");
         console.log(saludImg3.files[0]);
         let fdsaludImg3 = new FormData();
-        fdsaludImg3.append("saludImg3", saludImg3.files[0]);
+        fdsaludImg3.append("file", saludImg3.files[0]);
+        fdsaludImg3.append("type", "image3");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdsaludImg3,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631deb89747ed43d91ad8af6", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const kuboImg1 = () => {
         const kuboImg1 = document.querySelector("#kubo-img1");
         console.log(kuboImg1.files[0]);
         let fdkuboImg1 = new FormData();
-        fdkuboImg1.append("kuboImg1", kuboImg1.files[0]);
+        fdkuboImg1.append("file", kuboImg1.files[0]);
+        fdkuboImg1.append("type", "image1");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdkuboImg1,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631dec57747ed43d91ad8afa", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const kuboImg2 = () => {
         const kuboImg2 = document.querySelector("#kubo-img2");
         console.log(kuboImg2.files[0]);
         let fdkuboImg2 = new FormData();
-        fdkuboImg2.append("kuboImg2", kuboImg2.files[0]);
+        fdkuboImg2.append("file", kuboImg2.files[0]);
+        fdkuboImg2.append("type", "image2");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdkuboImg2,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631dec57747ed43d91ad8afa", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const kuboImg3 = () => {
         const kuboImg3 = document.querySelector("#kubo-img3");
         console.log(kuboImg3.files[0]);
         let fdkuboImg3 = new FormData();
-        fdkuboImg3.append("kuboImg3", kuboImg3.files[0]);
+        fdkuboImg3.append("file", kuboImg3.files[0]);
+        fdkuboImg3.append("type", "image3");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdkuboImg3,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631dec57747ed43d91ad8afa", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const hallImg1 = () => {
         const hallImg1 = document.querySelector("#hall-img1");
         console.log(hallImg1.files[0]);
         let fdhallImg1 = new FormData();
-        fdhallImg1.append("hallImg1", hallImg1.files[0]);
+        fdhallImg1.append("file", hallImg1.files[0]);
+        fdhallImg1.append("type", "image1");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdhallImg1,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631dec86747ed43d91ad8afe", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const hallImg2 = () => {
         const hallImg2 = document.querySelector("#hall-img2");
         console.log(hallImg2.files[0]);
         let fdhallImg2 = new FormData();
-        fdhallImg2.append("hallImg2", hallImg2.files[0]);
+        fdhallImg2.append("file", hallImg2.files[0]);
+        fdhallImg2.append("type", "image2");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdhallImg2,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631dec86747ed43d91ad8afe", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const hallImg3 = () => {
         const hallImg3 = document.querySelector("#hall-img3");
         console.log(hallImg3.files[0]);
         let fdhallImg3 = new FormData();
-        fdhallImg3.append("hallImg3", hallImg3.files[0]);
+        fdhallImg3.append("file", hallImg3.files[0]);
+        fdhallImg3.append("type", "image3");
+
+        let options = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: fdhallImg3,
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/villa/updateImage/631dec86747ed43d91ad8afe", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "UPDATEVILLAIMAGESUCCESS") {
+              document.getElementsByClassName("alert-img")[0].style.display = "block";
+            } else {
+              document.getElementsByClassName("alert-img-error")[0].style.display = "block";
+            }
+          });
       };
 
       const logout = () => {
@@ -1992,6 +2266,14 @@
 
       document.getElementById("close-alert5").addEventListener("click", function () {
         document.getElementsByClassName("alert5")[0].classList.remove("show");
+      });
+
+      document.getElementById("close-alert-img").addEventListener("click", function () {
+        document.getElementsByClassName("alert-img")[0].classList.remove("show");
+      });
+
+      document.getElementById("close-alert-img-error").addEventListener("click", function () {
+        document.getElementsByClassName("alert-img-error")[0].classList.remove("show");
       });
 
       //upload pic

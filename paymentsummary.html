@@ -82,7 +82,7 @@
           body: JSON.stringify(data)
         };
         let id = sessionStorage.getItem('booking_id')
-        fetch(`https://ulayaw-backend.herokuapp.com/booking/pay/${id}`, options)
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/pay/${id}`, options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -113,7 +113,7 @@
           },
         };
 
-        fetch(`https://ulayaw-backend.herokuapp.com/booking/getOne/${id}`, options)
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/getOne/${id}`, options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);

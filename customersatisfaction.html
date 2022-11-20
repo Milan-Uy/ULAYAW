@@ -125,7 +125,7 @@
             // Authorization: "Bearer " + localStorage.getItem("access_token"),
           },
         };
-        fetch("https://ulayaw-backend.herokuapp.com/user/customerSatisfaction", options)
+        fetch("https://ulayaw-app.azurewebsites.net/user/customerSatisfaction", options)
           .then((response) => response.json())
           .then((data) => {
             let icon;

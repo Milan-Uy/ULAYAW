@@ -278,7 +278,7 @@
           },
         };
 
-        fetch("https://ulayaw-backend.herokuapp.com/application/get", options)
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -305,7 +305,7 @@
           },
           body: JSON.stringify(data),
         };
-        fetch("https://ulayaw-backend.herokuapp.com/admin/email", options)
+        fetch("https://ulayaw-app.azurewebsites.net/admin/email", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
