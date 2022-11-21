@@ -23,9 +23,34 @@
   </head>
   <body>
     <!--Navbar-->
-    <section class="display-navbar">
-      <div id="nav-placeholder"></div>
-    </section>
+    <header class="nav-header">
+      <div class="navbar-container">
+        <div class="navbar-img">
+          <!-- <img src="images/hulo-brwn.png" alt="Hulo Logo" /> -->
+          <img id="nav-logo" alt="Hulo Logo" />
+        </div>
+        <div class="toggle">
+          <a href="javascript:void(0);" class="ham-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div class="navbar">
+          <ul>
+            <li><a id="index" href="index.html">Home</a></li>
+            <li><a id="about" href="about.html">About Us</a></li>
+            <li><a id="villa" href="villa.html">Villas</a></li>
+            <li><a id="Moments" href="Moments.html">Moments</a></li>
+            <li><a id="login-reg" href="login-reg.html">Log In</a></li>
+            <div class="book-btn bounce-in-on-hover">
+              <a class="book-btn" href="c-booknow.html">BOOK NOW</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!--End of Navbar-->
     <section class="cs-header">
       <h1>CUSTOMER SATISFACTION</h1>
     </section>
@@ -106,9 +131,40 @@
       <div id="pagination-container"></div>
     </section>
     <!--Footer-->
-    <section class="display-footer">
-      <div id="footer-placeholder"></div>
-    </section>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left footer-box">
+          <div class="upper">
+            <div class="logo-footer">
+              <!-- <img src="images/hulo-white.png" alt="Hulo Logo" /> -->
+              <img id="footer-logo" alt="Hulo Logo" />
+            </div>
+          </div>
+        </div>
+        <div class="footer-middle footer-box">
+          <div class="topic">Quick Links</div>
+          <div><a href="villa.html">Villas</a></div>
+          <div><a href="about.html">About Us</a></div>
+          <div><a href="contact.html">Contact Us</a></div>
+          <div><a href="faqs.html">FAQs</a></div>
+          <div><a href="tnc.html">Terms & Condition</a></div>
+        </div>
+        <div class="footer-right footer-box">
+          <div class="topic">Stay in touch</div>
+          <form action="#">
+            <input type="submit" name="" value="BOOK NOW" />
+            <div class="media-icons">
+              <a id="fb_link" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a id="ig_link" href="#"><i class="fab fa-instagram"></i></a>
+              <!-- <a id="" href="#"><i class="fas fa-envelope"></i></a> -->
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="bottom" id="footer-btm">
+        <p>Copyright © 2022 ULAYAW. All Rights Reserved.</p>
+      </div>
+    </footer>
     <script src="app.js"></script>
     <script>
       // //Import Navbar
@@ -187,6 +243,111 @@
           });
       };
       allCS();
+
+      //navbar
+      changeLoginToProfile();
+      // nav underline
+      switch (window.location.pathname) {
+        case "/villa.html":
+          document.getElementById("villa").classList.add("active");
+          break;
+        case "/index.html":
+          document.getElementById("index").classList.add("active");
+          break;
+        case "/about.html":
+          document.getElementById("about").classList.add("active");
+          break;
+        case "/moments.html":
+          document.getElementById("moments").classList.add("active");
+          break;
+      }
+
+      $(window).on("beforeunload", function () {
+        console.log(window.location.pathname);
+        switch (window.location.pathname) {
+          case "/villa.html":
+            const chosen = document.getElementById("villas");
+            console.log(chosen);
+            document.getElementById("villas").classList.add("active");
+            console.log("here");
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+        }
+      });
+
+      //Navbar Effect
+      $(document).ready(function () {
+        var bottom = $(".nav-header").outerHeight();
+        var header = $(".nav-header").offset().top + bottom;
+
+        $(window).scroll(function () {
+          if ($(window).width() > 991) {
+            if ($(window).scrollTop() >= header) {
+              $(".nav-header").addClass("sticky");
+            } else {
+              $(".nav-header").removeClass("sticky");
+            }
+          }
+        });
+
+        $(".navbar ul li a").click(function () {
+          $(".navbar ul li a").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $(".ham-burger").click(function () {
+          $(this).toggleClass("active");
+          $(".navbar").toggleClass("open");
+        });
+      });
+
+      const displayLogoNav = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("nav-logo").src = data.payload.businessLogo;
+          });
+      };
+      displayLogoNav();
+      //end of navbar
+
+      //footer
+      const displayInfo2 = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("fb_link").href = data.payload.fbLink;
+            document.getElementById("ig_link").href = data.payload.instaLink;
+            document.getElementById("footer-logo").src = data.payload.businessLogo;
+          });
+      };
+      displayInfo2();
+      //end of footer
     </script>
   </body>
 </html>
