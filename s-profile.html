@@ -43,7 +43,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.4/jquery.simplePagination.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/simplePagination.css" />
     <title>Profile</title>
    
   </head>
@@ -487,7 +488,7 @@
                     <strong>Moment was successfully rejected!</strong>
                   </div>
 
-                  <div id="update_moments">
+                  <div class="list-wrapper" id="update_moments">
                   <!-- <p class="mmts-name"> Hannah Paula Villados </p>
                   <p class="mmts-date"> January 10, 2022 </p>
                 <div class="mmts-caption">
@@ -502,6 +503,7 @@
 
                   
                 </div>
+                <div id="pagination-container"></div>
                 </div>
 
               </div>
@@ -1622,6 +1624,7 @@
         var data1 = "";
         for (i = 0; i < data.payload.length; i++) {
           if (data.payload[i].status === "New") {
+        data1 += "<div class='list-item'>";
         data1 += "<p class='mmts-name'>" + data.payload[i].userId.firstName + " " + data.payload[i].userId.lastName + "</p>";
         data1 += "<p class='mmts-date'>" + convertDate(data.payload[i].dateUpdated) + "</p>";
         data1 += "<div class='mmts-caption'>" + data.payload[i].description + "</div>";
@@ -1630,10 +1633,29 @@
         data1 += "<button class='accept-moment manageMoments-btn " + data.payload[i]._id + "' onclick=''>ADD TO MOMENTS</button>";
         data1 += "<button class='reject-moment manageMoments-btn " + data.payload[i]._id + "' onclick=''>REJECT</button>";
         data1 += "</div>";
+        data1 += "</div>";
         }
         }
         $("#update_moments").html(data1);
         }
+        var items = $(".list-wrapper .list-item");
+            var numItems = items.length;
+            var perPage = 1;
+
+            items.slice(perPage).hide();
+
+            $("#pagination-container").pagination({
+              items: numItems,
+              itemsOnPage: perPage,
+              prevText: "&laquo;",
+              nextText: "&raquo;",
+              cssStyle: "light-theme",
+              onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+              },
+            });
       });
       }
       updateMoments();

@@ -13,6 +13,9 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.4/jquery.simplePagination.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/simplePagination.css" />
     <title>Moments</title>
   </head>
   <body>
@@ -28,7 +31,7 @@
     </div>
     <section class="bodymoments">
       <div class="containermoments">
-        <div class="display-moments" id="display_moments">
+        <div class="list-wrapper display-moments" id="display_moments">
           <!--
           <div class="mmnt-card">
             <div class="card-moments">
@@ -112,7 +115,7 @@
           </div>
           -->
         </div>
-        <div class="moments-pagination">
+        <!-- <div class="moments-pagination">
           <ul>
             <a href="#"><li>1</li></a>
             <a class="is-active" href="#"><li>2</li></a>
@@ -121,23 +124,24 @@
             <a href="#"><li>5</li></a>
             <a href="#"><li>6</li></a>
           </ul>
-        </div>
+        </div> -->
       </div>
+      <div id="pagination-container"></div>
     </section>
     <!--Footer-->
     <section class="display-footer">
       <div id="footer-placeholder"></div>
     </section>
     <script>
-      //Import Navbar
-      $(function () {
-        $("#nav-placeholder").load("navbar.html");
-      });
+      // //Import Navbar
+      // $(function () {
+      //   $("#nav-placeholder").load("navbar.html");
+      // });
 
-      //Import Footer
-      $(function () {
-        $("#footer-placeholder").load("footer.html");
-      });
+      // //Import Footer
+      // $(function () {
+      //   $("#footer-placeholder").load("footer.html");
+      // });
 
       const displayMoments = () => {
         let options = {
@@ -155,9 +159,9 @@
             if (data.payload.length > 0) {
               var data1 = "";
               for (i = 0; i < data.payload.length; i++) {
-                console.log(data.payload[i].userId.firstName);
+                // console.log(data.payload[i].userId.firstName);
                 if (data.payload[i].status === "Accepted") {
-                  data1 += "<div class='mmnt-card'>";
+                  data1 += "<div class='list-item mmnt-card'>";
                   data1 += "<div class='card-moments'>";
                   data1 += "<img src='" + data.payload[i].imageUrl + "'/>";
                   data1 += "</div>";
@@ -174,6 +178,24 @@
               }
               $("#display_moments").html(data1);
             }
+            var items = $(".list-wrapper .list-item");
+            var numItems = items.length;
+            var perPage = 9;
+
+            items.slice(perPage).hide();
+
+            $("#pagination-container").pagination({
+              items: numItems,
+              itemsOnPage: perPage,
+              prevText: "&laquo;",
+              nextText: "&raquo;",
+              cssStyle: "light-theme",
+              onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+              },
+            });
           });
       };
       displayMoments();

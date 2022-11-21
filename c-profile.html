@@ -360,6 +360,7 @@
         let fd = new FormData();
         fd.append("file", file.files[0]);
         fd.append("description", description.value);
+        fd.append("userId", localStorage.getItem("user_id"));
         let options = {
           method: "POST",
           headers: {
