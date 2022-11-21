@@ -13,9 +13,12 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="tableManager.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <!-- <script src="tableManager.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.4/jquery.simplePagination.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/simplePagination.css" />
     <title>Customer Satisfaction</title>
   </head>
   <body>
@@ -32,8 +35,8 @@
     <section class="bodycs">
       <div class="container-cs">
         <div class="display-cs" id="display_cs">
-          <div id="cs-body"></div>
-          <div class="cs-card">
+          <div class="list-wrapper" id="cs-body"></div>
+          <!-- <div class="cs-card">
             <div class="cs-card-body">
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur tenetur distinctio neque?</p>
               <div class="cs-user">
@@ -97,9 +100,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
+      <div id="pagination-container"></div>
     </section>
     <!--Footer-->
     <section class="display-footer">
@@ -107,15 +111,15 @@
     </section>
     <script src="app.js"></script>
     <script>
-      //Import Navbar
-      $(function () {
-        $("#nav-placeholder").load("navbar.html");
-      });
+      // //Import Navbar
+      // $(function () {
+      //   $("#nav-placeholder").load("navbar.html");
+      // });
 
-      //Import Footer
-      $(function () {
-        $("#footer-placeholder").load("footer.html");
-      });
+      // //Import Footer
+      // $(function () {
+      //   $("#footer-placeholder").load("footer.html");
+      // });
 
       const allCS = () => {
         let options = {
@@ -145,7 +149,7 @@
 
               $("#cs-body").append(`
 
-            <div class="cs-card">
+            <div class="list-item cs-card">
             <div class="cs-card-body">
               <p>${cs.feedback.description}</p>
               <div class="cs-user">
@@ -160,6 +164,25 @@
           </div>
 
               `);
+            });
+
+            var items = $(".list-wrapper .list-item");
+            var numItems = items.length;
+            var perPage = 6;
+
+            items.slice(perPage).hide();
+
+            $("#pagination-container").pagination({
+              items: numItems,
+              itemsOnPage: perPage,
+              prevText: "&laquo;",
+              nextText: "&raquo;",
+              cssStyle: "light-theme",
+              onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+              },
             });
           });
       };
