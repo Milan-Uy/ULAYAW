@@ -90,7 +90,7 @@
               <i class="material-symbols-rounded">recent_actors</i>
               <span class="tab-label"> Manage Moments </span>
             </li>
-            <li rel="tabFive">
+            <li rel="tabFive" id="sales-report">
               <i class="material-symbols-rounded">summarize</i>
               <span class="tab-label">View Sales Report</span>
             </li>
@@ -647,14 +647,14 @@
       //navbar
       nameTagStaff();
       
-      const hideManageMoments = () => {
+      const hideSalesReport = () => {
     if (localStorage.getItem("access_token")) {
-      if (localStorage.getItem("user_role") === "Manager") {
-        document.getElementById("manage-moments").style.display = "none";
+      if (localStorage.getItem("user_role") === "Marketing Specialist") {
+        document.getElementById("sales-report").style.display = "none";
         }
         }
     };
-    hideManageMoments();
+    hideSalesReport();
 
       //Import Navbar
       // $(function () {
