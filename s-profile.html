@@ -259,6 +259,11 @@
                   <h4>Booking History</h4>
                 </div>
                 <div class="booking-historytbl">
+                  <div class="alertMessage alert-full">
+                    <span class="close" id="close-alert-full">×</span>
+                    <i class="fas fa-exclamation-circle alert-icon"></i>
+                    <strong>Booking Marked as Fully Paid</strong>
+                  </div>
                   <table class="ststbl" style="margin-top: 10px">
                     <thead>
                       <tr>
@@ -1407,6 +1412,11 @@
         const ptype = document.getElementById("table_status");
         ptype.innerHTML = "";
         getProfile();
+        document.getElementsByClassName("alert-full")[0].style.display = "block";
+
+        document.getElementById("close-alert-full").addEventListener("click", function () {
+          document.getElementsByClassName("alert-full")[0].style.display = "none";
+        });
           });
           
       }

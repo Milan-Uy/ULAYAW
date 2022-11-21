@@ -534,10 +534,7 @@
           let villaArr = ["casa_aur", "caminos", "salud", "kubo", "hall"];
           // set images
           data.payload.forEach((villa, index) => {
-            console.log(villa);
             if (villa.image1) {
-              console.log(villaArr[index] + 1);
-              console.log(villaArr[index] + 1);
               document.getElementById(villaArr[index] + 1).src = villa.image1;
             }
             if (villa.image2) {
