@@ -2102,8 +2102,12 @@ transform: scale(1) rotate(1deg);
   }
 }
 /*Upload Moment*/
+
+.mm-note {
+  padding: 1rem 0 0 0;
+}
 .moment-form {
-  padding: 4rem 0;
+  padding: 1rem 0;
   margin: 0 auto;
   box-sizing: border-box !important;
   position: relative;
