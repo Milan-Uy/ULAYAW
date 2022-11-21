@@ -2589,6 +2589,8 @@ footer .bottom a:hover {
   width: 180px;
   height: 100px;
   object-fit: cover;
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 1100px) {
