@@ -1503,6 +1503,10 @@ input:checked + .slider:before {
 }
 .villa-room-image {
   overflow: hidden;
+  max-width: 650px;
+  max-height: 650px;
+  min-width: 650px;
+  min-height: 650px;
 }
 .villa-room-image .v-img {
   transition: all 0.7s ease;
