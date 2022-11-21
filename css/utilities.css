@@ -1446,6 +1446,11 @@ input:checked + .slider:before {
 .v-img {
   width: 100%;
   display: block;
+  object-fit: cover;
+  max-width: 600px;
+  max-height: 600px;
+  min-width: 600px;
+  min-height: 600px;
 }
 
 /** title */
