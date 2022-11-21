@@ -1447,10 +1447,10 @@ input:checked + .slider:before {
   width: 100%;
   display: block;
   object-fit: cover;
-  max-width: 600px;
-  max-height: 600px;
-  min-width: 600px;
-  min-height: 600px;
+  max-width: 630px;
+  max-height: 630px;
+  min-width: 630px;
+  min-height: 630px;
 }
 
 /** title */
