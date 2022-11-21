@@ -5620,12 +5620,11 @@ button:focus {
 .bodycs {
   background-color: #fffbf5;
   font-family: "Open Sans", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   margin-top: -100px;
   padding-bottom: 100px;
 }
+
 .display-cs {
   display: flex;
   flex-wrap: wrap;
@@ -5633,10 +5632,17 @@ button:focus {
   width: 100%;
   justify-content: center;
 }
+.list-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .container-cs {
-  width: 1400px;
-  margin: auto;
-  margin-top: 80px;
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cs-card {
   border-radius: 15px;
@@ -5681,4 +5687,54 @@ button:focus {
 }
 .user-info small {
   color: #888785;
+}
+
+@media only screen and (max-width: 420px) {
+  .cs-header h1 {
+    font-size: 40px !important;
+    margin-left: 40px;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .cs-header h1 {
+    margin-left: 50px;
+  }
+}
+/* CS Pagination*/
+.light-theme {
+  justify-content: center;
+  display: flex;
+  margin-top: 50px;
+}
+.light-theme a,
+.light-theme span,
+.page-link {
+  color: var(--txt-field-color) !important;
+  background-color: transparent !important;
+  border: solid 1px #c6c2c2 !important;
+  border-radius: 5px;
+  width: 50px;
+  margin: 0px 2px;
+  padding: 7px 4px !important;
+  cursor: pointer;
+  background: none !important;
+  line-height: 20px !important;
+}
+.light-theme .current {
+  background-color: var(--heading-color) !important;
+  border-radius: 5px;
+  color: #fff !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 7px 4px;
+  cursor: pointer;
+}
+.light-theme a:hover,
+.light-theme span:hover {
+  background-color: #392a2a !important;
+  border-radius: 5px;
+  color: #fff !important;
+  padding: 7px 4px;
+  cursor: pointer !important;
 }
