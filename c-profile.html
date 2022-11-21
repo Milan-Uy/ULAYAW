@@ -262,6 +262,11 @@
                 <i class="fas fa-exclamation-circle alert-icon"></i>
                 <strong>Customer Satisfaction was successfully sent!</strong>
               </div>
+              <div class="alertMessage alert-emoticon">
+                <span class="close" id="close-alert-emoticon">×</span>
+                <i class="fas fa-exclamation-circle alert-icon"></i>
+                <strong>Please select an emoticon!</strong>
+              </div>
               <div class="line lupper"></div>
               <form action="javascript:sendCustomerS();">
                 <div class="cs_icondiv">
@@ -469,46 +474,54 @@
         let sad = document.getElementById("fbEmoji_sad");
         let neutral = document.getElementById("fbEmoji_neutral");
         let happy = document.getElementById("fbEmoji_happy");
-        if (sad.classList.contains("active")) {
-          rating = 1;
-        } else if (neutral.classList.contains("active")) {
-          rating = 2;
-        } else if (happy.classList.contains("active")) {
-          rating = 3;
-        } else {
-          rating = 0;
-        }
-        let desc = document.getElementById("fb_text").value;
-        let isAn = document.getElementById("fb_hide").checked ? true : false;
-        // get values
-        const data = {
-          feedback: {
-            rating: rating,
-            description: desc,
-            isAnonymous: isAn,
-          },
-        };
-        let options = {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-          body: JSON.stringify(data),
-        };
+        if (sad.classList.contains("active") || neutral.classList.contains("active") || happy.classList.contains("active")) {
+          if (sad.classList.contains("active")) {
+            rating = 1;
+          } else if (neutral.classList.contains("active")) {
+            rating = 2;
+          } else if (happy.classList.contains("active")) {
+            rating = 3;
+          } else {
+            rating = 0;
+          }
+          let desc = document.getElementById("fb_text").value;
+          let isAn = document.getElementById("fb_hide").checked ? true : false;
+          // get values
+          const data = {
+            feedback: {
+              rating: rating,
+              description: desc,
+              isAnonymous: isAn,
+            },
+          };
+          let options = {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify(data),
+          };
 
-        fetch("https://ulayaw-app.azurewebsites.net/user/updateOne/" + localStorage.getItem("user_id"), options)
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.payload) {
-              setValues();
-              document.getElementsByClassName("alert2")[0].style.display = "block";
-              document.getElementById("fb_text").value = "";
-            }
-          });
+          fetch("https://ulayaw-app.azurewebsites.net/user/updateOne/" + localStorage.getItem("user_id"), options)
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.payload) {
+                setValues();
+                document.getElementsByClassName("alert2")[0].style.display = "block";
+                document.getElementById("fb_text").value = "";
+              }
+            });
+        } else {
+          document.getElementsByClassName("alert-emoticon")[0].style.display = "block";
+        }
       };
 
       document.getElementById("close-alert2").addEventListener("click", function () {
         document.getElementsByClassName("alert2")[0].style.display = "none";
+      });
+
+      document.getElementById("close-alert-emoticon").addEventListener("click", function () {
+        document.getElementsByClassName("alert-emoticon")[0].style.display = "none";
       });
 
       // function openAlert() {
