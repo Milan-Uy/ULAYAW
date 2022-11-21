@@ -500,9 +500,7 @@
 .bodymoments {
   background-color: #fffbf5;
   font-family: "Open Sans", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   margin-top: -100px;
   padding-bottom: 100px;
 }
@@ -514,9 +512,12 @@
   justify-content: center;
 }
 .containermoments {
-  width: 1400px;
   margin: auto;
-  margin-top: 150px;
+  padding-top: 80px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .mmnt-card {
   background-color: #fff;
