@@ -245,6 +245,9 @@
 .toggle a.active span:nth-child(3) {
   display: none;
 }
+.book-btn:hover {
+  color: #fff !important;
+}
 @media (max-width: 991px) {
   .toggle {
     display: block;
