@@ -19,7 +19,8 @@
     <header class="nav-header">
       <div class="navbar-container">
         <div class="navbar-img">
-          <img src="images/hulo-brwn.png" alt="Hulo Logo" />
+          <!-- <img src="images/hulo-brwn.png" alt="Hulo Logo" /> -->
+          <img id="a-nav-logo" alt="Hulo Logo" />
         </div>
         <div class="navbar">
           <ul>
@@ -32,6 +33,23 @@
     <script src="app.js"></script>
     <script>
       nameTagStaff();
+
+      const displayANavLogo = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            // console.log(data);
+            document.getElementById("a-nav-logo").src = data.payload.businessLogo;
+          });
+      };
+      displayANavLogo();
     </script>
   </body>
 </html>
