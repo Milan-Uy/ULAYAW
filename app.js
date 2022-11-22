@@ -91,9 +91,9 @@ const convertDate = (inputDate) => {
 
 const convertPaymentStatus = (isPaid) => {
   if (isPaid) {
-    return "Fully Paid";
+    return "Paid";
   } else {
-    return "Not Fully Paid";
+    return "Not Paid";
   }
 };
 
