@@ -896,9 +896,9 @@
           </div>
           <div class="submitbtn">
             <input type="submit" id="confirm-popup3-btn" value="Confirm" />
+          </form>
             <input type="button" id="dismiss-popup3-btn" value="Cancel" />
           </div>
-        </form>
       </div>
     </div>
 
@@ -1144,6 +1144,9 @@
               document.getElementById("close-alert1").addEventListener("click", function () {
                 document.getElementsByClassName("alert1")[0].style.display = "none";
               });
+
+              document.getElementsByClassName("popup3")[0].classList.remove("active");
+            
             }
           });
       };
@@ -2225,9 +2228,9 @@
         document.getElementsByClassName("popup2")[0].classList.remove("active");
       });
 
-      document.getElementById("confirm-popup3-btn").addEventListener("click", function () {
-        document.getElementsByClassName("popup3")[0].classList.remove("active");
-      });
+      // document.getElementById("confirm-popup3-btn").addEventListener("click", function () {
+      //   document.getElementsByClassName("popup3")[0].classList.remove("active");
+      // });
 
       document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
         document.getElementsByClassName("popup3")[0].classList.remove("active");
