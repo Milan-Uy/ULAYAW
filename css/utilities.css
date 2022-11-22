@@ -429,7 +429,7 @@
 }
 .accordion button[aria-expanded="true"] + .accordion-content {
   opacity: 1;
-  max-height: 9em;
+  max-height: 40em;
   transition: all 200ms linear;
   will-change: opacity, max-height;
 }
@@ -458,6 +458,9 @@
     padding: 80px;
     padding-right: 80px;
   }
+  .accordion button .icon {
+    margin: 5px -15px 0px 0px;
+  }
 }
 @media (max-width: 450px) {
   .faqs-header h1,
@@ -472,7 +475,7 @@
     padding-right: 30px;
   }
   .accordion button .icon {
-    margin: -5px 0px 0px 0px;
+    margin: -5px -20px 0px 0px;
   }
   .accordion button {
     font-size: 0.75 em;
