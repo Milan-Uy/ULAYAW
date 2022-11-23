@@ -686,8 +686,13 @@
                       " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
                   }
                 } else if (data.payload[i].status === "Rejected") {
-                  data1 += "<td><button type='button' class='" + data.payload[i]._id + " btnremarks " + "'>Remarks</button></td>";
-                  data1 += "<td><input type='text' id='" + data.payload[i]._id + "' value='" + data.payload[i].remarks + "' disabled></td>";
+                  data1 += "<td><button type='button' class='" + data.payload[i]._id + " btnremarks'>Remarks</button></td>";
+                  data1 +=
+                    "<td><input type='text' id='" +
+                    data.payload[i]._id +
+                    "' value='" +
+                    data.payload[i].remarks +
+                    "' class='hide-input' disabled></td>";
                 } else if (data.payload[i].status === "Pending") {
                   data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
                 } else {
