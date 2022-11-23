@@ -327,7 +327,7 @@
                         <th class="thbs">Ref. No.</th>
                         <th class="thbs">Reserved Date</th>
                         <th class="thbs">Reservation Created</th>
-                        <th class="thbs">Payment Type</th>
+                        <th class="thbs">Villa Name</th>
                         <th class="thbs">Action</th>
                       </tr>
                     </thead>
@@ -1132,7 +1132,7 @@
                  <td class='tdbs'>${user._id}</td>
                  <td class='tdbs'>${convertDate(user.startDate)} to ${convertDate(user.endDate)}</td>
                  <td class='tdbs'>${convertDate(user.dateBooked)}</td>
-                 <td class='tdbs'>${user.paymentType}</td>
+                 <td class='tdbs'>${convertVillaId(user.villaId)}</td>
                  <td class='tdbs1'>
                  <button type='button'  class='${user._id} cancel material-symbols-outlined'>cancel</button>
                  <button type='button' class='${user._id} check material-symbols-outlined'>check_circle</button>

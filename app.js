@@ -97,6 +97,20 @@ const convertPaymentStatus = (isPaid) => {
   }
 };
 
+const convertVillaId = (villaId) => {
+  if (villaId === "631deb1f747ed43d91ad8aee") {
+    return "Casa Aurelia";
+  } else if (villaId === "631deb5d747ed43d91ad8af2") {
+    return "Caminos De Primavera";
+  } else if (villaId === "631deb89747ed43d91ad8af6") {
+    return "Casa Salud";
+  } else if (villaId === "631dec57747ed43d91ad8afa") {
+    return "Kubo ni Basyong";
+  } else if (villaId === "631dec86747ed43d91ad8afe") {
+    return "Celso Tagle Hall";
+  }
+};
+
 function comma(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
