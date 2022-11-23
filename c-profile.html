@@ -686,9 +686,8 @@
                       " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
                   }
                 } else if (data.payload[i].status === "Rejected") {
-                  data1 +=
-                    "<td><button type='button' class='" + data.payload[i]._id + " btnremarks " + data.payload[i].remarks + "'>Remarks</button></td>";
-                  data1 += "<td><input type='text' id='hide-input' value='" + data.payload[i].remarks + "' disabled></td>";
+                  data1 += "<td><button type='button' class='" + data.payload[i]._id + " btnremarks " + "'>Remarks</button></td>";
+                  data1 += "<td><input type='text' id='" + data.payload[i]._id + "' value='" + data.payload[i].remarks + "' disabled></td>";
                 } else if (data.payload[i].status === "Pending") {
                   data1 += "<td><button type='button' class='" + data.payload[i]._id + " btncancel'>CANCEL</button></td>";
                 } else {
@@ -722,7 +721,7 @@
           // console.log(bookingId);
           // sessionStorage.setItem("booking_id", bookingId);
           // console.log(e.target.classList[2]);
-          document.getElementById("remarksdesc").innerHTML = document.getElementById("hide-input").value;
+          document.getElementById("remarksdesc").innerHTML = document.getElementById(e.target.classList[0]).value;
           // document.getElementById("remarksdesc").innerHTML = e.target.classList[2];
           document.getElementsByClassName("popupremarks")[0].classList.add("active");
         }
