@@ -130,7 +130,7 @@
                   <h5>Password</h5>
                   <button class="editprofile-btn" id="removeReadOnly2">Change</button>
                 </div>
-                <form action="javascript:changePassword();" class="edit-form">
+                <form action="javascript:changePassword();" class="edit-form" id="c-changepass">
                   <div class="form-container flex-column">
                     <div class="col-6 hide-txt5 hide-text-bg">
                       <label>Current Password</label>
@@ -624,6 +624,8 @@
                 document.getElementById("close-alert4").addEventListener("click", function () {
                   document.getElementsByClassName("alert4")[0].style.display = "none";
                 });
+
+                document.getElementById("c-changepass").reset();
               } else {
                 document.getElementsByClassName("alert-error")[0].style.display = "block";
 

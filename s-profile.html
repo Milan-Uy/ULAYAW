@@ -602,7 +602,7 @@
               <div class="user-details">
                 <button class="editprofile-btn" id="removeReadOnly2">Change</button>
               </div>
-              <form action="javascript:changePasswordStaff();" class="edit-form">
+              <form action="javascript:changePasswordStaff();" class="edit-form" id="s-changepass">
                 <div class="form-container flex-column">
                   <div class="col-6 hide-txt5 hide-text-bg">
                     <label>Current Password</label>
@@ -626,7 +626,7 @@
                   </div>
                 </div>
                 <div class="flex-end-container">
-                  <button type="submit" class="saveProfile-btn saveProfile-btn2" id="saveProfile-btn2">Save Changes</button>
+                  <button type="submit" class="saveProfile-btn" id="saveProfile-btn">Save Changes</button>
                 </div>
               </form>
             </div>
@@ -1500,6 +1500,8 @@
                 document.getElementById("close-alert4").addEventListener("click", function () {
                   document.getElementsByClassName("alert4")[0].style.display = "none";
                 });
+
+                document.getElementById("s-changepass").reset();
               } else {
                 document.getElementsByClassName("alert-error")[0].style.display = "block";
 
@@ -1551,7 +1553,17 @@
         document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
+        document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
+      });
+
+      document.getElementById("saveProfile-btn").addEventListener("click", function () {
+        document.getElementById("password").toggleAttribute("readonly");
+        document.getElementById("rePassword").toggleAttribute("readonly");
+        document.getElementById("newPassword").toggleAttribute("readonly");
+        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
       });
 
     </script>
