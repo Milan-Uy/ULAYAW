@@ -208,7 +208,7 @@
         <p id="hidebedroom">Bedroom x <span id="bedroomPrice" class="price">Bedroom Price</span><span id="bedroomNo"></span></p>
         <p id="hidetable">Table Set Up x <span id="tablePrice" class="price">Table Set Up Price</span><span id="tableNo"></span></p>
         <hr />
-        <p> GCash Fee (2.5% of Total) <span class="price">PHP 123.00</span></span></p>
+        <p> GCash Fee (2.5% of Total) <span id="gcash" class="price">PHP 0.00</span></span></p>
 
         <hr />
         <h3>
@@ -447,8 +447,10 @@
             // document.getElementById("minGuest").innerText = data.payload.dayTour.minPerson;
             document.getElementById("maxGuest").innerText = data.payload.dayTour.maxPerson;
             var villaPrice = data.payload.dayTour.price;
-            var total = villaPrice + breakfastval + bedval + bedroomval + tableval;
+            var total = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 1.025;
+            var serviceFee = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 0.025;
             sessionStorage.setItem("totalPrice", total);
+            document.getElementById("gcash").innerText = serviceFee;
             document.getElementById("total").innerText = total;
           } else {
             switch (data.payload.name) {
@@ -481,8 +483,10 @@
             // document.getElementById("minGuest").innerText = data.payload.overnight.minPerson;
             document.getElementById("maxGuest").innerText = data.payload.overnight.maxPerson;
             var villaPrice = data.payload.overnight.price;
-            var total = villaPrice + breakfastval + bedval;
+            var total = (villaPrice + breakfastval + bedval) * 1.025;
+            var serviceFee = (villaPrice + breakfastval + bedval) * 0.025;
             sessionStorage.setItem("totalPrice", total);
+            document.getElementById("gcash").innerText = serviceFee;
             document.getElementById("total").innerText = total;
           }
         });

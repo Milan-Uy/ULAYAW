@@ -40,7 +40,7 @@
       <p><span id="addOnAmt2"></span> <span id="addOnName2"></span><span id="addOnPrice2" class="price"></span></p>
       <p><span id="addOnAmt3"></span> <span id="addOnName3"></span><span id="addOnPrice3" class="price"></span></p>
       <p><span id="addOnAmt4"></span> <span id="addOnName4"></span><span id="addOnPrice4" class="price"></span></p>
-      <p>GCash Fee (2.5% of Total)<span class="price">PHP 123.00</span></p>
+      <p>GCash Fee (2.5% of Total)<span id="gcash" class="price">PHP 0.00</span></p>
      <hr>
       <h3>Total <span class="price" style="color:black"><span id="totPrice"><b>Total Price</b></span></span></h3>
     </div>
@@ -132,27 +132,41 @@
             document.getElementById("guestAmt").innerText = data.payload.booking.noOfGuests;
             document.getElementById("startDate").innerText = convertDate(data.payload.booking.startDate);
             document.getElementById("endDate").innerText = convertDate(data.payload.booking.endDate);
+
+            var addOnTotal = 0;
+
             if(data.payload.booking.addOns[0].qty > 0) {
               document.getElementById("addOnAmt1").innerText = data.payload.booking.addOns[0].qty;
               document.getElementById("addOnName1").innerText = data.payload.booking.addOns[0].addOnName;
               document.getElementById("addOnPrice1").innerText = data.payload.booking.addOns[0].price;
+              addOnTotal += data.payload.booking.addOns[0].price;
             }
             if(data.payload.booking.addOns[1].qty > 0) {
               document.getElementById("addOnAmt2").innerText = data.payload.booking.addOns[1].qty;
               document.getElementById("addOnName2").innerText = data.payload.booking.addOns[1].addOnName;
               document.getElementById("addOnPrice2").innerText = data.payload.booking.addOns[1].price;
+              addOnTotal += data.payload.booking.addOns[1].price;
             }
             if(data.payload.booking.addOns[2].qty > 0) {
               document.getElementById("addOnAmt3").innerText = data.payload.booking.addOns[2].qty;
               document.getElementById("addOnName3").innerText = data.payload.booking.addOns[2].addOnName;
               document.getElementById("addOnPrice3").innerText = data.payload.booking.addOns[2].price;
+              addOnTotal += data.payload.booking.addOns[2].price;
             }
             if(data.payload.booking.addOns[3].qty > 0) {
               document.getElementById("addOnAmt4").innerText = data.payload.booking.addOns[3].qty;
               document.getElementById("addOnName4").innerText = data.payload.booking.addOns[3].addOnName;
               document.getElementById("addOnPrice4").innerText = data.payload.booking.addOns[3].price;
+              addOnTotal += data.payload.booking.addOns[3].price;
             }
             
+            if (data.payload.booking.startDate === data.payload.booking.endDate){
+              var serviceFee = (data.payload.booking.villaId.dayTour.price + addOnTotal) * 0.025;
+            } else {
+              var serviceFee = (data.payload.booking.villaId.overnight.price + addOnTotal) * 0.025;
+            }
+            
+            document.getElementById("gcash").innerText = serviceFee;
             document.getElementById("totPrice").innerText = data.payload.booking.totalAmount;
             document.getElementById("dpay").innerText = data.payload.booking.totalAmount/2;
             document.getElementById("fpay").innerText = data.payload.booking.totalAmount;

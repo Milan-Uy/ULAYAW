@@ -663,7 +663,7 @@
     };
     hideSalesReport();
 
-    const displaySNav = () => {
+    const displaySNavLogo = () => {
         let options = {
           method: "GET",
           headers: {
@@ -678,7 +678,7 @@
             document.getElementById("s-nav-logo").src = data.payload.businessLogo;
           });
       };
-      displaySNav();
+      displaySNavLogo();
 
       //Import Navbar
       // $(function () {
