@@ -203,7 +203,7 @@
           <div class="card">
             <p class="card-content">
               <span class="material-icons md-48"> mail </span> <br />
-              <span id="email"></span></span>
+              <span id="email-display"></span></span>
               <!-- huloleisurefarm@gmail.com -->
             </p>
           </div>
@@ -284,7 +284,7 @@
             console.log(data);
             document.getElementById("contact").innerText = data.payload.contact;
             document.getElementById("loc").innerText = data.payload.location;
-            document.getElementById("email").innerText = data.payload.email;
+            document.getElementById("email-display").innerText = data.payload.email;
           });
       };
       displayInfo();
@@ -298,6 +298,12 @@
           receiver: "uymillano@gmail.com",
           receiverName: "Milan Uy",
         };
+
+        console.log(document.querySelector("#name").value);
+        console.log(document.querySelector("#email").value);
+        console.log(document.querySelector("#subject").value);
+        console.log(document.querySelector("#message").value);
+
         let options = {
           method: "POST",
           headers: {
