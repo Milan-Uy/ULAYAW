@@ -156,7 +156,7 @@
                   </tr>
                   <tr style="border-bottom: solid 1px #f7f7f7">
                     <td class="r-pricetxt"> Additional GCash Fee (2.5% of Total)</td>
-                    <td class="r-pricetxt" align="right" id="roomPrice">PHP 123.00</td>
+                    <td class="r-pricetxt" align="right" id="gcash">PHP 0.00</td>
                   </tr>
                   <tr style="background-color: #eeeeee">
                     <th class="r-title r-left" width="70%">Total</th>
@@ -324,6 +324,10 @@
             bal = booking.totalAmount - payAmount;
 
             document.getElementById("balance").innerHTML = `PHP ${comma(bal)}.00`;
+
+            var gcashFee = (booking.villaId[booking.bookingType].price + addOnT) * 0.025;
+
+            document.getElementById('gcash').innerHTML = `PHP ${comma(gcashFee)}.00`;
 
             }
           });

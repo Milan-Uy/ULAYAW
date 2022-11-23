@@ -49,7 +49,9 @@
     </div>
     <script>
       const PaySuccess = () => {
-        let bookingIdSuccess1 = sessionStorage.getItem("bookingIdSuccess");
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
 
         let options = {
           method: "GET",
@@ -59,7 +61,7 @@
           },
         };
 
-        fetch(`https://ulayaw-app.azurewebsites.net/booking/getOne/${bookingIdSuccess1}`, options)
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/getOne/${id}`, options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);

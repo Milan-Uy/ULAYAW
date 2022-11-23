@@ -10,10 +10,15 @@
     <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" /> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="tableManager.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.4/jquery.simplePagination.min.js"
+      integrity="sha512-J4OD+6Nca5l8HwpKlxiZZ5iF79e9sgRGSf0GxLsL1W55HHdg48AEiKCXqvQCNtA1NOMOVrw15DXnVuPpBm2mPg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -35,8 +40,8 @@
     <section class="bodycs">
       <div class="container-cs">
         <div class="display-cs" id="display_cs">
-          <div id="cs-body"></div>
-          <div class="cs-card">
+          <div class="list-wrapper" id="cs-body"></div>
+          <!-- <div class="cs-card">
             <div class="cs-card-body">
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur tenetur distinctio neque?</p>
               <div class="cs-user">
@@ -100,9 +105,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
+
+      <div id="pagination-container"></div>
     </section>
     <script src="app.js"></script>
     <script>
@@ -138,6 +145,73 @@
       //       showrows: [5, 10, 20, 50, 100],
       //     });
       //   });
+
+      const allCS = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            // Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+        fetch("https://ulayaw-app.azurewebsites.net/user/customerSatisfaction", options)
+          .then((response) => response.json())
+          .then((data) => {
+            let icon;
+            console.log(data);
+            data.payload.forEach((cs) => {
+              switch (cs.feedback.rating) {
+                case 1:
+                  icon = "sad";
+                  break;
+                case 2:
+                  icon = "neutral";
+                  break;
+                case 3:
+                  icon = "happy";
+                  break;
+              }
+
+              $("#cs-body").append(`
+
+            <div class="list-item cs-card">
+            <div class="cs-card-body">
+              <p>${cs.feedback.description}</p>
+              <div class="cs-user">
+                <div class="user-info">
+                  <h5>${cs.firstName} ${cs.lastName}</h5>
+                </div>
+                <div class="user-img">
+                  <img id="cs-img0" src="icons/${icon}.png" class="rounded-circle img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+              `);
+            });
+
+            var items = $(".list-wrapper .list-item");
+            var numItems = items.length;
+            var perPage = 3;
+
+            items.slice(perPage).hide();
+
+            $("#pagination-container").pagination({
+              items: numItems,
+              itemsOnPage: perPage,
+              prevText: "<",
+              nextText: ">",
+              onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+              },
+            });
+          });
+      };
+      allCS();
+
       //Import Navbar
       $(function () {
         $("#nav-placeholder").load("navbar-staff.html");
