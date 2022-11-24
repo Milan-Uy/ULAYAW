@@ -487,7 +487,7 @@
             var serviceFee = (villaPrice + breakfastval + bedval) * 0.025;
             sessionStorage.setItem("totalPrice", total);
             document.getElementById("gcash").innerText = serviceFee;
-            document.getElementById("total").innerText = total;
+            document.getElementById("total").innerText = `PHP ${comma(total)}.00`;
           }
         });
     };

@@ -167,9 +167,9 @@
             }
             
             document.getElementById("gcash").innerText = serviceFee;
-            document.getElementById("totPrice").innerText = data.payload.booking.totalAmount;
-            document.getElementById("dpay").innerText = data.payload.booking.totalAmount/2;
-            document.getElementById("fpay").innerText = data.payload.booking.totalAmount;
+            document.getElementById("totPrice").innerText = `PHP ${comma(data.payload.booking.totalAmount)}.00`;
+            document.getElementById("dpay").innerText = `PHP ${comma(data.payload.booking.totalAmount/2)}.00`;
+            document.getElementById("fpay").innerText = `PHP ${comma(data.payload.booking.totalAmount)}.00`;
           });
     }
     displayBooking();
