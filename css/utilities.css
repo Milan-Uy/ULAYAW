@@ -2920,7 +2920,10 @@ footer .bottom a:hover {
   display: block;
   text-align: left;
 }
-.dropdown:hover .dropdown-content {
+.hoverable {
+  cursor: pointer;
+}
+td:hover .dropdown .dropdown-content {
   display: block;
 }
 .dd-content:hover,
