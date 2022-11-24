@@ -128,13 +128,13 @@
               <div class="edit-container">
                 <div class="user-details">
                   <h5>Password</h5>
-                  <button class="editprofile-btn" id="removeReadOnly2">Change</button>
+                  <!-- <button class="editprofile-btn" id="removeReadOnly2">Change</button> -->
                 </div>
                 <form action="javascript:changePassword();" class="edit-form" id="c-changepass">
                   <div class="form-container flex-column">
-                    <div class="col-6 hide-txt5 hide-text-bg">
+                    <div class="col-6 hide-txt5 hide-text-bg white-bg">
                       <label>Current Password</label>
-                      <input type="password" id="password" placeholder="Password" readonly />
+                      <input type="password" id="password" placeholder="Password" />
                     </div>
                     <div class="col-6 hide-txt6 hide-text-bg">
                       <label>New Password</label>
@@ -142,7 +142,6 @@
                         type="password"
                         id="newPassword"
                         placeholder="New Password"
-                        readonly
                         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                         title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
                         value=""
@@ -150,7 +149,7 @@
                     </div>
                     <div class="col-6 hide-txt7 hide-text-bg">
                       <label>Re-Enter Password</label>
-                      <input type="password" id="rePassword" placeholder="Password" readonly />
+                      <input type="password" id="rePassword" placeholder="Password" />
                     </div>
                   </div>
                   <div class="flex-end-container">
@@ -538,19 +537,19 @@
         document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
-        //document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
       });
 
-      document.getElementById("removeReadOnly2").addEventListener("click", function () {
-        document.getElementById("password").toggleAttribute("readonly");
-        document.getElementById("rePassword").toggleAttribute("readonly");
-        document.getElementById("newPassword").toggleAttribute("readonly");
-        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
-      });
+      // document.getElementById("removeReadOnly2").addEventListener("click", function () {
+      //   document.getElementById("password").toggleAttribute("readonly");
+      //   document.getElementById("rePassword").toggleAttribute("readonly");
+      //   document.getElementById("newPassword").toggleAttribute("readonly");
+      //   document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
+      // });
 
       const saveProfile = () => {
         // e.preventDefault();
@@ -565,7 +564,7 @@
         document.getElementsByClassName("hide-txt1")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt2")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("hide-txt3")[0].classList.toggle("hide-text-bg");
-        //document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
+        document.getElementsByClassName("hide-txt4")[0].classList.toggle("hide-text-bg");
         document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
         // update user
         const data = {
@@ -760,15 +759,15 @@
         // location.reload();
       };
 
-      document.getElementById("saveProfile-btn2").addEventListener("click", function () {
-        document.getElementById("password").toggleAttribute("readonly");
-        document.getElementById("rePassword").toggleAttribute("readonly");
-        document.getElementById("newPassword").toggleAttribute("readonly");
-        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
-      });
+      // document.getElementById("saveProfile-btn2").addEventListener("click", function () {
+      //   document.getElementById("password").toggleAttribute("readonly");
+      //   document.getElementById("rePassword").toggleAttribute("readonly");
+      //   document.getElementById("newPassword").toggleAttribute("readonly");
+      //   document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("saveProfile-btn2")[0].classList.toggle("showProfile-btn");
+      // });
 
       // Popup Button
       document.getElementById("open-popup1-btn").addEventListener("click", function () {

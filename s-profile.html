@@ -600,13 +600,13 @@
                 <strong>Error Occured!</strong>
               </div>
               <div class="user-details">
-                <button class="editprofile-btn" id="removeReadOnly2">Change</button>
+                <!-- <button class="editprofile-btn" id="removeReadOnly2">Change</button> -->
               </div>
               <form action="javascript:changePasswordStaff();" class="edit-form" id="s-changepass">
                 <div class="form-container flex-column">
                   <div class="col-6 hide-txt5 hide-text-bg">
                     <label>Current Password</label>
-                    <input type="password" id="password" placeholder="Password" readonly />
+                    <input type="password" id="password" placeholder="Password" required />
                   </div>
                   <div class="col-6 hide-txt6 hide-text-bg">
                     <label>New Password</label>
@@ -614,19 +614,20 @@
                       type="password"
                       id="newPassword"
                       placeholder="New Password"
-                      readonly
+                     
                       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                       title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
                       value=""
+                      required
                     />
                   </div>
                   <div class="col-6 hide-txt7 hide-text-bg">
                     <label>Re-Enter Password</label>
-                    <input type="password" id="rePassword" placeholder="Password" readonly />
+                    <input type="password" id="rePassword" placeholder="Password" required />
                   </div>
                 </div>
                 <div class="flex-end-container">
-                  <button type="submit" class="saveProfile-btn" id="saveProfile-btn">Save Changes</button>
+                  <input type="submit" class="saveProfile-btn" id="saveProfile-btn" value="Save Changes">
                 </div>
               </form>
             </div>
@@ -1546,25 +1547,25 @@
       
       // Remove readOnly
 
-      document.getElementById("removeReadOnly2").addEventListener("click", function () {
-        document.getElementById("password").toggleAttribute("readonly");
-        document.getElementById("rePassword").toggleAttribute("readonly");
-        document.getElementById("newPassword").toggleAttribute("readonly");
-        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
-      });
+      // document.getElementById("removeReadOnly2").addEventListener("click", function () {
+      //   document.getElementById("password").toggleAttribute("readonly");
+      //   document.getElementById("rePassword").toggleAttribute("readonly");
+      //   document.getElementById("newPassword").toggleAttribute("readonly");
+      //   document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
+      // });
 
-      document.getElementById("saveProfile-btn").addEventListener("click", function () {
-        document.getElementById("password").toggleAttribute("readonly");
-        document.getElementById("rePassword").toggleAttribute("readonly");
-        document.getElementById("newPassword").toggleAttribute("readonly");
-        document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
-        document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
-      });
+      // document.getElementById("saveProfile-btn").addEventListener("click", function () {
+      //   document.getElementById("password").toggleAttribute("readonly");
+      //   document.getElementById("rePassword").toggleAttribute("readonly");
+      //   document.getElementById("newPassword").toggleAttribute("readonly");
+      //   document.getElementsByClassName("hide-txt5")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt6")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("hide-txt7")[0].classList.toggle("hide-text-bg");
+      //   document.getElementsByClassName("saveProfile-btn")[0].classList.toggle("showProfile-btn");
+      // });
 
     </script>
   </body>

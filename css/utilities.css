@@ -1017,7 +1017,7 @@ p {
   background-color: #1b5b65;
   border: none;
   border-radius: 5px;
-  display: none;
+  /* display: none; */
 }
 
 .saveProfile-btn.showProfile-btn {
@@ -3118,10 +3118,10 @@ footer .bottom a:hover {
   border-radius: 20px;
 }
 
-.update-form .form-container .hide-text-bg input {
+/* .update-form .form-container .hide-text-bg input {
   background: white;
   outline: none;
-}
+} */
 
 .app-details {
   display: flex;
