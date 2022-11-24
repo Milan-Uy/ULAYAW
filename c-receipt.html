@@ -251,7 +251,7 @@
               document.getElementById('dateRange').innerHTML = `${convertDate(booking.startDate)} - ${convertDate(booking.endDate)}`;
               document.getElementById('casaGuest').innerHTML = `${booking.noOfGuests} guest/s`;
               document.getElementById('roomPrice').innerHTML = `PHP ${comma(booking.villaId[booking.bookingType].price)}.00`;
-              document.getElementById('totalAmt').innerHTML = `PHP ${comma(booking.totalAmount)}.00`;
+              document.getElementById('totalAmt').innerHTML = `PHP ${comma(booking.totalAmount.toFixed(2))}`;
               document.getElementById('paymentOption').innerHTML = `${booking.paymentType}`;
               document.getElementById('qrCode').src = booking.qrCode;
               document.getElementById('qrRef').href = booking.qrCode;
@@ -318,16 +318,16 @@
               payAmount = booking.totalAmount / 2;
             }
 
-            document.getElementById("paidAmt").innerHTML = `PHP ${comma(payAmount)}.00`;
+            document.getElementById("paidAmt").innerHTML = `PHP ${comma(payAmount.toFixed(2))}`;
 
             var bal = 0;
             bal = booking.totalAmount - payAmount;
 
-            document.getElementById("balance").innerHTML = `PHP ${comma(bal)}.00`;
+            document.getElementById("balance").innerHTML = `PHP ${comma(bal.toFixed(2))}`;
 
             var gcashFee = (booking.villaId[booking.bookingType].price + addOnT) * 0.025;
 
-            document.getElementById('gcash').innerHTML = `PHP ${comma(gcashFee)}.00`;
+            document.getElementById('gcash').innerHTML = `PHP ${comma(gcashFee.toFixed(2))}`;
 
             }
           });
