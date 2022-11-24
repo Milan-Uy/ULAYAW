@@ -83,7 +83,7 @@
           body: JSON.stringify(data)
         };
         let id = sessionStorage.getItem('booking_id')
-        fetch(`https://ulayaw-app.azurewebsites.net/booking/pay/${id}`, options)
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/pay/${id}/live`, options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
