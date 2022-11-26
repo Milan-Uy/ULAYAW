@@ -1879,6 +1879,15 @@ hr {
   box-sizing: content-box;
   width: 100% !important;
 }
+@media (max-width: 360px) {
+  .litepicker {
+    left: 18px !important;
+  }
+  .litepicker .container__months {
+    width: 95% !important;
+    justify-content: center;
+  }
+}
 .litepicker .container__days .day-item.is-start-date,
 .litepicker .container__days .day-item.is-end-date {
   background-color: #1b5b6b;
