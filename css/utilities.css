@@ -303,6 +303,11 @@
 }
 
 /*FAQs*/
+
+.accordion-content p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px !important;
+}
 .faqs-header {
   display: flex;
   align-items: center;
@@ -2398,7 +2403,7 @@ transform: scale(1) rotate(1deg);
   margin-top: 40px;
   overflow-x: auto;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .ststbl {
