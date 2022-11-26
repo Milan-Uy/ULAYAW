@@ -2034,6 +2034,11 @@ transform: scale(1) rotate(1deg);
   margin-top: 100px;
   width: 100%;
 }
+@media (max-width: 650px) {
+  .blog-card .room-desc .room-links {
+    display: flex;
+  }
+}
 .room-desc .room-links .read-more {
   color: #1b5b6b;
   text-decoration: none;
