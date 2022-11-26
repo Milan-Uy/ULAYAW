@@ -578,6 +578,11 @@
     display: grid;
   }
 }
+@media (max-width: 320px) {
+  .containermoments {
+    padding: 80px 20px;
+  }
+}
 
 /*view villas*/
 
