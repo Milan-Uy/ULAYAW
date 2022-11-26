@@ -934,6 +934,29 @@ p {
     border-left: 1px solid #dadada;
   }
 }
+
+@media (max-width: 650px) {
+  .edit-container {
+    max-width: 100vw !important;
+  }
+
+  .edit-container h5 {
+    font-size: 13px !important;
+  }
+  .editprofile-btn {
+    padding: 10px 10px !important;
+  }
+
+  .edit-form .form-container .col-3 label,
+  .edit-form .form-container .col-6 label {
+    font-size: 10px !important;
+  }
+  .edit-form .form-container .col-3 input,
+  .edit-form .form-container .col-6 input {
+    font-size: 10px !important;
+  }
+}
+
 .edit-container {
   max-width: 780px;
   background-color: #faf5ee;
@@ -2405,6 +2428,7 @@ transform: scale(1) rotate(1deg);
 
 .bookingstbl {
   overflow: auto;
+  max-width: 73vw !important;
 }
 .ststbl,
 .tdbs,
@@ -4898,6 +4922,14 @@ i.material-icons {
   background-color: #483434;
 }
 
+@media (max-width: 650px) {
+  .cr-btn,
+  .confirm-btn {
+    width: 200px !important;
+    padding: 10px !important;
+    font-size: 12px !important;
+  }
+}
 .cr-btn {
   background-color: #6b4f4f;
   color: white;
