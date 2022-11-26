@@ -216,7 +216,8 @@
             if (data.payload.length > 0) {
               var data1 = "";
               for (i = 0; i < data.payload.length; i++) {
-                console.log(data.payload[i].userId.firstName);
+                //console.log(data.payload[i].userId.firstName);
+                console.log(data.payload[i].userId.lastName);
                 if (data.payload[i].status === "Accepted") {
                   data1 += "<div class='list-item mmnt-card'>";
                   data1 += "<div class='card-moments'>";
@@ -226,7 +227,7 @@
                   data1 += "<p>" + data.payload[i].description + "</p>";
                   data1 += "<div class='user'>";
                   data1 += "<div class='user-info'>";
-                  data1 += "<h5>" + data.payload[i].userId.firstName + " " + data.payload[i].userId.lastName + "</h5>";
+                  data1 += "<h5>" + data.payload[i].userId.lastName + "</h5>";
                   data1 += "</div>";
                   data1 += "</div>";
                   data1 += "</div>";
