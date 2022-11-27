@@ -270,10 +270,12 @@
 }
 
 .manMoments img {
-  width: 100%;
-  max-width: 530px;
-  height: auto;
-  display: flex;
+  max-width: 450px;
+  max-height: 450px;
+  min-width: 450px;
+  min-height: 450px;
+  display: block;
+  margin-top: 10px;
   margin: auto;
 }
 
