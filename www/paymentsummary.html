@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <style>
+
+  </style>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <title>Payment Summary</title>
+</head>
+ 
+<body>
+   <!--Navbar-->
+   <section class="display-navbar">
+    <div id="nav-placeholder"></div>
+    </section>  
+
+<section class="paymentsummary">  
+<h2 class="headtextps">PAYMENT SUMMARY</h2>
+<div class="refnodiv">
+<h4 class="refno"> Reference No. : </h4> <h4 id="refnum" class="refnum"> 123 </h4>
+</div>
+<div class="rowps">
+  
+  </div>
+  <div class="col-25">
+    <div class="containerps">
+      <p>Your Reservation:</p>
+      <h3 style="padding-bottom: 10px;"><span id="villaName">Villa Name</span><span class="price" style="color:black"><span id="villaPrice"><b>Villa Price</b></span></span></h3>
+      <p><span id="startDate">Start Date</span> - <span id="endDate">End Date</span> </p>
+      <p><span id="guestAmt">Guest Amount</span> Guest/s</p>
+      <hr>
+      <p>Add-Ons Costs</p>
+      <p><span id="addOnAmt1"></span> <span id="addOnName1"></span><span id="addOnPrice1" class="price"></span></p>
+      <p><span id="addOnAmt2"></span> <span id="addOnName2"></span><span id="addOnPrice2" class="price"></span></p>
+      <p><span id="addOnAmt3"></span> <span id="addOnName3"></span><span id="addOnPrice3" class="price"></span></p>
+      <p><span id="addOnAmt4"></span> <span id="addOnName4"></span><span id="addOnPrice4" class="price"></span></p>
+      <p>GCash Fee (2.5% of Total)<span id="gcash" class="price">PHP 0.00</span></p>
+     <hr>
+      <h3>Total <span class="price" style="color:black"><span id="totPrice"><b>Total Price</b></span></span></h3>
+    </div>
+  </div>
+
+  <div class="col-50">
+    <div class="containerps lc">
+      <h3 style="padding-bottom: 10px;">Payment Options: </h3>
+      <span class="price" id="fpay">Price</span>
+      <label for="fpayment"> <input type="radio" value="Full" name='pay_method' id='fpayment' checked/> Full Payment</label>
+      <span id="dpay" class="price">Price</span>
+      <label for="dpayment"> <input type="radio" value="Partial" name='pay_method' id='dpayment' /> Down Payment</label>
+        <hr>
+        <img class="gcashicon" src="images/gcashicon.png" alt="gcashicon">
+        <input onclick="pay()" class="payment-btn" type="button" value="Proceed with Gcash Payment">
+       
+    </div>
+  </div>
+
+
+</div>
+</section>
+<!--Footer-->
+<section class="display-footer">
+  <div id="footer-placeholder"></div>
+</section>
+<script src="js/app.js"></script>
+<script>
+  const pay = () =>{
+    let paymentType = document.getElementById('fpayment').checked ? 'Full' : 'Partial';
+    let data = {
+      paymentType: paymentType
+    }
+    let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data)
+        };
+        let id = sessionStorage.getItem('booking_id')
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/pay/${id}/live`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            // navigate
+            window.open(data.data.attributes.redirect.checkout_url,'_parent');
+          })
+  }
+  //Import Navbar
+  $(function(){
+        $("#nav-placeholder").load("navbar.html");
+     });
+     //Import Footer
+    $(function () {
+      $("#footer-placeholder").load("footer.html");
+    });
+
+    const displayBooking = () => {
+      let id = sessionStorage.getItem("booking_id");
+      console.log(id);
+
+      
+
+      let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/getOne/${id}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+
+            let bookingIdS = data.payload.booking._id;
+            sessionStorage.setItem("bookingIdSuccess", bookingIdS);
+
+            document.getElementById("refnum").innerText =  data.payload.booking._id;
+            document.getElementById("villaName").innerText =  data.payload.booking.villaId.name;
+            if (data.payload.booking.startDate === data.payload.booking.endDate){
+              document.getElementById("villaPrice").innerText =  data.payload.booking.villaId.dayTour.price;
+            } else {
+              document.getElementById("villaPrice").innerText =  data.payload.booking.villaId.overnight.price;
+            }
+            document.getElementById("guestAmt").innerText = data.payload.booking.noOfGuests;
+            document.getElementById("startDate").innerText = convertDate(data.payload.booking.startDate);
+            document.getElementById("endDate").innerText = convertDate(data.payload.booking.endDate);
+
+            var addOnTotal = 0;
+
+            if(data.payload.booking.addOns[0].qty > 0) {
+              document.getElementById("addOnAmt1").innerText = data.payload.booking.addOns[0].qty;
+              document.getElementById("addOnName1").innerText = data.payload.booking.addOns[0].addOnName;
+              document.getElementById("addOnPrice1").innerText = data.payload.booking.addOns[0].price;
+              addOnTotal += data.payload.booking.addOns[0].price;
+            }
+            if(data.payload.booking.addOns[1].qty > 0) {
+              document.getElementById("addOnAmt2").innerText = data.payload.booking.addOns[1].qty;
+              document.getElementById("addOnName2").innerText = data.payload.booking.addOns[1].addOnName;
+              document.getElementById("addOnPrice2").innerText = data.payload.booking.addOns[1].price;
+              addOnTotal += data.payload.booking.addOns[1].price;
+            }
+            if(data.payload.booking.addOns[2].qty > 0) {
+              document.getElementById("addOnAmt3").innerText = data.payload.booking.addOns[2].qty;
+              document.getElementById("addOnName3").innerText = data.payload.booking.addOns[2].addOnName;
+              document.getElementById("addOnPrice3").innerText = data.payload.booking.addOns[2].price;
+              addOnTotal += data.payload.booking.addOns[2].price;
+            }
+            if(data.payload.booking.addOns[3].qty > 0) {
+              document.getElementById("addOnAmt4").innerText = data.payload.booking.addOns[3].qty;
+              document.getElementById("addOnName4").innerText = data.payload.booking.addOns[3].addOnName;
+              document.getElementById("addOnPrice4").innerText = data.payload.booking.addOns[3].price;
+              addOnTotal += data.payload.booking.addOns[3].price;
+            }
+            
+            if (data.payload.booking.startDate === data.payload.booking.endDate){
+              var serviceFee = (data.payload.booking.villaId.dayTour.price + addOnTotal) * 0.025;
+            } else {
+              var serviceFee = (data.payload.booking.villaId.overnight.price + addOnTotal) * 0.025;
+            }
+            
+            document.getElementById("gcash").innerText = serviceFee;
+            document.getElementById("totPrice").innerText = `PHP ${comma(data.payload.booking.totalAmount.toFixed(2))}`;
+            document.getElementById("dpay").innerText = `PHP ${comma((data.payload.booking.totalAmount/2).toFixed(2))}`;
+            document.getElementById("fpay").innerText = `PHP ${comma(data.payload.booking.totalAmount.toFixed(2))}`;
+          });
+    }
+    displayBooking();
+
+</script>
+
+</body>
+</html>

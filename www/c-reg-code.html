@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abril Fatface" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+
+    <title>Registration</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+
+    <section class="log-body">
+      <div class="log-container">
+        <div class="log-forms">
+          <div class="logform r-login">
+            <span class="log-title">Verification Code</span>
+
+            <form action="#">
+              <div class="code-container">
+                <label for="vcode1">Enter the 6-digit verification code that we sent to your email.</label>
+                <div class="log-input-field">
+                  <input id="inputCode" class="log-input" type="number" class="code" placeholder="Enter code" required />
+                  <i class="uil uil-lock icon"></i>
+                </div>
+              </div>
+              <div id="verifyError" class="login-error" style="display: none">
+                <!-- <small>Invalid Username and/or Password</small> -->
+              </div>
+              <div class="log-input-field button">
+                <a href="#"><input class="log-input-btn" type="button" value="Submit" onclick="verify()" /></a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/app.js"></script>
+    <script>
+      const verify = () => {
+        const inputCode = document.getElementById("inputCode").value;
+        const data = {
+          code: inputCode,
+        };
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/auth/verifyEmail", options)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.key === "ACCOUNTVERIFIED") {
+              localStorage.setItem("status", "Verified");
+              navigate();
+            } else {
+              const loginDiv = document.getElementById("verifyError");
+              loginDiv.style.display = "block";
+              loginDiv.innerHTML = `<small>${data.message}</small>`;
+            }
+          });
+      };
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+
+      const container = document.querySelector(".log-container");
+      const container1 = document.querySelector(".container1"),
+        pwShowHide = document.querySelectorAll(".showHidePw"),
+        pwFields = document.querySelectorAll(".password"),
+        signUp = document.querySelector(".signup-link"),
+        login = document.querySelector(".login-link");
+    </script>
+  </body>
+</html>

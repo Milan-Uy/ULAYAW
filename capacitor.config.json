@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.app",
+  "appName": "Ulayaw",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

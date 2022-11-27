@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        line-height: 1.65;
+      }
+    </style>
+  </head>
+
+  <body class="receipt-body">
+    <table class="booking-receipt">
+      <tr>
+        <td class="receipt-container">
+          <!-- Message start -->
+          <table style="width: 100% !important; border-collapse: collapse">
+            <tr>
+              <td align="center" class="masthead" style="background-image: url('images/hulo.png')"></td>
+            </tr>
+            <tr>
+              <td class="receipt-content">
+                <div>
+                  <p class="receipt-texts">Hello</p>
+                  <p class="receipt-texts" id="guestName">Guest Name</p>
+                </div>
+
+                <p class="receipt-texts">
+                  Thank you for booking with Hulo Leisure Farm! A record of your booking information appears below. Please keep this as the
+                  confirmation of your order.
+                </p>
+
+                <p class="r-header">BOOKING INFORMATION</p>
+
+                <table class="r-table">
+                  <tr style="background-color: #404040; color: #eeeeee">
+                    <th class="r-title r-left" width="30%">Customer Details</th>
+                    <th class="r-title r-left" width="50%"></th>
+                    <th class="r-title r-left" width="20%"></th>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Reference Number:</td>
+                    <td class="r-textf" id="refNo">CASA-3484398</td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Last Name:</td>
+                    <td class="r-textf" id="lastName">fname</td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">First Name:</td>
+                    <td class="r-textf" id="firstName">lname</td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Email Address:</td>
+                    <td class="r-textf" id="email">email@gmail.com</td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Contact Number:</td>
+                    <td class="r-textf" id="contact">0000-000-000</td>
+                  </tr>
+                </table>
+
+                <table class="r-table">
+                  <tr style="background-color: #404040; color: #eeeeee">
+                    <th class="r-title r-left" width="30%">Booking Information</th>
+                    <th class="r-title r-left" width="50%"></th>
+                    <th class="r-title r-left" width="20%"></th>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Room:</td>
+                    <td class="r-textf" id="casaName">Casa Aurelia</td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Date:</td>
+                    <td class="r-textf" id="dateRange">08/08/22 - 08/20/22</td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Guests:</td>
+                    <td class="r-textf" id="casaGuest">8 adults</td>
+                  </tr>
+
+                  <!-- <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Time:</td>
+                    <td class="r-textf" id="days">1 Night</td>
+                  </tr> -->
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf tfleft">Add ons:</td>
+                    <!-- <td class="r-textf" id="addOns">1 Extra Bed, 1 Extra Breakfast</td>
+                    <td class="r-textf" id="addOns"><span id="addOnAmt1"></span> <span id="addOnName1"></span></td> -->
+                    <td class="r-textf" id="addOns"></td>
+                  </tr>
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-textf" id="addOns"><span id="1addOnAmt1"></span> <span id="1addOnName1"></span></td>
+                    <td class="r-textf" id="addOns"><span id="1addOnAmt2"></span> <span id="1addOnName2"></span></td>
+                    <td class="r-textf" id="addOns"><span id="1addOnAmt3"></span> <span id="1addOnName3"></span></td>
+                    <td class="r-textf" id="addOns"><span id="1addOnAmt4"></span> <span id="1addOnName4"></span></td>
+                  </tr>
+                </table>
+
+                <table class="r-table">
+                  <tr style="background-color: #404040; color: #eeeeee">
+                    <th class="r-title r-left" width="70%">Payment Summary</th>
+                    <th class="r-title r-right" width="30;" align="right">Amount in Peso</th>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-pricetxt">Room Price</td>
+                    <td class="r-pricetxt" align="right" id="roomPrice">PHP 25,000.00</td>
+                  </tr>
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-pricetxt">
+                      Add ons
+                      <ul class="r-pricetxt">
+                        <!-- <div style="width: 100%">
+                          <li class="pricebd">1 Extra Bed</li>
+                          <li class="pricebd">PHP 150.00</li>
+                        </div>
+                        <div style="width: 100%">
+                          <li class="pricebd">1 Extra Breakfast</li>
+                          <li class="pricebd">PHP 200.00</li>
+                        </div> -->
+                        <div style="width: 100%" class="pricebd">
+                        <span id="addOnAmt1"></span> <span id="addOnName1"></span> <span id="addOnPrice1" ></span>
+                        </div>
+                        <div style="width: 100%" class="pricebd">
+                        <span id="addOnAmt2"></span> <span id="addOnName2"></span> <span id="addOnPrice2"></span>
+                        </div>
+                        <div style="width: 100%" class="pricebd">
+                        <span id="addOnAmt3"></span> <span id="addOnName3"></span> <span id="addOnPrice3"></span>
+                        </div>
+                        <div style="width: 100%" class="pricebd">
+                        <span id="addOnAmt4"></span> <span id="addOnName4"></span> <span id="addOnPrice4"></span>
+                        </div>
+                      </ul>
+                    </td>
+                    <td id="addOnTotal" style="font-size: 13px; font-weight: normal; padding: 0px 6px; vertical-align: top" align="right">Add On Total</td>
+                  </tr>
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-pricetxt"> Additional GCash Fee (2.5% of Total)</td>
+                    <td class="r-pricetxt" align="right" id="gcash">PHP 0.00</td>
+                  </tr>
+                  <tr style="background-color: #eeeeee">
+                    <th class="r-title r-left" width="70%">Total</th>
+                    <th class="r-title r-right" width="30;" align="right"><span id="totalAmt"></span></th>
+                  </tr>
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-pricetxt">Payment Option:</td>
+                    <td id="paymentOption" class="r-pricetxt" align="right">Payment Option</td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-pricetxt">Paid:</td>
+                    <td id="paidAmt" class="r-pricetxt" align="right" style="font-weight: bolder"></td>
+                  </tr>
+
+                  <tr style="border-bottom: solid 1px #f7f7f7">
+                    <td class="r-pricetxt">Remaining Balance:</td>
+                    <td id="balance" class="r-pricetxt" align="right" style="color: red; font-weight: bolder">PHP 12,350.00</td>
+                  </tr>
+                </table>
+
+                <table class="qrtd-table">
+                  <tr>
+                    <td class="qr-todo" style="width: 50%">Save and scan this QR Code below to quickly navigate to your proof of payment. <br><br>
+                    <img id="qrCode">
+                    </td>
+                    <td class="qr-todo" style="width: 50%">Click DOWNLOAD to save the QR code and/or proof of payment on your device. <br><br> <a  class="rec-btn" download id="qrRef">DOWNLOAD</a>
+                    <a onclick="window.print()" class="rec-btn">PRINT</a></td>
+                  </tr>
+                </table>
+
+                <table class="qrtd-table">
+                  <tr>
+                    <td class="qr-todo" style="width: 50%">
+                      <div class="qr-code"><img id="qr-id" src="/images/qr-code.png" width="150px" alt="" /></div>
+                    </td>
+                    <td class="qr-todo" style="width: 50%"></td>
+                  </tr>
+                </table>
+
+              
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- body end -->
+        </td>
+      </tr>
+    </table>
+    <script src="js/app.js"></script>
+    <script>
+      const generateQR = () => {
+        let generateQR = document.getElementById("generateQR");
+        let grImg = document.getElementById("qr-id");
+        // qrInput = wrapper.querySelector(".form input"),
+        // let qrValue = qrInput.value.trim();
+        // if(!qrValue || preValue === qrValue) return;
+        // preValue = qrValue;
+        // qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+        document.getElementsByClassName("qr-code")[0].classList.add("active");
+      };
+
+      const getBooking = () =>{
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+        console.log(id);
+
+        
+      let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/getOne/${id}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            const booking = data.payload.booking;
+            if(data.payload){
+              document.getElementById('refNo').innerHTML = `CASA-${booking._id}`;
+              document.getElementById('guestName').innerHTML = `${booking.userId.firstName} ${booking.userId.lastName}`;
+              document.getElementById('lastName').innerHTML = `${booking.userId.lastName}`;
+              document.getElementById('firstName').innerHTML = `${booking.userId.firstName}`;
+              document.getElementById('email').innerHTML = `${booking.userId.email}`;
+              document.getElementById('contact').innerHTML = `${booking.userId.contact}`;
+              document.getElementById('casaName').innerHTML = `${booking.villaId.name}`;
+              document.getElementById('dateRange').innerHTML = `${convertDate(booking.startDate)} - ${convertDate(booking.endDate)}`;
+              document.getElementById('casaGuest').innerHTML = `${booking.noOfGuests} guest/s`;
+              document.getElementById('roomPrice').innerHTML = `PHP ${comma(booking.villaId[booking.bookingType].price)}.00`;
+              document.getElementById('totalAmt').innerHTML = `PHP ${comma(booking.totalAmount.toFixed(2))}`;
+              document.getElementById('paymentOption').innerHTML = `${booking.paymentType}`;
+              document.getElementById('qrCode').src = booking.qrCode;
+              document.getElementById('qrRef').href = booking.qrCode;
+
+            if(data.payload.booking.addOns[0].qty > 0) {
+            document.getElementById("1addOnAmt1").innerText = data.payload.booking.addOns[0].qty;
+            document.getElementById("1addOnName1").innerText = data.payload.booking.addOns[0].addOnName;
+            
+            }
+            if(data.payload.booking.addOns[1].qty > 0) {
+              document.getElementById("1addOnAmt2").innerText = data.payload.booking.addOns[1].qty;
+              document.getElementById("1addOnName2").innerText = data.payload.booking.addOns[1].addOnName;
+              
+            }
+            if(data.payload.booking.addOns[2].qty > 0) {
+              document.getElementById("1addOnAmt3").innerText = data.payload.booking.addOns[2].qty;
+              document.getElementById("1addOnName3").innerText = data.payload.booking.addOns[2].addOnName;
+              
+            }
+            if(data.payload.booking.addOns[3].qty > 0) {
+              document.getElementById("1addOnAmt4").innerText = data.payload.booking.addOns[3].qty;
+              document.getElementById("1addOnName4").innerText = data.payload.booking.addOns[3].addOnName;
+              
+            }
+
+            var addOnP1 = 0;
+            var addOnP2 = 0;
+            var addOnP3 = 0;
+            var addOnP4 = 0;
+            var addOnT = 0;
+
+            if(data.payload.booking.addOns[0].qty > 0) {
+              document.getElementById("addOnAmt1").innerText = data.payload.booking.addOns[0].qty;
+              document.getElementById("addOnName1").innerText = data.payload.booking.addOns[0].addOnName;
+              document.getElementById("addOnPrice1").innerText = data.payload.booking.addOns[0].price;
+              addOnP1 = data.payload.booking.addOns[0].price;
+            }
+            if(data.payload.booking.addOns[1].qty > 0) {
+              document.getElementById("addOnAmt2").innerText = data.payload.booking.addOns[1].qty;
+              document.getElementById("addOnName2").innerText = data.payload.booking.addOns[1].addOnName;
+              document.getElementById("addOnPrice2").innerText = data.payload.booking.addOns[1].price;
+              addOnP2 = data.payload.booking.addOns[1].price;
+            }
+            if(data.payload.booking.addOns[2].qty > 0) {
+              document.getElementById("addOnAmt3").innerText = data.payload.booking.addOns[2].qty;
+              document.getElementById("addOnName3").innerText = data.payload.booking.addOns[2].addOnName;
+              document.getElementById("addOnPrice3").innerText = data.payload.booking.addOns[2].price;
+              addOnP3 = data.payload.booking.addOns[2].price;
+            }
+            if(data.payload.booking.addOns[3].qty > 0) {
+              document.getElementById("addOnAmt4").innerText = data.payload.booking.addOns[3].qty;
+              document.getElementById("addOnName4").innerText = data.payload.booking.addOns[3].addOnName;
+              document.getElementById("addOnPrice4").innerText = data.payload.booking.addOns[3].price;
+              addOnP4 = data.payload.booking.addOns[3].price;
+            }
+
+            addOnT = addOnP1 + addOnP2 + addOnP3 + addOnP4;
+            document.getElementById("addOnTotal").innerText = `PHP ${comma(addOnT)}.00`;
+
+            var payAmount = 0;
+            if (booking.paymentType === "Full") {
+              payAmount = booking.totalAmount;
+            } else if (booking.paymentType === "Partial") {
+              payAmount = booking.totalAmount / 2;
+            }
+
+            document.getElementById("paidAmt").innerHTML = `PHP ${comma(payAmount.toFixed(2))}`;
+
+            var bal = 0;
+            bal = booking.totalAmount - payAmount;
+
+            document.getElementById("balance").innerHTML = `PHP ${comma(bal.toFixed(2))}`;
+
+            var gcashFee = (booking.villaId[booking.bookingType].price + addOnT) * 0.025;
+
+            document.getElementById('gcash').innerHTML = `PHP ${comma(gcashFee.toFixed(2))}`;
+
+            }
+          });
+      }
+      getBooking();
+
+
+
+    
+    </script>
+  </body>
+</html>

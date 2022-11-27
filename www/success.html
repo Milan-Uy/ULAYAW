@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    * {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 60;
+      color: #9dbbae;
+      font-size: 50px !important;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Transaction completed!</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="result-outer-container">
+      <div class="result-inner-container">
+        <div class="result-card result-centered-content">
+          <div class="result-top">
+            <span class="material-symbols-outlined"> check_circle </span>
+            <h3 class="result-h3">Payment successful!</h3>
+            <span class="result-span">
+              <p class="result-ref">Reference Number:</p>
+              <p id="refno" class="result-ref">ref no.</p></span
+            >
+          </div>
+          <div class="result-bottom">
+            <!-- <div class="result-key-value">
+              <span class="result-span">Amount Paid</span>
+              <span class="result-span">
+                <p class="result-ref">₱</p>
+                <p id="amtPaid" class="result-ref">0.00</p>
+              </span>
+            </div> -->
+            <a class="result-a" href="c-profile.html"> Back to profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const PaySuccess = () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+
+        fetch(`https://ulayaw-app.azurewebsites.net/booking/getOne/${id}`, options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("refno").innerText = data.payload.booking._id;
+
+            // if (data.payload.paymentType === "Full") {
+            //   document.getElementById("amtPaid").innerText = data.payload.totalAmount;
+            // } else if (data.payload.paymentType === "Partial") {
+            //   document.getElementById("amtPaid").innerText = data.payload.totalAmount / 2;
+            // }
+          });
+      };
+      PaySuccess();
+    </script>
+  </body>
+</html>
