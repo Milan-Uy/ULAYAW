@@ -178,6 +178,14 @@
       </div>
     </div>
 
+    <div class="popup popup5 popup-short center">
+      <div class="popup-title">Login</div>
+      <div class="description">Please use a guest account</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup5-btn">Close</button>
+      </div>
+    </div>
+
     <!-- END OF POPUP -->
     <script src="js/app.js"></script>
     <script>
@@ -250,6 +258,18 @@
               loginDiv.innerHTML = `<small>${data.payload}</small>`;
             }
             console.log(data);
+
+            if (
+              localStorage.getItem("user_role") === "Admin" ||
+              localStorage.getItem("user_role") === "Manager" ||
+              localStorage.getItem("user_role") === "Marketing Specialist"
+            ) {
+              document.getElementsByClassName("popup5")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup5-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup5")[0].classList.remove("active");
+              });
+            }
           });
       };
       const errorCheck = () => {
