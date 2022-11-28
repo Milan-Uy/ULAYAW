@@ -209,16 +209,32 @@
           </div>
         </div>
 
+        <div class="popup popup1 center popup-short">
+          <div class="popup-title">Send Message</div>
+          <div class="description">Message Sent Successfully!</div>
+          <div class="dismiss-btn">
+            <button id="dismiss-popup1-btn">Close</button>
+          </div>
+        </div>
+
+        <div class="popup popup2 center popup-short">
+          <div class="popup-title">Send Message</div>
+          <div class="description">Message Not Sent!</div>
+          <div class="dismiss-btn">
+            <button id="dismiss-popup2-btn">Close</button>
+          </div>
+        </div>
+
         <section class="centercontact">
           <div class="container">
             <div class="content">
               <div class="image-box">
                 <img src="images/leaves1.png" alt="" />
               </div>
-              <form onsubmit="javascript:sendEmail();" id="contactForm">
+              <form onsubmit="sendEmail()" id="contactForm">
                 <div class="topic">Send us a message!</div>
                 <!-- ALERT -->
-                <div class="alertMessage alert1">
+                <!-- <div class="alertMessage alert1">
                   <span class="close" id="close-alert1">×</span>
                   <i class="fas fa-exclamation-circle alert-icon"></i>
                   <strong>Your message was successfully sent!</strong>
@@ -227,7 +243,7 @@
                   <span class="close" id="close-alert2">×</span>
                   <i class="fas fa-exclamation-circle alert-icon"></i>
                   <strong>Your message could not be sent!</strong>
-                </div>
+                </div> -->
                 <div class="input-box">
                   <input type="text" id="name" required />
                   <label>Enter your name</label>
@@ -317,9 +333,21 @@
           .then((data) => {
             console.log(data);
             if (data.key === "SUCCESS") {
-              document.getElementsByClassName("alert1")[0].style.display = "block";
+              // document.getElementsByClassName("alert1")[0].style.display = "block";
+
+              document.getElementsByClassName("popup1")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+              document.getElementsByClassName("popup1")[0].classList.remove("active");
+            });
             } else {
-              document.getElementsByClassName("alert2")[0].style.display = "block";
+              // document.getElementsByClassName("alert2")[0].style.display = "block";
+
+              document.getElementsByClassName("popup2")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+              document.getElementsByClassName("popup2")[0].classList.remove("active");
+            });
             }
             document.getElementById("contactForm").reset();
           });
