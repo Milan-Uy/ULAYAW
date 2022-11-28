@@ -2437,6 +2437,7 @@ transform: scale(1) rotate(1deg);
 
 .bookingstbl {
   overflow: auto;
+  max-width: 73vw !important;
 }
 .ststbl,
 .tdbs,
@@ -4948,6 +4949,16 @@ i.material-icons {
 .cr-btn:hover {
   background-color: #483434;
 }
+
+@media (max-width: 650px) {
+  .cr-btn,
+  .confirm-btn {
+    width: 50vw !important;
+    padding: 10px !important;
+    font-size: 4vw !important;
+  }
+}
+
 */
 /*code verification*/
 .emailtable {
