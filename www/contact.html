@@ -215,7 +215,7 @@
               <div class="image-box">
                 <img src="images/leaves1.png" alt="" />
               </div>
-              <form action="javascript:sendEmail();" id="contactForm">
+              <form onsubmit="javascript:sendEmail();" id="contactForm">
                 <div class="topic">Send us a message!</div>
                 <!-- ALERT -->
                 <div class="alertMessage alert1">
@@ -295,8 +295,8 @@
           email: document.querySelector("#email").value,
           subject: document.querySelector("#subject").value,
           message: document.querySelector("#message").value,
-          receiver: "uymillano@gmail.com",
-          receiverName: "Milan Uy",
+          receiver: "officialulayaw@gmail.com",
+          receiverName: "Ulayaw Official",
         };
 
         console.log(document.querySelector("#name").value);
