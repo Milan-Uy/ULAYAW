@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!-- === Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abril Fatface" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+
+    <title>Hulo Leisure Farm</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+
+    <section class="log-body">
+      <div class="log-container">
+        <div class="log-forms">
+          <div class="logform r-login">
+            <span class="log-title">Login</span>
+
+            <form onsubmit="event.preventDefault(); loginUser();">
+              <div class="log-input-field">
+                <input class="log-input" id="loginEmail" onkeydown="errorCheck()" type="text" placeholder="Enter your email" required />
+                <i class="uil uil-envelope icon"></i>
+              </div>
+              <div class="log-input-field">
+                <input
+                  class="log-input"
+                  id="loginPw"
+                  onkeydown="errorCheck()"
+                  type="password"
+                  class="password"
+                  placeholder="Enter your password"
+                  required
+                />
+                <i class="uil uil-lock icon"></i>
+              </div>
+
+              <div id="loginError" class="login-error" style="display: none">
+                <!-- <small>Invalid Username and/or Password</small> -->
+              </div>
+
+              <div class="log-checkbox-text">
+                <a href="forgotpw-1.html" class="text">Forgot password?</a>
+              </div>
+
+              <div class="log-input-field button">
+                <input class="log-input-btn" type="submit" id="loginBtn" type="button" value="Login" />
+              </div>
+              <div class="log-checkbox-text1">
+                <div class="noaccyet">
+                  <ul class="text noaccount">
+                    No account?
+                  </ul>
+                  <a href="#" class="text signup-link">Register here.</a>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Registration Form -->
+          <div class="logform r-signup">
+            <span class="log-title">Registration</span>
+
+            <form action="javascript:signup();">
+              <div class="log-input-field">
+                <input id="firstName" class="log-input" type="text" placeholder="Enter your first name" required value="" />
+                <i class="uil uil-user"></i>
+              </div>
+              <div class="log-input-field">
+                <input id="lastName" class="log-input" type="text" placeholder="Enter your last name" required value="" />
+                <i class="uil uil-user"></i>
+              </div>
+              <div class="log-input-field">
+                <input id="email" class="log-input" type="email" placeholder="Enter your email" required value="" />
+                <i class="uil uil-at icon"></i>
+              </div>
+              <div class="log-input-field">
+                <input
+                  id="contact"
+                  class="log-input"
+                  type="tel"
+                  minlength="11"
+                  maxlength="11"
+                  pattern="[0]{1}[9]{1}[0-9]{2}[0-9]{3}[0-9]{4}"
+                  placeholder="Enter your contact number"
+                  required
+                  value=""
+                  oninput="this.value = this.value.replace(/[^0-9+()]/g, '');"
+                />
+                <i class="uil uil-phone icon"></i>
+              </div>
+              <div class="log-input-field">
+                <input
+                  id="password"
+                  class="log-input"
+                  type="password"
+                  class="password"
+                  placeholder="Create a password"
+                  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                  title="Password must at least be 8 characters in length, and contain 1 uppercase character, 1 lowercase letter, and 1 number."
+                  required
+                  value=""
+                />
+                <i class="uil uil-lock icon"></i>
+              </div>
+              <div class="log-input-field">
+                <input id="confirmpass" class="log-input" type="password" class="password" placeholder="Confirm a password" required value="" />
+                <i class="uil uil-lock icon"></i>
+              </div>
+
+              <div class="log-checkbox-text">
+                <div class="log-checkbox-content">
+                  <input class="logcheck" type="checkbox" id="termCon" required />
+                  <label for="termCon" class="text">I agree to the <a href="tnc.html" target="_blank">Terms and Conditions</a></label>
+                </div>
+              </div>
+
+              <div class="log-input-field button">
+                <input class="log-input-btn" type="submit" value="Register" />
+              </div>
+
+              <div class="log-r-haveacc">
+                <ul class="text haveaccount">
+                  Have an account?
+                </ul>
+                <a href="#" class="text login-link">Login here.</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- START OF POPUP -->
+    <div class="popup popup1 center">
+      <div class="description">
+        <h2 style="text-align: center"><b>Terms and Conditions</b></h2>
+        <br />
+        1. Just kindly be reminded that the 20% reservation fee to block the date is non-refundable. If you wish to rebook to other date/s from your
+        booking, kindly advice us atleast 2 weeks before.
+        <br />
+        2. For weekend reservation, you may need to provide another reservation fee for another date.
+        <br />
+      </div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup-btn-1">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup2 popup-short center">
+      <div class="popup-title">Registration</div>
+      <div class="description">Registration Successful!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup2-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup3 popup-short center">
+      <div class="popup-title">Registration</div>
+      <div class="description">Error Occured!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup3-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup4 popup-short center">
+      <div class="popup-title">Registration</div>
+      <div class="description">Password does not Match!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup4-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup5 popup-short center">
+      <div class="popup-title">Login</div>
+      <div class="description">Please use a guest account</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup5-btn">Close</button>
+      </div>
+    </div>
+
+    <!-- END OF POPUP -->
+    <script src="js/app.js"></script>
+    <script>
+      navigate();
+
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+
+      const container = document.querySelector(".log-container");
+      const container1 = document.querySelector(".container1"),
+        pwShowHide = document.querySelectorAll(".showHidePw"),
+        pwFields = document.querySelectorAll(".password"),
+        signUp = document.querySelector(".signup-link"),
+        login = document.querySelector(".login-link");
+
+      // js code to appear signup and login form
+      signUp.addEventListener("click", () => {
+        container.classList.add("active");
+      });
+      login.addEventListener("click", () => {
+        container.classList.remove("active");
+      });
+
+      // Popup Button
+      //document.getElementById("open-popup-btn-1").addEventListener("click", function () {
+      //  document.getElementsByClassName("popup1")[0].classList.add("active");
+      //});
+
+      //document.getElementById("dismiss-popup-btn-1").addEventListener("click", function () {
+      // document.getElementsByClassName("popup1")[0].classList.remove("active");
+      //});
+
+      const loginUser = () => {
+        const loginBtn = document.getElementById("loginBtn");
+        loginBtn.disabled = true;
+        loginBtn.style.backgroundColor = "grey";
+
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPw").value;
+
+        let loginData = {
+          email: email,
+          password: password,
+        };
+
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(loginData),
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/auth/login", options)
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("loginBtn").disabled = false;
+            loginBtn.style.backgroundColor = "#6b4f4f";
+            if (data.token) {
+              localStorage.setItem("access_token", data.token);
+              localStorage.setItem("user_role", data.userRole);
+              localStorage.setItem("user_id", data.user._id);
+              localStorage.setItem("status", data.user.status);
+              navigate();
+            } else {
+              const loginDiv = document.getElementById("loginError");
+              loginDiv.style.display = "block";
+              loginDiv.innerHTML = `<small>${data.payload}</small>`;
+            }
+            console.log(data);
+
+            if (
+              localStorage.getItem("user_role") === "Admin" ||
+              localStorage.getItem("user_role") === "Manager" ||
+              localStorage.getItem("user_role") === "Marketing Specialist"
+            ) {
+              document.getElementsByClassName("popup5")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup5-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup5")[0].classList.remove("active");
+              });
+            }
+          });
+      };
+      const errorCheck = () => {
+        const loginDiv = document.getElementById("loginError");
+        if (loginDiv.style.display === "block") {
+          loginDiv.style.display = "none";
+        }
+      };
+
+      const signup = () => {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const contact = document.getElementById("contact").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmpass").value;
+        let signupData = {
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          contact: contact,
+          role: "Guest",
+        };
+        console.log(signupData);
+        let options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(signupData),
+        };
+
+        if (password != confirmPassword) {
+          document.getElementsByClassName("popup4")[0].classList.add("active");
+
+          document.getElementById("dismiss-popup4-btn").addEventListener("click", function () {
+            document.getElementsByClassName("popup4")[0].classList.remove("active");
+          });
+        } else if (password === confirmPassword) {
+          fetch("https://ulayaw-app.azurewebsites.net/auth/signup", options)
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              // write action code here
+              // if  success
+              // if fail
+              if (data.key === "USERCREATED") {
+                // go to login page and say successfully sign up
+                document.getElementsByClassName("popup2")[0].classList.add("active");
+
+                document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+                  document.getElementsByClassName("popup2")[0].classList.remove("active");
+                  window.location = "login-reg.html";
+                });
+              } else if (data.key === "NOTVALIDATED") {
+                document.getElementsByClassName("popup3")[0].classList.add("active");
+
+                document.getElementById("dismiss-popup3-btn").addEventListener("click", function () {
+                  document.getElementsByClassName("popup3")[0].classList.remove("active");
+                });
+              }
+            });
+        }
+      };
+    </script>
+  </body>
+</html>

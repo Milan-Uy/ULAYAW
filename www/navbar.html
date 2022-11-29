@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+  </head>
+  <body>
+    <!--Navbar-->
+    <header class="nav-header">
+      <div class="navbar-container">
+        <div class="navbar-img">
+          <!-- <img src="images/hulo-brwn.png" alt="Hulo Logo" /> -->
+          <img id="nav-logo" alt="Hulo Logo" />
+        </div>
+        <div class="toggle">
+          <a href="javascript:void(0);" class="ham-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div class="navbar">
+          <ul>
+            <li><a id="index" href="index.html">Home</a></li>
+            <li><a id="about" href="about.html">About Us</a></li>
+            <li><a id="villa" href="villa.html">Villas</a></li>
+            <li><a id="Moments" href="Moments.html">Moments</a></li>
+            <li><a id="login-reg" href="login-reg.html">Log In</a></li>
+            <div class="book-btn bounce-in-on-hover">
+              <a class="book-btn" href="c-booknow.html">BOOK NOW</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!--End of Navbar-->
+    <script src="js/app.js"></script>
+    <script>
+      changeLoginToProfile();
+      // nav underline
+      switch (window.location.pathname) {
+        case "/villa.html":
+          document.getElementById("villa").classList.add("active");
+          break;
+        case "/index.html":
+          document.getElementById("index").classList.add("active");
+          break;
+        case "/about.html":
+          document.getElementById("about").classList.add("active");
+          break;
+        case "/moments.html":
+          document.getElementById("moments").classList.add("active");
+          break;
+      }
+
+      $(window).on("beforeunload", function () {
+        console.log(window.location.pathname);
+        switch (window.location.pathname) {
+          case "/villa.html":
+            const chosen = document.getElementById("villas");
+            console.log(chosen);
+            document.getElementById("villas").classList.add("active");
+            console.log("here");
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+        }
+      });
+
+      //Navbar Effect
+      $(document).ready(function () {
+        var bottom = $(".nav-header").outerHeight();
+        var header = $(".nav-header").offset().top + bottom;
+
+        $(window).scroll(function () {
+          if ($(window).width() > 991) {
+            if ($(window).scrollTop() >= header) {
+              $(".nav-header").addClass("sticky");
+            } else {
+              $(".nav-header").removeClass("sticky");
+            }
+          }
+        });
+
+        $(".navbar ul li a").click(function () {
+          $(".navbar ul li a").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $(".ham-burger").click(function () {
+          $(this).toggleClass("active");
+          $(".navbar").toggleClass("open");
+        });
+      });
+
+      const displayLogoNav = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("nav-logo").src = data.payload.businessLogo;
+          });
+      };
+      displayLogoNav();
+    </script>
+  </body>
+</html>

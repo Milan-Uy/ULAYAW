@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/e32153d801.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <title>Frequently Asked Questions</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+    <!--FAQs-->
+    <section class="faqs-header">
+      <h1>
+        FREQUENTLY <br />
+        ASKED QUESTIONS
+      </h1>
+    </section>
+    <section>
+      <div class="section-stroke">
+        <img src="images/brush-stroke.png" />
+      </div>
+      <div class="faqs-txt">
+        <div class="accordion">
+          <div class="accordion-item">
+            <button id="accordion-button-1" aria-expanded="false">
+              <span class="accordion-title">How do I know if my reservation request has been approved?</span
+              ><span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                To check if your reservation request has been approved, go to your profile's Booking Status tab and check the status column of your
+                reservation.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-2" aria-expanded="false">
+              <span class="accordion-title">How can I reserve a villa?</span><span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                <strong>Step 1.</strong> You must be logged in first. <br />
+                <strong>Step 2.</strong> Click the "home" or "book now" buttons. <br />
+                <strong>Step 3.</strong> Select the check-in and check-out dates as well as the total number of guests. To see which villas are
+                available at that moment, just click the search button.<br />
+                <strong>Step 4.</strong> Any of the villas that are listed are available for reservation. Click the reserve button beside your chosen
+                villa.<br />
+                <strong>Step 5.</strong> You will be redirected to a page that summarizes the reservation's details. Simply click the "Confirm" button
+                to add the cost of an additional breakfast or bed to the final bill.<br />
+                <strong>Step 6.</strong> Read through Hulo Leisure Farm's booking policy. You may click the Confirm Reservation button if you agree
+                with it.<br />
+                <strong>Step 7.</strong> On the Booking Status page, wait for your reservation request to be approved. You may also proceed in
+                processing the payment after being accepted.<br /><br /><br />
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-3" aria-expanded="false">
+              <span class="accordion-title">How can I cancel my reservation?</span><span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                In the case that your reservation request has not yet been approved, there is a cancel button on the action tab. However, you cannot
+                cancel a reservation request after it has been accepted. Additionally, once payment has been made, there will be no refunds.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false">
+              <span class="accordion-title">How can I request an early check-in or late check-out?</span><span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                To request an early check-in or late check-out, we suggest you to contact the Hulo Leisure Farm. You can find our contact details by
+                clicking the ‘Contact Us’ located at the bottom of this website. You can also inquire directly by sending us a message provided on the
+                same page.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false">
+              <span class="accordion-title">I already forgot the password of my existing account. Is there any way to retrieve it? </span
+              ><span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                To reset your password, you can click ‘Forgot Password’ on the login page then type the Email Address you used to register your
+                account. After submitting your email address, check your inbox. You should have received an email from Ulayaw Support Team
+                (support@ulayaw.com) with the temporary password included in the message. You can now login your account with the temporary password
+                and make sure to change your password on the ‘Profile’ tab.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false">
+              <span class="accordion-title">What payment methods do you accept?</span><span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>We only accept payment through GCash. Note that a 2.5% fee will be charged for the transaction fee.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false">
+              <span class="accordion-title">Can I contact Hulo Leisure Farm to get a refund? </span><span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>No. There won't be any refunds after payments have been made.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Footer-->
+    <section class="display-footer">
+      <div id="footer-placeholder"></div>
+    </section>
+
+    <script>
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html");
+      });
+
+      //faqs accordion
+      const items = document.querySelectorAll(".accordion button");
+
+      function toggleAccordion() {
+        const itemToggle = this.getAttribute("aria-expanded");
+
+        for (i = 0; i < items.length; i++) {
+          items[i].setAttribute("aria-expanded", "false");
+        }
+
+        if (itemToggle == "false") {
+          this.setAttribute("aria-expanded", "true");
+        }
+      }
+      items.forEach((item) => item.addEventListener("click", toggleAccordion));
+    </script>
+  </body>
+</html>

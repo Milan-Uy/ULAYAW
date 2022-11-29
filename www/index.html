@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/skn8ash.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:900" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Merienda:wght@700&family=Salsa&display=swap" rel="stylesheet" />
+    <title>Home Page</title>
+  </head>
+  <style>
+    body {
+      line-height: 1.2;
+    }
+    /*navbar*/
+    .nav-header-index {
+      scroll-behavior: smooth;
+      font-family: "Raleway", sans-serif;
+      margin: 0px;
+      position: fixed;
+      width: 100%;
+      height: 70px;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      background-color: transparent;
+    }
+    .nav-header-index.sticky {
+      position: fixed;
+      background-color: #f9f2e7;
+      box-shadow: 0 2px 2px rgba(70, 67, 63, 0.1);
+    }
+    @keyframes header {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0%);
+      }
+    }
+    .navbar-img {
+      margin-left: -100px;
+      float: left;
+    }
+    .navbar-img img {
+      height: 70px;
+      width: auto;
+      justify-self: start;
+    }
+    .nav-header-index .title a {
+      font-size: 30px;
+      display: inline-block;
+      padding: 5px 0px;
+      color: #6b4f4f;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .nav-header-index .title a span {
+      color: #6b4f4f;
+    }
+    .navbar-index {
+      margin-right: -100px;
+      float: right;
+    }
+    .navbar-index ul {
+      list-style: none;
+      padding: 15px 15px 5px 15px;
+      margin: 0;
+    }
+    .navbar-index ul li {
+      display: inline;
+      padding: 0 15px;
+    }
+    .navbar-index ul li a {
+      display: inline-block;
+      padding: 10px 0px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #483434;
+      position: relative;
+      text-decoration: none;
+    }
+    .navbar-index ul li a::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      margin-top: -5px;
+      height: 2px;
+      right: 0px;
+      background-color: #1b5b65;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+    .navbar-index ul li a.active::before {
+      width: 100%;
+    }
+    .navbar-index ul li a:hover::before {
+      width: 100%;
+    }
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slideRight {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .book-btn {
+      padding: 6px 15px;
+      border-radius: 5px;
+      display: inline-block;
+      color: #fff;
+      background: #1b5b65;
+      align-items: center;
+    }
+    .book-btn a {
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
+    }
+    .bounce-in-on-hover {
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+    }
+    .bounce-in-on-hover:hover,
+    .bounce-in-on-hover:focus,
+    .bounce-in-on-hover:active {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      box-shadow: 0 0 8px 4px rgba(27, 91, 101, 0.25) inset, 0 0 8px 4px rgba(27, 91, 101, 0.25);
+    }
+    .toggle {
+      position: absolute;
+      top: 15px;
+      left: 0px;
+      display: none;
+    }
+    .toggle a {
+      display: inline-block;
+      position: relative;
+      z-index: 210;
+    }
+    .toggle a span {
+      display: block;
+      height: 2px;
+      width: 30px;
+      background-color: #483434;
+      margin-bottom: 8px;
+      -webkit-transition: transform 0.5s ease;
+    }
+    .toggle a span:nth-child(1) {
+      transform-origin: left top;
+    }
+    .toggle a span:nth-child(2) {
+      transform-origin: left bottom;
+    }
+    .toggle a.active span:nth-child(1) {
+      -webkit-transform: rotate(45deg) translateY(-7px);
+      transform: rotate(45deg) translateY(-7px);
+    }
+    .toggle a.active span:nth-child(2) {
+      -webkit-transform: rotate(-45deg) translateY(7px);
+      transform: rotate(-45deg) translateY(7px);
+    }
+    .toggle a.active span:nth-child(3) {
+      display: none;
+    }
+    @media (max-width: 991px) {
+      .toggle {
+        display: block;
+        margin-top: 10px;
+      }
+      .navbar-img {
+        margin-left: 20px;
+        float: none;
+        text-align: center;
+      }
+      .navbar-container {
+        position: relative;
+        max-width: 750px;
+      }
+      .nav-header-index {
+        position: fixed;
+        background-color: #f9f2e7;
+        padding: 0px 20px 0px 20px;
+      }
+      .nav-header-index .navbar-index {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        bottom: 0;
+        width: 200px;
+        background-color: #f9f2e7;
+        z-index: 200;
+        padding-top: 20px;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+        justify-content: center;
+      }
+      .navbar-index ul {
+        padding: 0px;
+        margin-left: 20px;
+      }
+      .book-btn {
+        margin-top: 20px;
+        padding-top: -20px;
+      }
+      .book-btn a {
+        margin-top: 0px;
+      }
+      .navbar-index.open {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+      }
+      .navbar-index ul li {
+        display: block;
+        margin: 0px 10px 0px 10px;
+      }
+    }
+    @keyframes bg-crossfade-1 {
+      0% {
+        opacity: 1;
+      }
+      4.1666666667% {
+        opacity: 1;
+      }
+      20.8333333333% {
+        opacity: 1;
+      }
+      29.1666666667% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+      95.8333333333% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes bg-crossfade-2 {
+      20.8333333333% {
+        opacity: 1;
+      }
+      29.1666666667% {
+        opacity: 1;
+      }
+      45.8333333333% {
+        opacity: 1;
+      }
+      54.1666666667% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes bg-crossfade-3 {
+      45.8333333333% {
+        opacity: 1;
+      }
+      54.1666666667% {
+        opacity: 1;
+      }
+      70.8333333333% {
+        opacity: 1;
+      }
+      79.1666666667% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes bg-crossfade-4 {
+      70.8333333333% {
+        opacity: 1;
+      }
+      79.1666666667% {
+        opacity: 1;
+      }
+      95.8333333333% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    .bg-crossfade-wrap {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      animation-name: bg-crossfade;
+      animation-duration: 18s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(1) {
+      animation-name: bg-crossfade-1;
+      z-index: 3;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(2) {
+      animation-name: bg-crossfade-2;
+      z-index: 2;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(3) {
+      animation-name: bg-crossfade-3;
+      z-index: 1;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(4) {
+      animation-name: bg-crossfade-4;
+      z-index: 0;
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(1) {
+      background-image: url(images/index1.jpg);
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(2) {
+      background-image: url(images/index2.jpg);
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(3) {
+      background-image: url(images/index3.jpg);
+    }
+    .bg-crossfade-wrap .bg-crossfade-img:nth-child(4) {
+      background-image: url(images/index4.jpg);
+    }
+    .hero-title {
+      z-index: 1;
+      position: absolute;
+    }
+    .hero-title h1 {
+      text-align: center;
+      font-weight: 700;
+      font: 900 120px/1 "Merienda One", cursive;
+      color: #fafaf5;
+      text-align: center;
+      font-size: 80px;
+      line-height: 1.4;
+      top: 35%;
+      width: 100%;
+      text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%), 0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
+        0 1px 3px rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2),
+        0 20px 20px rgba(0, 0, 0, 0.3);
+    }
+    .hero {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .checkavail-form-index {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #f9f2e7;
+      border-radius: 10px;
+      padding: 25px 80px 25px 80px;
+      margin-top: 110px;
+      justify-content: center;
+      font-family: "Raleway";
+    }
+    .form-item .check-flex-item {
+      border: 0px solid transparent !important;
+    }
+    .checkavail-form-index .material-symbols-outlined {
+      display: flex;
+      position: absolute;
+      color: #6b4f4f;
+      font-size: 30px;
+      font-weight: 500;
+    }
+    @media (max-width: 901px) {
+      .checkavail-form-index {
+        display: flex;
+        justify-content: center;
+        margin: 10px 40px;
+      }
+      .hero-title h1 {
+        font-size: 58px;
+      }
+    }
+    @media (max-width: 650px) {
+      .checkavail-form-index {
+        margin: 10px 6px !important;
+      }
+      .feature-image p {
+        font-size: 11px !important;
+      }
+    }
+    @media (max-width: 580px) {
+      .checkavail-form-index {
+        display: block;
+        justify-content: center;
+        padding: 15px 40px 10px 0px;
+        margin: 50px 20px 10px 20px;
+      }
+      .form-item {
+        margin-bottom: 5px !important;
+      }
+      .hero-title h1 {
+        font-size: 42px;
+      }
+      .search-icon {
+        margin-left: -15px !important;
+        margin-right: -28px;
+      }
+      .search-icon .text {
+        font-size: 11px !important;
+      }
+    }
+
+    .index-stroke {
+      margin-top: -150px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      max-height: 250px;
+      height: 100%;
+    }
+    .welcome-section {
+      background: url(images/tropical.png);
+      background-repeat: no-repeat;
+      background-size: 520px 680px;
+      background-color: #fffbf5;
+      height: 100%;
+      width: 100%;
+      margin-top: -10px;
+      display: flex;
+      padding: 80px 80px 40px 80px;
+    }
+    .welcome-desc {
+      margin: 20px 40px 10px 40px;
+      width: 50%;
+    }
+    @media (max-width: 901px) {
+      .welcome-section {
+        padding: 80px 10px 10px 10px;
+      }
+      .welcome-desc {
+        width: 100%;
+      }
+      .welcome-section .main-title {
+        font-size: 30px;
+        max-width: 430px;
+        height: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      .welcome-section {
+        display: block;
+      }
+      .welcome-desc {
+        margin: 10px;
+      }
+      .welcome-description {
+        padding: 10px 20px 20px 25px !important;
+        font-size: 14px !important;
+      }
+      .fadeup {
+        font-size: 1.8rem;
+      }
+      .welcome-container {
+        max-width: 100% !important;
+        margin-left: -20px;
+      }
+      .welcome-grid {
+        grid-auto-rows: 30vw !important;
+      }
+    }
+    .text-line {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+    .welcome-container {
+      max-width: 50%;
+    }
+    .welcome-pics {
+      width: 50%;
+      display: contents;
+    }
+    .welcome-grid {
+      display: grid;
+      grid-gap: 4px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 15vw;
+      list-style: none;
+    }
+
+    .welcome-grid figure,
+    .welcome-grid img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .welcome-grid img {
+      object-fit: cover;
+    }
+    .welcome-grid li:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+
+    .welcome-grid li:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .welcome-grid li:nth-child(3) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .welcome-grid li:nth-child(4) {
+      grid-column: 2 / span 2;
+      grid-row: 2;
+    }
+    .welcome-grid li:nth-child(1) img {
+      border-radius: 30px 0px 0px 80px;
+    }
+    .welcome-grid li:nth-child(3) img {
+      border-radius: 0px 80px 0px 0px;
+    }
+    .welcome-grid li:nth-child(4) img {
+      border-radius: 0px 0px 30px 0px;
+    }
+    .welcome-description {
+      font-family: "Raleway", sans-serif;
+      margin: auto;
+      padding: 20px 0px 20px 80px;
+      text-align: justify;
+      color: var(--heading-color);
+    }
+    .index-stroke-rotate {
+      margin-top: -35px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      max-height: 250px;
+      height: 100%;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+    .cabin-section {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0px 80px 40px 80px;
+    }
+    .cabin-title {
+      margin: auto;
+      text-align: center;
+      justify-content: center;
+      align-content: center;
+    }
+    .cabin-title .main-title {
+      height: 80px;
+    }
+    @media (max-width: 631px) {
+      .cabin-section {
+        padding: 0px 20px 40px 20px;
+      }
+      .cabin-title .main-title {
+        font-size: 30px;
+        height: 50px;
+      }
+      .cabin-title .sub-title {
+        font-size: 12px;
+        height: 10px;
+        margin-left: 40px;
+      }
+      .wrapper-feature {
+        width: 80% !important;
+      }
+      .content-feature {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 361px) {
+      .feature-image h2 {
+        top: 60% !important;
+      }
+      .box-feature h2 {
+        font-size: 16px !important;
+      }
+      .seefaqs .main-title {
+        font-size: 22px !important;
+      }
+      .seefaqs .sub-title {
+        font-size: 12px !important;
+      }
+      .seefaqs-btn a {
+        font-size: unset !important;
+      }
+    }
+    .main-title {
+      font-size: 45px;
+      font-weight: 700;
+      max-width: 620px;
+      height: 200px;
+      font-family: "Merienda One", cursive;
+      line-height: 1.4;
+      color: var(--heading-color);
+    }
+    .sub-title {
+      font-size: 20px;
+      font-weight: 500;
+      max-width: 620px;
+      height: 20px;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      line-height: 1.4;
+      color: var(--main-btn-color);
+      letter-spacing: 5px;
+      margin-left: 50px;
+    }
+    .card {
+      margin: 0 auto;
+      border: none;
+      background-color: transparent;
+    }
+    .pb-5,
+    .py-5 {
+      padding-bottom: 0em !important;
+    }
+    .card .carousel-item {
+      min-height: 190px;
+    }
+    .card .carousel-caption {
+      padding: 0;
+      right: 15px;
+      left: 15px;
+      top: 15px;
+      color: var(--txt-field-color);
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      min-height: 175px;
+      padding: 15px;
+      background-color: #fffbf5;
+    }
+    .card .carousel-caption .col-sm-3 {
+      display: flex;
+      align-items: center;
+    }
+    .card .carousel-caption .col-sm-9 {
+      text-align: left;
+      margin: auto;
+    }
+    .card .carousel-control-prev,
+    .card .carousel-control-next {
+      color: #3d3d3d !important;
+      opacity: 1 !important;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-image: none;
+      color: #fff;
+      font-size: 22px;
+      background-color: transparent;
+      height: 52px;
+      line-height: 52px;
+      width: 52px;
+      border-radius: 20%;
+    }
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+      opacity: 0.85;
+    }
+    .carousel-control-prev {
+      left: 82%;
+      top: -110%;
+    }
+    .carousel-control-next {
+      right: -3%;
+      top: -110%;
+    }
+    .carousel-caption h2 {
+      font-size: 22px;
+    }
+    .card .carousel-caption small {
+      font-size: 14px;
+      font-style: italic;
+    }
+    @media (min-width: 320px) and (max-width: 575px) {
+      .carousel-caption {
+        position: relative;
+      }
+      .card .carousel-caption {
+        left: 0;
+        top: 0;
+        margin-bottom: 15px;
+      }
+      .card .carousel-caption img {
+        margin: 0 auto;
+      }
+      .carousel-control-prev {
+        left: 70%;
+        top: -115%;
+      }
+      .carousel-control-next {
+        right: -3%;
+        top: -115%;
+      }
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+      .carousel-caption {
+        position: relative;
+      }
+      .card .carousel-caption {
+        left: 0;
+        top: 0;
+        margin-bottom: 15px;
+      }
+      .card .carousel-caption img {
+        margin: 0 auto;
+      }
+      .card .carousel-caption h3,
+      .card .carousel-caption small {
+        text-align: center;
+      }
+      .carousel-control-prev {
+        left: 35%;
+        top: 105%;
+      }
+      .carousel-control-next {
+        right: 35%;
+        top: 105%;
+      }
+    }
+    @media (min-width: 767px) and (max-width: 991px) {
+      .card .carousel-caption h3 {
+        margin-top: 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+    .testimonial-ttl {
+      width: 30%;
+      margin: auto;
+      padding: 20px 20px 20px 80px;
+      margin-top: 80px;
+    }
+    .testimonial-section {
+      background: url(icons/quote.png);
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: 290px 280px;
+      background-color: #6b4f4f;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      padding: 180px 20px 20px 20px;
+      width: 100%;
+    }
+    .testimonial-section .main-title {
+      display: inline-flex;
+      color: #fff;
+      margin-bottom: 0;
+      height: 200px;
+      line-height: 1;
+      max-width: 280px;
+      width: 100%;
+    }
+    .testimonial-section .sub-title {
+      margin-left: 0px;
+      font-size: 18px;
+    }
+    .testimonial-section h6 {
+      color: #fffbf5;
+    }
+    .testimonial-content {
+      width: 70%;
+      margin-top: 30px;
+    }
+    @media (max-width: 901px) {
+      .testimonial-section {
+        display: block;
+        background-position: left;
+      }
+      .testimonial-ttl {
+        width: 100%;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      .testimonial-section .main-title {
+        height: 120px;
+        font-size: 30px;
+        max-width: 320px;
+      }
+      .testimonial-section .sub-title {
+        font-size: 12px;
+      }
+      .testimonial-content {
+        margin-top: 0px;
+        width: 100%;
+      }
+    }
+    .content-feature {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding: 0 30px;
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 4px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    .wrapper-feature {
+      width: 33.3%;
+      height: 100%;
+      padding: 10px;
+    }
+    .box-feature {
+      position: relative;
+      max-height: 300px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 1.4px 1.7px rgba(0, 0, 0, 0.017), 0 3.3px 4px rgba(0, 0, 0, 0.024), 0 6.3px 7.5px rgba(0, 0, 0, 0.03),
+        0 11.2px 13.4px rgba(0, 0, 0, 0.036), 0 20.9px 25.1px rgba(0, 0, 0, 0.043), 0 50px 60px rgba(0, 0, 0, 0.06);
+    }
+    .box-feature .hide {
+      opacity: 0;
+    }
+    .box-feature .frame {
+      position: absolute;
+      border: 1px solid #fff;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .box-feature h2,
+    .box-feature p {
+      position: absolute;
+      color: #fff;
+      z-index: 2;
+      width: 100%;
+      transition: opacity 0.2s, transform 0.3s;
+    }
+    .box-feature h2 {
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 0;
+      letter-spacing: 1px;
+    }
+    .box-feature p {
+      bottom: 0;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .box-feature:hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature:hover:before {
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature img:hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .box-feature img:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .box-feature img:hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .feature-image h2 {
+      color: var(--heading-color);
+      top: 70%;
+      bottom: 0%;
+      transform: translate3d(0, 40px, 0);
+      text-align: center;
+      background: rgb(255, 251, 245, 0.9);
+      padding: 10px;
+    }
+    .feature-image p {
+      opacity: 0;
+      bottom: 0;
+      transform: translate3d(0, -10px, 0);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .feature-image:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(249, 242, 231, 0) 0%, rgba(255, 251, 245, 0.8) 75%);
+      z-index: 2;
+      bottom: -100%;
+      left: 0;
+    }
+    .feature-image:hover:before {
+      bottom: 0;
+    }
+    .feature-image:hover h2 {
+      color: var(--heading-color);
+      bottom: 20px;
+      transform: translate3d(0, -40px, 0);
+      background: transparent;
+    }
+    .feature-image:hover p {
+      top: 90%;
+      bottom: 0%;
+      color: rgb(49, 41, 41);
+      opacity: 1;
+      transform: translate3d(0, -60px, 0);
+    }
+    @media screen and (max-width: 880px) {
+      .wrapper-feature {
+        width: 50%;
+      }
+    }
+    @media screen and (max-width: 520px) {
+      .wrapper-feature {
+        width: 100%;
+      }
+    }
+    .index-end {
+      background: url(images/index-parallax.jpg);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      flex-direction: row;
+      height: 340px;
+      width: 100%;
+      margin: auto;
+    }
+    .seefaqs {
+      padding: 80px 100px 50px 100px;
+      display: grid;
+      width: 60%;
+    }
+    .seefaqs .main-title {
+      color: var(--heading-color);
+      height: 60px;
+    }
+    .seefaqs .sub-title {
+      color: var(--heading-color);
+      font-size: 16px;
+      letter-spacing: 2px;
+      font-family: "Raleway", sans-serif;
+      float: left;
+      margin-left: 10px;
+    }
+    .seefaqs-btn {
+      top: 50%;
+      width: 10%;
+      height: 50px;
+      border-radius: 5px;
+      background: #1b5b65;
+      align-items: center;
+      display: flex;
+      margin: auto;
+    }
+    .seefaqs-btn:hover {
+      background: #14444b;
+    }
+    .seefaqs-btn-a {
+      color: #fff;
+      margin: auto;
+      padding: 10px 10px;
+      text-decoration: none;
+    }
+    .seefaqs-btn a {
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+    }
+    @media (max-width: 901px) {
+      .index-end {
+        display: block;
+      }
+      .seefaqs {
+        padding: 40px 40px;
+        width: 100%;
+      }
+      .seefaqs .main-title {
+        font-size: 30px;
+        height: 35px;
+      }
+      .seefaqs-btn {
+        width: 40%;
+      }
+    }
+    .add-features {
+      background: url(images/tropical-gray.png);
+      background-repeat: no-repeat;
+      background-size: 520px 680px;
+      background-blend-mode: luminosity;
+      background-position: right;
+      height: 100%;
+      width: 100%;
+      background-color: var(--mainbg-color);
+      padding: 50px 50px 50px 50px;
+    }
+    .feat-container {
+      display: flex;
+      place-items: center;
+      height: 95vh;
+      max-width: 100%;
+      position: relative;
+    }
+    .feat-desc {
+      width: 50%;
+      text-align: center;
+      padding: 50px;
+      color: var(--heading-color);
+    }
+    .feat-desc h2 {
+      font-size: 80px;
+      font-family: "Merienda One", cursive;
+    }
+    .feat-desc p {
+      width: 480px;
+      text-align: center;
+      margin-left: 50px;
+      font-family: "Raleway", sans-serif;
+    }
+    .feat-img {
+      width: 50%;
+      padding-right: 80px;
+    }
+    .feat-img img {
+      height: 100%;
+      width: auto;
+      max-width: 75vw;
+      object-fit: contain;
+      float: right;
+    }
+    body:not(.no-js) .image-wrap {
+      transition: 1s ease-out;
+      transition-delay: 0.2s;
+      position: relative;
+      width: auto;
+      height: 80vh;
+      overflow: hidden;
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+      visibility: hidden;
+    }
+
+    body:not(.no-js) .image-wrap img {
+      transform: scale(1.3);
+      transition: 2s ease-out;
+    }
+
+    body:not(.no-js) .animating .image-wrap {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      visibility: visible;
+      transform: skewY(0);
+    }
+
+    body:not(.no-js) .animating img {
+      transform: scale(1);
+      transition: 4s ease-out;
+    }
+
+    body:not(.no-js) .fadeup {
+      opacity: 0;
+      transition: 0.4s ease-out;
+      transform: translateY(40px);
+    }
+
+    body:not(.no-js) .fading-up {
+      opacity: 1;
+      transition: 1s ease-out;
+      transform: translateY(0px);
+      transition-delay: 0.7s;
+    }
+    .feat-title .main-title {
+      max-width: 780px;
+      height: 120px;
+    }
+    @media (max-width: 1020px) {
+      .add-features {
+        padding: 20px 20px 50px 20px;
+      }
+    }
+    @media (max-width: 631px) {
+      .feat-container {
+        flex-direction: column;
+        display: block;
+      }
+      .feat-desc {
+        width: 100%;
+        padding: 20px;
+      }
+      .feat-desc h2 {
+        font-size: 45px;
+      }
+      .feat-desc p {
+        width: 100%;
+        max-width: 380px;
+        padding: 10px;
+        font-size: 12px;
+        margin-left: 0px;
+      }
+      .feat-img {
+        width: 100%;
+        padding-right: 20px;
+      }
+      .feat-img img {
+        height: auto;
+      }
+      .feat-title .main-title {
+        font-size: 30px;
+        margin-bottom: 50px;
+      }
+      .image-left {
+        margin-top: 20vh;
+      }
+      .desc-left {
+        margin-top: -110vh;
+      }
+      .cont-left {
+        height: 50vh;
+      }
+    }
+    @media (min-width: 632px) and (max-width: 1152px) {
+      .feat-desc {
+        text-align: left;
+      }
+      .feat-desc p {
+        text-align: left;
+        margin-left: 0px;
+        width: 320px;
+        font-size: 12px;
+      }
+      .feat-img {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+    }
+    @media (max-width: 550px) {
+      .feat-img {
+        padding-right: 12px !important;
+      }
+      .feat-desc p {
+        margin-left: 10px;
+        max-width: unset;
+      }
+      .desc-left {
+        margin-top: -110vh;
+      }
+      .image-left {
+        margin-top: 35vh;
+      }
+      .cont-left {
+        height: 80vh;
+      }
+      .feat-title .main-title {
+        height: 50px;
+      }
+    }
+    .whitestrk {
+      margin-top: 0px !important;
+      margin-bottom: -145px !important;
+      max-height: 220px !important;
+    }
+
+    .see-more {
+      float: right;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700px;
+      margin-top: -5px;
+    }
+    .see-more a {
+      color: var(--mainbg-color);
+      font-weight: bold;
+    }
+    .see-more:hover {
+      font-size: 13px;
+    }
+    @media (max-width: 550px) {
+      .see-more {
+        margin-top: -10px;
+      }
+    }
+  </style>
+
+  <body>
+    <!--Header-->
+    <header class="nav-header-index">
+      <div class="navbar-container">
+        <div class="navbar-img">
+          <!-- <img src="images/hulo-brwn.png" alt="Hulo Logo" /> -->
+          <img id="index-logo" alt="Hulo Logo" />
+        </div>
+        <div class="toggle">
+          <a href="javascript:void(0);" class="ham-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div class="navbar-index">
+          <ul>
+            <li><a id="index" href="index.html">Home</a></li>
+            <li><a id="about" href="about.html">About Us</a></li>
+            <li><a id="villa" href="villa.html">Villas</a></li>
+            <li><a id="Moments" href="Moments.html">Moments</a></li>
+            <li><a id="login-reg" href="login-reg.html">Log In</a></li>
+            <div class="book-btn bounce-in-on-hover">
+              <a class="book-btn" href="c-booknow.html">BOOK NOW</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="bg-crossfade-wrap">
+        <div class="bg-crossfade-img"></div>
+        <div class="bg-crossfade-img"></div>
+        <div class="bg-crossfade-img"></div>
+        <div class="bg-crossfade-img"></div>
+      </div>
+      <div class="hero-title">
+        <h1>
+          Enjoy your moment <br />
+          with Hulo
+        </h1>
+        <div class="check-availability-index">
+          <form action="javascript:getDate()" class="checkavail-form-index">
+            <div class="form-item check-flex-item">
+              <i class="icon material-symbols-outlined">event_upcoming</i>
+              <label>Check in</label>
+              <input class="select-date" id="checkin-date" placeholder="select a date" />
+            </div>
+            <div class="form-item check-flex-item">
+              <i class="icon material-symbols-outlined">event_busy</i>
+              <label>Check out</label>
+              <input id="checkout-date" class="select-date" placeholder="select a date" />
+            </div>
+            <div class="form-item check-flex-item-m">
+              <i class="icon material-symbols-outlined">groups</i>
+              <label>Guests</label>
+              <input
+                class="guest"
+                type="number"
+                placeholder="1"
+                pattern="[0-9]*"
+                id="spinner"
+                name="value"
+                value="1"
+                min="1"
+                max="100"
+                step="1"
+                oninput="maxLengthCheck(this)"
+                maxlength="2"
+                required
+              />
+            </div>
+            <div class="form-item check-flex-item-sm">
+              <div class="search-icon">
+                <button type="submit">
+                  <span class="icon"><i class="material-symbols-rounded"> search </i></span>
+                  <span class="text">CHECK AVAILABILITY</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="index-stroke">
+      <img src="images/index-copy-stroke.png" />
+    </div>
+    <!--End of Header-->
+    <section class="welcome-section">
+      <div class="welcome-desc">
+        <h2 class="fadeup main-title">Discover a world of luxury leisure and nature</h2>
+        <p class="welcome-description fadeup">
+          Hulo Leisure Farm is a family-friendly hotel that offers a wide range of accommodation types, from small to huge villas that can accommodate
+          big groups. All this in the peaceful surroundings of our beautiful farm view that will make your time at Bataan unforgettable! Hulo Leisure
+          Farm offers you a privileged experience combining comfort and warmth. Whether you are with your friends, family or even just co-workers, our
+          leisure farm with top-of-the-range service will meet all your expectations.
+        </p>
+      </div>
+      <div class="welcome-pics">
+        <div class="welcome-container">
+          <ul class="welcome-grid fadeup">
+            <li>
+              <figure>
+                <img width="640" height="1118" src="images/grid0.JPG" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img width="640" height="427" src="images/grid2.JPG" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img width="640" height="427" src="https://ulayaw-app.azurewebsites.net/grid1.jpg" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img width="640" height="418" src="images/grid3.JPG" alt="" />
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="add-features">
+      <div class="feat-container">
+        <div class="feat-desc cont-right">
+          <h2 class="fadeup">Unwind</h2>
+          <p class="fadeup">
+            Experience a bali-inspired modern house with a relaxing farm view equipped with hanging bed perfect for instagrammable spot! Esteemed
+            guests are welcome to relax and unwind in a quiet and elegant setting in Hulo and enjoy a genuine experience of leisure, pleasure, and
+            wellness within the premises of the leisure farm.
+          </p>
+        </div>
+        <div class="reveal feat-img cont-right">
+          <div class="image-wrap img-left">
+            <img src="images/stay2.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="feat-container cont-left">
+        <div class="reveal feat-img image-left">
+          <div class="image-wrap img-left">
+            <img src="https://ulayaw-app.azurewebsites.net/stay.jpg" />
+          </div>
+        </div>
+        <div class="feat-desc desc-left">
+          <h2 class="fadeup">Staycation</h2>
+          <p class="fadeup">
+            Experience comfortable farm camping in an A-frame design kubo ideal for small groups looking for a budgeted quick getaway! Immerse
+            yourself in nature while experiencing luxurious accommodation! Spaciously designed for big groups featuring a stunning farm view that will
+            surely make you feel relaxed and rejuvenated!
+          </p>
+        </div>
+      </div>
+      <div class="feat-container">
+        <div class="feat-desc cont-right">
+          <h2 class="fadeup">Wedding & Events</h2>
+          <p class="fadeup">
+            From cozy al fresco floor halls to rustic & barn themed venue, experience a dreamy countryside atmosphere perfect for wedding, reception,
+            anniversary, and any kind of parties.
+          </p>
+        </div>
+        <div class="reveal feat-img cont-right">
+          <div class="image-wrap img-left">
+            <img src="https://ulayaw-app.azurewebsites.net/events.jpg" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="index-stroke-rotate">
+      <img src="images/index-copy-stroke.png" />
+    </div>
+    <section class="cabin-section">
+      <div class="cabin-title">
+        <h6 class="fadeup sub-title">ABSOLUTE COMFORT</h6>
+        <h2 class="fadeup main-title">What our villa offers</h2>
+      </div>
+      <div class="content-feature">
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="https://ulayaw-app.azurewebsites.net/bed.jpg" alt="" />
+            <h2>Comfy and Cozy</h2>
+            <p>
+              Spaciously designed for big groups featuring a stunning farm view that will surely make you feel comfortable, relaxed and rejuvenated!
+            </p>
+          </div>
+        </div>
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="https://ulayaw-app.azurewebsites.net/kitchen.jpg" alt="" />
+            <h2>Fully Equipped</h2>
+            <p>Hulo Leisure Farm features a fully equipped kitchen with modern appliances and comfortable bedding.</p>
+          </div>
+        </div>
+        <div class="wrapper-feature">
+          <div class="box-feature feature-image">
+            <img src="https://ulayaw-app.azurewebsites.net/bath.jpg" alt="" />
+            <h2>Relaxing Stay</h2>
+            <p>Experience a bali-inspired modern house with a relaxing farm view equipped with hanging bed perfect for instagrammable spot!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="index-stroke whitestrk">
+      <img src="images/index-white-stroke.png" />
+    </div>
+    <section class="testimonial-section">
+      <div class="testimonial-ttl">
+        <h6 class="fadeup sub-title">CUSTOMER SATISFACTION</h6>
+        <h2 class="fadeup main-title">What our guest says</h2>
+      </div>
+      <div class="testimonial-content pt-5 pb-5">
+        <div class="fadeup card col-md-12 mt-2">
+          <div id="nextSlide" class="carousel slide" data-ride="carousel" data-interval="100000">
+            <div class="w-100 carousel-inner mb-5" role="listbox">
+              <div class="carousel-item active">
+                <div class="bg"></div>
+                <div id="customer_satisfaction"></div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg"></div>
+                <div id="customer_satisfaction_2"></div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg"></div>
+                <div id="customer_satisfaction_3"></div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg"></div>
+                <div id="customer_satisfaction_4"></div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#nextSlide" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#nextSlide" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="see-more">
+          <a href="customersatisfaction.html">Read More</a>
+        </div>
+      </div>
+    </section>
+    <section class="index-end">
+      <div class="seefaqs">
+        <h2 class="fadeup main-title">Got some questions?</h2>
+        <h6 class="fadeup sub-title">We've got you covered!</h6>
+      </div>
+      <div class="seefaqs-btn">
+        <a class="seefaqs-btn-a" href="faqs.html">See our FAQs</a>
+      </div>
+    </section>
+    <!--Footer-->
+    <section class="display-footer">
+      <div id="footer-placeholder"></div>
+    </section>
+    <script src="js/app.js"></script>
+    <script>
+      changeLoginToProfile();
+
+      //Import Footer
+      $(function () {
+        $("#footer-placeholder").load("footer.html");
+      });
+
+      // nav underline
+      switch (window.location.pathname) {
+        case "/villa.html":
+          document.getElementById("villa").classList.add("active");
+          break;
+        case "/index.html":
+          document.getElementById("index").classList.add("active");
+          break;
+        case "/about.html":
+          document.getElementById("about").classList.add("active");
+          break;
+        case "/moments.html":
+          document.getElementById("moments").classList.add("active");
+          break;
+      }
+
+      $(window).on("beforeunload", function () {
+        console.log(window.location.pathname);
+        switch (window.location.pathname) {
+          case "/villa.html":
+            const chosen = document.getElementById("villas");
+            console.log(chosen);
+            document.getElementById("villas").classList.add("active");
+            console.log("here");
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+          case "/villa.html":
+            break;
+        }
+      });
+
+      //Navbar Effect
+      $(document).ready(function () {
+        var bottom = $(".nav-header-index").outerHeight();
+        var header = $(".nav-header-index").offset().top + bottom;
+
+        $(window).scroll(function () {
+          if ($(window).width() > 991) {
+            if ($(window).scrollTop() >= header) {
+              $(".nav-header-index").addClass("sticky");
+            } else {
+              $(".nav-header-index").removeClass("sticky");
+            }
+          }
+        });
+
+        $(".navbar-index ul li a").click(function () {
+          $(".navbar-index ul li a").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $(".ham-burger").click(function () {
+          $(this).toggleClass("active");
+          $(".navbar-index").toggleClass("open");
+        });
+      });
+
+      const displayLogoIndex = () => {
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/application/get", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("index-logo").src = data.payload.businessLogo;
+          });
+      };
+      displayLogoIndex();
+
+      const getCS = () => {
+        // var happy = document.createElement("img");
+        // happy.src = "icons/happy.png";
+        // var neutral = document.createElement("img");
+        // neutral.src = "icons/neutral.png";
+        // var sad = document.createElement("img");
+        // sad.src = "icons/sad.png";
+        let options = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            // Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        };
+        fetch("https://ulayaw-app.azurewebsites.net/user/customerSatisfaction", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            const list = document.getElementById("customer_satisfaction");
+            var data1 = "";
+            var data2 = "";
+            var data3 = "";
+            var data4 = "";
+            var data5 = "";
+            if (data.payload) {
+              if (data.payload[0]) {
+                data1 += "<div class='row'>";
+                data1 += "<div class='col-md-6 col-12'>";
+                data1 += "<div class='carousel-caption'>";
+                data1 += "<div class='row'>";
+                data1 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data1 += "<img id='cs-img0' src='icons/neutral.png'  class='rounded-circle img-fluid' />";
+                data1 += "</div>";
+                data1 += "<div class='col-sm-9 col-8'>";
+                data1 += "<h2 id='cs-name0'> " + data.payload[0].firstName + " " + data.payload[0].lastName + "</h2>";
+                data1 += "<small>" + data.payload[0].feedback.description + "</small>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+              }
+              if (data.payload[1]) {
+                data1 += "<div class='col-md-6 col-12'>";
+                data1 += "<div class='carousel-caption'>";
+                data1 += "<div class='row'>";
+                data1 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data1 += "<img id='cs-img1' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data1 += "</div>";
+                data1 += "<div class='col-sm-9 col-8'>";
+                data1 += "<h2 id='cs-name1'> " + data.payload[1].firstName + " " + data.payload[1].lastName + "</h2>";
+                data1 += "<small>" + data.payload[1].feedback.description + "</small>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+                data1 += "</div>";
+              }
+              data1 += "</div>";
+              $("#customer_satisfaction").html(data1);
+              if (data.payload[0]) {
+                if (data.payload[0].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name0").innerHTML = "Anonymous";
+                }
+                if (data.payload[0].feedback.rating == 1) {
+                  document.getElementById("cs-img0").src = "icons/sad.png";
+                } else if (data.payload[0].feedback.rating == 2) {
+                  document.getElementById("cs-img0").src = "icons/neutral.png";
+                } else if (data.payload[0].feedback.rating == 3) {
+                  document.getElementById("cs-img0").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[1]) {
+                if (data.payload[1].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name1").innerHTML = "Anonymous";
+                }
+                if (data.payload[1].feedback.rating == 1) {
+                  document.getElementById("cs-img1").src = "icons/sad.png";
+                } else if (data.payload[1].feedback.rating == 2) {
+                  document.getElementById("cs-img1").src = "icons/neutral.png";
+                } else if (data.payload[1].feedback.rating == 3) {
+                  document.getElementById("cs-img1").src = "icons/happy.png";
+                }
+              }
+              // document.getElementById("customer_satisfaction").innerHTML += data1;
+              // list.innerHTML += data1;
+
+              if (data.payload[2]) {
+                data2 += "<div class='row'>";
+                data2 += "<div class='col-md-6 col-12'>";
+                data2 += "<div class='carousel-caption'>";
+                data2 += "<div class='row'>";
+                data2 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data2 += "<img id='cs-img2' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data2 += "</div>";
+                data2 += "<div class='col-sm-9 col-8'>";
+                data2 += "<h2 id='cs-name2'> " + data.payload[2].firstName + " " + data.payload[2].lastName + "</h2>";
+                data2 += "<small>" + data.payload[2].feedback.description + "</small>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+              }
+              if (data.payload[3]) {
+                data2 += "<div class='col-md-6 col-12'>";
+                data2 += "<div class='carousel-caption'>";
+                data2 += "<div class='row'>";
+                data2 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data2 += "<img id='cs-img3' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data2 += "</div>";
+                data2 += "<div class='col-sm-9 col-8'>";
+                data2 += "<h2 id='cs-name3'> " + data.payload[3].firstName + " " + data.payload[3].lastName + "</h2>";
+                data2 += "<small>" + data.payload[3].feedback.description + "</small>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+                data2 += "</div>";
+              }
+
+              data2 += "</div>";
+              $("#customer_satisfaction_2").html(data2);
+              if (data.payload[2]) {
+                if (data.payload[2].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name2").innerHTML = "Anonymous";
+                }
+                if (data.payload[2].feedback.rating == 1) {
+                  document.getElementById("cs-img2").src = "icons/sad.png";
+                } else if (data.payload[2].feedback.rating == 2) {
+                  document.getElementById("cs-img2").src = "icons/neutral.png";
+                } else if (data.payload[2].feedback.rating == 3) {
+                  document.getElementById("cs-img2").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[3]) {
+                if (data.payload[3].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name3").innerHTML = "Anonymous";
+                }
+                if (data.payload[3].feedback.rating == 1) {
+                  document.getElementById("cs-img3").src = "icons/sad.png";
+                } else if (data.payload[3].feedback.rating == 2) {
+                  document.getElementById("cs-img3").src = "icons/neutral.png";
+                } else if (data.payload[3].feedback.rating == 3) {
+                  document.getElementById("cs-img3").src = "icons/happy.png";
+                }
+              }
+
+              if (data.payload[4]) {
+                data3 += "<div class='row'>";
+                data3 += "<div class='col-md-6 col-12'>";
+                data3 += "<div class='carousel-caption'>";
+                data3 += "<div class='row'>";
+                data3 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data3 += "<img id='cs-img4' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data3 += "</div>";
+                data3 += "<div class='col-sm-9 col-8'>";
+                data3 += "<h2 id='cs-name4'> " + data.payload[4].firstName + " " + data.payload[4].lastName + "</h2>";
+                data3 += "<small>" + data.payload[4].feedback.description + "</small>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+              }
+              if (data.payload[5]) {
+                data3 += "<div class='col-md-6 col-12'>";
+                data3 += "<div class='carousel-caption'>";
+                data3 += "<div class='row'>";
+                data3 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data3 += "<img id='cs-img5' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data3 += "</div>";
+                data3 += "<div class='col-sm-9 col-8'>";
+                data3 += "<h2 id='cs-name5'> " + data.payload[5].firstName + " " + data.payload[5].lastName + "</h2>";
+                data3 += "<small>" + data.payload[5].feedback.description + "</small>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+                data3 += "</div>";
+              }
+
+              data3 += "</div>";
+              $("#customer_satisfaction_3").html(data3);
+              if (data.payload[4]) {
+                if (data.payload[4].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name4").innerHTML = "Anonymous";
+                }
+                if (data.payload[4].feedback.rating == 1) {
+                  document.getElementById("cs-img4").src = "icons/sad.png";
+                } else if (data.payload[4].feedback.rating == 2) {
+                  document.getElementById("cs-img4").src = "icons/neutral.png";
+                } else if (data.payload[4].feedback.rating == 3) {
+                  document.getElementById("cs-img4").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[5]) {
+                if (data.payload[5].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name5").innerHTML = "Anonymous";
+                }
+                if (data.payload[5].feedback.rating == 1) {
+                  document.getElementById("cs-img5").src = "icons/sad.png";
+                } else if (data.payload[5].feedback.rating == 2) {
+                  document.getElementById("cs-img5").src = "icons/neutral.png";
+                } else if (data.payload[5].feedback.rating == 3) {
+                  document.getElementById("cs-img5").src = "icons/happy.png";
+                }
+              }
+
+              if (data.payload[6]) {
+                data4 += "<div class='row'>";
+                data4 += "<div class='col-md-6 col-12'>";
+                data4 += "<div class='carousel-caption'>";
+                data4 += "<div class='row'>";
+                data4 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data4 += "<img id='cs-img6' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data4 += "</div>";
+                data4 += "<div class='col-sm-9 col-8'>";
+                data4 += "<h2 id='cs-name6'> " + data.payload[6].firstName + " " + data.payload[6].lastName + "</h2>";
+                data4 += "<small>" + data.payload[6].feedback.description + "</small>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+              }
+              if (data.payload[7]) {
+                data4 += "<div class='col-md-6 col-12'>";
+                data4 += "<div class='carousel-caption'>";
+                data4 += "<div class='row'>";
+                data4 += "<div class='col-sm-3 col-4 align-items-start'>";
+                data4 += "<img id='cs-img7' src='icons/sad.png'  class='rounded-circle img-fluid' />";
+                data4 += "</div>";
+                data4 += "<div class='col-sm-9 col-8'>";
+                data4 += "<h2 id='cs-name7'> " + data.payload[7].firstName + " " + data.payload[7].lastName + "</h2>";
+                data4 += "<small>" + data.payload[7].feedback.description + "</small>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+                data4 += "</div>";
+              }
+
+              data4 += "</div>";
+              $("#customer_satisfaction_4").html(data4);
+              if (data.payload[6]) {
+                if (data.payload[6].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name6").innerHTML = "Anonymous";
+                }
+                if (data.payload[6].feedback.rating == 1) {
+                  document.getElementById("cs-img6").src = "icons/sad.png";
+                } else if (data.payload[6].feedback.rating == 2) {
+                  document.getElementById("cs-img6").src = "icons/neutral.png";
+                } else if (data.payload[6].feedback.rating == 3) {
+                  document.getElementById("cs-img6").src = "icons/happy.png";
+                }
+              }
+              if (data.payload[7]) {
+                if (data.payload[7].feedback.isAnonymous == true) {
+                  document.getElementById("cs-name7").innerHTML = "Anonymous";
+                }
+                if (data.payload[7].feedback.rating == 1) {
+                  document.getElementById("cs-img7").src = "icons/sad.png";
+                } else if (data.payload[7].feedback.rating == 2) {
+                  document.getElementById("cs-img7").src = "icons/neutral.png";
+                } else if (data.payload[7].feedback.rating == 3) {
+                  document.getElementById("cs-img7").src = "icons/happy.png";
+                }
+              }
+            }
+          });
+      };
+      getCS();
+
+      //Date Picker
+      let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
+
+      const picker = new Litepicker({
+        element: document.getElementById("checkin-date"),
+        elementEnd: document.getElementById("checkout-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
+        minDate: startDate, //It will not allow to select past days
+      });
+      //Input Number
+      function spinner() {
+        // Spinner
+        $("#spinner").spinner();
+
+        //Input only numbers
+        $("#spinner").keyup(function () {
+          this.value = this.value.replace(/[^0-9]/g, "");
+        });
+      }
+      //Input max number
+      function maxLengthCheck(object) {
+        if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
+      }
+      window.onload = spinner;
+
+      const getDate = () => {
+        const checkin = document.getElementById("checkin-date").value;
+        const checkout = document.getElementById("checkout-date").value;
+        const guest = document.getElementById("spinner").value;
+        console.log(checkin);
+        console.log(guest);
+        sessionStorage.setItem("checkinDate", checkin);
+        sessionStorage.setItem("checkoutDate", checkout);
+        sessionStorage.setItem("guest", guest);
+        window.location.replace("/c-booknow.html");
+      };
+
+      //animate image
+      document.addEventListener("DOMContentLoaded", function () {
+        const options = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.4,
+        };
+
+        // IMAGE ANIMATION
+
+        let revealCallback = (entries) => {
+          entries.forEach((entry) => {
+            let container = entry.target;
+
+            if (entry.isIntersecting) {
+              console.log(container);
+              container.classList.add("animating");
+              return;
+            }
+
+            if (entry.boundingClientRect.top > 0) {
+              container.classList.remove("animating");
+            }
+          });
+        };
+
+        let revealObserver = new IntersectionObserver(revealCallback, options);
+
+        document.querySelectorAll(".reveal").forEach((reveal) => {
+          revealObserver.observe(reveal);
+        });
+
+        // TEXT ANIMATION
+
+        let fadeupCallback = (entries) => {
+          entries.forEach((entry) => {
+            let container = entry.target;
+            container.classList.add("not-fading-up");
+
+            if (entry.isIntersecting) {
+              container.classList.add("fading-up");
+              return;
+            }
+
+            if (entry.boundingClientRect.top > 0) {
+              container.classList.remove("fading-up");
+            }
+          });
+        };
+
+        let fadeupObserver = new IntersectionObserver(fadeupCallback, options);
+
+        document.querySelectorAll(".fadeup").forEach((fadeup) => {
+          fadeupObserver.observe(fadeup);
+        });
+      });
+    </script>
+  </body>
+</html>

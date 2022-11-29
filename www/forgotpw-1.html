@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abril Fatface" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+    <title>Hulo Leisure Farm</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <section class="display-navbar">
+      <div id="nav-placeholder"></div>
+    </section>
+    <section class="log-body">
+      <div class="log-container">
+        <div class="log-forms">
+          <div class="logform r-login">
+            <span class="log-title">Forgot Password</span>
+            <form action="javascript:forgotPassword();">
+              <div class="log-input-field">
+                <input id="email" class="log-input" type="email" placeholder="Enter your email" required />
+                <i class="uil uil-envelope icon"></i>
+              </div>
+              <div class="log-input-field button">
+                <input class="log-input-btn" type="submit" value="Continue" />
+              </div>
+              <div class="log-cancel-field button">
+                <a href="login-reg.html">
+                  <input class="log-input-btn log-cancel" style="top: 0px" type="button" value="Cancel" />
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- START OF POPUP -->
+
+    <div class="popup popup1 popup-medium center">
+      <div class="popup-title">Forgot Password</div>
+      <div class="description">Password Changed Successfully! Please check your email for your new password.</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup1-btn">Close</button>
+      </div>
+    </div>
+
+    <div class="popup popup2 popup-short center">
+      <div class="popup-title">Forgot Password</div>
+      <div class="description">Error Occured!</div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup2-btn">Close</button>
+      </div>
+    </div>
+
+    <script>
+      //Import Navbar
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+
+      const forgotPassword = () => {
+        const email = document.getElementById("email").value;
+        const data = {
+          email: email,
+        };
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("https://ulayaw-app.azurewebsites.net/auth/forgotPassword", options)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.key === "PASSUPDATED") {
+              document.getElementsByClassName("popup1")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup1")[0].classList.remove("active");
+                window.location = "login-reg.html";
+              });
+            } else {
+              document.getElementsByClassName("popup2")[0].classList.add("active");
+
+              document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+                document.getElementsByClassName("popup2")[0].classList.remove("active");
+              });
+            }
+          });
+      };
+    </script>
+  </body>
+</html>
