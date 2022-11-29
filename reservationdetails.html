@@ -221,6 +221,7 @@
           >
           of the Hulo Leisure Farm.
         </p>
+        <br>
         <input class="cr-btn" id="confirmReservation" type="button" onclick="addBooking()" value="Confirm Reservation" />
       </div>
     </div>
@@ -550,7 +551,7 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            if (data.message == "Booking created!") {
+            if (data.message == "Booking created! Please wait for 1-3 days for Hulo to approve your reservation request.") {
               document.getElementById("popupdesc").innerHTML = data.message;
 
               document.getElementsByClassName("popup2")[0].classList.add("active");

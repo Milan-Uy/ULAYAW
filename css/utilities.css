@@ -2898,10 +2898,10 @@ footer .bottom a:hover {
 
 .search-mu {
   text-align: left;
-  border-radius: 6rem;
+  border-radius: 0rem;
   border: 1px solid #a0a0a0;
   padding: 0.6rem 2rem 0.6rem 1rem;
-  width: 25rem;
+  width: 10rem;
   margin-top: 20px;
   vertical-align: bottom;
 }
@@ -4277,19 +4277,11 @@ i.material-icons {
   border-radius: 5px;
   height: 35px;
   margin-top: 0px;
-  background-color: transparent;
-}
-
-.musearch {
-  margin-left: -90px;
-}
-
-.muclear {
-  margin-left: -11px;
+  background-color: #6b4f4f;
 }
 
 .muicon {
-  color: #333;
+  color: #f9f2e7;
 }
 .apply-btn1:hover {
   cursor: pointer;
