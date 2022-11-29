@@ -231,10 +231,10 @@
               <div class="image-box">
                 <img src="images/leaves1.png" alt="" />
               </div>
-              <form onsubmit="sendEmail()" id="contactForm">
+              <form action="javascript:sendEmail();" id="contactForm">
                 <div class="topic">Send us a message!</div>
                 <!-- ALERT -->
-                <!-- <div class="alertMessage alert1">
+                <div class="alertMessage alert1">
                   <span class="close" id="close-alert1">×</span>
                   <i class="fas fa-exclamation-circle alert-icon"></i>
                   <strong>Your message was successfully sent!</strong>
@@ -243,7 +243,7 @@
                   <span class="close" id="close-alert2">×</span>
                   <i class="fas fa-exclamation-circle alert-icon"></i>
                   <strong>Your message could not be sent!</strong>
-                </div> -->
+                </div>
                 <div class="input-box">
                   <input type="text" id="name" required />
                   <label>Enter your name</label>
@@ -328,26 +328,26 @@
           body: JSON.stringify(data),
         };
         console.log(data)
-        fetch("http://localhost:8080/admin/email", options)
+        fetch("https://ulayaw-app.azurewebsites.net/admin/email", options)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
             if (data.key === "SUCCESS") {
-              // document.getElementsByClassName("alert1")[0].style.display = "block";
+              document.getElementsByClassName("alert1")[0].style.display = "block";
 
-              document.getElementsByClassName("popup1")[0].classList.add("active");
+            //   document.getElementsByClassName("popup1")[0].classList.add("active");
 
-              document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
-              document.getElementsByClassName("popup1")[0].classList.remove("active");
-            });
+            //   document.getElementById("dismiss-popup1-btn").addEventListener("click", function () {
+            //   document.getElementsByClassName("popup1")[0].classList.remove("active");
+            // });
             } else {
-              // document.getElementsByClassName("alert2")[0].style.display = "block";
+              document.getElementsByClassName("alert2")[0].style.display = "block";
 
-              document.getElementsByClassName("popup2")[0].classList.add("active");
+            //   document.getElementsByClassName("popup2")[0].classList.add("active");
 
-              document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
-              document.getElementsByClassName("popup2")[0].classList.remove("active");
-            });
+            //   document.getElementById("dismiss-popup2-btn").addEventListener("click", function () {
+            //   document.getElementsByClassName("popup2")[0].classList.remove("active");
+            // });
             }
             document.getElementById("contactForm").reset();
           });
