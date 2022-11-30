@@ -203,12 +203,12 @@
               <div class="guest-list" id="list">
                 <h5>Guest List</h5>
                 <div class="search-sec">
-              <input type="text" id="myInput"  placeholder="First Name" class="search-mu" />
-              <input type="text" id="myInput"  placeholder="Last Name" class="search-mu" />
+              <input type="text" id="first-name"  placeholder="First Name" class="search-mu" />
+              <input type="text" id="last-name"  placeholder="Last Name" class="search-mu" />
               <button onclick="searchUser()" class="apply-btn1 musearch"><span class="material-symbols-outlined muicon">
                 search
                 </span></button>
-              <button onclick="displayUsers()" class="apply-btn1 muclear"><span class="material-symbols-outlined muicon">
+              <button onclick="displayUsers(); document.getElementById('first-name').value=''; document.getElementById('last-name').value='';" class="apply-btn1 muclear"><span class="material-symbols-outlined muicon">
                 backspace
                 </span></button>
               </div>
@@ -972,8 +972,8 @@
 
 
       const searchUser = async () => {
-        let insearch = document.getElementById("myInput").value;
-        console.log(insearch);
+        let f_name = document.getElementById("first-name").value;
+        let l_name = document.getElementById("last-name").value;
 
         const pending = document.getElementById("table_users");
         pending.innerHTML = "";
@@ -986,7 +986,7 @@
         },
         };
 
-        fetch(`https://ulayaw-app.azurewebsites.net/user/getGuests?searchKey=${insearch}`, options)
+        fetch(`https://ulayaw-app.azurewebsites.net/user/getGuests?firstName=${f_name}&lastName=${l_name}`, options)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
