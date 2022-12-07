@@ -643,7 +643,7 @@
           });
         }
       };
-
+      let userBookings;
       const bookingStatus = () => {
         let id = localStorage.getItem("user_id");
         console.log(id);
@@ -660,6 +660,7 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            userBookings = data;
             // console.log(data.payload.length);
             data.payload = data.payload.sort((a, b) => {
               return new Date(b.dateBooked) - new Date(a.dateBooked);
@@ -685,7 +686,7 @@
                       " btnprcd' type='button' style='background-color: #6b4f4f; color: #f9f2e7; border-radius: 5px; cursor: pointer;'>Proceed to Payment</button></td>";
                   }
                 } else if (data.payload[i].status === "Rejected") {
-                  data1 += "<td><button type='button' class='" + data.payload[i]._id + " btnremarks'>Remarks</button></td>";
+                  data1 += "<td><button type='button' class='" + data.payload[i]._id + " btnremarks " + i + "' >Remarks</button></td>";
                   data1 +=
                     "<td><input type='text' id='" +
                     data.payload[i]._id +
@@ -725,7 +726,7 @@
           // console.log(bookingId);
           // sessionStorage.setItem("booking_id", bookingId);
           // console.log(e.target.classList[2]);
-          document.getElementById("remarksdesc").innerHTML = document.getElementById(e.target.classList[0]).value;
+          document.getElementById("remarksdesc").innerHTML = userBookings.payload[e.target.classList[2]].remarks;
           // document.getElementById("remarksdesc").innerHTML = e.target.classList[2];
           document.getElementsByClassName("popupremarks")[0].classList.add("active");
         }
