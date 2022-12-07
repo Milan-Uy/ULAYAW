@@ -451,7 +451,7 @@
             var serviceFee = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 0.025;
             sessionStorage.setItem("totalPrice", total);
             document.getElementById("gcash").innerText = serviceFee;
-            document.getElementById("total").innerText = total;
+            document.getElementById("total").innerText = `PHP ${comma(total.toFixed(2))}`;
           } else {
             switch (data.payload.name) {
               case "Casa Aurelia":
