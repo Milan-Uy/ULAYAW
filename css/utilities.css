@@ -296,6 +296,9 @@
     -webkit-transform: translateX(0%);
     transform: translateX(0%);
   }
+  .navbar.open .nameTag2 {
+    visibility: hidden;
+  }
   .navbar ul li {
     display: block;
     margin: 0px 10px 0px 10px;
