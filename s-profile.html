@@ -437,6 +437,8 @@
                       <thead>
                         <tr>
                           <th class="thbs">Ref. No.</th>
+                          <th class="thbs">Villa Name</th>
+                          <th class="thbs">Guest Name</th>
                           <th class="thbs">Reserved Date</th>
                           <th class="thbs">Reservation Created</th>
                           <th class="thbs">Status</th>
@@ -1171,6 +1173,8 @@
             $("#table_completed").append(`
               <tr>;
                  <td class='tdbs'>${user._id}</td>
+                 <td class='tdbs'>${convertVillaId(user.villaId)}</td>
+                 <td class='tdbs'>${user.userId.firstName} ${user.userId.lastName}</td>
                  <td class='tdbs'>${convertDate(user.startDate)} to ${convertDate(user.endDate)}</td>
                  <td class='tdbs'>${convertDate(user.dateBooked)}</td>
                  <td class='tdbs'>${user.status}</td>
