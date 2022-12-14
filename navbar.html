@@ -36,6 +36,7 @@
             <li><a id="villa" href="villa.html">Villas</a></li>
             <li><a id="Moments" href="Moments.html">Moments</a></li>
             <li><a id="login-reg" href="login-reg.html">Log In</a></li>
+            <li id="nameTag2"><p>Welcome, Unknown User</p></li>
             <div class="book-btn bounce-in-on-hover">
               <a class="book-btn" href="c-booknow.html">BOOK NOW</a>
             </div>
@@ -46,6 +47,8 @@
     <!--End of Navbar-->
     <script src="app.js"></script>
     <script>
+      nameTagStaff();
+      removeWelcome();
       changeLoginToProfile();
       // nav underline
       switch (window.location.pathname) {

@@ -20,6 +20,13 @@ const changeLoginToProfile = () => {
   }
 };
 
+const removeWelcome = () => {
+  if (localStorage.getItem("access_token")) {
+  } else {
+    document.getElementById("nameTag2").style.display = "none";
+  }
+};
+
 const nameTagStaff = async () => {
   let user = await getUser(localStorage.getItem("user_id"));
   console.log(user);
