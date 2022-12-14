@@ -306,10 +306,10 @@
     const checkout = new Date(sessionStorage.getItem("checkoutDate1")).toISOString();
     console.log(checkin);
 
-    var checkin1 = new Date(sessionStorage.getItem("checkinDate1"));
-    var checkout1 = new Date(sessionStorage.getItem("checkoutDate1"));
-    var timediff = checkout1.getTime() - checkin1.getTime();
-    var duration = Math.round(timediff / (1000 * 3600 * 24));
+    let checkin1 = new Date(sessionStorage.getItem("checkinDate1"));
+    let checkout1 = new Date(sessionStorage.getItem("checkoutDate1"));
+    let timediff = checkout1.getTime() - checkin1.getTime();
+    let duration = Math.round(timediff / (1000 * 3600 * 24));
     console.log(duration);
 
     const getDetails = () => {
@@ -459,7 +459,7 @@
                 document.getElementById("guestNo").setAttribute("max", 20);
                 document.getElementById("bed").setAttribute("max", 10);
                 break;
-              case "Caminos De Primavera":
+              case "Caminos De Primavera":  
                 document.getElementById("guestNo").setAttribute("max", 6);
                 document.getElementById("bed").setAttribute("disabled", "");
                 break;
@@ -477,13 +477,14 @@
                 break;
             }
             document.getElementsByClassName("pricetxt")[0].innerText = data.payload.overnight.price;
-            document.getElementById("price2").innerText = data.payload.overnight.price;
+            document.getElementById("price2").innerText = data.payload.overnight.price * duration;
             document.getElementById("timein").innerText = data.payload.overnight.checkInTime;
             document.getElementById("timeout").innerText = data.payload.overnight.checkOutTime;
             document.getElementById("duration").innerText = duration;
             // document.getElementById("minGuest").innerText = data.payload.overnight.minPerson;
             document.getElementById("maxGuest").innerText = data.payload.overnight.maxPerson;
-            var villaPrice = data.payload.overnight.price;
+            // console.log(duration);
+            var villaPrice = data.payload.overnight.price * duration;
             var total = (villaPrice + breakfastval + bedval) * 1.025;
             var serviceFee = (villaPrice + breakfastval + bedval) * 0.025;
             sessionStorage.setItem("totalPrice", total);
