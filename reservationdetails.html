@@ -642,33 +642,24 @@
       evt.preventDefault();
     });
 
-    //Date Picker
+          //Date Picker
+          let startDate = new Date();
+      let endDate = new Date();
+      // endDate.setDate(endDate.getDate() + 1);
 
-    // endDate.setDate(endDate.getDate() + 1);
-
-    // const picker = new Litepicker({
-    //   element: document.getElementById("checkin-date"),
-    //   elementEnd: document.getElementById("checkout-date"),
-    //   numberOfMonths: 2,
-    //   numberOfColumns: 2,
-    //   singleMode: false,
-    //   numberOfMonths: 2,
-    //   allowRepick: true,
-    //   minDays: 1, // Sets the min amount of days to 1
-    //   maxDays: 730, // Sets the min amount of days to 1
-    //   format: "D MMM, YYYY", // Format date
-    //   minDate: startDate, //It will not allow to select past days
-    // });
-    // //Input Number
-    // function spinner() {
-    //   // Spinner
-    //   $("#spinner").spinner();
-
-    //   //Input only numbers
-    //   $("#spinner").keyup(function () {
-    //     this.value = this.value.replace(/[^0-9]/g, "");
-    //   });
-    // }
+      const picker = new Litepicker({
+        element: document.getElementById("checkin-date"),
+        elementEnd: document.getElementById("checkout-date"),
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        singleMode: false,
+        numberOfMonths: 2,
+        allowRepick: true,
+        minDays: 1, // Sets the min amount of days to 1
+        maxDays: 730, // Sets the min amount of days to 1
+        format: "D MMM, YYYY", // Format date
+        minDate: startDate, //It will not allow to select past days
+      });
     //Input max number
     function maxLengthCheck(object) {
       if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
