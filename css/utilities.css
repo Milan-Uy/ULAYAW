@@ -1259,6 +1259,7 @@ input:checked + .slider:before {
 
 /**new login reg **/
 
+
 .signup-link,
 .login-link {
   margin-left: 10px;
