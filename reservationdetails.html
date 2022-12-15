@@ -21,6 +21,49 @@
       <div id="nav-placeholder"></div>
     </section>
     <h1 class="headtextrd">Reservation Details</h1>
+    <section class="rdetails-check">
+    <div class="check-availability">
+        <form action="javascript:bookNow()" class="checkavail-form">
+          <div class="form-item check-flex-item">
+            <i class="icon material-symbols-outlined">event_upcoming</i>
+            <label>Check in</label>
+            <input class="select-date" id="checkin-date" placeholder="select a date" />
+          </div>
+          <div class="form-item check-flex-item">
+            <i class="icon material-symbols-outlined">event_busy</i>
+            <label>Check out</label>
+            <input id="checkout-date" class="select-date" placeholder="select a date" />
+          </div>
+          <div class="form-item check-flex-item-m">
+            <i class="icon material-symbols-outlined">groups</i>
+            <label>Guests</label>
+            <input
+              class="guest"
+              type="number"
+              placeholder="1"
+              pattern="[0-9]*"
+              id="spinner"
+              name="value"
+              value="1"
+              min="1"
+              max="100"
+              step="1"
+              oninput="maxLengthCheck(this)"
+              maxlength="2"
+              required
+            />
+          </div>
+          <div class="form-item check-flex-item-sm">
+            <div class="search-icon">
+              <button type="submit">
+                <span class="icon">CONFIRM</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <!-- <div class="check-availability-index">
       <form action="javascript:getDate()" class="checkavail-form-index">
         <div class="form-item check-flex-item">

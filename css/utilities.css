@@ -5372,3 +5372,58 @@ button:focus {
   padding: 7px 4px;
   cursor: pointer !important;
 }
+
+.rdetails-check {
+  display: flex;
+  justify-content: center;
+}
+
+.rdetails-check .checkavail-form {
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%) !important;
+}
+
+.rdetails-check .check-availability {
+  width: 76rem;
+}
+
+.rdetails-check .search-icon .icon {
+  color: #f9f2e7;
+  font-weight: 700;
+  width: 100%;
+  font-size: 12px;
+  background-color: #1b5b6b;
+  padding: 10px 40px;
+  margin: 0px;
+  float: right;
+  margin-top: 10px;
+}
+.rdetails-check .search-icon .icon:hover {
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+@media (max-width: 1024px) {
+  .rdetails-check .check-availability {
+    width: 80%;
+    max-width: 76rem;
+  }
+  .rdetails-check .search-icon .icon {
+    display: unset;
+  }
+}
+
+@media (max-width: 450px) {
+  .rdetails-check .form-item {
+    margin-left: 15px !important;
+  }
+
+  .rdetails-check .search-icon .icon {
+    display: unset;
+    margin-left: 40px;
+  }
+  .rdetails-check .search-icon {
+    margin-left: 5px;
+  }
+}
