@@ -583,6 +583,15 @@
       }
     };
 
+    const saveReservation = () => {
+      if (localStorage.getItem("access_token")) {
+  } else {
+    const visited = true;
+    sessionStorage.setItem("hasVisited", visited)
+  }
+    }
+    saveReservation();
+
     // disable typing in number input
     // $("[type='number']").keypress(function (evt) {
     //   evt.preventDefault();

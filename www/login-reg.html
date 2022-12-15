@@ -251,7 +251,25 @@
               localStorage.setItem("user_role", data.userRole);
               localStorage.setItem("user_id", data.user._id);
               localStorage.setItem("status", data.user.status);
-              navigate();
+              // navigate();
+              if (localStorage.getItem("access_token")) {
+                if (localStorage.getItem("status") === "New") {
+                  window.location.replace("/c-reg-code.html");
+                } else {
+                  if (localStorage.getItem("user_role") === "Guest") {
+                    if (sessionStorage.getItem("hasVisited")) {
+                      window.location.replace("/reservationdetails.html");
+                    } else {
+                      window.location.replace("/c-profile.html");
+                    }
+                  } else if (localStorage.getItem("user_role") === "Admin") {
+                    window.location.replace("/a-profile.html");
+                  } else if (localStorage.getItem("user_role") === "Manager" || localStorage.getItem("user_role") === "Marketing Specialist") {
+                    window.location.replace("/s-profile.html");
+                  }
+                }
+              }
+              sessionStorage.removeItem("hasVisited");
             } else {
               const loginDiv = document.getElementById("loginError");
               loginDiv.style.display = "block";
