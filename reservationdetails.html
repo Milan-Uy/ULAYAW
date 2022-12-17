@@ -23,16 +23,16 @@
     <h1 class="headtextrd">Reservation Details</h1>
     <section class="rdetails-check">
     <div class="check-availability">
-        <form action="javascript:bookNow()" class="checkavail-form">
+        <form action="javascript:checkVilla()" class="checkavail-form">
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_upcoming</i>
             <label>Check in</label>
-            <input class="select-date" id="checkin-date" placeholder="select a date" />
+            <input class="select-date" id="in-date" placeholder="select a date" />
           </div>
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_busy</i>
             <label>Check out</label>
-            <input id="checkout-date" class="select-date" placeholder="select a date" />
+            <input id="out-date" class="select-date" placeholder="select a date" />
           </div>
           <div class="form-item check-flex-item-m">
             <i class="icon material-symbols-outlined">groups</i>
@@ -327,6 +327,45 @@
   </body>
   <script src="app.js"></script>
   <script>
+
+  
+
+    const getNotAvailableDates = () =>{
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+      };
+      // console.log(`https://ulayaw-app.azurewebsites.net/villa/getAvailable?startDate=${checkin}&endDate=${checkout}&guests=${guest}`);
+      fetch(`https://ulayaw-app.azurewebsites.net/booking/getNotAvailableDates?villaId=${sessionStorage.getItem('villa_id')}`)
+        .then((response) => response.json())
+        .then((data) => {
+          let disableDates = data.payload;
+             //Date Picker
+             let startDate = new Date();
+            let endDate = new Date();
+            // endDate.setDate(endDate.getDate() + 1);
+          console.log(disableDates);
+            const picker = new Litepicker({
+              element: document.getElementById("checkin-date"),
+              elementEnd: document.getElementById("checkout-date"),
+              lockDays: disableDates,
+              numberOfMonths: 2,
+              numberOfColumns: 2,
+              singleMode: false,
+              numberOfMonths: 2,
+              allowRepick: true,
+              minDays: 1, // Sets the min amount of days to 1
+              maxDays: 730, // Sets the min amount of days to 1
+              format: "D MMM, YYYY", // Format date
+              minDate: startDate, //It will not allow to select past days
+            });
+        });
+    }
+    getNotAvailableDates();
+
+
     //Import Navbar
     $(function () {
       $("#nav-placeholder").load("navbar.html");
@@ -335,6 +374,16 @@
     $(function () {
       $("#footer-placeholder").load("footer.html");
     });
+
+
+    const checkVilla = () => {
+      const inDate = document.getElementById("in-date").value;
+      const outDate = document.getElementById("out-date").value;
+
+      const checkIn = new Date(inDate).toISOString();
+      const checkOut = new Date(outDate).toISOString();
+      
+    }
 
     // Popup Button
     document.getElementById("open-popup-btn-1").addEventListener("click", function () {
@@ -642,28 +691,13 @@
       evt.preventDefault();
     });
 
-          //Date Picker
-          let startDate = new Date();
-      let endDate = new Date();
-      // endDate.setDate(endDate.getDate() + 1);
-
-      const picker = new Litepicker({
-        element: document.getElementById("checkin-date"),
-        elementEnd: document.getElementById("checkout-date"),
-        numberOfMonths: 2,
-        numberOfColumns: 2,
-        singleMode: false,
-        numberOfMonths: 2,
-        allowRepick: true,
-        minDays: 1, // Sets the min amount of days to 1
-        maxDays: 730, // Sets the min amount of days to 1
-        format: "D MMM, YYYY", // Format date
-        minDate: startDate, //It will not allow to select past days
-      });
+       
     //Input max number
     function maxLengthCheck(object) {
       if (object.value.length > object.maxLength) object.value = object.value.slice(0, object.maxLength);
     }
+
+
 
     // window.onload = spinner;
   </script>
