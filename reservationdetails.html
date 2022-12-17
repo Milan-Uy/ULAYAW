@@ -398,7 +398,7 @@
 
 
     const getDetails = () => {
-      const guest = sessionStorage.getItem("guestAmt");
+      let guest = sessionStorage.getItem("guestAmt");
       console.log(checkin);
       console.log(checkout);
       console.log(guest);
@@ -757,13 +757,13 @@
     getVillaId();
 
     const addBooking = () => {
-      const guestNumber = document.getElementById("guestDisplay").innerHTML;
+      let guestNumber = document.getElementById("guestDisplay").innerHTML;
 
       if (localStorage.getItem("access_token")) {
-        const breakfast = document.getElementById("breakfast").value;
-        const bed = document.getElementById("bed").value;
-        const bedroom = document.getElementById("bedroom").value;
-        const table = document.getElementById("table").value;
+        let breakfast = document.getElementById("breakfast").value;
+        let bed = document.getElementById("bed").value;
+        let bedroom = document.getElementById("bedroom").value;
+        let table = document.getElementById("table").value;
 
         breakfastval = 200 * breakfast;
         bedval = 300 * bed;
