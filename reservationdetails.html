@@ -27,14 +27,14 @@
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_upcoming</i>
             <label>Check in</label>
-            <input class="select-date" id="in-date" placeholder="select a date" />
+            <input class="select-date" id="checkin-date" placeholder="select a date" />
           </div>
           <div class="form-item check-flex-item">
             <i class="icon material-symbols-outlined">event_busy</i>
             <label>Check out</label>
-            <input id="out-date" class="select-date" placeholder="select a date" />
+            <input id="checkout-date" class="select-date" placeholder="select a date" />
           </div>
-          <div class="form-item check-flex-item-m">
+          <!-- <div class="form-item check-flex-item-m">
             <i class="icon material-symbols-outlined">groups</i>
             <label>Guests</label>
             <input
@@ -52,7 +52,7 @@
               maxlength="2"
               required
             />
-          </div>
+          </div> -->
           <div class="form-item check-flex-item-sm">
             <div class="search-icon">
               <button type="submit">
@@ -365,7 +365,7 @@
     }
     getNotAvailableDates();
 
-
+    
     //Import Navbar
     $(function () {
       $("#nav-placeholder").load("navbar.html");
@@ -374,16 +374,6 @@
     $(function () {
       $("#footer-placeholder").load("footer.html");
     });
-
-
-    const checkVilla = () => {
-      const inDate = document.getElementById("in-date").value;
-      const outDate = document.getElementById("out-date").value;
-
-      const checkIn = new Date(inDate).toISOString();
-      const checkOut = new Date(outDate).toISOString();
-      
-    }
 
     // Popup Button
     document.getElementById("open-popup-btn-1").addEventListener("click", function () {
@@ -394,8 +384,8 @@
       document.getElementsByClassName("popup1")[0].classList.remove("active");
     });
 
-    const checkin = new Date(sessionStorage.getItem("checkinDate1")).toISOString();
-    const checkout = new Date(sessionStorage.getItem("checkoutDate1")).toISOString();
+    let checkin = new Date(sessionStorage.getItem("checkinDate1")).toISOString();
+    let checkout = new Date(sessionStorage.getItem("checkoutDate1")).toISOString();
     console.log(checkin);
 
     let checkin1 = new Date(sessionStorage.getItem("checkinDate1"));
@@ -403,6 +393,9 @@
     let timediff = checkout1.getTime() - checkin1.getTime();
     let duration = Math.round(timediff / (1000 * 3600 * 24));
     console.log(duration);
+
+
+
 
     const getDetails = () => {
       const guest = sessionStorage.getItem("guestAmt");
@@ -434,17 +427,34 @@
     // get villaId
     const id = sessionStorage.getItem("villa_id");
 
-    const getVillaId = () => {
-      const guestNo = document.getElementById("guestNo").value;
-      const breakfast = document.getElementById("breakfast").value;
-      const bed = document.getElementById("bed").value;
-      const bedroom = document.getElementById("bedroom").value;
-      const table = document.getElementById("table").value;
+    let guestNo = document.getElementById("guestNo").value;
+      let breakfast = document.getElementById("breakfast").value;
+      let bed = document.getElementById("bed").value;
+      let bedroom = document.getElementById("bedroom").value;
+      let table = document.getElementById("table").value;
 
-      var breakfastval = 200 * breakfast;
-      var bedval = 300 * bed;
-      var bedroomval;
-      var tableval = 500 * table;
+        // Reverse Booking
+        const checkVilla = () => {
+      checkin = new Date(document.getElementById("checkin-date").value).toISOString();
+      checkout = new Date(document.getElementById("checkout-date").value).toISOString();
+
+      checkin1 = new Date(document.getElementById("checkin-date").value);
+      checkout1 = new Date(document.getElementById("checkout-date").value);
+      timediff = checkout1.getTime() - checkin1.getTime();
+      duration = Math.round(timediff / (1000 * 3600 * 24));
+
+      document.getElementById("checkin").innerHTML = convertDate(document.getElementById("checkin-date").value);
+      document.getElementById("checkout").innerHTML = convertDate(document.getElementById("checkout-date").value);
+      document.getElementById("duration").innerText = duration;
+      
+      let breakfastval = 200 * breakfast;
+      let bedval = 300 * bed;
+      let bedroomval;
+      let tableval = 500 * table;
+
+      let villaPrice;
+      let total;
+      let serviceFee;
       document.getElementById("bfastPrice").innerText = breakfastval;
       document.getElementById("bedPrice").innerText = bedval;
 
@@ -539,9 +549,9 @@
             document.getElementById("timeout").innerText = data.payload.dayTour.checkOutTime;
             // document.getElementById("minGuest").innerText = data.payload.dayTour.minPerson;
             document.getElementById("maxGuest").innerText = data.payload.dayTour.maxPerson;
-            var villaPrice = data.payload.dayTour.price;
-            var total = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 1.025;
-            var serviceFee = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 0.025;
+            villaPrice = data.payload.dayTour.price;
+            total = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 1.025;
+            serviceFee = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 0.025;
             sessionStorage.setItem("totalPrice", total);
             document.getElementById("gcash").innerText = serviceFee;
             document.getElementById("total").innerText = `PHP ${comma(total.toFixed(2))}`;
@@ -576,9 +586,168 @@
             // document.getElementById("minGuest").innerText = data.payload.overnight.minPerson;
             document.getElementById("maxGuest").innerText = data.payload.overnight.maxPerson;
             // console.log(duration);
-            var villaPrice = data.payload.overnight.price * duration;
-            var total = (villaPrice + breakfastval + bedval) * 1.025;
-            var serviceFee = (villaPrice + breakfastval + bedval) * 0.025;
+            villaPrice = data.payload.overnight.price * duration;
+            total = (villaPrice + breakfastval + bedval) * 1.025;
+            serviceFee = (villaPrice + breakfastval + bedval) * 0.025;
+            sessionStorage.setItem("totalPrice", total);
+            document.getElementById("gcash").innerText = serviceFee;
+            document.getElementById("total").innerText = `PHP ${comma(total.toFixed(2))}`;
+          }
+        });
+
+    }
+
+    
+
+    const getVillaId = () => {
+      let guestNo = document.getElementById("guestNo").value;
+      let breakfast = document.getElementById("breakfast").value;
+      let bed = document.getElementById("bed").value;
+      let bedroom = document.getElementById("bedroom").value;
+      let table = document.getElementById("table").value;
+
+      let breakfastval = 200 * breakfast;
+      let bedval = 300 * bed;
+      let bedroomval;
+      let tableval = 500 * table;
+
+      let villaPrice;
+      let total;
+      let serviceFee;
+      document.getElementById("bfastPrice").innerText = breakfastval;
+      document.getElementById("bedPrice").innerText = bedval;
+
+      document.getElementById("bfastNo").innerText = breakfast;
+      document.getElementById("bedNo").innerText = bed;
+      document.getElementById("bedroomNo").innerText = bedroom;
+      document.getElementById("tableNo").innerText = table;
+
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      };
+
+      fetch(`https://ulayaw-app.azurewebsites.net/villa/getOne/${id}`, options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // console.log(data.payload.name);
+          document.getElementsByClassName("villatxt")[0].innerText = data.payload.name;
+          document.getElementById("villatxt2").innerText = data.payload.name;
+          document.getElementsByClassName("rdcontent")[0].innerText = data.payload.description;
+          document.getElementById("guestDisplay").innerText = guestNo;
+
+          if (checkin === checkout) {
+            switch (data.payload.name) {
+              case "Casa Aurelia":
+                document.getElementById("guestNo").setAttribute("max", 30);
+                document.getElementById("bed").setAttribute("max", 10);
+                document.getElementsByClassName("bedroom")[0].style.display = "block";
+                document.getElementById("bedroom").style.display = "block";
+                document.getElementById("hidebedroom").style.display = "block";
+                bedroomval = 2000 * bedroom;
+                sessionStorage.setItem("bedroomvalue", bedroomval);
+                document.getElementById("bedroomPrice").innerText = bedroomval;
+                break;
+              case "Caminos De Primavera":
+                document.getElementById("guestNo").setAttribute("max", 15);
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementsByClassName("bedroom")[0].style.display = "block";
+                document.getElementById("bedroom").style.display = "block";
+                document.getElementById("hidebedroom").style.display = "block";
+                bedroomval = 2000 * bedroom;
+                sessionStorage.setItem("bedroomvalue", bedroomval);
+                document.getElementById("bedroomPrice").innerText = bedroomval;
+                break;
+              case "Casa Salud":
+                document.getElementById("guestNo").setAttribute("max", 30);
+                document.getElementById("bed").setAttribute("max", 2);
+                document.getElementsByClassName("bedroom")[0].style.display = "block";
+                document.getElementById("bedroom").style.display = "block";
+                document.getElementById("hidebedroom").style.display = "block";
+                bedroomval = 1500 * bedroom;
+                sessionStorage.setItem("bedroomvalue", bedroomval);
+                document.getElementById("bedroomPrice").innerText = bedroomval;
+                break;
+              case "Kubo ni Basyong":
+                document.getElementById("guestNo").setAttribute("max", 4);
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                document.getElementsByClassName("table")[0].style.display = "block";
+                document.getElementById("table").style.display = "block";
+                document.getElementById("hidetable").style.display = "block";
+                document.getElementById("tablePrice").innerText = tableval;
+                breakfastval = 0;
+                bedval = 0;
+                bedroomval = 0;
+                break;
+              case "Celso Tagle Hall":
+                document.getElementById("guestNo").setAttribute("max", 100);
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                breakfastval = 0;
+                bedval = 0;
+                bedroomval = 0;
+                break;
+            }
+            document.getElementById("addonstxt").style.display = "none";
+            document.getElementById("bed").style.display = "none";
+            document.getElementById("hidebfast").style.display = "none";
+            document.getElementById("hidebed").style.display = "none";
+            document.getElementById("breakfast").style.display = "none";
+            document.getElementById("bfasttxt").style.display = "none";
+            document.getElementById("bedtxt").style.display = "none";
+            document.getElementById("hrline").style.display = "none";
+            document.getElementById("hideday").style.display = "none";
+            document.getElementsByClassName("pricetxt")[0].innerText = data.payload.dayTour.price;
+            document.getElementById("price2").innerText = data.payload.dayTour.price;
+            document.getElementById("timein").innerText = data.payload.dayTour.checkInTime;
+            document.getElementById("timeout").innerText = data.payload.dayTour.checkOutTime;
+            // document.getElementById("minGuest").innerText = data.payload.dayTour.minPerson;
+            document.getElementById("maxGuest").innerText = data.payload.dayTour.maxPerson;
+            villaPrice = data.payload.dayTour.price;
+            total = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 1.025;
+            serviceFee = (villaPrice + breakfastval + bedval + bedroomval + tableval) * 0.025;
+            sessionStorage.setItem("totalPrice", total);
+            document.getElementById("gcash").innerText = serviceFee;
+            document.getElementById("total").innerText = `PHP ${comma(total.toFixed(2))}`;
+          } else {
+            switch (data.payload.name) {
+              case "Casa Aurelia":
+                document.getElementById("guestNo").setAttribute("max", 20);
+                document.getElementById("bed").setAttribute("max", 10);
+                break;
+              case "Caminos De Primavera":  
+                document.getElementById("guestNo").setAttribute("max", 6);
+                document.getElementById("bed").setAttribute("disabled", "");
+                break;
+              case "Casa Salud":
+                document.getElementById("guestNo").setAttribute("max", 7);
+                document.getElementById("bed").setAttribute("max", 2);
+                break;
+              case "Kubo ni Basyong":
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                break;
+              case "Celso Tagle Hall":
+                document.getElementById("bed").setAttribute("disabled", "");
+                document.getElementById("breakfast").setAttribute("disabled", "");
+                break;
+            }
+            document.getElementsByClassName("pricetxt")[0].innerText = data.payload.overnight.price;
+            document.getElementById("price2").innerText = data.payload.overnight.price * duration;
+            document.getElementById("timein").innerText = data.payload.overnight.checkInTime;
+            document.getElementById("timeout").innerText = data.payload.overnight.checkOutTime;
+            document.getElementById("duration").innerText = duration;
+            // document.getElementById("minGuest").innerText = data.payload.overnight.minPerson;
+            document.getElementById("maxGuest").innerText = data.payload.overnight.maxPerson;
+            // console.log(duration);
+            villaPrice = data.payload.overnight.price * duration;
+            total = (villaPrice + breakfastval + bedval) * 1.025;
+            serviceFee = (villaPrice + breakfastval + bedval) * 0.025;
             sessionStorage.setItem("totalPrice", total);
             document.getElementById("gcash").innerText = serviceFee;
             document.getElementById("total").innerText = `PHP ${comma(total.toFixed(2))}`;
@@ -596,12 +765,12 @@
         const bedroom = document.getElementById("bedroom").value;
         const table = document.getElementById("table").value;
 
-        var breakfastval = 200 * breakfast;
-        var bedval = 300 * bed;
-        var bedroomval;
-        var tableval = 500 * table;
+        breakfastval = 200 * breakfast;
+        bedval = 300 * bed;
+        bedroomval;
+        tableval = 500 * table;
 
-        var bedroomvalue = sessionStorage.getItem("bedroomvalue");
+        let bedroomvalue = sessionStorage.getItem("bedroomvalue");
 
         let bookingType;
         let totalPrice = sessionStorage.getItem("totalPrice", total);
