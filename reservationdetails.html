@@ -433,6 +433,11 @@
       let bedroom = document.getElementById("bedroom").value;
       let table = document.getElementById("table").value;
 
+      let breakfastval = 200 * breakfast;
+      let bedval = 300 * bed;
+      let bedroomval;
+      let tableval = 500 * table;
+
         // Reverse Booking
         const checkVilla = () => {
       checkin = new Date(document.getElementById("checkin-date").value).toISOString();
@@ -447,10 +452,10 @@
       document.getElementById("checkout").innerHTML = convertDate(document.getElementById("checkout-date").value);
       document.getElementById("duration").innerText = duration;
       
-      let breakfastval = 200 * breakfast;
-      let bedval = 300 * bed;
-      let bedroomval;
-      let tableval = 500 * table;
+      // let breakfastval = 200 * breakfast;
+      // let bedval = 300 * bed;
+      // let bedroomval;
+      // let tableval = 500 * table;
 
       let villaPrice;
       let total;
@@ -767,7 +772,7 @@
 
         breakfastval = 200 * breakfast;
         bedval = 300 * bed;
-        let bedroomval;
+        bedroomval;
         tableval = 500 * table;
 
         // let bedroomvalue = sessionStorage.getItem("bedroomvalue");
